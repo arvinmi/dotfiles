@@ -1,0 +1,2 @@
+cmd + shift - return : open -na "google chrome"
+alt + shift - return : "${HOME}/dotfiles/scripts/open_iterm2.sh"

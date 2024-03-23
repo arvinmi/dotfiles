@@ -1,0 +1,8 @@
+Language: Cpp
+BasedOnStyle: Microsoft
+IndentWidth: 4
+UseTab: Never
+AllowShortFunctionsOnASingleLine: None
+BreakBeforeBraces: Allman
+# BreakBeforeBraces: Stroustrup
+ColumnLimit: 120
