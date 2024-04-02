@@ -12,7 +12,6 @@
     ],
     "editor.fontFamily": "Menlo",
     "editor.fontSize": 14,
-    "workbench.colorTheme": "Default Dark Modern",
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 500,
     "editor.wordWrap": "on",
@@ -32,7 +31,7 @@
     "editor.guides.bracketPairs": true,
     "editor.formatOnPaste": true,
     "editor.inlineSuggest.enabled": true,
-    "editor.cursorBlinking": "phase",
+    "editor.cursorBlinking": "solid",
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "remote.SSH.enableX11Forwarding": false,
@@ -40,7 +39,6 @@
     "editor.stickyScroll.enabled": true,
     // "window.zoomLevel": -0.2,
     "scm.diffDecorations": "all",
-    "workbench.iconTheme": "material-icon-theme",
     "workbench.colorCustomizations": {
         "editorCursor.background": "#AEAFAD",
         "editorCursor.foreground": "#AEAFAD",
@@ -55,7 +53,6 @@
     "workbench.settings.applyToAllProfiles": [],
     "workbench.sideBar.location": "right",
     "window.autoDetectHighContrast": false,
-    "window.commandCenter": false,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "git.confirmSync": false,
     // "git.autofetch": true,
@@ -247,4 +244,8 @@
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
     "cmake.showOptionsMovedNotification": false,
+    "remote.autoForwardPortsSource": "hybrid",
+    "window.commandCenter": false,
+    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.iconTheme": "material-icon-theme",
 }

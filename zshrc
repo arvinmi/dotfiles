@@ -64,6 +64,9 @@ source "/Users/$USER/.sdkman/bin/sdkman-init.sh"
 
 PATH=$(brew --prefix openssh)/bin:$PATH
 
+# AWS
+# export AWS_PROFILE=sandbox
+
 # Homebrew aarch64 & x86
 export HOMEBREW_BREWFILE=~/Brewfile
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
