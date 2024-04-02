@@ -60,7 +60,6 @@
     // "gitdoc.commitValidationLevel": "none",
     // "gitdoc.enabled": true,
     // "gitdoc.pullOnOpen": false,
-    "python.linting.pylintEnabled": true,
     "notebook.lineNumbers": "on",
     "notebook.compactView": false,
     "cSpell.languageSettings": [],
@@ -214,8 +213,7 @@
     "files.associations": {
         "*.java": "java"
     },
-    "git.openRepositoryInParentFolders": "always",
-    "python.linting.pylintCategorySeverity.convention": "Hint",
+    "git.openRepositoryInParentFolders": "always", 
     "editor.fontVariations": false,
     "editor.accessibilitySupport": "off",
     "lldb.suppressUpdateNotifications": true,
@@ -248,4 +246,8 @@
     "window.commandCenter": false,
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.iconTheme": "material-icon-theme",
+    "ruff.showNotifications": "always",
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
 }
