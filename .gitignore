@@ -8,3 +8,4 @@ node_modules
 ehthumbs.db
 Thumbs.db
 .history
+*.un~
