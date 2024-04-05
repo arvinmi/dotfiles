@@ -51,6 +51,12 @@ nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
 nnoremap <C-p> :Files<CR>
 nnoremap <leader>w :w<CR>
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+nnoremap <Left> :bp<CR>
+nnoremap <Right> :bn<CR>
 
 highlight NonText ctermfg=104
 hi Comment ctermfg=green
