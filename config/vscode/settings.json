@@ -65,7 +65,7 @@
     "cSpell.languageSettings": [],
     "cSpell.diagnosticLevel": "Hint",
     "github.copilot.enable": {
-        "*": false,
+        "*": true,
         "plaintext": false,
         "markdown": false,
         "scminput": false,
@@ -243,11 +243,28 @@
     },
     "cmake.showOptionsMovedNotification": false,
     "remote.autoForwardPortsSource": "hybrid",
-    "window.commandCenter": false,
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.iconTheme": "material-icon-theme",
     "ruff.showNotifications": "always",
     "[python]": {
         "editor.defaultFormatter": "charliermarsh.ruff"
     },
+    "window.commandCenter": false, 
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/.history": true
+    },
+    "search.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/.history": true
+    },
+    "files.watcherExclude": {
+        "**/.history": true
+    }
 }

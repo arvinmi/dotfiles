@@ -41,6 +41,7 @@ alias ga='git add .'
 alias gc='git checkout'
 
 # Other
+alias cl='clear'
 # alias clangall='clang++ -Weverything'
 alias gcc='gcc-13'
 alias g++='g++-13'

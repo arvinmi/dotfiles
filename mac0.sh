@@ -54,6 +54,7 @@ ln -s "${HOME}/Documents/backup" "${HOME}/backup"
 ln -s "${HOME}/Documents/code" "${HOME}/code"
 ln -s "${HOME}/Documents/code/osu" "${HOME}/osu"
 ln -s "${HOME}/Documents/code/build" "${HOME}/build"
+ln -s "${HOME}/Documents/code/fun" "${HOME}/fun"
 ln -s "${HOME}/Documents/config/dotfiles" "${HOME}/dotfiles"
 ln -s "${HOME}/Library/Mobile Documents/iCloud~md~obsidian/Documents/notes/" "${HOME}/notes"
 

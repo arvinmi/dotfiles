@@ -1,2 +1,3 @@
-cmd + shift - return : open -na "google chrome"
-alt + shift - return : "${HOME}/dotfiles/scripts/open_iterm2.sh"
+cmd + shift - j : "${HOME}/dotfiles/scripts/open_iterm2.sh"
+cmd + shift - p : open -na "1password"
+cmd + shift - b : open -na "google chrome"
