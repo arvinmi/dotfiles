@@ -1,5 +1,8 @@
 indent-width = 2
-line-length = 100
+preview = true
+target-version = "py38"
+
+line-length = 150
 
 [lint]
 select = [
@@ -24,11 +27,9 @@ select = [
   "W293",   # blank-line-with-whitespace
   "UP039",  # unnecessary-class-parentheses
 ]
-
-# exclude = []
+ignore = ["E305"]
 
 [format]
-quote-style = "single"
+quote-style = "double"
 indent-style = "space"
-docstring-code-format = false
-docstring-code-line-length = 100
+docstring-code-format = true

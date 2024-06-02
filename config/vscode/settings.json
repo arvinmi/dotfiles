@@ -6,7 +6,7 @@
     "remote.SSH.showLoginTerminal": true,
     "terminal.integrated.drawBoldTextInBrightColors": false,
     "window.title": "${activeEditorShort}${separator}${rootName}${rootPath}",
-    "python.defaultInterpreterPath": "${HOME}/miniconda3/envs/testing/bin/python3",
+    "python.defaultInterpreterPath": "/Users/kofa/miniconda3/envs/testing/bin/python",
     "editor.rulers": [
         100
     ],
@@ -15,7 +15,7 @@
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 500,
     "editor.wordWrap": "on",
-    "editor.tabSize": 4,
+    "editor.tabSize": 2,
     "explorer.compactFolders": false,
     "editor.fontLigatures": true,
     "editor.smoothScrolling": true,
@@ -65,7 +65,7 @@
     "cSpell.languageSettings": [],
     "cSpell.diagnosticLevel": "Hint",
     "github.copilot.enable": {
-        "*": true,
+        "*": false,
         "plaintext": false,
         "markdown": false,
         "scminput": false,
@@ -245,7 +245,7 @@
     "remote.autoForwardPortsSource": "hybrid",
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.iconTheme": "material-icon-theme",
-    "ruff.showNotifications": "always",
+    "ruff.showNotifications": "onError",
     "[python]": {
         "editor.defaultFormatter": "charliermarsh.ruff"
     },
@@ -266,5 +266,23 @@
     },
     "files.watcherExclude": {
         "**/.history": true
-    }
+    },
+    "github.copilot.editor.enableAutoCompletions": true,
+    "supermaven.otherWarning": false,
+    "codium.enable": false,
+    "codium.codeCompletion.enable": true,
+    "continue.enableTabAutocomplete": true,
+    "supermaven.enable": {
+        "*": false
+    },
+    "ruff.format.preview": true,
+    "ruff.lineLength": 120,
+    "ruff.lint.preview": true,
+    "ruff.configuration": "",
+    "ruff.format.args": [
+        "--config=${HOME}/dotfiles/config/langs/ruff.toml"
+    ],
+    "ruff.lint.args": [
+        "--config=${HOME}/dotfiles/config/langs/ruff.toml"
+    ]
 }
