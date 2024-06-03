@@ -217,7 +217,6 @@
     "editor.fontVariations": false,
     "editor.accessibilitySupport": "off",
     "lldb.suppressUpdateNotifications": true,
-    "chat.editor.fontSize": 14,
     "workbench.editor.empty.hint": "hidden",
     "gitlens.advanced.messages": {
         "suppressGitVersionWarning": true
@@ -269,11 +268,8 @@
     },
     "github.copilot.editor.enableAutoCompletions": true,
     "supermaven.otherWarning": false,
-    "codium.enable": false,
-    "codium.codeCompletion.enable": true,
-    "continue.enableTabAutocomplete": true,
     "supermaven.enable": {
-        "*": false
+        "*": true
     },
     "ruff.format.preview": true,
     "ruff.lineLength": 120,
@@ -284,5 +280,7 @@
     ],
     "ruff.lint.args": [
         "--config=${HOME}/dotfiles/config/langs/ruff.toml"
-    ]
+    ],
+    "ruff.lint.run": "onSave",
+    "chat.editor.fontSize": 13 
 }
