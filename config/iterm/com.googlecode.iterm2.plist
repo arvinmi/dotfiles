@@ -1630,6 +1630,8 @@ The script should do this: \(ai.prompt)</string>
 	<false/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
+	<key>HideActivityIndicator</key>
+	<false/>
 	<key>HideMenuBarInFullscreen</key>
 	<true/>
 	<key>HideScrollbar</key>
@@ -2433,7 +2435,7 @@ The script should do this: \(ai.prompt)</string>
 				<real>0.93324452638626099</real>
 			</dict>
 			<key>Brighten Bold Text</key>
-			<false/>
+			<true/>
 			<key>Character Encoding</key>
 			<integer>4</integer>
 			<key>Close Sessions On End</key>
@@ -3024,7 +3026,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SFMono-Medium 15</string>
+			<string>Menlo-Regular 15</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Open Toolbelt</key>
@@ -3542,6 +3544,8 @@ The script should do this: \(ai.prompt)</string>
 			<real>0.0</real>
 			<key>Unicode Normalization</key>
 			<integer>0</integer>
+			<key>Unicode Version</key>
+			<integer>9</integer>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
@@ -4761,6 +4765,8 @@ The script should do this: \(ai.prompt)</string>
 	<integer>0</integer>
 	<key>OptionClickMovesCursor</key>
 	<true/>
+	<key>P3</key>
+	<true/>
 	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
 	<key>PassOnControlClick</key>
@@ -4846,6 +4852,8 @@ The script should do this: \(ai.prompt)</string>
 	<false/>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>StatusBarIcon</key>
+	<true/>
 	<key>StatusBarPosition</key>
 	<integer>1</integer>
 	<key>StretchTabsToFillBar</key>

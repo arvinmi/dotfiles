@@ -11,7 +11,7 @@
         100
     ],
     "editor.fontFamily": "Menlo",
-    "editor.fontSize": 14,
+    "editor.fontSize": 13,
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 500,
     "editor.wordWrap": "on",
@@ -65,11 +65,12 @@
     "cSpell.languageSettings": [],
     "cSpell.diagnosticLevel": "Hint",
     "github.copilot.enable": {
-        "*": false,
+        "*": true,
         "plaintext": false,
-        "markdown": false,
+        "markdown": true,
         "scminput": false,
-        "yaml": false
+        "yaml": false,
+        "cpp": true
     },
     "html.format.contentUnformatted": "",
     "liveServer.settings.donotShowInfoMsg": true,
@@ -243,7 +244,6 @@
     "cmake.showOptionsMovedNotification": false,
     "remote.autoForwardPortsSource": "hybrid",
     "workbench.colorTheme": "Default Dark Modern",
-    "workbench.iconTheme": "material-icon-theme",
     "ruff.showNotifications": "onError",
     "[python]": {
         "editor.defaultFormatter": "charliermarsh.ruff"
@@ -269,7 +269,9 @@
     "github.copilot.editor.enableAutoCompletions": true,
     "supermaven.otherWarning": false,
     "supermaven.enable": {
-        "*": true
+        "*": false,
+        "markdown": true,
+        "cpp": true
     },
     "ruff.format.preview": true,
     "ruff.lineLength": 120,
@@ -282,5 +284,12 @@
         "--config=${HOME}/dotfiles/config/langs/ruff.toml"
     ],
     "ruff.lint.run": "onSave",
-    "chat.editor.fontSize": 13 
+    "chat.editor.fontSize": 13,
+    "vsicons.dontShowNewVersionMessage": true,
+    "cursor.chat.smoothStreaming": true,
+    "git.suggestSmartCommit": false,
+    "supermaven.allowGitignore": true,
+    "cSpell.fixSpellingWithRenameProvider": false,
+    "continue.enableTabAutocomplete": true,
+    "workbench.iconTheme": "material-icon-theme"
 }

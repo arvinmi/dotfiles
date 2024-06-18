@@ -24,7 +24,7 @@ select = [
   "E731",   # lambda-assignment
   "W191",   # tab-indentation
   "W291",   # trailing-whitespace
-  "W293",   # blank-line-with-whitespace
+  #"W293",   # blank-line-with-whitespace
   "UP039",  # unnecessary-class-parentheses
 ]
 ignore = ["E305"]
