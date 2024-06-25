@@ -1,0 +1,10 @@
+Overview:
+need to create a pack of utilties to improve overall workflow, the specifc utilties are outlined, will be using python or c++
+
+CLI:
+have tools list as staring prompt
+
+Tools:
+clang formatter, needs to grab all files in project root dir and format all files automatically using clang-format file path, maybe use makefile?
+ruff formater, does same as clang formatter but for python projects
+CI/CD runner for assignments to check for code format, followed instructions, code style, add more
