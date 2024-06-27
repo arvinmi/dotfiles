@@ -12,7 +12,7 @@ sh dotfiles/mac1.sh
 
 ### Display resolution settings  
 ```
-2281 x 1474
+2385 x 1541
 ```
 
 ### Mouse DPI

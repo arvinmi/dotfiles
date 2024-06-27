@@ -4,14 +4,12 @@
     "terminal.integrated.fontSize": 14,
     "terminal.integrated.macOptionClickForcesSelection": true,
     "remote.SSH.showLoginTerminal": true,
-    "terminal.integrated.drawBoldTextInBrightColors": false,
     "window.title": "${activeEditorShort}${separator}${rootName}${rootPath}",
     "python.defaultInterpreterPath": "/Users/kofa/miniconda3/envs/testing/bin/python",
     "editor.rulers": [
         100
     ],
     "editor.fontFamily": "Menlo",
-    "editor.fontSize": 13,
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 500,
     "editor.wordWrap": "on",
@@ -291,5 +289,6 @@
     "supermaven.allowGitignore": true,
     "cSpell.fixSpellingWithRenameProvider": false,
     "continue.enableTabAutocomplete": true,
+    "editor.fontSize": 13,
     "workbench.iconTheme": "material-icon-theme"
 }
