@@ -283,12 +283,12 @@
     ],
     "ruff.lint.run": "onSave",
     "chat.editor.fontSize": 13,
-    "vsicons.dontShowNewVersionMessage": true,
     "cursor.chat.smoothStreaming": true,
     "git.suggestSmartCommit": false,
     "supermaven.allowGitignore": true,
     "cSpell.fixSpellingWithRenameProvider": false,
     "continue.enableTabAutocomplete": true,
     "editor.fontSize": 13,
-    "workbench.iconTheme": "material-icon-theme"
+    "workbench.iconTheme": "material-icon-theme",
+    "window.zoomLevel": 0.1
 }
