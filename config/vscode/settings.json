@@ -290,5 +290,5 @@
     "continue.enableTabAutocomplete": true,
     "editor.fontSize": 13,
     "workbench.iconTheme": "material-icon-theme",
-    "window.zoomLevel": 0.1
+    "window.zoomLevel": 0.2
 }
