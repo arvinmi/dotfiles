@@ -446,6 +446,9 @@ defaults write com.apple.TextEdit RichText -int 0
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
+# Utils: Set mouse acceleration off (active)
+defaults write .GlobalPreferences com.apple.mouse.scaling -1
+
 # App Store: Enable WebKit Developer Tools in Mac App Store
 defaults write com.apple.appstore WebKitDeveloperExtras -bool true
 
