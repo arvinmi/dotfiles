@@ -19,3 +19,13 @@ sh dotfiles/mac1.sh
 ```
 1500
 ```
+
+### Mouse Tracking Speed (linearmouse)
+```
+1
+```
+
+### Mouse Tracking Speed (macOS)
+```
+6/10
+```
