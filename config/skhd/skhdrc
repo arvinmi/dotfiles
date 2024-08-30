@@ -1,3 +1,21 @@
 cmd + shift - j : "${HOME}/dotfiles/scripts/open_iterm2.sh"
-cmd + shift - i : open -na "1password"
+cmd + shift - p : open -na "1password"
 cmd + shift - b : open -na "google chrome"
+
+# L_ctrl + u/o to pageup/pagedown
+# R_cmd + u/o to pageup/pagedown
+lctrl - u : skhd -k "pageup"
+rcmd - u : skhd -k "pageup"
+lctrl - o : skhd -k "pagedown"
+rcmd - o : skhd -k "pagedown"
+
+# L_ctrl + h/j/k/l to arrows
+# R_cmd + h/j/k/l to arrows
+lctrl - h : skhd -k "left"
+rcmd - h : skhd -k "left"
+lctrl - j : skhd -k "down"
+rcmd - j : skhd -k "down"
+lctrl - k : skhd -k "up"
+rcmd -k : skhd -k "up"
+lctrl - l : skhd -k "right"
+rcmd - l : skhd -k "right"
