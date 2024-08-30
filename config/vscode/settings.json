@@ -241,7 +241,7 @@
     },
     "cmake.showOptionsMovedNotification": false,
     "remote.autoForwardPortsSource": "hybrid",
-    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.colorTheme": "Default Dark+",
     "ruff.showNotifications": "onError",
     "[python]": {
         "editor.defaultFormatter": "charliermarsh.ruff"
@@ -290,5 +290,8 @@
     "continue.enableTabAutocomplete": true,
     "editor.fontSize": 13,
     "workbench.iconTheme": "material-icon-theme",
-    "window.zoomLevel": 0.2
+    "window.zoomLevel": 0.2,
+    "cursor.cpp.enablePartialAccepts": true,
+    "cursor.chat.premiumChatAutoScrollWhenAtBottom": true,
+    "cursor.chat.showSuggestedFiles": true
 }

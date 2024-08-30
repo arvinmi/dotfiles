@@ -3944,7 +3944,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>HotKey Alternate Shortcuts</key>
 			<array/>
 			<key>HotKey Characters</key>
-			<string></string>
+			<string>`</string>
 			<key>HotKey Characters Ignoring Modifiers</key>
 			<string>`</string>
 			<key>HotKey Key Code</key>
@@ -3952,7 +3952,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>HotKey Modifier Activation</key>
 			<integer>0</integer>
 			<key>HotKey Modifier Flags</key>
-			<integer>524288</integer>
+			<integer>1048576</integer>
 			<key>HotKey Window Animates</key>
 			<true/>
 			<key>HotKey Window AutoHides</key>
@@ -4287,7 +4287,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SFMono-Medium 14</string>
+			<string>Menlo-Regular 15</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Open Toolbelt</key>
@@ -4718,7 +4718,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Thin Strokes</key>
 			<integer>0</integer>
 			<key>Transparency</key>
-			<real>0.2989278590425532</real>
+			<real>0.050700908687943275</real>
 			<key>Unicode Normalization</key>
 			<integer>0</integer>
 			<key>Unlimited Scrollback</key>
