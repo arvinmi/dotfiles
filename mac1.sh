@@ -113,6 +113,8 @@ tmux source-file ~/.tmux.conf
 # LAUNCHD START
 chmod +x "${HOME}/dotfiles/scripts/backups.sh"
 chmod +x "${HOME}/dotfiles/scripts/backup_local.sh"
+chmod 644 ~/Library/LaunchAgents/backups.plist
+chmod 644 ~/Library/LaunchAgents/backup-local.plist
 launchctl load "${HOME}/Library/LaunchAgents/backups.plist"
 launchctl load "${HOME}/Library/LaunchAgents/backup-local.plist"
 # launchctl list | grep com.backups.script
