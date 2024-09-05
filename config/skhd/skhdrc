@@ -1,5 +1,5 @@
 cmd + shift - j : "${HOME}/dotfiles/scripts/open_iterm2.sh"
-cmd + shift - p : open -na "1password"
+cmd + shift - 1 : open -na "1password"
 cmd + shift - b : open -na "google chrome"
 
 # L_ctrl + u/o to pageup/pagedown
