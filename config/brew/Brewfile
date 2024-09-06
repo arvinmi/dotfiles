@@ -60,6 +60,7 @@ brew "ruff"
 brew "tesseract"
 brew "tfenv"
 brew "thefuck"
+brew "tig"
 brew "tldr"
 brew "tmux"
 brew "trash-cli"
@@ -128,6 +129,7 @@ mas "Microsoft Remote Desktop", id: 1295203466
 mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Pandan", id: 1569600264
 mas "Slack", id: 803453959
 mas "Telegram", id: 747648890
 mas "Xcode", id: 497799835
@@ -142,6 +144,7 @@ vscode "bradlc.vscode-tailwindcss"
 vscode "charliermarsh.ruff"
 vscode "christian-kohler.npm-intellisense"
 vscode "ckolkman.vscode-postgres"
+vscode "continue.continue"
 vscode "dan-c-underwood.arm"
 vscode "dbaeumer.vscode-eslint"
 vscode "donjayamanne.python-environment-manager"
@@ -195,12 +198,11 @@ vscode "redhat.vscode-yaml"
 vscode "ritwickdey.liveserver"
 vscode "rust-lang.rust-analyzer"
 vscode "streetsidesoftware.code-spell-checker"
+vscode "supermaven.supermaven"
 vscode "tomoki1207.pdf"
 vscode "twxs.cmake"
 vscode "usernamehw.errorlens"
 vscode "vadimcn.vscode-lldb"
-vscode "vsciot-vscode.vscode-arduino"
-vscode "vscode-icons-team.vscode-icons"
 vscode "vscodevim.vim"
 vscode "wholroyd.jinja"
 vscode "xyz.local-history"
