@@ -73,12 +73,15 @@ brew autoremove
 # SET WALLPAPER
 # set wallpaper to black in System Settings
 
-# SET HOTKEYS FROM SYSTEM SETTINGS
+# SET HOTKEYS IN SYSTEM SETTINGS
 # cmd - e : toggle show desktop
 # cmd - a : toggle mission control
 # alt - 1-8 : toggle spaces 1-8
 # alt - h : toggle left a space
 # alt - l : toggle right a space
+
+# SET KEYBOARD LAYOUT IN SYSTEM SETTINGS
+# set keyboard > input sources > Unicode Hex Input (w/ use natural selection)
 
 # FULL DISK ACCESS (deprecated)
 # "/bin/bash"
