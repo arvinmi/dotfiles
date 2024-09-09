@@ -27,6 +27,7 @@ alias ll='ls -alF'
 alias rm='rm -i'
 alias sloc='cloc $(git ls-files)'
 alias code='code .'
+alias c='cursor .'
 alias vim='nvim'
 alias newvim='nvim $(fzf)'
 

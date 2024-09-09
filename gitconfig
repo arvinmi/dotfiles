@@ -1,0 +1,17 @@
+[commit]
+	gpgsign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
+[init]
+  defaultBranch = main
+  
+[user]
+  name = USERNAME
+  email = EMAIL
+
+[push]
+  autoSetupRemote = true
+  default = current
+  
+[alias]
+  undo = reset --soft HEAD^

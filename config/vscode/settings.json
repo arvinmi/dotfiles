@@ -289,7 +289,6 @@
     "cSpell.fixSpellingWithRenameProvider": false,
     "continue.enableTabAutocomplete": true,
     "editor.fontSize": 13,
-    "workbench.iconTheme": "material-icon-theme",
     "window.zoomLevel": 0.2,
     "cursor.cpp.enablePartialAccepts": true,
     "cursor.chat.premiumChatAutoScrollWhenAtBottom": true,
