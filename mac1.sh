@@ -59,8 +59,17 @@ brew autoremove
 # cd skypilot
 # pip install ".[all]"
 
-# STEELSERIES EXACTMOUSE TOOL INSTALL
+# STEELSERIES EXACTMOUSE TOOL INSTALL (deprecated with linearmouse)
 # wget http://downloads.steelseriescdn.com/drivers/tools/steelseries-exactmouse-tool.dmg
+
+# SETUP GPG KEY FOR GIT
+# gpg --full-generate-key
+# gpg --list-secret-keys --keyid-format LONG
+# gpg --armor --export PUB_KEY
+# git config --global commit.gpgsign true
+# git config --global user.signingkey PUB_KEY
+# git config --global gpg.program /opt/homebrew/bin/gpg
+# check `~/.gitconfig` for changes
 
 # SETUP MANUAL CONFIG
 # set 'Terminal.app' config

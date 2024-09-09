@@ -8,6 +8,7 @@
 [user]
   name = USERNAME
   email = EMAIL
+  signingkey = PUB_KEY
 
 [push]
   autoSetupRemote = true
@@ -21,3 +22,6 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+
+[core]
+  pager = delta
