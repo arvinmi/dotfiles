@@ -210,7 +210,8 @@
     ],
     */
     "files.associations": {
-        "*.java": "java"
+        "*.java": "java",
+        "*.rmd": "markdown"
     },
     "git.openRepositoryInParentFolders": "always", 
     "editor.fontVariations": false,
@@ -292,5 +293,9 @@
     "window.zoomLevel": 0.2,
     "cursor.cpp.enablePartialAccepts": true,
     "cursor.chat.premiumChatAutoScrollWhenAtBottom": true,
-    "cursor.chat.showSuggestedFiles": true
+    "cursor.chat.showSuggestedFiles": true,
+    "r.rpath.mac": "/opt/homebrew/bin/R",
+    "r.rterm.mac": "/Users/kofa/miniconda3/envs/osu/bin/radian",
+    "r.rterm.option": [],
+    "r.bracketedPaste": true,
 }
