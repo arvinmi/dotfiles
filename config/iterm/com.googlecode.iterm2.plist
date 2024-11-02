@@ -13,7 +13,9 @@ The script should do this: \(ai.prompt)</string>
 	<key>AiMaxTokens</key>
 	<integer>128000</integer>
 	<key>AiModel</key>
-	<string>gpt-4o</string>
+	<string>llama3.1:8b</string>
+	<key>AitermURL</key>
+	<string>http://localhost:11434/v1/chat/completions</string>
 	<key>AllowClipboardAccess</key>
 	<true/>
 	<key>AlternateMouseScroll</key>
@@ -40,6 +42,8 @@ The script should do this: \(ai.prompt)</string>
 	<true/>
 	<key>Command</key>
 	<string></string>
+	<key>ComposerHeight</key>
+	<real>177</real>
 	<key>ConvertDosNewlines</key>
 	<false/>
 	<key>CopyLastNewline</key>
@@ -2310,13 +2314,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.11764705926179886</real>
+				<real>0.0</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.11764705926179886</real>
+				<real>0.0</real>
 				<key>Red Component</key>
-				<real>0.11764705926179886</real>
+				<real>0.0</real>
 			</dict>
 			<key>Background Color (Dark)</key>
 			<dict>
@@ -3944,7 +3948,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>HotKey Alternate Shortcuts</key>
 			<array/>
 			<key>HotKey Characters</key>
-			<string>`</string>
+			<string></string>
 			<key>HotKey Characters Ignoring Modifiers</key>
 			<string>`</string>
 			<key>HotKey Key Code</key>
@@ -3952,7 +3956,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>HotKey Modifier Activation</key>
 			<integer>0</integer>
 			<key>HotKey Modifier Flags</key>
-			<integer>1048576</integer>
+			<integer>524288</integer>
 			<key>HotKey Window Animates</key>
 			<true/>
 			<key>HotKey Window AutoHides</key>

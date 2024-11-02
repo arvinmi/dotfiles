@@ -298,4 +298,7 @@
     "r.rterm.mac": "/Users/kofa/miniconda3/envs/osu/bin/radian",
     "r.rterm.option": [],
     "r.bracketedPaste": true,
+    "cursor.cpp.disabledLanguages": [
+        "css"
+    ],
 }
