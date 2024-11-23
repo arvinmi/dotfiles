@@ -63,7 +63,7 @@
     "cSpell.languageSettings": [],
     "cSpell.diagnosticLevel": "Hint",
     "github.copilot.enable": {
-        "*": true,
+        "*": false,
         "plaintext": false,
         "markdown": true,
         "scminput": false,
@@ -284,7 +284,6 @@
     ],
     "ruff.lint.run": "onSave",
     "chat.editor.fontSize": 13,
-    "cursor.chat.smoothStreaming": true,
     "git.suggestSmartCommit": false,
     "supermaven.allowGitignore": true,
     "cSpell.fixSpellingWithRenameProvider": false,
@@ -292,8 +291,6 @@
     "editor.fontSize": 13,
     "window.zoomLevel": 0.2,
     "cursor.cpp.enablePartialAccepts": true,
-    "cursor.chat.premiumChatAutoScrollWhenAtBottom": true,
-    "cursor.chat.showSuggestedFiles": true,
     "r.rpath.mac": "/opt/homebrew/bin/R",
     "r.rterm.mac": "/Users/kofa/miniconda3/envs/osu/bin/radian",
     "r.rterm.option": [],
@@ -301,4 +298,9 @@
     "cursor.cpp.disabledLanguages": [
         "css"
     ],
+    "makefile.configureOnOpen": true,
+    "workbench.startupEditor": "none",
+    "cursor.chat.premiumChatAutoScrollWhenAtBottom": true,
+    "cursor.chat.showSuggestedFiles": true,
+    "cursor.composer.collapsePaneInputBoxPills": true,
 }

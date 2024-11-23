@@ -25,6 +25,11 @@ sh dotfiles/mac1.sh
 1
 ```
 
+### Mouse Vertical Scrolling Speed (linearmouse)
+```
+35
+```
+
 ### Mouse Tracking Speed (macOS)
 ```
 6/10

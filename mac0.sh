@@ -57,6 +57,7 @@ ln -s "${HOME}/Documents/code/build" "${HOME}/build"
 ln -s "${HOME}/Documents/code/fun" "${HOME}/fun"
 ln -s "${HOME}/Documents/config/dotfiles" "${HOME}/dotfiles"
 ln -s "${HOME}/Library/Mobile Documents/iCloud~md~obsidian/Documents/notes/" "${HOME}/notes"
+ln -s "${HOME}/Library/CloudStorage/" "${HOME}/drive"
 
 # Create symlinks for new dotfiles
 ln -s "${HOME}/Documents/config/dotfiles/zshrc" "${HOME}/.zshrc"
