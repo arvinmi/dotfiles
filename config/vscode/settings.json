@@ -63,7 +63,7 @@
     "cSpell.languageSettings": [],
     "cSpell.diagnosticLevel": "Hint",
     "github.copilot.enable": {
-        "*": false,
+        "*": true,
         "plaintext": false,
         "markdown": true,
         "scminput": false,
@@ -295,12 +295,18 @@
     "r.rterm.mac": "/Users/kofa/miniconda3/envs/osu/bin/radian",
     "r.rterm.option": [],
     "r.bracketedPaste": true,
-    "cursor.cpp.disabledLanguages": [
-        "css"
-    ],
+    "cursor.cpp.disabledLanguages": [],
     "makefile.configureOnOpen": true,
     "workbench.startupEditor": "none",
     "cursor.chat.premiumChatAutoScrollWhenAtBottom": true,
     "cursor.chat.showSuggestedFiles": true,
     "cursor.composer.collapsePaneInputBoxPills": true,
+    "errorLens.enabledDiagnosticLevels": [
+        "error",
+        "warning"
+    ],
+    "cursor.composer.renderPillsInsteadOfBlocks": true,
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
 }

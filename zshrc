@@ -61,7 +61,7 @@ alias del_ds_files='find . -name ".DS_Store" -type f -delete'
 #-------------------------------------------------------------------------------
 
 # Plugins
-eval $(thefuck --alias fix)
+# eval $(thefuck --alias fix)
 source "/Users/$USER/.sdkman/bin/sdkman-init.sh"
 # source "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
