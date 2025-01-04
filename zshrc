@@ -84,6 +84,9 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+# UV
+export PATH="$HOME/.local/bin:$PATH"
+
 # Miniconda
 source ~/miniconda3/etc/profile.d/conda.sh
 if [[ -z ${CONDA_PREFIX+x} ]]; then
