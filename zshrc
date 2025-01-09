@@ -41,7 +41,9 @@ alias ga='git add .'
 alias gc='git checkout'
 
 # Other
-alias cl='clear'
+# alias cl='clear'
+alias cl='printf "\033[H\033[2J"'
+alias clear='printf "\033[H\033[2J"'
 # alias clangall='clang++ -Weverything'
 alias gcc='gcc-14'
 alias g++='g++-14'

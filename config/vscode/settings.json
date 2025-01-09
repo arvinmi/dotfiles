@@ -242,7 +242,6 @@
     },
     "cmake.showOptionsMovedNotification": false,
     "remote.autoForwardPortsSource": "hybrid",
-    "workbench.colorTheme": "Default Dark+",
     "ruff.showNotifications": "onError",
     "[python]": {
         "editor.defaultFormatter": "charliermarsh.ruff"
