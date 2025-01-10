@@ -1,67 +1,211 @@
 {
-    "terminal.integrated.defaultProfile.osx": "zsh",
-    "terminal.integrated.fontFamily": "Menlo",
-    "terminal.integrated.fontSize": 14,
-    "terminal.integrated.macOptionClickForcesSelection": true,
-    "remote.SSH.showLoginTerminal": true,
+    // general config
+    "workbench.startupEditor": "none",
+    "editor.accessibilitySupport": "off",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 500,
+    "explorer.compactFolders": false,
+    "telemetry.telemetryLevel": "off",
+    "redhat.telemetry.enabled": false,
+    "liveshare.guestApprovalRequired": true,
+    "files.trimTrailingWhitespace": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "scm.diffDecorations": "all",
+    "workbench.tree.indent": 20,
+    "workbench.list.smoothScrolling": true,
+    "workbench.settings.applyToAllProfiles": [],
+    "window.autoDetectHighContrast": false,
+    "arduino.useArduinoCli": true,
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "$HOME/dotfiles/vimrc",
+    
+    // font
+    "editor.fontFamily": "Menlo, monospace",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 1.6,
+    "chat.editor.fontSize": 13,
+    "terminal.integrated.fontFamily": "Geist Mono",
+    "terminal.integrated.fontSize": 15,
+    
+    // cursor
+    "editor.cursorBlinking": "solid",
+    
+    // window
     "window.title": "${activeEditorShort}${separator}${rootName}${rootPath}",
-    "python.defaultInterpreterPath": "/Users/kofa/miniconda3/envs/testing/bin/python",
+    "window.zoomLevel": 0.2,
+    
+    // top bar
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false, // hides little squares on top right of the window
+    
+    // minimap
+    "editor.hideCursorInOverviewRuler": true, // don't highlight current line in scrollbar
+    "editor.minimap.autohide": true, // shows minimap only on hover
+    
+    // sidebar
+    "workbench.sideBar.location": "right",
+    
+    // editor
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.linkedEditing": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.unicodeHighlight.nonBasicASCII": false,
     "editor.rulers": [
         100
     ],
-    "editor.fontFamily": "Menlo",
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 500,
     "editor.wordWrap": "on",
     "editor.tabSize": 2,
-    "explorer.compactFolders": false,
-    "editor.fontLigatures": true,
+    "editor.fontLigatures": false,
     "editor.smoothScrolling": true,
-    "telemetry.telemetryLevel": "off",
-    "liveshare.guestApprovalRequired": true,
     "editor.suggestSelection": "first",
-    "editor.linkedEditing": true,
     // "editor.renderWhitespace": "all",
-    "files.trimTrailingWhitespace": false,
     "editor.tabCompletion": "on",
     "editor.trimAutoWhitespace": false,
     "editor.bracketPairColorization.enabled": true,
     "editor.guides.bracketPairs": true,
     "editor.formatOnPaste": true,
-    "editor.inlineSuggest.enabled": true,
-    "editor.cursorBlinking": "solid",
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-    "remote.SSH.enableX11Forwarding": false,
-    "remote.SSH.enableRemoteCommand": true,
     "editor.stickyScroll.enabled": true,
-    // "window.zoomLevel": -0.2,
-    "scm.diffDecorations": "all",
+    "workbench.editor.decorations.colors": false,
+    "workbench.editorAssociations": {
+        "*.png": "imagePreview.previewEditor"
+    },
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.fontVariations": false,
+    "github.copilot.editor.enableAutoCompletions": true,
     "workbench.colorCustomizations": {
         "editorCursor.background": "#AEAFAD",
         "editorCursor.foreground": "#AEAFAD",
         "editorLineNumber.activeForeground": "#c1c0c1",
     },
-    "workbench.tree.indent": 20,
-    "workbench.editor.decorations.colors": false,
-    "workbench.list.smoothScrolling": true,
-    "workbench.editorAssociations": {
-        "*.png": "imagePreview.previewEditor"
+    "notebook.lineNumbers": "on",
+    "notebook.compactView": false,
+    "workbench.editor.empty.hint": "hidden",
+    // Disable some editor functions
+    /*
+    "C_Cpp.autocomplete": "Disabled",
+    "C_Cpp.codeFolding": "Disabled",
+    "C_Cpp.debugShortcut": false,
+    "C_Cpp.dimInactiveRegions": false,
+    "C_Cpp.doxygen.generateOnType": false,
+    "C_Cpp.enhancedColorization": "Enabled",
+    "C_Cpp.errorSquiggles": "Disabled",
+    "editor.autoClosingQuotes": "never",
+    "editor.colorDecorators": false,
+    "editor.emptySelectionClipboard": false,
+    "editor.folding": false,
+    "editor.foldingHighlight": false,
+    "editor.guides.indentation": false,
+    "editor.lightbulb.enabled": false,
+    "editor.matchBrackets": "never",
+    "editor.occurrencesHighlight": false,
+    "editor.parameterHints.enabled": false,
+    "editor.quickSuggestions": {
+        "comments": "off",
+        "other": "off",
+        "strings": "off"
     },
-    "workbench.settings.applyToAllProfiles": [],
-    "workbench.sideBar.location": "right",
-    "window.autoDetectHighContrast": false,
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.suggestOnTriggerCharacters": false,
+    "html.suggest.html5": false,
+    "javascript.suggest.enabled": false,
+    "javascript.validate.enable": false,
+    "java.debug.settings.enableRunDebugCodeLens": false,
+    "java.inlayHints.parameterNames.enabled": "none",
+    "java.server.launchMode": "Standard",
+    "problems.decorations.enabled": false,
+    */
+    
+    // terminal
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.macOptionClickForcesSelection": true,
+    "remote.SSH.showLoginTerminal": true,
+    "python.defaultInterpreterPath": "/Users/kofa/miniconda3/envs/testing/bin/python",
+    "remote.SSH.enableX11Forwarding": false,
+    "remote.SSH.enableRemoteCommand": true,
+    "remote.autoForwardPortsSource": "hybrid",
+    
+    // git
     "git.confirmSync": false,
-    // "git.autofetch": true,
+    "git.openRepositoryInParentFolders": "always",
+    "git.autofetch": true,
+    "git.ignoreMissingGitWarning": true,
+    "git.ignoreLegacyWarning": true,
+    "gitlens.gitCommands.skipConfirmations": [
+        "fetch:command",
+        "stash-push:command",
+        "switch:command",
+        "push:command"
+    ],
+    "gitlens.hovers.currentLine.over": "line",
+    "git.suggestSmartCommit": false,
     // "gitdoc.commitMessageFormat": "ccc, LLL d, kkkk, h:mm a ZZ",
     // "gitdoc.commitValidationLevel": "none",
     // "gitdoc.enabled": true,
-    // "gitdoc.pullOnOpen": false,
-    "notebook.lineNumbers": "on",
-    "notebook.compactView": false,
+    // "gitdoc.pullOnOpen": false, 
+    
+    // tooling
+    "html.format.contentUnformatted": "",
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "typescript.preferences.importModuleSpecifier": "non-relative", // prefer aliases when importing
+    "eslint.options": {
+      "extensions": [".js", ".jsx", ".mdx", ".ts", ".tsx"]
+    },
+    "eslint.validate": [
+        "mdx",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "tailwindCSS.experimental.classRegex": [
+      // enables tailwind autocomplete for specified functions
+      ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+      ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+      ["cx\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+    ],
+    "[markdown]": {
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": false
+        }
+    },
+    /*
+    "java.configuration.runtimes": [
+        {
+            "default": true,
+            "name": "JavaSE-18",
+            "path": "/opt/jdk-18.0.2.1"
+        }
+    ],
+    */
+    "json.schemas": [
+    ],
+    "[jsonc]": {
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace",
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "files.associations": {
+        "*.java": "java",
+        "*.rmd": "markdown"
+    },
     "cSpell.languageSettings": [],
     "cSpell.diagnosticLevel": "Hint",
+    "cSpell.fixSpellingWithRenameProvider": false,
     "github.copilot.enable": {
         "*": true,
         "plaintext": false,
@@ -70,17 +214,88 @@
         "yaml": false,
         "cpp": true
     },
-    "html.format.contentUnformatted": "",
+    "[cpp]": {
+        "editor.wordBasedSuggestions": "off",
+        "editor.suggest.insertMode": "replace",
+        "editor.semanticHighlighting.enabled": true
+    },
+    "cmake.configureOnOpen": true,
+    "cmake.options.statusBarVisibility": "visible",
+    "cmake.showOptionsMovedNotification": false,
+    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.clang_format_fallbackStyle": "LLVM",
+    "C_Cpp.clang_format_style": "file:${HOME}/dotfiles/config/langs/clang-format",
+    "makefile.configureOnOpen": true,
+    "cursor.cpp.enablePartialAccepts": true,
+    "cursor.cpp.disabledLanguages": [],
+    "cursor.chat.premiumChatAutoScrollWhenAtBottom": true,
+    "cursor.chat.showSuggestedFiles": true,
+    "cursor.composer.collapsePaneInputBoxPills": true,
+    "cursor.composer.renderPillsInsteadOfBlocks": true,
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "ruff.showNotifications": "onError",
+    "ruff.format.preview": true,
+    "ruff.lineLength": 120,
+    "ruff.lint.preview": true,
+    "ruff.configuration": "",
+    "ruff.format.args": [
+        "--config=${HOME}/dotfiles/config/langs/ruff.toml"
+    ],
+    "ruff.lint.args": [
+        "--config=${HOME}/dotfiles/config/langs/ruff.toml"
+    ],
+    "ruff.lint.run": "onSave",
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "r.rpath.mac": "/opt/homebrew/bin/R",
+    "r.rterm.mac": "/Users/kofa/miniconda3/envs/osu/bin/radian",
+    "r.rterm.option": [],
+    "r.bracketedPaste": true,
     "liveServer.settings.donotShowInfoMsg": true,
     "liveServer.settings.donotVerifyTags": true,
+    "liveServer.settings.CustomBrowser": "chrome:PrivateMode",
     "livePreview.autoRefreshPreview": "On Changes to Saved Files",
     "livePreview.debugOnExternalPreview": true,
-    "liveServer.settings.CustomBrowser": "chrome:PrivateMode",
-    "npm.keybindingsChangedWarningShown": true,
-    "redhat.telemetry.enabled": false,
-    "arduino.useArduinoCli": true,
-    "vim.vimrc.enable": true,
-    "vim.vimrc.path": "$HOME/dotfiles/vimrc",
+    /*
+    "vs-kubernetes": {
+        "vscode-kubernetes.kubectl-path.mac": "${HOME}/.vs-kubernetes/tools/kubectl/kubectl",
+        "vscode-kubernetes.minikube-path.mac": "${HOME}/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+        "vscode-kubernetes.helm-path.mac": "${HOME}/.vs-kubernetes/tools/helm/darwin-amd64/helm"
+    },
+    */
+    "lldb.suppressUpdateNotifications": true,
+    "gitlens.advanced.messages": {
+        "suppressGitVersionWarning": true
+    },
+    // "gitlens.ai.experimental.provider": "openai",
+    // "gitlens.ai.experimental.openai.model": "gpt-4-1106-preview",
+    "settingsSync.ignoredSettings": [
+        "-window.zoomLevel"
+    ],
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/.history": true
+    },
+    "search.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/.history": true
+    },
+    "files.watcherExclude": {
+        "**/.history": true
+    },
+    "errorLens.enabledDiagnosticLevels": [
+        "error",
+        "warning"
+    ],
     "code-runner.executorMap": {
         "javascript": "node",
         "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
@@ -134,178 +349,5 @@
         "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "sml": "cd $dir && sml $fileName"
-    },
-    // Disable some editor functions
-    /* "C_Cpp.autocomplete": "Disabled",
-    "C_Cpp.codeFolding": "Disabled",
-    "C_Cpp.debugShortcut": false,
-    "C_Cpp.dimInactiveRegions": false,
-    "C_Cpp.doxygen.generateOnType": false,
-    "C_Cpp.enhancedColorization": "Enabled",
-    "C_Cpp.errorSquiggles": "Disabled",
-    "breadcrumbs.enabled": false,
-    "editor.autoClosingQuotes": "never",
-    "editor.colorDecorators": false,
-    "editor.emptySelectionClipboard": false,
-    "editor.folding": false,
-    "editor.foldingHighlight": false,
-    "editor.guides.indentation": false,
-    "editor.hover.enabled": false,
-    "editor.lightbulb.enabled": false,
-    "editor.matchBrackets": "never",
-    "editor.minimap.enabled": false,
-    "editor.occurrencesHighlight": false,
-    "editor.parameterHints.enabled": false,
-    "editor.quickSuggestions": {
-        "comments": "off",
-        "other": "off",
-        "strings": "off"
-    },
-    "editor.suggestOnTriggerCharacters": false,
-    "html.suggest.html5": false,
-    "javascript.suggest.enabled": false,
-    "javascript.validate.enable": false,
-    "java.debug.settings.enableRunDebugCodeLens": false,
-    "java.inlayHints.parameterNames.enabled": "none",
-    "java.server.launchMode": "Standard",
-    "problems.decorations.enabled": false, */
-    "json.schemas": [],
-    "[jsonc]": {
-        "editor.quickSuggestions": {
-            "strings": true
-        },
-        "editor.suggest.insertMode": "replace",
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    /*
-    "vs-kubernetes": {
-        "vscode-kubernetes.kubectl-path.mac": "${HOME}/.vs-kubernetes/tools/kubectl/kubectl",
-        "vscode-kubernetes.minikube-path.mac": "${HOME}/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
-        "vscode-kubernetes.helm-path.mac": "${HOME}/.vs-kubernetes/tools/helm/darwin-amd64/helm"
-    },
-    */
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[markdown]": {
-        "editor.quickSuggestions": {
-            "other": true,
-            "comments": false,
-            "strings": false
-        }
-    },
-    /*
-    "java.configuration.runtimes": [
-        {
-            "default": true,
-            "name": "JavaSE-18",
-            "path": "/opt/jdk-18.0.2.1"
-        }
-    ],
-    */
-    "files.associations": {
-        "*.java": "java",
-        "*.rmd": "markdown"
-    },
-    "git.openRepositoryInParentFolders": "always", 
-    "editor.fontVariations": false,
-    "editor.accessibilitySupport": "off",
-    "lldb.suppressUpdateNotifications": true,
-    "workbench.editor.empty.hint": "hidden",
-    "gitlens.advanced.messages": {
-        "suppressGitVersionWarning": true
-    },
-    "git.ignoreLegacyWarning": true,
-    "cmake.configureOnOpen": true,
-    "[cpp]": {
-        "editor.wordBasedSuggestions": "off",
-        "editor.suggest.insertMode": "replace",
-        "editor.semanticHighlighting.enabled": true
-    },
-    "cmake.options.statusBarVisibility": "visible",
-    // "gitlens.ai.experimental.provider": "openai",
-    // "gitlens.ai.experimental.openai.model": "gpt-4-1106-preview",
-    "C_Cpp.formatting": "clangFormat",
-    "C_Cpp.clang_format_fallbackStyle": "LLVM",
-    "C_Cpp.clang_format_style": "file:${HOME}/dotfiles/config/langs/clang-format",
-    "settingsSync.ignoredSettings": [
-        "-window.zoomLevel"
-    ],
-    "[yaml]": {
-        "editor.defaultFormatter": "redhat.vscode-yaml"
-    },
-    "cmake.showOptionsMovedNotification": false,
-    "remote.autoForwardPortsSource": "hybrid",
-    "ruff.showNotifications": "onError",
-    "[python]": {
-        "editor.defaultFormatter": "charliermarsh.ruff"
-    },
-    "window.commandCenter": false, 
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/.DS_Store": true,
-        "**/.history": true
-    },
-    "search.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/.DS_Store": true,
-        "**/.history": true
-    },
-    "files.watcherExclude": {
-        "**/.history": true
-    },
-    "github.copilot.editor.enableAutoCompletions": true,
-    "supermaven.otherWarning": false,
-    "supermaven.enable": {
-        "*": false,
-        "markdown": true,
-        "cpp": true
-    },
-    "ruff.format.preview": true,
-    "ruff.lineLength": 120,
-    "ruff.lint.preview": true,
-    "ruff.configuration": "",
-    "ruff.format.args": [
-        "--config=${HOME}/dotfiles/config/langs/ruff.toml"
-    ],
-    "ruff.lint.args": [
-        "--config=${HOME}/dotfiles/config/langs/ruff.toml"
-    ],
-    "ruff.lint.run": "onSave",
-    "chat.editor.fontSize": 13,
-    "git.suggestSmartCommit": false,
-    "supermaven.allowGitignore": true,
-    "cSpell.fixSpellingWithRenameProvider": false,
-    "continue.enableTabAutocomplete": true,
-    "editor.fontSize": 13,
-    "window.zoomLevel": 0.2,
-    "cursor.cpp.enablePartialAccepts": true,
-    "r.rpath.mac": "/opt/homebrew/bin/R",
-    "r.rterm.mac": "/Users/kofa/miniconda3/envs/osu/bin/radian",
-    "r.rterm.option": [],
-    "r.bracketedPaste": true,
-    "cursor.cpp.disabledLanguages": [],
-    "makefile.configureOnOpen": true,
-    "workbench.startupEditor": "none",
-    "cursor.chat.premiumChatAutoScrollWhenAtBottom": true,
-    "cursor.chat.showSuggestedFiles": true,
-    "cursor.composer.collapsePaneInputBoxPills": true,
-    "errorLens.enabledDiagnosticLevels": [
-        "error",
-        "warning"
-    ],
-    "cursor.composer.renderPillsInsteadOfBlocks": true,
-    "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
 }
