@@ -8,6 +8,7 @@
 # eval $(thefuck --alias fix)
 source "/Users/$USER/.sdkman/bin/sdkman-init.sh"
 # source "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+eval "$(zoxide init --cmd cd zsh)"
 
 PATH=$(brew --prefix openssh)/bin:$PATH
 
@@ -105,3 +106,4 @@ alias python='python3'
 alias nb='jupyter notebook --port=9000 --notebook-dir=${HOME}/code'
 alias lab='jupyter lab --port=9000 --notebook-dir=${HOME}/code'
 alias del_ds_files='find . -name ".DS_Store" -type f -delete'
+

@@ -1,7 +1,6 @@
 window-padding-color = background
 font-family = Geist Mono
 font-style = Medium
-# font-thicken = true
 font-size = 15
 shell-integration-features = no-cursor,sudo
 cursor-style = block
@@ -31,7 +30,7 @@ palette = 0=#000000
 palette = 1=#e13468
 palette = 2=#53ca43
 palette = 3=#fec901
-palette = 4=#05b0ff
+palette = 4=#2f92d4
 palette = 5=#7859ee
 palette = 6=#40e7fd
 palette = 7=#ffffff
@@ -47,3 +46,4 @@ background=#000000
 foreground=#d8d8d8
 selection-background=#25b2f6
 selection-foreground=#f1f1f1
+
