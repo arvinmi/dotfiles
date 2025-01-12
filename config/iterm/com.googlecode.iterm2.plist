@@ -10,6 +10,8 @@ The script should do this: \(ai.prompt)</string>
 	<false/>
 	<key>AdjustWindowForFontSizeChange</key>
 	<false/>
+	<key>AggressiveFocusFollowsMouse</key>
+	<false/>
 	<key>AiMaxTokens</key>
 	<integer>128000</integer>
 	<key>AiModel</key>
@@ -1476,7 +1478,7 @@ The script should do this: \(ai.prompt)</string>
 	<key>DimBackgroundWindows</key>
 	<false/>
 	<key>DimInactiveSplitPanes</key>
-	<false/>
+	<true/>
 	<key>DimOnlyText</key>
 	<false/>
 	<key>DisableFullscreenTransparency</key>
@@ -1673,6 +1675,8 @@ The script should do this: \(ai.prompt)</string>
 			<true/>
 			<key>ASCII Ligatures</key>
 			<false/>
+			<key>Allow Alternate Mouse Scroll</key>
+			<true/>
 			<key>Allow Paste Bracketing</key>
 			<false/>
 			<key>Allow Title Reporting</key>
@@ -2573,6 +2577,8 @@ The script should do this: \(ai.prompt)</string>
 			<string>No</string>
 			<key>Custom Directory</key>
 			<string>No</string>
+			<key>Custom Window Title</key>
+			<string></string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Description</key>
@@ -2582,7 +2588,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Draw Powerline Glyphs</key>
 			<true/>
 			<key>Faint Text Alpha</key>
-			<real>0.5</real>
+			<real>0.50476190476190474</real>
 			<key>Flashing Bell</key>
 			<false/>
 			<key>Foreground Color</key>
@@ -2590,13 +2596,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.84803801774978638</real>
+				<real>0.84705883264541626</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.84803801774978638</real>
+				<real>0.84705883264541626</real>
 				<key>Red Component</key>
-				<real>0.84803801774978638</real>
+				<real>0.84705883264541626</real>
 			</dict>
 			<key>Foreground Color (Dark)</key>
 			<dict>
@@ -2750,7 +2756,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Menlo-Regular 15</string>
+			<string>GeistMono-Regular 15</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Open Toolbelt</key>
@@ -2782,7 +2788,7 @@ The script should do this: \(ai.prompt)</string>
 				<key>Blue Component</key>
 				<real>0.94509798288345337</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
 				<real>0.94509798288345337</real>
 				<key>Red Component</key>
@@ -2819,13 +2825,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.96295166015625</real>
+				<real>0.94132763147354126</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.69717580080032349</real>
+				<real>0.68794858455657959</real>
 				<key>Red Component</key>
-				<real>0.14664089679718018</real>
+				<real>0.3393898606300354</real>
 			</dict>
 			<key>Selection Color (Dark)</key>
 			<dict>
@@ -2857,6 +2863,8 @@ The script should do this: \(ai.prompt)</string>
 			<false/>
 			<key>Session Close Undo Timeout</key>
 			<integer>10</integer>
+			<key>Set Local Environment Vars</key>
+			<integer>1</integer>
 			<key>Shortcut</key>
 			<string></string>
 			<key>Show Mark Indicators</key>
@@ -3264,6 +3272,8 @@ The script should do this: \(ai.prompt)</string>
 			<string>xterm-256color</string>
 			<key>Thin Strokes</key>
 			<integer>0</integer>
+			<key>Title Components</key>
+			<integer>2</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Unicode Normalization</key>
@@ -3279,6 +3289,8 @@ The script should do this: \(ai.prompt)</string>
 			<key>Use Cursor Guide</key>
 			<false/>
 			<key>Use Custom Tab Title</key>
+			<false/>
+			<key>Use Custom Window Title</key>
 			<false/>
 			<key>Use Italic Font</key>
 			<true/>
@@ -3730,7 +3742,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Menlo-Regular 15</string>
+			<string>GeistMono-Regular 15</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Open Toolbelt</key>
@@ -4228,6 +4240,8 @@ The script should do this: \(ai.prompt)</string>
 	<integer>4</integer>
 	<key>PerPaneBackgroundImage</key>
 	<true/>
+	<key>PlaceTabsInTitlebarAccessoryInFullScreen</key>
+	<true/>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -4285,16 +4299,22 @@ The script should do this: \(ai.prompt)</string>
 	<false/>
 	<key>SeparateWindowTitlePerTab</key>
 	<true/>
+	<key>ShowAutomaticProfileSwitchingBanner</key>
+	<true/>
 	<key>ShowFullScreenTabBar</key>
 	<false/>
 	<key>ShowNewOutputIndicator</key>
 	<true/>
 	<key>ShowPaneTitles</key>
 	<false/>
+	<key>ShowWindowTitleWhenTabBarInvisible</key>
+	<true/>
 	<key>SmartPlacement</key>
 	<false/>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>SplitPaneDimmingAmount</key>
+	<real>0.149609756097561</real>
 	<key>StatusBarIcon</key>
 	<true/>
 	<key>StatusBarPosition</key>
@@ -4302,9 +4322,9 @@ The script should do this: \(ai.prompt)</string>
 	<key>StretchTabsToFillBar</key>
 	<true/>
 	<key>SwitchPaneModifier</key>
-	<integer>4</integer>
+	<integer>1</integer>
 	<key>SwitchTabModifier</key>
-	<integer>6</integer>
+	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
 	<integer>9</integer>
 	<key>TabStyleWithAutomaticOption</key>
@@ -4333,6 +4353,8 @@ The script should do this: \(ai.prompt)</string>
 	<true/>
 	<key>UseTmuxStatusBar</key>
 	<true/>
+	<key>UseVirtualKeyCodesForDetectingDigits</key>
+	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>Window Arrangements</key>
@@ -5384,7 +5406,7 @@ The script should do this: \(ai.prompt)</string>
 		</array>
 	</dict>
 	<key>WindowNumber</key>
-	<true/>
+	<false/>
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewPreferredModeKey</key>

@@ -1,18 +1,18 @@
 window-padding-color = background
-theme = vesper
-font-family = Geist Mono Medium
-font-size = 15
+font-family = Geist Mono
+font-style = Medium
 # font-thicken = true
+font-size = 15
 shell-integration-features = no-cursor,sudo
 cursor-style = block
 cursor-style-blink = false
 mouse-scroll-multiplier = 2
 window-padding-balance = true
 window-save-state = never
-window-width = 98
-window-height = 28
-# add unlimited scrollback
+window-width = 87
+window-height = 25
 font-feature = -liga
+# add unlimited scrollback
 
 keybind = cmd+backspace=text:\x15
 keybind = opt+backspace=text:\x17
@@ -26,58 +26,24 @@ keybind = cmd+s>h=goto_split:left
 keybind = cmd+s>l=goto_split:right
 keybind = cmd+s>z=toggle_split_zoom
 
-# colors
-palette = 0=#1E1F21
-palette = 1=#DB6063
-palette = 2=#B4BE59
-palette = 3=#F8C466
-palette = 4=#79A4C1
-palette = 5=#B792BF
-palette = 6=#7AC0B7
-palette = 7=#C4C8C7
-palette = 8=#666666
-palette = 9=#E7414E
-palette = 10=#B5CC27
-palette = 11=#EEC419
-palette = 12=#6DA7DF
-palette = 13=#CA95DD
-palette = 14=#50C2B2
-palette = 15=#EAEAEA
-
-# old colors
-# palette = 0=#101010
-# palette = 1=#f5a191
-# palette = 2=#8eb99f
-# palette = 3=#e5b99c
-# palette = 4=#aca0ce
-# palette = 5=#e19eca
-# palette = 6=#eb82a6
-# palette = 7=#a0a0a0
-# palette = 8=#7e7e7e
-# palette = 9=#fe8080
-# palette = 10=#99ffe4
-# palette = 11=#ffc69a
-# palette = 12=#b9aeda
-# palette = 13=#ebaad6
-# palette = 14=#f491b3
-# palette = 15=#ffffff
-selection-background = #2d3748
-selection-foreground = #e2e8f0
-
-# old colors
-# palette = 0=#000000
-# palette = 1=#e13468
-# palette = 2=#53ca43
-# palette = 3=#fec901
-# palette = 4=#05b0ff
-# palette = 5=#7859ee
-# palette = 6=#40e7fd
-# palette = 7=#ffffff
-# palette = 8=#b1bec4
-# palette = 9=#fe0139
-# palette = 10=#3cd178
-# palette = 11=#ffe57f
-# palette = 12=#7fd9ff
-# palette = 13=#aea8ff
-# palette = 14=#79d9e3
-# palette = 15=#ffffff
+bold-is-bright = true
+palette = 0=#000000
+palette = 1=#e13468
+palette = 2=#53ca43
+palette = 3=#fec901
+palette = 4=#05b0ff
+palette = 5=#7859ee
+palette = 6=#40e7fd
+palette = 7=#ffffff
+palette = 8=#b1bec4
+palette = 9=#fe0139
+palette = 10=#3cd178
+palette = 11=#ffe57f
+palette = 12=#7fd9ff
+palette = 13=#aea8ff
+palette = 14=#79d9e3
+palette = 15=#ffffff
+background=#000000
+foreground=#d8d8d8
+selection-background=#25b2f6
+selection-foreground=#f1f1f1
