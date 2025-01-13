@@ -66,6 +66,7 @@
     "editor.guides.bracketPairs": true,
     "editor.formatOnPaste": true,
     "editor.stickyScroll.enabled": true,
+    "editor.lineNumbers": "relative",
     "workbench.editor.decorations.colors": false,
     "workbench.editorAssociations": {
         "*.png": "imagePreview.previewEditor"
