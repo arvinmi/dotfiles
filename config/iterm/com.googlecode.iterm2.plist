@@ -1729,13 +1729,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.40970498323440552</real>
+				<real>0.4117647111415863</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.19834405183792114</real>
+				<real>0.26274511218070984</real>
 				<key>Red Component</key>
-				<real>0.881744384765625</real>
+				<real>0.81176471710205078</real>
 			</dict>
 			<key>Ansi 1 Color (Dark)</key>
 			<dict>
@@ -1768,13 +1768,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.47058823704719543</real>
+				<real>0.5058823823928833</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.81960785388946533</real>
+				<real>0.80784314870834351</real>
 				<key>Red Component</key>
-				<real>0.23921568691730499</real>
+				<real>0.42745098471641541</real>
 			</dict>
 			<key>Ansi 10 Color (Dark)</key>
 			<dict>
@@ -1807,13 +1807,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.49411764740943909</real>
+				<real>0.54901963472366333</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.89411765336990356</real>
+				<real>0.89803922176361084</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.98039215803146362</real>
 			</dict>
 			<key>Ansi 11 Color (Dark)</key>
 			<dict>
@@ -1846,13 +1846,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.99999994039535522</real>
+				<real>0.9843137264251709</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.84705877304077148</real>
+				<real>0.83921569585800171</real>
 				<key>Red Component</key>
-				<real>0.5019608736038208</real>
+				<real>0.58431375026702881</real>
 			</dict>
 			<key>Ansi 12 Color (Dark)</key>
 			<dict>
@@ -1885,13 +1885,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>1</real>
+				<real>0.97647058963775635</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.65423291921615601</real>
+				<real>0.65490198135375977</real>
 				<key>Red Component</key>
-				<real>0.67904406785964966</real>
+				<real>0.67450982332229614</real>
 			</dict>
 			<key>Ansi 13 Color (Dark)</key>
 			<dict>
@@ -1924,13 +1924,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.89197736978530884</real>
+				<real>0.88235294818878174</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.8555341362953186</real>
+				<real>0.84705883264541626</real>
 				<key>Red Component</key>
-				<real>0.46887284517288208</real>
+				<real>0.56470590829849243</real>
 			</dict>
 			<key>Ansi 14 Color (Dark)</key>
 			<dict>
@@ -1965,11 +1965,11 @@ The script should do this: \(ai.prompt)</string>
 				<key>Blue Component</key>
 				<real>0.99999994039535522</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.99999994039535522</real>
+				<real>0.99999982118606567</real>
 				<key>Red Component</key>
-				<real>0.9999966025352478</real>
+				<real>0.99999719858169556</real>
 			</dict>
 			<key>Ansi 15 Color (Dark)</key>
 			<dict>
@@ -2002,13 +2002,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.26175841689109802</real>
+				<real>0.34117648005485535</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.79432672262191772</real>
+				<real>0.78431373834609985</real>
 				<key>Red Component</key>
-				<real>0.33535808324813843</real>
+				<real>0.46274510025978088</real>
 			</dict>
 			<key>Ansi 2 Color (Dark)</key>
 			<dict>
@@ -2041,13 +2041,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.27058824896812439</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.78823530673980713</real>
+				<real>0.79607844352722168</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.9686274528503418</real>
 			</dict>
 			<key>Ansi 3 Color (Dark)</key>
 			<dict>
@@ -2080,13 +2080,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>1</real>
+				<real>0.97254902124404907</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.69109952449798584</real>
+				<real>0.67843139171600342</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.30588236451148987</real>
 			</dict>
 			<key>Ansi 4 Color (Dark)</key>
 			<dict>
@@ -2119,13 +2119,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.93517178297042847</real>
+				<real>0.90196079015731812</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.35224181413650513</real>
+				<real>0.35686275362968445</real>
 				<key>Red Component</key>
-				<real>0.46622246503829956</real>
+				<real>0.44705882668495178</real>
 			</dict>
 			<key>Ansi 5 Color (Dark)</key>
 			<dict>
@@ -2158,13 +2158,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.99345654249191284</real>
+				<real>0.98039215803146362</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.90850788354873657</real>
+				<real>0.89411765336990356</real>
 				<key>Red Component</key>
-				<real>0.24791437387466431</real>
+				<real>0.46666666865348816</real>
 			</dict>
 			<key>Ansi 6 Color (Dark)</key>
 			<dict>
@@ -2199,7 +2199,7 @@ The script should do this: \(ai.prompt)</string>
 				<key>Blue Component</key>
 				<real>0.99999994039535522</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
 				<real>0.99999994039535522</real>
 				<key>Red Component</key>
@@ -2236,13 +2236,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.77254897356033325</real>
+				<real>0.76862746477127075</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
 				<real>0.7450980544090271</real>
 				<key>Red Component</key>
-				<real>0.69019621610641479</real>
+				<real>0.70196080207824707</real>
 			</dict>
 			<key>Ansi 8 Color (Dark)</key>
 			<dict>
@@ -2275,13 +2275,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.21990966796875</real>
+				<real>0.25490197539329529</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.20000000298023224</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.91764706373214722</real>
 			</dict>
 			<key>Ansi 9 Color (Dark)</key>
 			<dict>

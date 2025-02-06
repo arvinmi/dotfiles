@@ -15,11 +15,11 @@
     "command": "-inlineChat.start",
     "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
   },
-  {
-    "key": "cmd+l",
-    "command": "workbench.action.chat.openInSidebar",
-    "when": "chatIsEnabled"
-  },
+  // {
+  //   "key": "cmd+l",
+  //   "command": "workbench.action.chat.openInSidebar",
+  //   "when": "chatIsEnabled"
+  // },
   {
     "key": "ctrl+shift+=",
     "command": "editor.action.fontZoomIn"
@@ -192,5 +192,10 @@
     "key": "shift+cmd+x",
     "command": "workbench.view.extensions",
     "when": "viewContainer.workbench.view.extensions.enabled"
+  },
+  {
+    "key": "shift+cmd+k",
+    "command": "cursorai.action.generateInTerminal",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   }
 ]

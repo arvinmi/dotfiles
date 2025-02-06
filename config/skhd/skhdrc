@@ -1,4 +1,4 @@
-cmd + shift - j : "${HOME}/dotfiles/scripts/open_iterm2.sh"
+cmd + shift - j : open -na "Ghostty"
 cmd + shift - 1 : open -na "1password"
 cmd + shift - b : open -na "google chrome"
 
