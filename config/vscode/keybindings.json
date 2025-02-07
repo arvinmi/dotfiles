@@ -15,11 +15,20 @@
     "command": "-inlineChat.start",
     "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
   },
-  // {
-  //   "key": "cmd+l",
-  //   "command": "workbench.action.chat.openInSidebar",
-  //   "when": "chatIsEnabled"
-  // },
+  {
+    "key": "cmd+l",
+    "command": "-workbench.action.chat.openInSidebar",
+    "when": "chatIsEnabled"
+  },
+  {
+    "key": "cmd+l",
+    "command": "-aichat.newchataction"
+  },
+  {
+    "key": "cmd+k",
+    "command": "-cursorai.action.generateInTerminal",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
   {
     "key": "ctrl+shift+=",
     "command": "editor.action.fontZoomIn"

@@ -4,6 +4,8 @@
   "workbench.colorTheme": "Default Dark Modern",
   "editor.accessibilitySupport": "off",
   "update.mode": "manual",
+  "extensions.autoCheckUpdates": false,
+  "extensions.autoUpdate": false,
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 500,
   "editor.formatOnSave": true,
@@ -112,6 +114,7 @@
   // terminal
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.macOptionClickForcesSelection": true,
+  "remote.SSH.configFile": "~/.ssh/config",
   "remote.SSH.showLoginTerminal": true,
   "python.defaultInterpreterPath": "/Users/kofa/miniconda3/envs/testing/bin/python",
   "remote.SSH.enableX11Forwarding": false,
@@ -120,8 +123,8 @@
   "workbench.colorCustomizations": {
     "editorCursor.background": "#AEAFAD",
     "editorCursor.foreground": "#AEAFAD",
-    "statusBar.background": "#161616",
-    "statusBar.noFolderBackground": "#161616",
+    // "statusBar.background": "#161616",
+    // "statusBar.noFolderBackground": "#161616",
     "editorLineNumber.activeForeground": "#c1c0c1",
     "terminal.ansiBlack": "#000000",
     "terminal.ansiRed": "#cf4369",
