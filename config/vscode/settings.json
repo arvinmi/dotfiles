@@ -246,6 +246,9 @@
     "yaml": false,
     "cpp": true
   },
+  "github.copilot.chat.followUps": "always",
+  "github.copilot.chat.edits.codesearch.enabled": true,
+  "github.copilot.chat.edits.temporalContext.enabled": true,
   "[cpp]": {
     "editor.wordBasedSuggestions": "off",
     "editor.suggest.insertMode": "replace",
