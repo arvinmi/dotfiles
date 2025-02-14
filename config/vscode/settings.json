@@ -40,8 +40,6 @@
   // window
   "window.title": "${activeEditorShort}${separator}${rootName}${rootPath}",
   "window.zoomLevel": 0.2,
-  // top bar
-  "window.commandCenter": false,
   "workbench.layoutControl.enabled": false, // hides little squares on top right of the window
   // minimap
   "editor.minimap.autohide": true,
@@ -53,9 +51,7 @@
   "editor.linkedEditing": true,
   "editor.inlineSuggest.enabled": true,
   "editor.unicodeHighlight.nonBasicASCII": false,
-  "editor.rulers": [
-    100
-  ],
+  "editor.rulers": [100],
   "editor.wordWrap": "on",
   "editor.tabSize": 2,
   "editor.fontLigatures": false,
@@ -167,7 +163,7 @@
     "editor.defaultFormatter": "vscode.html-language-features"
   },
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.css-language-features"
   },
   "[javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
@@ -177,13 +173,7 @@
   },
   "typescript.preferences.importModuleSpecifier": "non-relative", // prefer aliases when importing
   "eslint.options": {
-    "extensions": [
-      ".js",
-      ".jsx",
-      ".mdx",
-      ".ts",
-      ".tsx"
-    ]
+    "extensions": [".js", ".jsx", ".mdx", ".ts", ".tsx"]
   },
   "eslint.validate": [
     "mdx",
@@ -194,25 +184,17 @@
   ],
   "tailwindCSS.experimental.classRegex": [
     // enables tailwind autocomplete for specified functions
-    [
-      "cva\\(([^)]*)\\)",
-      "[\"'`]([^\"'`]*).*?[\"'`]"
-    ],
-    [
-      "cn\\(([^)]*)\\)",
-      "[\"'`]([^\"'`]*).*?[\"'`]"
-    ],
-    [
-      "cx\\(([^)]*)\\)",
-      "[\"'`]([^\"'`]*).*?[\"'`]"
-    ]
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
   ],
   "[markdown]": {
     "editor.quickSuggestions": {
       "other": true,
       "comments": false,
       "strings": false
-    }
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   /*
     "java.configuration.runtimes": [
@@ -229,7 +211,7 @@
       "strings": true
     },
     "editor.suggest.insertMode": "replace",
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "files.associations": {
     "*.java": "java",
@@ -273,12 +255,8 @@
   "ruff.lineLength": 120,
   "ruff.lint.preview": true,
   "ruff.configuration": "",
-  "ruff.format.args": [
-    "--config=${HOME}/dotfiles/config/langs/ruff.toml"
-  ],
-  "ruff.lint.args": [
-    "--config=${HOME}/dotfiles/config/langs/ruff.toml"
-  ],
+  "ruff.format.args": ["--config=${HOME}/dotfiles/config/langs/ruff.toml"],
+  "ruff.lint.args": ["--config=${HOME}/dotfiles/config/langs/ruff.toml"],
   "ruff.lint.run": "onSave",
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
@@ -305,9 +283,7 @@
   },
   // "gitlens.ai.experimental.provider": "openai",
   // "gitlens.ai.experimental.openai.model": "gpt-4-1106-preview",
-  "settingsSync.ignoredSettings": [
-    "-window.zoomLevel"
-  ],
+  "settingsSync.ignoredSettings": ["-window.zoomLevel"],
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -325,10 +301,7 @@
   "files.watcherExclude": {
     "**/.history": true
   },
-  "errorLens.enabledDiagnosticLevels": [
-    "error",
-    "warning"
-  ],
+  "errorLens.enabledDiagnosticLevels": ["error", "warning"],
   "code-runner.executorMap": {
     "javascript": "node",
     "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
@@ -385,5 +358,9 @@
   },
   "[c]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
-  }
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "window.commandCenter": false
 }

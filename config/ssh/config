@@ -1,55 +1,63 @@
 Include ~/.orbstack/ssh/config
 
 Host osu
-  Hostname submit.hpc.engr.oregonstate.edu
-  User mirtoraa
-  IdentityFile ~/.ssh/osu/m3-macbook-pro
-  ProxyCommand ssh -A -q -W %h:%p osu-jh
+    HostName submit.hpc.engr.oregonstate.edu
+    User mirtoraa
+    IdentityFile ~/.ssh/osu/m3-macbook-pro
+    ProxyCommand ssh -A -q -W %h:%p osu-jh
+    #LocalForward 8096 localhost:8096
+    ForwardAgent yes
+
+Host osugpu
+    User mirtoraa
+    LocalForward 8096 localhost:8096
+    ProxyCommand ssh osu "bash -c 'nc \$(~/dotfiles/scripts/cluster/osugpu/getgpu.sh) 22'"
 
 Host osu-jh
-  Hostname access.engr.oregonstate.edu
-  User mirtoraa
-  IdentityFile ~/.ssh/osu/m3-macbook-pro
+    HostName access.engr.oregonstate.edu
+    User mirtoraa
+    IdentityFile ~/.ssh/osu/m3-macbook-pro
 
 Host os1
-  Hostname os1.engr.oregonstate.edu
-  User mirtoraa
-  IdentityFile ~/.ssh/osu/m3-macbook-pro
-  ProxyCommand ssh -A -q -W %h:%p osu-jh
+    HostName os1.engr.oregonstate.edu
+    User mirtoraa
+    IdentityFile ~/.ssh/osu/m3-macbook-pro
+    ProxyCommand ssh -A -q -W %h:%p osu-jh
+    # RequestTTY no
 
 Host classwork
-  Hostname classwork.engr.oregonstate.edu
-  User mirtoraa
-  IdentityFile ~/.ssh/osu/m3-macbook-pro
-  ProxyCommand ssh -A -q -W %h:%p osu-jh
-  # LocalForward 8080 classmysql.engr.oregonstate.edu:80
-  # LocalForward 3307 classmysql.engr.oregonstate.edu:3306
+    HostName classwork.engr.oregonstate.edu
+    User mirtoraa
+    IdentityFile ~/.ssh/osu/m3-macbook-pro
+    ProxyCommand ssh -A -q -W %h:%p osu-jh
+    # LocalForward 8080 classmysql.engr.oregonstate.edu:80
+    # LocalForward 3307 classmysql.engr.oregonstate.edu:3306
     
 Host github.com
-  Hostname github.com
-  IdentityFile ~/.ssh/git/git-macbook-pro
+    HostName github.com
+    IdentityFile ~/.ssh/git/git-macbook-pro
 
 Host d
-  Hostname 192.168.196.64
-  User kofa
-  IdentityFile ~/.ssh/dark
-  # LocalForward 9000 localhost:9000
-  # ForwardX11 yes
-  # ProxyCommand ssh -A -q -W %h:%p jb
+    HostName 192.168.196.64
+    User kofa
+    IdentityFile ~/.ssh/dark
+    # LocalForward 9000 localhost:9000
+    # ForwardX11 yes
+    # ProxyCommand ssh -A -q -W %h:%p jb
 
 Host jb
-  Hostname 54.149.225.212
-  User ubuntu
-  IdentityFile ~/.ssh/aws/m1-macbook-air-school.pem
-  RemoteCommand aws ec2 start-instances --instance-ids i-0f6522a831215a515
+    HostName 54.149.225.212
+    User ubuntu
+    IdentityFile ~/.ssh/aws/m1-macbook-air-school.pem
+    RemoteCommand aws ec2 start-instances --instance-ids i-0f6522a831215a515
 
 #Host slcomp
-  #Hostname intel-dy-c6ixlarge-1
-  #User ubuntu
-  #IdentityFile ~/.ssh/aws/m1-macbook-pro.pem
-  #ProxyCommand ssh -A -q -W %h:%p sl
+    #Hostname intel-dy-c6ixlarge-1
+    #User ubuntu
+    #IdentityFile ~/.ssh/aws/m1-macbook-pro.pem
+    #ProxyCommand ssh -A -q -W %h:%p sl
 
 Host dev
-  HostName 127.0.0.1
-  User dev
-  Port 2222
+    HostName 127.0.0.1
+    User dev
+    Port 2222
