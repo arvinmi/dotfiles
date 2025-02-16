@@ -8,7 +8,6 @@
   "extensions.autoUpdate": false,
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 500,
-  "editor.formatOnSave": true,
   "explorer.compactFolders": false,
   "telemetry.telemetryLevel": "off",
   "redhat.telemetry.enabled": false,
@@ -362,5 +361,11 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "window.commandCenter": false
+  "window.commandCenter": false,
+  "sqltools.highlightQuery": false,
+  "[sql]": {
+    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "continue.enableTabAutocomplete": true
 }
