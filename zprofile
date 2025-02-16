@@ -11,5 +11,5 @@ export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export FZF_DEFAULT_OPTS="--no-mouse"
 
-# OrbStack
+# orbstack
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
