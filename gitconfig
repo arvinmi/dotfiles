@@ -1,27 +1,36 @@
 [commit]
-	gpgsign = true
+    gpgSign = true
+
 [gpg]
-	program = /opt/homebrew/bin/gpg
+    program = /opt/homebrew/bin/gpg
+
 [init]
-  defaultBranch = main
-  
+    defaultBranch = main
+
 [user]
-  name = USERNAME
-  email = EMAIL
-  signingkey = PUB_KEY
+    name = USERNAME
+    email = EMAIL
+    signingkey = PUB_KEY
 
 [push]
-  autoSetupRemote = true
-  default = current
-  
+    autoSetupRemote = true
+    default = current
+
 [alias]
-  undo = reset --soft HEAD^
+    undo = reset --soft HEAD^
 
 [filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
 
 [core]
-  pager = delta
+    pager = delta
+
+[delta]
+    side-by-side = true
+    navigate = true
+
+[credential]
+    helper = store
