@@ -7,6 +7,11 @@
 # plugins
 # eval $(thefuck --alias fix)
 
+# tmux on reload
+if command -v tmux &> /dev/null && [[ -z "$TMUX" ]]; then
+  tmux attach -t default || tmux new -s default
+fi
+
 # sdkman
 source "/Users/$USER/.sdkman/bin/sdkman-init.sh"
 
@@ -40,7 +45,7 @@ export PATH="$HOME/.local/bin:$PATH"
 # miniconda
 source ~/miniconda3/etc/profile.d/conda.sh
 if [[ -z ${CONDA_PREFIX+x} ]]; then
-        export PATH="~/conda/bin:$PATH"
+  export PATH="~/conda/bin:$PATH"
 fi
 
 # sdkman
@@ -111,3 +116,7 @@ alias python='python3'
 alias nb='jupyter notebook --port=9000 --notebook-dir=${HOME}/code'
 alias lab='jupyter lab --port=9000 --notebook-dir=${HOME}/code'
 alias del_ds_files='find . -name ".DS_Store" -type f -delete'
+rst() {
+  cd
+  cl
+}

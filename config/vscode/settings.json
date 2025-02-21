@@ -3,9 +3,7 @@
   "workbench.startupEditor": "none",
   "workbench.colorTheme": "Default Dark Modern",
   "editor.accessibilitySupport": "off",
-  "update.mode": "manual",
-  "extensions.autoCheckUpdates": false,
-  "extensions.autoUpdate": false,
+  "update.mode": "start",
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 500,
   "explorer.compactFolders": false,
@@ -27,6 +25,7 @@
   "cursor.diffs.useCharacterLevelDiffs": true,
   "cursor.composer.renderPillsInsteadOfBlocks": true,
   "cursor.composer.collapsePaneInputBoxPills": true,
+  "cursor.cmdk.useThemedDiffBackground": true,
   // font
   "editor.fontFamily": "Menlo, monospace",
   "editor.fontSize": 14,
@@ -64,7 +63,7 @@
   "editor.guides.bracketPairs": true,
   "editor.formatOnPaste": true,
   "editor.stickyScroll.enabled": true,
-  "editor.lineNumbers": "relative",
+  "diffEditor.ignoreTrimWhitespace": false,
   "workbench.editor.decorations.colors": false,
   "workbench.editorAssociations": {
     "*.png": "imagePreview.previewEditor"
@@ -243,6 +242,8 @@
   "C_Cpp.formatting": "clangFormat",
   "C_Cpp.clang_format_fallbackStyle": "LLVM",
   "C_Cpp.clang_format_style": "file:${HOME}/dotfiles/config/langs/clang-format",
+  "C_Cpp.default.cStandard": "gnu99",
+  "C_Cpp.default.cppStandard": "c++17",
   "makefile.configureOnOpen": true,
   "cursor.cpp.enablePartialAccepts": true,
   "cursor.cpp.disabledLanguages": [],
@@ -368,5 +369,5 @@
   "[sql]": {
     "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
 }

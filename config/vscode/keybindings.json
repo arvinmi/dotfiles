@@ -211,5 +211,15 @@
     "key": "cmd+enter",
     "command": "-editor.action.insertLineAfter",
     "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+cmd+u",
+    "command": "workbench.panel.chat",
+    "when": "workbench.panel.chat.view.copilot.active"
+  },
+  {
+    "key": "ctrl+cmd+i",
+    "command": "-workbench.panel.chat",
+    "when": "workbench.panel.chat.view.copilot.active"
   }
 ]
