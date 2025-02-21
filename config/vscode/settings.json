@@ -28,17 +28,17 @@
   "cursor.cmdk.useThemedDiffBackground": true,
   // font
   "editor.fontFamily": "Menlo, monospace",
-  "editor.fontSize": 14,
+  "editor.fontSize": 13,
   "editor.lineHeight": 1.6,
   "chat.editor.fontSize": 13,
   "terminal.integrated.fontFamily": "Geist Mono",
-  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontSize": 13,
   // cursor
   "editor.cursorBlinking": "solid",
   // window
   "window.title": "${activeEditorShort}${separator}${rootName}${rootPath}",
-  "window.zoomLevel": 0.2,
   "window.commandCenter": false,
+  "window.zoomLevel": 0.1,
   "workbench.layoutControl.enabled": false, // hides little squares on top right of the window
   // minimap
   "editor.minimap.autohide": true,
@@ -370,4 +370,7 @@
     "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[snippets]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
 }
