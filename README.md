@@ -8,7 +8,7 @@ sh mac/install/mac0.sh
 sh mac/install/mac1.sh
 ```
 
-### Devserver & Server install
+### Devserver & server install
 
 1. Follow installation instructions in 'install'
 
@@ -24,17 +24,17 @@ sh mac/install/mac1.sh
 1500
 ```
 
-### Mouse Tracking Speed (linearmouse)
+### Mouse tracking speed (linearmouse)
 ```
 1
 ```
 
-### Mouse Vertical Scrolling Speed (linearmouse)
+### Mouse vertical scrolling speed (linearmouse)
 ```
 35
 ```
 
-### Mouse Tracking Speed (macOS)
+### Mouse tracking speed (macOS)
 ```
 6/10
 ```
