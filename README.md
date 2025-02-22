@@ -1,18 +1,18 @@
-# Dotfiles
+## Dotfiles
 These are the config files that I have to setup a system the way I want it.
 
-## Mac install
+### Mac install
 ```
 git clone git://github.com/arvinmi/dotfiles.git
 sh mac/install/mac0.sh
 sh mac/install/mac1.sh
 ```
 
-## Devserver & Server install
+### Devserver & Server install
 
 1. Follow installation instructions in 'install'
 
-# Configuration
+## Configuration
 
 ### Mac display resolution settings  
 ```
