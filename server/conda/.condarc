@@ -1,0 +1,9 @@
+channels:
+  - conda-forge
+  - defaults
+envs_dirs:
+  - ${HOME}/share/.conda/envs
+pkgs_dirs:
+  - ${HOME}/share/.conda/pkgs
+channel_priority: strict
+default_threads: 8

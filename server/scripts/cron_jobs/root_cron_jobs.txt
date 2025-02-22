@@ -1,0 +1,7 @@
+# server shutdown
+
+*/7 * * * * /home/ubuntu/server-config/scripts/cron_scripts/shutdown_if_inactive.sh >> /home/ubuntu/server-config/scripts/shutdown_if_inactive_logs  2>&1
+
+# mount nvme drive
+
+@reboot sudo mkfs -t xfs /dev/nvme1n1 && sudo mount /dev/nvme1n1 /home/ubuntu/shared && sudo chown ubuntu /home/ubuntu/shared

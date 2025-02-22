@@ -1,0 +1,39 @@
+[commit]
+    gpgSign = true
+
+[gpg]
+    program = /opt/homebrew/bin/gpg
+
+[init]
+    defaultBranch = main
+
+[user]
+    name = arvinmi
+    email = 64492021+arvinmi@users.noreply.github.com
+    signingkey = F437D62EB26F22049C3EFD9089808D7989F8D87E
+
+[push]
+    autoSetupRemote = true
+    default = current
+
+[alias]
+    undo = reset --soft HEAD^
+
+[filter "lfs"]
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+
+[core]
+    pager = delta
+
+[delta]
+    side-by-side = true
+    navigate = true
+    
+# [includeIf "gitdir:~/fun/chromium/"]
+    # path = ~/fun/chromium/.gitconfig
+
+[credential]
+    helper = store

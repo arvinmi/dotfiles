@@ -9,3 +9,5 @@ ehthumbs.db
 Thumbs.db
 .history
 *.un~
+.vscode
+shutdown_if_inactive_logs

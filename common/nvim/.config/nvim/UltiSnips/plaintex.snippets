@@ -1,0 +1,59 @@
+# EXAMPLE SNIPPETS
+# - https://github.com/timmywil/snipmate-snippets/blob/master/UltiSnips/tex.snippets
+# - https://github.com/honza/vim-snippets/blob/master/snippets/tex.snippets
+
+# version 1
+
+###########################################################################
+# TEXTMATE SNIPPETS
+###########################################################################
+
+# general template
+snippet template "General Template" b
+\documentclass[letterpaper]{report}
+\input{preamble}
+
+\title{\Huge{$1}\\\\$2}
+\author{\huge{Arvin Mirtorabi}}
+
+\date{$3}
+
+\begin{document}
+
+\maketitle
+$4\tableofcontents
+\newpage
+\pagebreak
+
+$0
+
+\end{document}
+endsnippet
+
+# starting and closing
+snippet "b(egin)?" "begin{} / end{}" br
+\begin{${1:something}}
+    ${0:${VISUAL}}
+\end{$1}
+endsnippet
+
+# first level itemize
+snippet item "Itemize" b
+\begin{itemize}
+    \item $0
+\end{itemize}
+endsnippet
+
+# next level, enumerate 
+snippet enum "Enumerate" b
+\begin{enumerate}
+    \item $0
+\end{enumerate}
+endsnippet
+
+# description
+snippet desc "Description" b
+\begin{description}
+    \item[$1] $0
+\end{description}
+endsnippet

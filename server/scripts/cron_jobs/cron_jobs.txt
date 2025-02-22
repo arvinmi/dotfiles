@@ -1,0 +1,7 @@
+# S3 drive sync every fifteen minutes
+
+# */15 * * * * ${HOME}/server-config/scripts/cron_scripts/s3_drive_sync.sh
+
+# run notebook at reboot
+
+@reboot cd /home/ubuntu; source ~/.bashrc; /home/ubuntu/miniconda3/envs/testing/bin/jupyter-notebook --port=9000 --no-browser --notebook-dir=/home/ubuntu/fun

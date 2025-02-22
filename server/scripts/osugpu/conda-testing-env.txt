@@ -1,0 +1,7 @@
+conda create -n base2 python jupyterlab notebook jupyter_contrib_nbextensions ipywidgets cuda-toolkit cudnn
+
+pip (uv)
+===========
+numpy
+matplotlib
+tensorboard
