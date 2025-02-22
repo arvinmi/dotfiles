@@ -17,6 +17,9 @@
 
 echo "Hello $(whoami)! Let's get you set up."
 
+# move to root of dotfiles dir
+cd $HOME/dotfiles/
+
 # Ask for the administrator password upfront (undo if necessary)
 sudo -v
 

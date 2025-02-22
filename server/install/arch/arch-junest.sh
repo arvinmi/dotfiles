@@ -2,6 +2,9 @@
 # git clone https://github.com/fsquillace/junest.git ~/.local/share/junest
 # junest setup
 
+# move to root of dotfiles dir
+cd $HOME/dotfiles/
+
 echo "Who am I"
 sudoj whoami
 

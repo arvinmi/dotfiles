@@ -21,7 +21,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 mkdir "${HOME}/Documents/GitHub"
 git clone https://github.com/arvinmi/dotfiles.git "${HOME}/Documents/GitHub/dotfiles"
 
-# Create new dirs
+# Create new dirs and symlinks
 mkdir "${HOME}/Documents/backup"
 mkdir "${HOME}/build"
 mkdir "${HOME}/Documents/code" && mkdir "${HOME}/Documents/code/fun" && mkdir "${HOME}/Documents/code/pg"
@@ -29,9 +29,9 @@ mkdir "${HOME}/Documents/personal"
 mkdir "${HOME}/Documents/vault"
 mkdir "${HOME}/virtual-machines" && mkdir "${HOME}/virtual-machines/ubuntu" && mkdir "${HOME}/virtual-machines/buildroot-images"
 mkdir "${HOME}/Documents/Obsidian"
-
-# ln -s "${HOME}/Library/Mobile Documents/iCloud~md~obsidian/Documents/notes/" "${HOME}/notes"
-# ln -s "${HOME}/Library/CloudStorage/" "${HOME}/drive"
+ln -sv "${HOME}/Library/Mobile Documents/iCloud~md~obsidian/Documents/notes/" "${HOME}/notes"
+ln -sv "${HOME}/Library/CloudStorage/" "${HOME}/drive"
+ln -sv "${HOME}/Documents/GitHub/dotfiles/" "${HOME}/dotfiles"
 
 # Stow common files
 for file in "vim" "nvim" "tmux"; do
@@ -43,5 +43,6 @@ for file in "brew" "conda" "cursor" "ghostty" "git" "scripts" "skhd" "ssh" "vsco
   stow --verbose --target="$HOME" --dir="mac" --restow "$file"
 done
 
-# Stow launchd files
-stow --verbose --target="$HOME/Library/LaunchAgents" --dir="mac/scripts" --restow "launchd"
+# Copy launchd files
+cp -v "mac/scripts/scripts/launchd/backups.plist" "$HOME/Library/LaunchAgents/"
+cp -v "mac/scripts/scripts/launchd/backup-local.plist" "$HOME/Library/LaunchAgents/"
