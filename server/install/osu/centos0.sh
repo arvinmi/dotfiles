@@ -57,7 +57,7 @@ for file in "vim" "nvim" "tmux"; do
 done
 
 # stow server files
-for file in "bashrc" "conda" "scripts"; do
+for file in "bash" "conda" "scripts"; do
   stow --verbose --target="$HOME" --dir="server" --restow "$file"
 done
 
