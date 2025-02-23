@@ -29,9 +29,11 @@ mkdir "${HOME}/Documents/personal"
 mkdir "${HOME}/Documents/vault"
 mkdir "${HOME}/virtual-machines" && mkdir "${HOME}/virtual-machines/ubuntu" && mkdir "${HOME}/virtual-machines/buildroot-images"
 mkdir "${HOME}/Documents/Obsidian"
+ln -sv "${HOME}/Documents/backup" "${HOME}/backup"
+ln -sv "${HOME}/Documents/code" "${HOME}/code" && ln -s "${HOME}/Documents/code/fun" "${HOME}/fun" && ln -s "${HOME}/Documents/code/classes" "${HOME}/classes"
+ln -sv "${HOME}/Documents/GitHub/dotfiles/" "${HOME}/dotfiles"
 ln -sv "${HOME}/Library/Mobile Documents/iCloud~md~obsidian/Documents/notes/" "${HOME}/notes"
 ln -sv "${HOME}/Library/CloudStorage/" "${HOME}/drive"
-ln -sv "${HOME}/Documents/GitHub/dotfiles/" "${HOME}/dotfiles"
 
 # Stow common files
 for file in "vim" "nvim" "tmux"; do

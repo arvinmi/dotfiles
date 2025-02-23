@@ -71,6 +71,11 @@ brew autoremove
 # git config --global gpg.program /opt/homebrew/bin/gpg
 # check `~/.gitconfig` for changes
 
+# SETUP GPG KEY WITH KEY
+# mkdir -p ~/.gnupg
+# echo "pinentry-program /opt/homebrew/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+# echo "use-agent" >> ~/.gnupg/gpg.conf
+
 # SETUP MANUAL CONFIG
 # set 'Terminal.app' config
 # set 'Rectangle.app' config
