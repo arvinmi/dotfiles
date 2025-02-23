@@ -17,6 +17,6 @@ sudoj pacman -S --noconfirm archlinux-keyring
 
 # install packages
 sudoj pacman -S --noconfirm --ignore sudo glibc base base-devel ldns make autoconf man unzip wget tar lua luarocks \
-neovim vim htop btop bind git python python-pynvim nodejs npm ruby gnu-free-fonts neofetch
+neovim vim htop btop bind git python python-pynvim nodejs npm ruby gnu-free-fonts neofetch stow
 # yay -Yc
 yay -Sy

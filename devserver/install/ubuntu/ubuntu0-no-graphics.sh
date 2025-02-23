@@ -28,7 +28,7 @@ echo "* install/remove packages *"
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install -y build-essential htop fzf git golang pgcli rclone iptables ncdu \
 neofetch neovim fail2ban ranger tree tmux glances vim curl plocate net-tools \
-openssh-server python3-pip trash-cli gdb
+openssh-server python3-pip trash-cli gdb stow
 # if graphics needed
 # sudo apt-get install -y lxqt-core sddm
 # remove stock software

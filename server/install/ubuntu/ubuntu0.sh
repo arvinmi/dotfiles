@@ -28,7 +28,7 @@ echo "* install/remove packages *"
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install -y build-essential htop fzf git golang pgcli llvm rclone iptables \
 ncdu neofetch neovim fail2ban awscli ranger tree tmux vim curl net-tools python3-pip \
-trash-cli gdb nodejs npm
+trash-cli gdb nodejs npm stow
 # if needed
 # sudo apt-get install awscli
 # if needed graphics
