@@ -4,8 +4,8 @@
 # git config --global credential.helper store
 # git clone https://github.com/arvinmi/dotfiles.git
 
-# For rebuilding dotfiles
-# cd dotfiles/mac/install/mac0.sh
+# For building/rebuilding dotfiles
+# cd dotfiles
 # sh mac0.sh
 
 # Close System Settings panes, to prevent them from overriding

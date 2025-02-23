@@ -1,8 +1,8 @@
 #!/bin/zsh
 # This second shell script will help to install essentials
 
-# For rebuilding dotfiles
-# cd dotfiles/mac/install/mac1.sh
+# For building/rebuilding dotfiles
+# cd dotfiles
 # sh mac1.sh
 
 echo "Hello $(whoami)! Let's get you set up."
@@ -123,8 +123,8 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source-file ~/.tmux.conf
 
 # LAUNCHD START
-chmod +x "${HOME}/dotfiles/mac/scripts/backups.sh"
-chmod +x "${HOME}/dotfiles/mac/scripts/backup_local.sh"
+chmod +x "${HOME}/dotfiles/mac/scripts/scripts/backups.sh"
+chmod +x "${HOME}/dotfiles/mac/scripts/scripts/backup_local.sh"
 chmod 644 ~/Library/LaunchAgents/backups.plist
 chmod 644 ~/Library/LaunchAgents/backup-local.plist
 launchctl load "${HOME}/Library/LaunchAgents/backups.plist"
@@ -133,7 +133,7 @@ launchctl load "${HOME}/Library/LaunchAgents/backup-local.plist"
 # launchctl list | grep com.backup-local.script
 
 # SKHD START
-chmod +x "${HOME}/dotfiles/mac/scripts/open_iterm2.sh"
+chmod +x "${HOME}/dotfiles/mac/scripts/scripts/open_iterm2.sh"
 skhd --stop-service
 skhd --start-service
 

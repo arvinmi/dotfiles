@@ -5,11 +5,6 @@
 # plugins
 # eval $(thefuck --alias fix)
 
-# tmux on reload
-if command -v tmux &> /dev/null && [[ -z "$TMUX" ]]; then
-  tmux attach -t default || tmux new -s default
-fi
-
 # sdkman
 source "/Users/$USER/.sdkman/bin/sdkman-init.sh"
 
@@ -74,6 +69,18 @@ PROMPT="%n@%M:%B%F{cyan}%~%f%b$ "
 #-------------------------------------------------------------------------------
 # Aliases
 #-------------------------------------------------------------------------------
+rst() {
+  cd
+  cl
+}
+
+# tmux on reload
+tma() {
+  if command -v tmux &> /dev/null && [[ -z "$TMUX" ]]; then
+    tmux attach -t default || tmux new -s default
+  fi
+}
+
 # general
 unalias ls
 alias ls='gls --color=auto'
@@ -83,7 +90,6 @@ alias la='ls -la'
 alias ll='ls -lh'
 alias rm='rm -i'
 alias sloc='cloc $(git ls-files)'
-alias c='code'
 alias vim='nvim'
 alias newvim='nvim $(fzf)'
 alias cat='bat --theme="Visual Studio Dark+"'
@@ -114,7 +120,3 @@ alias python='python3'
 alias nb='jupyter notebook --port=9000 --notebook-dir=${HOME}/code'
 alias lab='jupyter lab --port=9000 --notebook-dir=${HOME}/code'
 alias del_ds_files='find . -name ".DS_Store" -type f -delete'
-rst() {
-  cd
-  cl
-}

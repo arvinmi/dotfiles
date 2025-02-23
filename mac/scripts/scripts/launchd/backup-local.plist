@@ -6,7 +6,7 @@
     <string>com.backup-local.script</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/kofa/dotfiles/scripts/backup_local.sh</string>
+        <string>/Users/kofa/dotfiles/mac/scripts/scripts/backup_local.sh</string>
     </array>
     <key>StartCalendarInterval</key>
     <array>

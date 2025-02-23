@@ -6,7 +6,7 @@
     <string>com.backups.script</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/kofa/dotfiles/scripts/backups.sh</string>
+        <string>/Users/kofa/dotfiles/mac/scripts/scripts/backups.sh</string>
     </array>
     <key>StartCalendarInterval</key>
     <dict>
