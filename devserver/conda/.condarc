@@ -1,0 +1,8 @@
+channels:
+  - conda-forge
+  - defaults
+# envs_dirs:
+#  - ${HOME}/.conda/envs
+# pkgs_dirs:
+#  - ${HOME}/.conda/pkgs
+channel_priority: strict

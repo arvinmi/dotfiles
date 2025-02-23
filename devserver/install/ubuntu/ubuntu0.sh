@@ -30,7 +30,7 @@ sudo apt install -y build-essential htop fzf git golang pgcli rclone iptables nc
 neofetch neovim fail2ban ranger tree tmux chromium-browser glances kitty gimp vim \
 curl adwaita-icon-theme-full timeshift vorta plocate net-tools gnome-tweaks xterm \
 openssh-server python3-pip python3-venv nodejs npm logisim trash-cli gdb clang \
-llvm valgrind btop
+llvm valgrind btop stow
 # if neccessary
 # sudo apt-get install -y timeshift vorta
 # remove stock software 
@@ -75,7 +75,7 @@ echo "install tpm"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # stow devserver files
-for file in "bash" "redshift" "xresources" "kitty"; do
+for file in "bash" "redshift" "xresources" "kitty" "conda"; do
   stow --verbose --target="$HOME" --dir="devserver" --restow "$file"
 done
 

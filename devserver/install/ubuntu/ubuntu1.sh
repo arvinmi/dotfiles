@@ -28,7 +28,7 @@ echo "* install/remove packages *"
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install -y i3 ristretto xfce4-screenshooter nitrogen xcursor-themes xclip \
 xautolock gedit pnmixer xfce4-notifyd xfce4-volumed curl redshift tmux xfce4-power-manager \
-kitty glances htop neofetch fzf plocate xterm thunar trash-cli gdb
+kitty glances htop neofetch fzf plocate xterm thunar trash-cli gdb stow
 sudo apt-get remove dunst
 # if neccessary
 # sudo apt-get install -y timeshift docker.io
@@ -60,7 +60,7 @@ echo "install miniconda"
 # sudo ufw allow ssh
 
 # stow devserver files
-for file in "bash" "i3" "redshift" "kitty"; do
+for file in "bash" "i3" "redshift" "kitty" "conda"; do
   stow --verbose --target="$HOME" --dir="devserver" --restow "$file"
 done
 
