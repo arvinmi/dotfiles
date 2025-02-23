@@ -1,6 +1,6 @@
 # Mac system settings keyboard shortcuts
 # cmd + shift - a : open mission control
-# cmd + shift - e : open desktop
+# alt + shift - e : open desktop
 
 cmd + shift - j : open -na "Ghostty"
 cmd + shift - 1 : open -na "1password"

@@ -1,23 +1,67 @@
+[user]
+    name = arvinmi
+    email = 64492021+arvinmi@users.noreply.github.com
+    signingkey = 89808D7989F8D87E
+
 [commit]
     gpgSign = true
+
+[core]
+    pager = delta
+    excludesfile = ~/dotfiles/mac/git/.gitignore
+
+[color]
+    ui = true
+
+[help]
+    autocorrect = 3
+
+[delta]
+    side-by-side = true
+    navigate = true
 
 [gpg]
     program = /opt/homebrew/bin/gpg
 
+[mergetool "nvim"]
+    cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+
+[merge]
+    tool = nvim
+    log = true
+    conflictstyle = zdiff3
+
+[mergetool]
+    prompt = false
+
 [init]
     defaultBranch = main
 
-[user]
-    name = arvinmi
-    email = 64492021+arvinmi@users.noreply.github.com
-    signingkey = F437D62EB26F22049C3EFD9089808D7989F8D87E
-
 [push]
-    autoSetupRemote = true
     default = current
+    autoSetupRemote = true
 
-[alias]
-    undo = reset --soft HEAD^
+[pull]
+    default = current
+    rebase = false
+
+[fetch]
+    prune = true
+
+[hub]
+    protocol = ssh
+
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+
+[credential]
+    helper = store
+
+[submodule]
+    recurse = true
+
+[rerere]
+    enabled = true
 
 [filter "lfs"]
     required = true
@@ -25,15 +69,17 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
 
-[core]
-    pager = delta
+# [includeIf "gitdir:~/code/orgs/chromium/"]
+    # path = ~/code/orgs/chromium/.gitconfig
 
-[delta]
-    side-by-side = true
-    navigate = true
-    
-# [includeIf "gitdir:~/fun/chromium/"]
-    # path = ~/fun/chromium/.gitconfig
-
-[credential]
-    helper = store
+[alias]
+    co = checkout
+    st = status
+    rh = reset --hard
+    amend = commit --amend -C HEAD
+    undo = reset --soft HEAD^
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    url = !sh -c 'git remote get-url origin | sed "s#git@github.com:#https://github.com/#" | tee /dev/tty | pbcopy'
+    gone = "!f() { git fetch --all --prune; git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; }; f"
+    conflict = "!f() { git diff --name-only --diff-filter=U | xargs code; }; f"

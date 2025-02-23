@@ -24,7 +24,7 @@ vim.opt.relativenumber = false
 -- set absolute line numbers for current line
 vim.opt.number = true
 -- set relative line numbers
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 -- set width for numbers
 vim.opt.numberwidth = 1
 -- keep content on top left when splitting

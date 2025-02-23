@@ -74,7 +74,7 @@ rst() {
   cl
 }
 
-# tmux on reload
+# tmux reload
 tma() {
   if command -v tmux &> /dev/null && [[ -z "$TMUX" ]]; then
     tmux attach -t default || tmux new -s default
