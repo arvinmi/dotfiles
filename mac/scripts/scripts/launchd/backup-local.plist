@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.backup-local.script</string>
+    <string>com.user.backuplocal</string>
     <key>ProgramArguments</key>
     <array>
         <string>/Users/kofa/dotfiles/mac/scripts/scripts/backup_local.sh</string>

@@ -130,12 +130,16 @@ tmux source-file ~/.tmux.conf
 # LAUNCHD START
 chmod +x "${HOME}/dotfiles/mac/scripts/scripts/backups.sh"
 chmod +x "${HOME}/dotfiles/mac/scripts/scripts/backup_local.sh"
+chmod +x "${HOME}/dotfiles/mac/scripts/scripts/sleep_block.sh"
 chmod 644 ~/Library/LaunchAgents/backups.plist
 chmod 644 ~/Library/LaunchAgents/backup-local.plist
+chmod 644 ~/Library/LaunchAgents/sleep-block.plist
 launchctl load "${HOME}/Library/LaunchAgents/backups.plist"
 launchctl load "${HOME}/Library/LaunchAgents/backup-local.plist"
-# launchctl list | grep com.backups.script
-# launchctl list | grep com.backup-local.script
+launchctl load "${HOME}/Library/LaunchAgents/sleep-block.plist"
+# launchctl list | grep com.user.backups
+# launchctl list | grep com.user.backuplocal
+# launchctl list | grep com.user.sleepblock
 
 # SKHD START
 chmod +x "${HOME}/dotfiles/mac/scripts/scripts/open_iterm2.sh"

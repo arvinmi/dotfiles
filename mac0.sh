@@ -48,3 +48,4 @@ done
 # Copy launchd files
 cp -v "mac/scripts/scripts/launchd/backups.plist" "$HOME/Library/LaunchAgents/"
 cp -v "mac/scripts/scripts/launchd/backup-local.plist" "$HOME/Library/LaunchAgents/"
+cp -v "mac/scripts/scripts/launchd/sleep-block.plist" "$HOME/Library/LaunchAgents/"

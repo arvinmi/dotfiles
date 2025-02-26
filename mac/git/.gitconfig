@@ -10,18 +10,27 @@
     pager = delta
     excludesfile = ~/dotfiles/mac/git/.gitignore
 
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    side-by-side = true
+    navigate = true
+    file-style = bold yellow
+    syntax-theme =  Visual Studio Dark+
+    dark = true
+    hunk-header-style = omit
+    hunk-header-decoration-style = "underline"
+    hyperlinks = true
+
+[gpg]
+    program = /opt/homebrew/bin/gpg
+
 [color]
     ui = true
 
 [help]
     autocorrect = 3
-
-[delta]
-    side-by-side = true
-    navigate = true
-
-[gpg]
-    program = /opt/homebrew/bin/gpg
 
 [mergetool "nvim"]
     cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"

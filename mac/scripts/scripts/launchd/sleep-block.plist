@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.user.backups</string>
+    <string>com.user.sleepblock</string>
+
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/kofa/dotfiles/mac/scripts/scripts/backups.sh</string>
+        <string>/bin/bash</string>
+        <string>/Users/kofa/dotfiles/mac/scripts/scripts/sleep_block.sh</string>
     </array>
-    <key>StartCalendarInterval</key>
-    <dict>
-        <key>Hour</key>
-        <integer>18</integer>
-        <key>Minute</key>
-        <integer>0</integer>
-    </dict>
+
+    <key>StartInterval</key>
+    <integer>30</integer> <!-- run every min -->
+
     <key>RunAtLoad</key>
     <true/>
+
     <key>KeepAlive</key>
-    <true/>
+    <false/>
 </dict>
 </plist>

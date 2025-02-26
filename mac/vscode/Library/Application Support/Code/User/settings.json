@@ -26,13 +26,18 @@
   "cursor.composer.renderPillsInsteadOfBlocks": true,
   "cursor.composer.collapsePaneInputBoxPills": true,
   "cursor.cmdk.useThemedDiffBackground": true,
+  "cursor.terminal.usePreviewBox": true,
+  "cursor.aipreview.enabled": true,
   // font
   "editor.fontFamily": "Menlo, monospace",
-  "editor.fontSize": 14,
+  "editor.fontSize": 13,
   "editor.lineHeight": 1.6,
   "chat.editor.fontSize": 13,
   "terminal.integrated.fontFamily": "Geist Mono",
   "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontLigatures": true,
+  "terminal.integrated.initialHint": false,
+  "terminal.integrated.suggest.enabled": true,
   // cursor
   "editor.cursorBlinking": "solid",
   // window
@@ -61,7 +66,7 @@
   "editor.trimAutoWhitespace": false,
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": true,
-  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
   "editor.stickyScroll.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "workbench.editor.decorations.colors": false,
@@ -231,6 +236,7 @@
   "github.copilot.chat.edits.codesearch.enabled": true,
   "github.copilot.chat.edits.temporalContext.enabled": true,
   "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
+  "github.copilot.chat.copilotDebugCommand.enabled": false,
   "[cpp]": {
     "editor.wordBasedSuggestions": "off",
     "editor.suggest.insertMode": "replace",
@@ -253,14 +259,11 @@
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
   "ruff.nativeServer": "on",
-  "ruff.showNotifications": "onError",
+  // "ruff.showNotifications": "onError",
   "ruff.format.preview": true,
   "ruff.lineLength": 120,
   "ruff.lint.preview": true,
-  "ruff.configuration": "",
-  "ruff.format.args": ["--config=${HOME}/dotfiles/config/langs/ruff.toml"],
-  "ruff.lint.args": ["--config=${HOME}/dotfiles/config/langs/ruff.toml"],
-  "ruff.lint.run": "onSave",
+  "ruff.configuration": "~/dotfiles/common/langs/ruff.toml",
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
@@ -370,5 +373,7 @@
     "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "workbench.activityBar.location": "hidden"
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  }
 }

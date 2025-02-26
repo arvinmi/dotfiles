@@ -105,7 +105,8 @@
   // chat stuff
   {
     "key": "cmd+k",
-    "command": "inlineChat.start"
+    "command": "inlineChat.start",
+    "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
   },
   {
     "key": "cmd+i",
@@ -122,6 +123,19 @@
   {
     "key": "shift+cmd+k",
     "command": "cursorai.action.generateInTerminal"
+  },
+  {
+    "key": "shift+cmd+i",
+    "command": "workbench.panel.composerViewPane2"
+  },
+  {
+    "key": "shift+cmd+l",
+    "command": "workbench.panel.aichat"
+  },
+  {
+    "key": "shift+cmd+u",
+    "command": "workbench.panel.chat",
+    "when": "workbench.panel.chat.view.copilot.active"
   },
   // editor splitting
   {
