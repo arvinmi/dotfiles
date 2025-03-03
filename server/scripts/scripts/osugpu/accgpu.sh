@@ -2,7 +2,7 @@
 
 # detect the current submit node
 SUBMIT_NODE=$(hostname)
-SBATCH_SCRIPT="${HOME}/dotfiles/scripts/cluster/osugpu/startgpu.sbatch"
+SBATCH_SCRIPT="${HOME}/dotfiles/server/scripts/scripts/osugpu/startgpu.sbatch"
 ONID="mirtoraa"
 # change this if port can't be used
 JUPYTER_PORT=8096

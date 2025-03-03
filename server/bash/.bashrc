@@ -43,7 +43,10 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # for cs 340
-# alias forever='./node_modules/forever/bin/forever'
+alias forever='./node_modules/forever/bin/forever'
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # this loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # this loads nvm bash_completion
 
 # ==============================================================================
 # Shell Options
@@ -76,7 +79,7 @@ alias la='ls -la'
 alias ll='ls -lh'
 alias sloc='cloc $(git ls-files)'
 alias vi='/usr/bin/vim'
-alias vim='nvim'
+# alias vim='nvim'
 alias newvim='vim $(fzf)'
 alias cl='clear'
 
@@ -94,8 +97,8 @@ alias gc='git checkout'
 # osugpu
 alias sing='singularity'
 # alias modu='module load python3/3.10 anaconda/2023.03 cuda/12.2 gcc/12.2 llvm-clang/14.0.0 git/2.32'
-alias gpu='sh ${HOME}/dotfiles/server/scripts/osugpu/accgpu.sh'
-alias gpulong='sh ${HOME}/dotfiles/server/scripts/osugpu/accgpulong.sh'
+alias gpu='sh ${HOME}/dotfiles/server/scripts/scripts/osugpu/accgpu.sh'
+alias gpulong='sh ${HOME}/dotfiles/server/scripts/scripts/osugpu/accgpulong.sh'
 
 # other
 # alias clang++='clang++ -Weverything
