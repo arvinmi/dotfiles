@@ -150,33 +150,43 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- setup
+-- setup plugins
 require("lazy").setup({
 	-- color theme
+	-- {
+	-- 	"ellisonleao/gruvbox.nvim",
+	-- 	priority = 1000,
+	-- 	config = true,
+	-- 	config = function()
+	-- 		require("gruvbox").setup({
+	-- 			inverse = true,
+	-- 			contrast = "soft",
+	-- 			undercurl = false,
+	-- 			underline = false,
+	-- 			bold = false,
+	-- 			italic = {
+	-- 				strings = false,
+	-- 				emphasis = false,
+	-- 				comments = false,
+	-- 				folds = false,
+	-- 			},
+	-- 			strikethrough = false,
+	-- 			invert_signs = false,
+	-- 			invert_tabline = false,
+	-- 			invert_intend_guides = false,
+	-- 		})
+	-- 		vim.cmd("colorscheme gruvbox")
+	-- 		vim.cmd("highlight SpellBad cterm=underline gui=underline")
+	-- 	end,
+	-- },
+
 	{
-		"ellisonleao/gruvbox.nvim",
+		"catppuccin/nvim",
+		lazy = false,
+		name = "catppuccin",
 		priority = 1000,
-		config = true,
 		config = function()
-			require("gruvbox").setup({
-				inverse = true,
-				contrast = "soft",
-				undercurl = false,
-				underline = false,
-				bold = false,
-				italic = {
-					strings = false,
-					emphasis = false,
-					comments = false,
-					folds = false,
-				},
-				strikethrough = false,
-				invert_signs = false,
-				invert_tabline = false,
-				invert_intend_guides = false,
-			})
-			vim.cmd("colorscheme gruvbox")
-			vim.cmd("highlight SpellBad cterm=underline gui=underline")
+			vim.cmd.colorscheme "catppuccin-mocha"
 		end,
 	},
 
@@ -185,33 +195,49 @@ require("lazy").setup({
 		"nvim-lualine/lualine.nvim",
 		opts = {
 			options = {
-				icons_enabled = false,
+				icons_enabled = true,
 				theme = "auto",
-				-- component_separators = "|",
-				-- section_separators = "",
-				component_separators = { left = "", right = "" },
-				section_separators = { left = "", right = "" },
+				component_separators = { left = "", right = "" },
+				section_separators = { left = "", right = "" },
 				disabled_filetypes = {
 					statusline = {},
 					winbar = {},
+				},
+				ignore_focus = {},
+				always_divide_middle = true,
+				globalstatus = true,
+				refresh = {
+					statusline = 100,
+					tabline = 100,
+					winbar = 100,
 				},
 			},
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = { "branch", "diff", "diagnostics" },
 				lualine_c = { { "filename", path = 1 } },
-				lualine_x = { "encoding", "filetype" },
+				lualine_x = {}, -- "encoding", "filetype"
 				lualine_y = { "progress" },
 				lualine_z = { "location" },
 			},
 			inactive_sections = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = { { "filename", path = 1 } },
+				lualine_c = {}, -- { "filename", path = 1 },
 				lualine_x = { "location" },
 				lualine_y = {},
 				lualine_z = {},
 			},
+			tabline = {},
+			winbar = {
+				lualine_a = {},
+				lualine_b = { { "filename", path = 1 } },
+				lualine_c = {},
+				lualine_x = { "searchcount", "encoding", "diagnostics" },
+				lualine_y = { "filetype" },
+				lualine_z = {},
+			},
+			inactive_winbar = {},
 			extensions = {},
 		},
 	},
@@ -221,6 +247,30 @@ require("lazy").setup({
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
 		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+
+	-- neotree file sidebar/popup
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
+		config = function()
+			-- for revealing the Neotree to the left
+			vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal float<CR>', {})
+			vim.keymap.set('n', '<C-b>', ':Neotree filesystem reveal right<CR>', {})
+		end,
+	},
+	
+	-- neotree file icons
+	{
+		"nvim-tree/nvim-web-devicons",
+		config = function()
+			require("nvim-web-devicons").get_icon(filename, extension, options)
+		end,
 	},
 
 	-- auto adjust tabstop to current file
@@ -249,7 +299,14 @@ require("lazy").setup({
 	{
 		"notjedi/nvim-rooter.lua",
 		config = function()
-			require("nvim-rooter").setup()
+			require("nvim-rooter").setup({
+				-- only change root when manually triggered
+				manual = true,
+				-- only treat .git as root marker
+				patterns = { ".git" },
+				-- use lcd instead of cd to change directory only for current window
+				cd_command = "lcd",
+			})
 		end,
 	},
 
@@ -285,6 +342,8 @@ require("lazy").setup({
 	-- markdown preview
 	{
 		"iamcco/markdown-preview.nvim",
+		-- lazy load markdown preview only for markdown files
+		lazy = true,
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown" },
 		build = function()
@@ -294,24 +353,27 @@ require("lazy").setup({
 
 	-- snippet manager
 	-- NOTE: must run `pip3 install pynvim`
-	{
-		"SirVer/ultisnips",
-		dependencies = {
-			"quangnguyen30192/cmp-nvim-ultisnips",
-		},
-		config = function()
-			-- set snippets directory
-			vim.g.UltiSnipsSnippetDirectories = { "UltiSnips", "${HOME}/.config/nvim/UltiSnips/" }
-			vim.g["UltiSnipsSnippetDirectories"] = { "~/.config/nvim/UltiSnips" }
-			vim.g["UltiSnipsExpandTrigger"] = "<tab>"
-			vim.g["UltiSnipsJumpForwardTrigger"] = "<tab>"
-			vim.g["UltiSnipsJumpBackwardTrigger"] = "<s-tab>"
-		end,
-	},
+	-- TODO: fix UltiSnips (main cause of initial insert mode lag)
+	-- {
+	-- 	"SirVer/ultisnips",
+	-- 	dependencies = {
+	-- 		"quangnguyen30192/cmp-nvim-ultisnips",
+	-- 	},
+	-- 	config = function()
+	-- 		-- set snippets directory
+	-- 		vim.g.UltiSnipsSnippetDirectories = { "UltiSnips", "${HOME}/.config/nvim/UltiSnips/" }
+	-- 		vim.g["UltiSnipsSnippetDirectories"] = { "~/.config/nvim/UltiSnips" }
+	-- 		vim.g["UltiSnipsExpandTrigger"] = "<tab>"
+	-- 		vim.g["UltiSnipsJumpForwardTrigger"] = "<tab>"
+	-- 		vim.g["UltiSnipsJumpBackwardTrigger"] = "<s-tab>"
+	-- 	end,
+	-- },
 
 	-- lua snippet manager and template library
 	{
 		"L3MON4D3/LuaSnip",
+		-- lazy load snippets only when entering insert mode
+		event = "InsertEnter",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 			"saadparwaiz1/cmp_luasnip",
@@ -321,21 +383,33 @@ require("lazy").setup({
 	-- LSP code and snippets completion
 	{
 		"hrsh7th/nvim-cmp",
+		-- lazy load completion only when entering insert mode
+		event = "InsertEnter",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
+			"saadparwaiz1/cmp_luasnip",
+			"quangnguyen30192/cmp-nvim-ultisnips",
 		},
 		config = function()
-			local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
-			local cmp = require("cmp")
 
 			-- lua snippet manager
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
+			
 			require("luasnip.loaders.from_vscode").lazy_load()
-			luasnip.config.setup({})
-
+			
 			cmp.setup({
+				-- perf settings
+				performance = {
+					-- reduce processing frequency
+					debounce = 150,
+					-- limit updates per second
+					throttle = 60,
+					-- timeout for completion
+					fetching_timeout = 200,
+				},
+				preselect = cmp.PreselectMode.None,
 				snippet = {
 					-- Required by UltiSnips
 					expand = function(args)
@@ -343,7 +417,10 @@ require("lazy").setup({
 						luasnip.lsp_expand(args.body)
 					end,
 				},
-
+				completion = {
+					-- start completion after 2 chars
+					keyword_length = 2,
+				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -354,44 +431,30 @@ require("lazy").setup({
 						behavior = cmp.ConfirmBehavior.Replace,
 						select = true,
 					}),
-					-- TODO change tab complete
-					-- tab and shift-tab for placeholder in luasnips and UltiSnips
-					-- ["<Tab>"] = cmp.mapping(function(fallback)
-					--     if cmp.visible() then
-					--         cmp.select_next_item()
-					--     elseif luasnip.expand_or_locally_jumpable() then
-					--         luasnip.expand_or_jump()
-					--     elseif vim.fn["UltiSnips#CanJumpForwards"] then
-					--         return vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-R>=UltiSnips#JumpForwards()<CR>', true, true, true), '')
-					--     else
-					--         fallback()
-					--     end
-					-- end, { "i", "s" }),
-					-- ["<S-Tab>"] = cmp.mapping(function(fallback)
-					--     if cmp.visible() then
-					--         cmp.select_prev_item()
-					--     elseif luasnip.locally_jumpable(-1) then
-					--         luasnip.jump(-1)
-					--     elseif vim.fn["UltiSnips#CanJumpBackwards"] then
-					--         return vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-R>=UltiSnips#JumpBackwards()<CR>', true, true, true), '')
-					--     else
-					--         fallback()
-					--     end
-					-- end, { "i", "s" }),
+					["<Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_next_item()
+						elseif luasnip.expand_or_locally_jumpable() then
+							luasnip.expand_or_jump()
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
+					["<S-Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_prev_item()
+						elseif luasnip.locally_jumpable(-1) then
+							luasnip.jump(-1)
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
 				}),
-
+				-- Enable paths completion
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "path" },
-					{ name = "ultisnips" },
-					{ name = "luasnip" },
-				}),
-			})
-
-			-- Enable paths completion
-			cmp.setup.cmdline(":", {
-				sources = cmp.config.sources({
-					{ name = "path" },
+					{ name = "nvim_lsp", max_item_count = 10 },
+					{ name = "luasnip", max_item_count = 5 },
+					{ name = "path", max_item_count = 5 },
 				}),
 			})
 		end,
@@ -400,16 +463,40 @@ require("lazy").setup({
 	-- LSP
 	{
 		"neovim/nvim-lspconfig",
+		-- lazy load LSP only when opening a file with LSP support
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			-- LSP manager
-			{ "williamboman/mason.nvim", config = true },
-			"williamboman/mason-lspconfig.nvim",
+			{
+				"williamboman/mason.nvim",
+				cmd = "Mason",
+				config = function()
+					require("mason").setup({
+						ui = {
+							icons = {
+								package_installed = "✓",
+								package_pending = "➜",
+								package_uninstalled = "✗"
+							}
+						}
+					})
+				end
+			},
 			-- LSP extension for lua API
+			{
+				"williamboman/mason-lspconfig.nvim",
+				config = function()
+					require("mason-lspconfig").setup({
+						ensure_installed = { "lua_ls" },
+						automatic_installation = true,
+					})
+				end
+			},
 			"folke/neodev.nvim",
 		},
 		config = function()
 			local lspconfig = require("lspconfig")
-
+			
 			local on_attach =
 				function(_, bufnr)
 					local nmap = function(keys, func, desc)
@@ -515,7 +602,23 @@ require("lazy").setup({
 			})
 		end,
 	},
-}, {})
+}, {
+	-- added perf settings for lazy.nvim
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"gzip",
+				"matchit",
+				"matchparen",
+				"netrwPlugin",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
+		},
+	},
+})
 
 -------------------------------------------------------------------------------
 --

@@ -1,7 +1,7 @@
 {
   // general config
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.colorTheme": "GitHub Dark Default",
   "editor.accessibilitySupport": "off",
   "update.mode": "start",
   "files.autoSave": "afterDelay",
@@ -45,6 +45,7 @@
   "window.zoomLevel": 0.2,
   "window.commandCenter": false,
   "workbench.layoutControl.enabled": false, // hides little squares on top right of the window
+  "workbench.editor.showTabs": "single",
   // minimap
   "editor.minimap.autohide": true,
   "editor.minimap.enabled": true,
@@ -170,7 +171,7 @@
     "editor.defaultFormatter": "vscode.css-language-features"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
@@ -200,6 +201,8 @@
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "editor.pasteAs.preferences": ["markdown.link"],
+  "markdown.updateLinksOnFileMove.enabled": "prompt",
   /*
     "java.configuration.runtimes": [
         {

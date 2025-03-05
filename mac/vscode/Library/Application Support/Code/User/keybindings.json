@@ -13,10 +13,6 @@
     "command": "workbench.action.toggleActivityBarVisibility"
   },
   {
-    "key": "cmd+shift+l",
-    "command": "workbench.action.toggleAuxiliaryBar"
-  },
-  {
     "key": "shift+cmd+e",
     "command": "workbench.view.explorer",
     "when": "viewContainer.workbench.view.explorer.enabled"
@@ -109,28 +105,42 @@
     "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
   },
   {
-    "key": "cmd+i",
-    "command": "-inlineChat.start"
-  },
-  {
-    "key": "cmd+l",
-    "command": "-workbench.action.chat.openInSidebar"
-  },
-  {
-    "key": "cmd+l",
-    "command": "-aichat.newchataction"
+    "key": "cmd+k",
+    "command": "-cursorai.action.generateInTerminal",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
   {
     "key": "shift+cmd+k",
-    "command": "cursorai.action.generateInTerminal"
+    "command": "cursorai.action.generateInTerminal",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
   {
-    "key": "shift+cmd+i",
-    "command": "workbench.panel.composerViewPane2"
+    "key": "cmd+l",
+    "command": "aichat.newchataction"
   },
   {
-    "key": "shift+cmd+l",
-    "command": "workbench.panel.aichat"
+    "key": "cmd+i",
+    "command": "composer.startComposerPrompt"
+  },
+  {
+    "key": "alt+shift+n",
+    "command": "editor.action.inlineDiffs.rejectPartialEdit",
+    "when": "editorTextFocus && (arbitrary function)"
+  },
+  {
+    "key": "cmd+n",
+    "command": "-editor.action.inlineDiffs.rejectPartialEdit",
+    "when": "editorTextFocus && (arbitrary function)"
+  },
+  {
+    "key": "alt+shift+y",
+    "command": "editor.action.inlineDiffs.acceptPartialEdit",
+    "when": "editorTextFocus && (arbitrary function)"
+  },
+  {
+    "key": "cmd+y",
+    "command": "-editor.action.inlineDiffs.acceptPartialEdit",
+    "when": "editorTextFocus && (arbitrary function)"
   },
   {
     "key": "shift+cmd+u",
@@ -189,16 +199,6 @@
   },
   // panel
   {
-    "key": "alt+u",
-    "command": "workbench.action.output.toggleOutput",
-    "when": "terminalFocus || editorFocus || panelFocus"
-  },
-  {
-    "key": "shift+cmd+u",
-    "command": "-workbench.action.output.toggleOutput",
-    "when": "workbench.panel.output.active"
-  },
-  {
     "key": "alt+m",
     "command": "workbench.actions.view.problems",
     "when": "workbench.panel.markers.view.active"
@@ -217,11 +217,6 @@
     "key": "shift+cmd+y",
     "command": "-workbench.debug.action.toggleRepl",
     "when": "workbench.panel.repl.view.active"
-  },
-  {
-    "key": "cmd+shift+u",
-    "command": "-workbench.panel.chat",
-    "when": "workbench.panel.chat.view.copilot.active"
   },
   {
     "key": "cmd+ctrl+i",
@@ -258,5 +253,35 @@
   {
     "key": "cmd+0",
     "command": "workbench.action.zoomReset"
+  },
+  {
+    "key": "alt+b",
+    "command": "markdown.extension.editing.toggleBold",
+    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+  },
+  {
+    "key": "cmd+b",
+    "command": "-markdown.extension.editing.toggleBold",
+    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+  },
+  {
+    "key": "alt+j",
+    "command": "markdown.extension.editing.toggleItalic",
+    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+  },
+  {
+    "key": "cmd+i",
+    "command": "-markdown.extension.editing.toggleItalic",
+    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+  },
+  {
+    "key": "alt+m",
+    "command": "markdown.extension.editing.toggleMath",
+    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+  },
+  {
+    "key": "cmd+m",
+    "command": "-markdown.extension.editing.toggleMath",
+    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
   }
 ]
