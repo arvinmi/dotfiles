@@ -1,4 +1,4 @@
--- config from kickstart.nvim, jonhoo, mitchellh
+-- config from kickstart.nvim, jonhoo, mitchellh, sumitdotml
 
 -- set leader
 vim.g.mapleader = " "
