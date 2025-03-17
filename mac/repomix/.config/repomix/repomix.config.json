@@ -1,0 +1,32 @@
+{
+  "output": {
+    "filePath": "repomix-output.xml",
+    "style": "xml",
+    "removeEmptyLines": true,
+    "copyToClipboard": true,
+    "fileSummary": true,
+    "directoryStructure": true,
+    "showLineNumbers": false
+  },
+  "include": ["**/*.py", "**/*.c", "**/*.cpp", "**/*.ts", "**/*.js"],
+  "ignore": {
+    "useGitignore": true,
+    "useDefaultPatterns": true,
+    "customPatterns": [
+      "node_modules/**",
+      "package-lock.json",
+      "yarn.lock",
+      ".history/**",
+      "dist/**",
+      "build/**",
+      "*.log",
+      ".DS_Store"
+    ]
+  },
+  "tokenCount": {
+    "encoding": "o200k_base"
+  },
+  "security": {
+    "enableSecurityCheck": true
+  }
+}

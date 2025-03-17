@@ -50,7 +50,7 @@
       "int" : 0
     },
     "cycleSizesIsChanged" : {
-      "bool" : false
+      "bool" : true
     },
     "disabledApps" : {
       "string" : "[\"com.install4j.9968-4488-2169-7623.18\"]"
@@ -104,7 +104,7 @@
       "int" : 0
     },
     "landscapeSnapAreas" : {
-      "string" : "null"
+      "string" : "[2,{\"action\":2},3,{\"action\":16},5,{\"compound\":-3},7,{\"compound\":-4},6,{\"action\":13},8,{\"action\":14},1,{\"action\":15},4,{\"compound\":-2}]"
     },
     "launchOnLogin" : {
       "bool" : true
@@ -164,7 +164,7 @@
       "bool" : false
     },
     "selectedCycleSizes" : {
-      "int" : 0
+      "int" : 31
     },
     "shortEdgeSnapAreaSize" : {
       "float" : 145
@@ -215,10 +215,10 @@
       "int" : 2
     },
     "todoApplication" : {
-
+      "string" : "com.todoist.mac.Todoist"
     },
     "todoMode" : {
-      "bool" : false
+      "bool" : true
     },
     "todoSidebarSide" : {
       "int" : 1
@@ -330,5 +330,5 @@
       "modifierFlags" : 1572864
     }
   },
-  "version" : "89"
+  "version" : "92"
 }

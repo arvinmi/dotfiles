@@ -1,7 +1,7 @@
 {
   // general config
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.colorTheme": "GitHub Dark",
   "editor.accessibilitySupport": "off",
   "update.mode": "start",
   "files.autoSave": "afterDelay",
@@ -28,6 +28,7 @@
   "cursor.cmdk.useThemedDiffBackground": true,
   "cursor.terminal.usePreviewBox": true,
   "cursor.aipreview.enabled": true,
+  "update.releaseTrack": "prerelease",
   // font
   "editor.fontFamily": "Menlo, monospace",
   "editor.fontSize": 13,
@@ -37,7 +38,6 @@
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontLigatures": true,
   "terminal.integrated.initialHint": false,
-  "terminal.integrated.suggest.enabled": true,
   // cursor
   "editor.cursorBlinking": "solid",
   // window
@@ -69,11 +69,11 @@
   "editor.guides.bracketPairs": true,
   "editor.formatOnSave": true,
   "editor.stickyScroll.enabled": true,
-  "diffEditor.ignoreTrimWhitespace": false,
   "workbench.editor.decorations.colors": false,
   "workbench.editorAssociations": {
     "*.png": "imagePreview.previewEditor"
   },
+  "workbench.secondarySideBar.showLabels": false,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "editor.fontVariations": false,
   "notebook.lineNumbers": "on",
@@ -199,7 +199,8 @@
       "comments": false,
       "strings": false
     },
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "diffEditor.ignoreTrimWhitespace": true
   },
   "editor.pasteAs.preferences": ["markdown.link"],
   "markdown.updateLinksOnFileMove.enabled": "prompt",
@@ -235,11 +236,15 @@
     "yaml": false,
     "cpp": true
   },
+  "chat.commandCenter.enabled": false,
   "github.copilot.chat.followUps": "always",
   "github.copilot.chat.edits.codesearch.enabled": true,
   "github.copilot.chat.edits.temporalContext.enabled": true,
   "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
-  "github.copilot.chat.copilotDebugCommand.enabled": false,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.editor.temporalContext.enabled": true,
+  "roo-cline.allowedCommands": ["npm test", "git log", "git diff", "git show"],
   "[cpp]": {
     "editor.wordBasedSuggestions": "off",
     "editor.suggest.insertMode": "replace",
@@ -377,6 +382,10 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "diffEditor.ignoreTrimWhitespace": true,
+  "[dockercompose]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   }
 }

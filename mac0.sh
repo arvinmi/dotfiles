@@ -41,7 +41,7 @@ for file in "vim" "nvim" "tmux"; do
 done
 
 # Stow mac files
-for file in "brew" "conda" "cursor" "ghostty" "git" "scripts" "skhd" "ssh" "vscode" "zsh"; do
+for file in "brew" "conda" "cursor" "ghostty" "git" "scripts" "skhd" "ssh" "vscode" "zsh" "repomix"; do
   stow --verbose --target="$HOME" --dir="mac" --restow "$file"
 done
 

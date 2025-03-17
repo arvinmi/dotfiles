@@ -5,6 +5,9 @@
 # plugins
 # eval $(thefuck --alias fix)
 
+# fix ghostty terminfo (for now)
+export TERM=xterm-256color
+
 # sdkman
 source "/Users/$USER/.sdkman/bin/sdkman-init.sh"
 
@@ -93,10 +96,9 @@ alias sloc='cloc $(git ls-files)'
 alias vim='nvim'
 alias newvim='nvim $(fzf)'
 alias cat='bat --theme="Visual Studio Dark+"'
-# alias cl='clear'
-# clear for ghostty
-alias cl='printf "\033[H\033[2J"'
-alias clear='printf "\033[H\033[2J"'
+alias cu="open $1 -a \"Cursor\""
+alias v="open $1 -a \"Visual Studio Code\""
+alias cl='clear'
 
 # git
 alias gs='git status'
