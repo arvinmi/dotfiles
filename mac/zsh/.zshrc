@@ -99,6 +99,7 @@ alias cat='bat --theme="Visual Studio Dark+"'
 alias cu="open $1 -a \"Cursor\""
 alias v="open $1 -a \"Visual Studio Code\""
 alias cl='clear'
+alias lazygit='lg'
 
 # git
 alias gs='git status'
