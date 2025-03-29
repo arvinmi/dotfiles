@@ -24,7 +24,6 @@
   // cursor config
   "cursor.diffs.useCharacterLevelDiffs": true,
   "cursor.composer.renderPillsInsteadOfBlocks": true,
-  "cursor.composer.collapsePaneInputBoxPills": true,
   "cursor.cmdk.useThemedDiffBackground": true,
   "cursor.terminal.usePreviewBox": true,
   "cursor.aipreview.enabled": true,
@@ -69,6 +68,7 @@
   "editor.guides.bracketPairs": true,
   "editor.formatOnSave": true,
   "editor.stickyScroll.enabled": true,
+  "editor.inlineSuggest.edits.showCollapsed": true,
   "workbench.editor.decorations.colors": false,
   "workbench.editorAssociations": {
     "*.png": "imagePreview.previewEditor"
@@ -238,12 +238,16 @@
   },
   "chat.commandCenter.enabled": false,
   "github.copilot.chat.followUps": "always",
-  "github.copilot.chat.edits.codesearch.enabled": true,
   "github.copilot.chat.edits.temporalContext.enabled": true,
   "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
   "github.copilot.nextEditSuggestions.enabled": true,
   "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.chat.editor.temporalContext.enabled": true,
+  // "github.copilot.chat.codeGeneration.instructions": [
+  //   {
+  //     "text": "be very direct. be very concrete. when i ask questions, make me really understand first principle why something works like it does. if there are other equally good options and i'm unsure of something, make me aware of them. end with an interesting detail that can help me fundamentally understand the foundations behind the question i'm asking, so i really grok the intuition behind anything i ask. bias towards showing me in tiny reproductions or outputs to really make me understand what i'm trying to understand. for example when explaining sinusoidal embeddings in diffusion, show the embeddings instead of talking about them. ask clarifying questions when you're unsure. i love learning, explanations, education, and insights. when you have an opportunity to be educational, or to provide an interesting insight or a connection or an analogy, please take it."
+  //   }
+  // ],
   "roo-cline.allowedCommands": ["npm test", "git log", "git diff", "git show"],
   "[cpp]": {
     "editor.wordBasedSuggestions": "off",

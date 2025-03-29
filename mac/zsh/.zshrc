@@ -51,6 +51,9 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # chromium build tools
 export PATH="$PATH:/Users/$USER/build/depot_tools"
 
+# lm studio cli (lms)
+export PATH="$PATH:/Users/kofa/.lmstudio/bin"
+
 #-------------------------------------------------------------------------------
 # Shell Options
 #-------------------------------------------------------------------------------

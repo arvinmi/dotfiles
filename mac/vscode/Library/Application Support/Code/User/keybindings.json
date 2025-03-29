@@ -120,7 +120,7 @@
   },
   {
     "key": "cmd+i",
-    "command": "composer.startComposerPrompt"
+    "command": "-composer.startComposerPrompt"
   },
   {
     "key": "alt+shift+n",
