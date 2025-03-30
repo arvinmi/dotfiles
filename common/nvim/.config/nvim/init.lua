@@ -426,13 +426,84 @@ require("lazy").setup({
   {
     "iamcco/markdown-preview.nvim",
     -- lazy load markdown preview only for markdown files
-    lazy = true,
+    lazy = false,
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
     build = function()
       vim.fn["mkdp#util#install"]()
     end,
   },
+  
+  -- LLM integration with dingllm.nvim
+  -- {
+  --   'yacineMTB/dingllm.nvim',
+  --   dependencies = { 'nvim-lua/plenary.nvim' },
+  --   config = function()
+  --     local system_prompt =
+  --       'You should replace the code that you are sent, only following the comments. Do not talk at all. Only output valid code. Do not provide any backticks that surround the code. Never ever output backticks like this ```. Any comment that is asking you for something should be removed after you satisfy them. Other comments should left alone. Do not output backticks'
+  --     local helpful_prompt = 'You are a helpful assistant. What I have sent are my notes so far.'
+  --     local dingllm = require 'dingllm'
+
+  --     -- function to handle openrouter api responses
+  --     local function handle_open_router_spec_data(data_stream)
+  --       local success, json = pcall(vim.json.decode, data_stream)
+  --       if success then
+  --         if json.choices and json.choices[1] and json.choices[1].text then
+  --           local content = json.choices[1].text
+  --           if content then
+  --             dingllm.write_string_at_cursor(content)
+  --           end
+  --         end
+  --       else
+  --         print("non json " .. data_stream)
+  --       end
+  --     end
+
+  --     -- custom function for openrouter api requests
+  --     local function custom_make_openai_spec_curl_args(opts, prompt)
+  --       local url = opts.url
+  --       local api_key = opts.api_key_name and os.getenv(opts.api_key_name)
+  --       local data = {
+  --         prompt = prompt,
+  --         model = opts.model,
+  --         temperature = 0.7,
+  --         stream = true,
+  --       }
+  --       local args = { '-N', '-X', 'POST', '-H', 'Content-Type: application/json', '-d', vim.json.encode(data) }
+  --       if api_key then
+  --         table.insert(args, '-H')
+  --         table.insert(args, 'Authorization: Bearer ' .. api_key)
+  --       end
+  --       table.insert(args, url)
+  --       return args
+  --     end
+
+  --     -- openrouter llm functions
+  --     local function openrouter_help()
+  --       dingllm.invoke_llm_and_stream_into_editor({
+  --         url = 'https://openrouter.ai/api/v1/chat/completions',
+  --         model = 'deepseek/deepseek-chat-v3-0324:free',
+  --         api_key_name = 'OPENROUTER_API_KEY',
+  --         system_prompt = helpful_prompt,
+  --         replace = false,
+  --       }, custom_make_openai_spec_curl_args, handle_open_router_spec_data)
+  --     end
+
+  --     local function openrouter_replace()
+  --       dingllm.invoke_llm_and_stream_into_editor({
+  --         url = 'https://openrouter.ai/api/v1/chat/completions',
+  --         model = 'deepseek/deepseek-chat-v3-0324:free',
+  --         api_key_name = 'OPENROUTER_API_KEY',
+  --         system_prompt = system_prompt,
+  --         replace = true,
+  --       }, custom_make_openai_spec_curl_args, handle_open_router_spec_data)
+  --     end
+      
+  --     -- keymaps for llm functions for openrouter
+  --     vim.keymap.set({ 'n', 'v' }, '<leader>oi', openrouter_replace, { desc = 'LLM replace with llm' })
+  --     vim.keymap.set({ 'n', 'v' }, '<leader>oI', openrouter_help, { desc = 'LLM help with llm' })
+  --   end,
+  -- },
 
   -- github copilot
   {
