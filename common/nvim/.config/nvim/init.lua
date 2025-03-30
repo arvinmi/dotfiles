@@ -5,9 +5,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -------------------------------------------------------------------------------
---
 -- General settings
---
 -------------------------------------------------------------------------------
 
 -- set tabs
@@ -19,8 +17,6 @@ vim.opt.expandtab = true
 vim.opt.updatetime = 250
 -- line wrap
 vim.opt.wrap = true
--- great relative line numbers
-vim.opt.relativenumber = false
 -- set absolute line numbers for current line
 vim.opt.number = true
 -- set relative line numbers
@@ -91,9 +87,7 @@ vim.opt.spelllang = "en_us"
 vim.opt.spell = true
 
 -------------------------------------------------------------------------------
---
 -- Hotkeys
---
 -------------------------------------------------------------------------------
 
 -- quickly open files
@@ -131,9 +125,7 @@ vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 
 -------------------------------------------------------------------------------
---
 -- Plugins
---
 -------------------------------------------------------------------------------
 
 -- grab lazy
@@ -246,7 +238,13 @@ require("lazy").setup({
   {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require('telescope').setup {}
+      local builtin = require('telescope.builtin')
+      vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = 'Find Files' })
+      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch [G]rep' })
+    end,
   },
 
   -- neotree file sidebar/popup
@@ -313,10 +311,27 @@ require("lazy").setup({
     main = "ibl",
     opts = {},
   },
+  
+  -- highlight todo, notes in comments
+  { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = { signs = false } },
 
-  -- comment lines out using `gc` in visual mode
-  -- or `gcc` in normal mode
-  { "numToStr/Comment.nvim", opts = {} },
+  -- comment lines out using `gc` for inline or `gb` for block in visual mode
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup({
+        toggler = { line = 'gc' },
+        opleader = { line = 'gc' },
+        -- set commentstring for c/cpp to use `//`
+        pre_hook = function(ctx)
+          local ft = vim.bo.filetype
+          if ft == "c" or ft == "cpp" then
+            return "// %s"
+          end
+        end,
+      })
+    end,
+  },
 
   -- auto cd to root of git project
   {
@@ -339,16 +354,6 @@ require("lazy").setup({
 	--     config = function()
 	-- 	    require("leap").create_default_mappings()
 	--     end
-	-- },
-
-	-- TODO auto save in nvim
-	-- {
-	--     "okuuva/auto-save.nvim",
-	--     cmd = "ASToggle",
-	--     event = { "InsertLeave", "TextChanged" },
-	--     opts = {
-	--         debounce_delay = 3000,
-	--     }
 	-- },
 
 	-- TODO obsidian in nvim
@@ -412,36 +417,17 @@ require("lazy").setup({
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
-      "quangnguyen30192/cmp-nvim-ultisnips",
     },
     config = function()
       -- lua snippet manager
       local cmp = require("cmp")
       local luasnip = require("luasnip")
-
+      
       require("luasnip.loaders.from_vscode").lazy_load()
-
+      
       cmp.setup({
-        -- perf settings
-        performance = {
-          -- reduce processing frequency
-          debounce = 150,
-          -- limit updates per second
-          throttle = 60,
-          -- timeout for completion
-          fetching_timeout = 200,
-        },
-        preselect = cmp.PreselectMode.None,
         snippet = {
-          -- Required by UltiSnips
-          expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body)
-            luasnip.lsp_expand(args.body)
-          end,
-        },
-        completion = {
-          -- start completion after 2 chars
-          keyword_length = 2,
+          expand = function(args) luasnip.lsp_expand(args.body) end,
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -472,7 +458,7 @@ require("lazy").setup({
             end
           end, { "i", "s" }),
         }),
-        -- Enable paths completion
+        -- enable paths completion
         sources = cmp.config.sources({
           { name = "nvim_lsp", max_item_count = 10 },
           { name = "luasnip", max_item_count = 5 },
@@ -489,127 +475,107 @@ require("lazy").setup({
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       -- LSP manager
-      {
-        "williamboman/mason.nvim",
-        cmd = "Mason",
-        config = function()
-          require("mason").setup({
-            ui = {
-              icons = {
-                package_installed = "✓",
-                package_pending = "➜",
-                package_uninstalled = "✗"
-              }
-            }
-          })
-        end
-      },
-      -- LSP extension for lua API
-      {
-        "williamboman/mason-lspconfig.nvim",
-        config = function()
-          require("mason-lspconfig").setup({
-            ensure_installed = { "lua_ls" },
-            automatic_installation = true,
-          })
-        end
-      },
-      "folke/neodev.nvim",
+      { "williamboman/mason.nvim", opts = {} },
+      -- LSP extension for lua api
+      "williamboman/mason-lspconfig.nvim",
+      "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
       local lspconfig = require("lspconfig")
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      local on_attach = function(_, bufnr)
-        local nmap = function(keys, func, desc)
-          vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
-        end
-
-        nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-        nmap("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-        nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-				-- nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-					-- nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace 
-        nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-        nmap("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-        nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
-        nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
-        nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
-				-- nmap("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-        nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-        nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-      end
-
-      -- LSP manager setup
-      require("mason").setup()
-
-      -- Configure lua_ls as an example (add more LSPs as needed)
-      lspconfig.lua_ls.setup {
-        on_attach = on_attach,
+      -- set LSP servers
+      local servers = {
+        -- set python, c/cpp, lua, js/ts, html, css, go, rust, bash, json
+        pyright = {},
+        clangd = {},
+        lua_ls = {
+          settings = { Lua = { diagnostics = { globals = { 'vim' } } } },
+        },
+        ts_ls = {},
+        html = {},
+        cssls = {},
+        -- gopls = {},
+        rust_analyzer = {},
+        bashls = {},
+        jsonls = {},
       }
 
-		-- TODO auto install LSPs
-			-- require("mason-lspconfig").setup({
-			--     ensure_installed = { "lua_ls", "clangd", "pyright", "tsserver", "jdtls" },
-			-- })
-			-- local servers = {
-			--     lua_ls = {
-			--         Lua = {
-			--             workspace = { checkThirdParty = false },
-			--             telemetry = { enable = false },
-			--         },
-			--     },
-			--     clangd = {},
-			--     pyright = {}, -- add '~/.config/pycodestyle' to disable warnings
-			--     tsserver = {},
-			--     jdtls = {},
-			-- }
-			-- C/CPP LSP
-			-- lspconfig.clangd.setup {
-			--     on_attach = on_attach,
-			-- }
-			-- Python
-			-- lspconfig.pyright.setup {
-			--     on_attach = on_attach,
-			-- }
-			-- local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-			-- local mason_lspconfig = require("mason-lspconfig")
-
-			-- mason_lspconfig.setup_handlers({
-			--     function(server_name)
-			--         require("lspconfig")[server_name].setup({
-			--             capabilities = capabilities,
-			--             on_attach = on_attach,
-			--             settings = servers[server_name],
-			--         })
-			--     end,
-			-- })
-
-      -- autoformatters for lua, python, c/cpp, typescript, markdown
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        pattern = { "*.lua", "*.py", "*.cpp", "*.hpp", "*.c", "*.h", "*.ts", "*.md" },
-        callback = function()
-          -- check if LSP is attached and able to format current buffer
-          if #vim.lsp.buf_get_clients() > 0 then
-            vim.lsp.buf.format({ async = false })
-          else
-            -- fallback to external formatters if LSP not available
-            local file_ext = vim.fn.expand("%:e")
-            if file_ext == "cpp" or file_ext == "hpp" or file_ext == "c" or file_ext == "h" then
-              vim.cmd("silent! %!clang-format -style=file:${HOME}/Documents/config/dotfiles/config/langs/clang-format")
-            elseif file_ext == "py" then
-              vim.cmd("silent! %!black -q -")
-            elseif file_ext == "ts" then
-              vim.cmd("silent! %!prettier --write --parser typescript")
-            elseif file_ext == "lua" then
-              vim.cmd("silent! %!stylua -")
-            elseif file_ext == "md" then
-              vim.cmd("silent! %!prettier --write --parser markdown")
-            end
-          end
-        end,
-      })
+      -- setup mason to install all servers
+      require("mason-lspconfig").setup {
+        ensure_installed = vim.tbl_keys(servers),
+        handlers = {
+          function(server_name)
+            lspconfig[server_name].setup {
+              capabilities = capabilities,
+              on_attach = function(_, bufnr)
+                local nmap = function(keys, func, desc)
+                  vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
+                end
+                nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+                nmap("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+                nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+                nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+                nmap("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+                nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
+                nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
+                nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
+                nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+                nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+              end,
+            }
+          end,
+        },
+      }
     end,
   },
+
+  -- set autoformatting
+  {
+    "stevearc/conform.nvim",
+    dependencies = { "mason.nvim" },
+    event = { "BufWritePre" },
+    opts = {
+      formatters_by_ft = {
+        python = { "ruff" },
+        cpp = { "clang_format" },
+        c = { "clang_format" },
+        lua = { "stylua" },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        html = { "prettier" },
+        css = { "prettier" },
+        json = { "prettier" },
+        -- go = { "gofmt" },
+        rust = { "rustfmt" },
+        -- bash = { "shfmt" },
+        -- disable markdown
+        markdown = {},
+      },
+      format_on_save = {
+        timeout_ms = 500,
+        -- use only conform formatters, not LSP
+        lsp_fallback = false,
+      },
+      formatters = {
+        ruff = {
+          command = "ruff",
+          args = { "format", "--config", vim.fn.expand("~/dotfiles/common/langs/ruff.toml"), "--stdin-filename", "$FILENAME", "-" },
+        },
+        clang_format = {
+          command = "clang-format",
+          args = { "--style=file:" .. vim.fn.expand("~/dotfiles/common/langs/clang-format") },
+          stdin = true,
+          fallback_style = "LLVM",
+        },
+        stylua = { command = "stylua" },
+        prettier = { command = "prettier", args = { "--write", "$FILENAME" } },
+      },
+    },
+  },
+
+  -- set treesitter for better syntax highlighting
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 }, {
   -- added perf settings for lazy.nvim
   performance = {
@@ -629,9 +595,7 @@ require("lazy").setup({
 })
 
 -------------------------------------------------------------------------------
---
 -- Global Mappings
---
 -------------------------------------------------------------------------------
 
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })

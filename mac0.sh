@@ -49,4 +49,4 @@ done
 cp -v "mac/scripts/scripts/launchd/backups.plist" "$HOME/Library/LaunchAgents/"
 cp -v "mac/scripts/scripts/launchd/backup-local.plist" "$HOME/Library/LaunchAgents/"
 cp -v "mac/scripts/scripts/launchd/sleep-block.plist" "$HOME/Library/LaunchAgents/"
-cp -v "mac/keyboard/Library/Keyboard Layouts/Arvinmi.keylayout" "$HOME/Library/Keyboard Layouts/"
+cp -v "mac/keyboard/Library/Keyboard Layouts/Qworak.keylayout" "$HOME/Library/Keyboard Layouts/"
