@@ -136,7 +136,7 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable",
     lazypath,
   })
 end
@@ -240,7 +240,27 @@ require("lazy").setup({
     branch = "0.1.x",
     dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
     config = function()
-      require('telescope').setup {}
+      require('telescope').setup {
+        defaults = {
+          mappings = {
+            i = {
+              ["<C-u>"] = false,
+              ["<C-d>"] = false,
+            },
+          },
+        },
+        pickers = {
+          find_files = {
+            hidden = true,
+            no_ignore = true,
+            file_ignore_patterns = {
+              "DS_Store",
+              "thumbs.db",
+              ".history",
+            },
+          },
+        },
+      }
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = 'Find Files' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch [G]rep' })
@@ -257,6 +277,24 @@ require("lazy").setup({
       "MunifTanjim/nui.nvim",
     },
     config = function()
+      require("neo-tree").setup({
+        filesystem = {
+          filtered_items = {
+            -- show hidden files by default
+            visible = true,
+            hide_dotfiles = false,
+            hide_gitignored = false,
+            hide_by_name = {
+              -- "node_modules",
+            },
+            never_show = {
+              ".DS_Store",
+              "thumbs.db",
+              ".history",
+            },
+          },
+        },
+      })
       -- for revealing the Neotree to the left
       vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal float<CR>', {})
       vim.keymap.set('n', '<C-b>', ':Neotree filesystem reveal right<CR>', {})
@@ -276,6 +314,7 @@ require("lazy").setup({
 
   -- git commands inside nvim
   { "tpope/vim-fugitive" },
+
   -- extension for fugitive.vim
   { "tpope/vim-rhubarb" },
 
@@ -311,11 +350,26 @@ require("lazy").setup({
     main = "ibl",
     opts = {},
   },
-  
-  -- highlight todo, notes in comments
-  { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = { signs = false } },
 
-  -- comment lines out using `gc` for inline or `gb` for block in visual mode
+  -- highlight todo, notes in comments
+  { 
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = { 
+      signs = false,
+      keywords = {
+        TODO = { color = "info" },
+      },
+      colors = {
+        info = { "#ffa500" },
+      },
+    },
+  },
+  
+  -- use wakatime for time tracking projects
+  { 'wakatime/vim-wakatime', lazy = false },
+
+  -- comment lines out using `gc` for inline or `gb` for block 
   {
     "numToStr/Comment.nvim",
     config = function()
@@ -348,7 +402,7 @@ require("lazy").setup({
     end,
   },
 	
-	-- TODO quick navigation
+	-- TODO:quick navigation
 	-- {
 	--     "ggandor/leap.nvim",
 	--     config = function()
@@ -356,7 +410,7 @@ require("lazy").setup({
 	--     end
 	-- },
 
-	-- TODO obsidian in nvim
+	-- TODO: obsidian in nvim
 	-- {
 	--     "epwalsh/obsidian.nvim",
 	--     config = function()
@@ -368,6 +422,7 @@ require("lazy").setup({
 	-- },
 
   -- markdown preview
+  -- needs to run `:call mkdp#util#install()`
   {
     "iamcco/markdown-preview.nvim",
     -- lazy load markdown preview only for markdown files
@@ -377,6 +432,11 @@ require("lazy").setup({
     build = function()
       vim.fn["mkdp#util#install"]()
     end,
+  },
+
+  -- github copilot
+  {
+    "github/copilot.vim",
   },
 	
 	-- snippet manager
@@ -407,8 +467,32 @@ require("lazy").setup({
       "saadparwaiz1/cmp_luasnip",
     },
   },
+  
+  -- TODO: Figure out if want to use Blink or nvim-cmp for LSP completions 
+  -- LSP code and snippets completion (using Blink)
+  {
+    "saghen/blink.cmp",
+    dependencies = "rafamadriz/friendly-snippets",
+    version = '1.*',
+    opts = {
+      keymap = { preset = 'default' },
+  
+      appearance = {
+        use_nvim_cmp_as_default = true,
+        nerd_font_variant = 'mono'
+      },
 
-  -- LSP code and snippets completion
+      completion = { documentation = { auto_show = false } },
+      sources = {
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
+      },
+      fuzzy = { implementation = "prefer_rust_with_warning" },
+      signature = { enabled = true },
+    },
+    opts_extend = { "sources.default" }
+  },
+
+  -- LSP code and snippets completion (using nvim-cmp)
   {
     "hrsh7th/nvim-cmp",
     -- lazy load completion only when entering insert mode
@@ -475,18 +559,22 @@ require("lazy").setup({
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       -- LSP manager
-      { "williamboman/mason.nvim", opts = {} },
+      { "williamboman/mason.nvim", lazy = false, opts = {} },
       -- LSP extension for lua api
       "williamboman/mason-lspconfig.nvim",
-      "hrsh7th/cmp-nvim-lsp",
+      -- TODO: disabled nvim-cmp for now, using Blink instead
+      -- "hrsh7th/cmp-nvim-lsp",
+      "saghen/blink.cmp",
     },
     config = function()
       local lspconfig = require("lspconfig")
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      -- TODO: disable nvim-cmp for now, using Blink instead
+      -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       -- set LSP servers
       local servers = {
-        -- set python, c/cpp, lua, js/ts, html, css, go, rust, bash, json
+        -- set python, c/cpp, lua, js/ts, html, css, rust, bash, json
         pyright = {},
         clangd = {},
         lua_ls = {

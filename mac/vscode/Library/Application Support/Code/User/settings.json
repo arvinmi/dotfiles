@@ -231,10 +231,8 @@
   "github.copilot.enable": {
     "*": true,
     "plaintext": false,
-    "markdown": true,
-    "scminput": false,
-    "yaml": false,
-    "cpp": true
+    "markdown": false,
+    "scminput": false
   },
   "chat.commandCenter.enabled": false,
   "github.copilot.chat.followUps": "always",
