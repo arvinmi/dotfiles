@@ -1,7 +1,6 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
-
-<!--Last edited by Ukelele version 415 on 2025-03-29 at 01:23 (PDT)-->
+<!--Last edited by Ukelele version 415 on 2025-03-31 at 15:38 (PDT)-->
 <keyboard group="126" id="-31592" name="Qworak" maxout="1">
     <layouts>
         <layout first="0" last="17" mapSet="164" modifiers="ec"/>
@@ -53,7 +52,7 @@
             <key code="15" output="r"/>
             <key code="16" output="y"/>
             <key code="17" output="t"/>
-            <key code="18" output="+"/>
+            <key code="18" output="$"/>
             <key code="19" output="["/>
             <key code="20" output="{"/>
             <key code="21" output="("/>
@@ -85,7 +84,7 @@
             <key code="47" output="."/>
             <key code="48" output="&#x0009;"/>
             <key code="49" output=" "/>
-            <key code="50" output="$"/>
+            <key code="50" output="+"/>
             <key code="51" output="&#x0008;"/>
             <key code="52" output="&#x0003;"/>
             <key code="53" output="&#x001B;"/>
