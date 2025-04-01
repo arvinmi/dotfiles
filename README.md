@@ -53,7 +53,7 @@ I am using a modified QWERTY layout (inspired by ThePrimeagen).
 ### Preview
 
 Base layer:
-![](key-shift.jpg)
+![](key.jpg)
 
 Shift layer:
-![](key.jpg)
+![](key-shift.jpg)
