@@ -32,8 +32,3 @@ x.com###react-root > div.css-175oi2r.r-13awgt0.r-12vffkv > div.css-175oi2r.r-13a
 
 ! 2025-02-25 https://*
 x.com###react-root > div.css-175oi2r.r-13awgt0.r-12vffkv > div.css-175oi2r.r-13awgt0.r-12vffkv > div.css-175oi2r.r-1f2l425.r-13qz1uu.r-417010.r-18u37iz:last-child > main.css-175oi2r.r-16y2uox.r-1wbh5a2.r-1habvwh:last-child > div.css-175oi2r.r-150rngu.r-16y2uox.r-1wbh5a2.r-113js5t > div.css-175oi2r.r-aqfbo4.r-16y2uox > div.css-175oi2r.r-1oszu61.r-1niwhzg.r-18u37iz.r-16y2uox.r-2llsf.r-13qz1uu.r-1wtj0ep > div.css-175oi2r.r-kemksi.r-1kqtdi0.r-1ua6aaf.r-th6na.r-1phboty.r-16y2uox.r-184en5c.r-1abdc3e.r-1lg4w6u.r-f8sm7e.r-13qz1uu.r-1ye8kvj:first-child > div.css-175oi2r > div.css-175oi2r.r-f8sm7e.r-13qz1uu.r-1ye8kvj:last-child > section.css-175oi2r > div.css-175oi2r:last-child
-||reddit.com/r/MouseReview^$document
-||macrumors.com^$document
-||theverge.com^$document
-||instagram.com^$document
-
