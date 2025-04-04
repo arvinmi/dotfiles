@@ -1,8 +1,8 @@
 {
   // general config
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "GitHub Dark",
   "editor.accessibilitySupport": "off",
+  "workbench.colorTheme": "GitHub Dark",
   "update.mode": "start",
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 500,
