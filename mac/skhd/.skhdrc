@@ -2,7 +2,7 @@
 # cmd + shift - a : open mission control
 # alt + shift - e : open desktop
 
-cmd + shift - k : open -na "Ghostty"
+cmd + shift - m : open -na "Ghostty"
 cmd + shift - 1 : open -na "1password"
 cmd + shift - b : open -na "google chrome"
 

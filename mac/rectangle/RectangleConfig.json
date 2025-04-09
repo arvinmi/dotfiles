@@ -230,7 +230,7 @@
       "int" : 0
     },
     "unsnapRestore" : {
-      "int" : 2
+      "int" : 1
     },
     "windowSnapping" : {
       "int" : 1
