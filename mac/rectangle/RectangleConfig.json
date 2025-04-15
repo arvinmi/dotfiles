@@ -230,7 +230,7 @@
       "int" : 0
     },
     "unsnapRestore" : {
-      "int" : 1
+      "int" : 2
     },
     "windowSnapping" : {
       "int" : 1
@@ -330,5 +330,5 @@
       "modifierFlags" : 1572864
     }
   },
-  "version" : "92"
+  "version" : "93"
 }

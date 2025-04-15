@@ -18,6 +18,7 @@
   "workbench.list.smoothScrolling": true,
   "workbench.settings.applyToAllProfiles": [],
   "window.autoDetectHighContrast": false,
+  "workbench.activityBar.location": "hidden",
   "arduino.useArduinoCli": true,
   "vim.vimrc.enable": true,
   "vim.vimrc.path": "$HOME/dotfiles/common/vim/.vimrc",
@@ -29,7 +30,7 @@
   "cursor.aipreview.enabled": true,
   "update.releaseTrack": "prerelease",
   // font
-  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontFamily": "Menlo, monospace",
   "editor.fontSize": 13,
   "editor.lineHeight": 1.6,
   "editor.lineNumbers": "relative",
@@ -45,7 +46,6 @@
   "window.zoomLevel": 0.2,
   "window.commandCenter": false,
   "workbench.layoutControl.enabled": false,
-  "workbench.activityBar.location": "hidden",
   // minimap
   "editor.minimap.autohide": true,
   "editor.minimap.enabled": true,
@@ -62,6 +62,7 @@
   "editor.fontLigatures": false,
   "editor.smoothScrolling": true,
   "editor.suggestSelection": "first",
+  "editor.inlineSuggest.edits.allowCodeShifting": "never",
   // "editor.renderWhitespace": "all",
   "editor.tabCompletion": "on",
   "editor.trimAutoWhitespace": false,
@@ -69,7 +70,6 @@
   "editor.guides.bracketPairs": true,
   "editor.formatOnSave": true,
   "editor.stickyScroll.enabled": true,
-  "editor.inlineSuggest.edits.showCollapsed": true,
   "workbench.editor.decorations.colors": false,
   "workbench.editorAssociations": {
     "*.copilotmd": "vscode.markdown.preview.editor",
@@ -244,7 +244,6 @@
   "github.copilot.chat.followUps": "always",
   "github.copilot.chat.edits.temporalContext.enabled": true,
   "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
-  "github.copilot.nextEditSuggestions.enabled": true,
   "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.chat.editor.temporalContext.enabled": true,
   // "github.copilot.chat.codeGeneration.instructions": [
@@ -294,6 +293,7 @@
     "editor.defaultFormatter": "James-Yu.latex-workshop"
   },
   "latex-workshop.formatting.latex": "tex-fmt",
+  "latex-workshop.latex.autoBuild.run": "onSave",
   "liveServer.settings.donotShowInfoMsg": true,
   "liveServer.settings.donotVerifyTags": true,
   "liveServer.settings.CustomBrowser": "chrome:PrivateMode",

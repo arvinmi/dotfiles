@@ -31,6 +31,21 @@ a.out*
 *.so
 cmake-build-*/
 
+# Tex
+*.aux
+*.bbl
+*.blg
+*.brf
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.xdv
+
 # packages
 *.dmg
 *.pkg
