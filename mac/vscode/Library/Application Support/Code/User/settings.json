@@ -18,7 +18,6 @@
   "workbench.list.smoothScrolling": true,
   "workbench.settings.applyToAllProfiles": [],
   "window.autoDetectHighContrast": false,
-  "workbench.activityBar.location": "hidden",
   "arduino.useArduinoCli": true,
   "vim.vimrc.enable": true,
   "vim.vimrc.path": "$HOME/dotfiles/common/vim/.vimrc",
@@ -29,6 +28,7 @@
   "cursor.terminal.usePreviewBox": true,
   "cursor.aipreview.enabled": true,
   "update.releaseTrack": "prerelease",
+  "cursor.composer.shouldAllowCustomModes": true,
   // font
   "editor.fontFamily": "Menlo, monospace",
   "editor.fontSize": 13,

@@ -72,6 +72,16 @@
     "key": "shift+alt+f",
     "command": "editor.action.changeAll"
   },
+  {
+    "key": "alt+r",
+    "command": "editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "f2",
+    "command": "-editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+  },
   // formatting and search
   {
     "key": "shift+alt+f",
@@ -116,7 +126,7 @@
   },
   {
     "key": "cmd+l",
-    "command": "aichat.newchataction"
+    "command": "composerMode.chat"
   },
   {
     "key": "cmd+i",

@@ -286,6 +286,8 @@ require("lazy").setup({
     config = function()
       require("neo-tree").setup({
         filesystem = {
+          -- replace netrw with neo-tree in current window
+          hijack_netrw_behavior = "open_current",
           filtered_items = {
             -- show hidden files by default
             visible = true,

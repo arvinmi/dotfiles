@@ -1,6 +1,6 @@
 setName1=Work block
 sites1=macrumors.com/* netflix.com/* primevideo.com/* reddit.com/r/MouseReview/* theverge.com/* twitch.tv/* x.com/home
-times1=0000-1800,1900-2359
+times1=0000-1700,1900-2359
 limitMins1=
 limitPeriod1=
 limitOffset1=
