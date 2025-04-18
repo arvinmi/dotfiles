@@ -54,9 +54,14 @@ export PATH="$PATH:/Users/$USER/build/depot_tools"
 # lm studio cli (lms)
 export PATH="$PATH:/Users/kofa/.lmstudio/bin"
 
+# gpg agent start
+export GPG_TTY=$(tty)
+gpgconf --launch gpg-agent > /dev/null 2>&1
+
 #-------------------------------------------------------------------------------
 # Shell Options
 #-------------------------------------------------------------------------------
+
 export LANG=en_US.UTF-8
 ZSH_DISABLE_COMPFIX="true"
 
@@ -72,11 +77,27 @@ bindkey -s ^f "~/scripts/tmux-sessionizer.sh\n"
 #-------------------------------------------------------------------------------
 # Prompt
 #-------------------------------------------------------------------------------
-PROMPT="%n@%M:%B%F{cyan}%~%f%b$ "
+
+PROMPT="%F{white}%n@%M%f:%B%F{cyan}%~%f%b\$(git_branch) "
 
 #-------------------------------------------------------------------------------
 # Aliases
 #-------------------------------------------------------------------------------
+
+git_branch() {
+  branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+  if [[ -n "$branch" ]]; then
+    git diff --quiet 2>/dev/null
+    if [[ $? -ne 0 ]]; then
+      dirty="%F{yellow}*%f"
+    else
+      dirty=""
+    fi
+    echo " %F{cyan}(%f%F{115}$branch%f$dirty%F{cyan})%f"
+  else
+    echo ""
+  fi
+}
 
 rst() {
   cd
