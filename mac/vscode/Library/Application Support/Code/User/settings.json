@@ -2,7 +2,7 @@
   // general config
   "workbench.startupEditor": "none",
   "editor.accessibilitySupport": "off",
-  "workbench.colorTheme": "Visual Studio Dark",
+  "workbench.colorTheme": "Default Dark Modern",
   "update.mode": "start",
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 500,
@@ -15,7 +15,6 @@
   "explorer.confirmDelete": false,
   "scm.diffDecorations": "all",
   "workbench.tree.indent": 20,
-  "workbench.list.smoothScrolling": true,
   "workbench.settings.applyToAllProfiles": [],
   "window.autoDetectHighContrast": false,
   "arduino.useArduinoCli": true,
@@ -29,12 +28,33 @@
   "cursor.aipreview.enabled": true,
   "update.releaseTrack": "prerelease",
   "cursor.composer.shouldAllowCustomModes": true,
+  "cursor.composer.shouldAutoScrollToBottom": false,
+  "cursor.general.globalCursorIgnoreList": [
+    "**/.env",
+    "**/.env.*",
+    "**/credentials.json",
+    "**/credentials.*.json",
+    "**/secret.json",
+    "**/secrets.json",
+    "**/*.key",
+    "**/*.pem",
+    "**/*.pfx",
+    "**/*.p12",
+    "**/*.crt",
+    "**/*.cer",
+    "**/id_rsa",
+    "**/id_dsa",
+    "**/.ssh/id_*",
+    "**/.history",
+    "**/.history/**"
+  ],
   // font
   "editor.fontFamily": "Menlo, monospace",
   "editor.fontSize": 13,
   "editor.lineHeight": 1.6,
   "editor.lineNumbers": "relative",
   "chat.editor.fontSize": 13,
+  "chat.commandCenter.enabled": false,
   "terminal.integrated.fontFamily": "Geist Mono",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontLigatures": true,
@@ -44,14 +64,10 @@
   // window
   "window.title": "${activeEditorShort}${separator}${rootName}${rootPath}",
   "window.zoomLevel": 0.2,
-  "window.commandCenter": false,
-  "workbench.layoutControl.enabled": false,
   // minimap
   "editor.minimap.autohide": true,
   "editor.minimap.enabled": true,
-  "editor.hideCursorInOverviewRuler": true, // shows minimap only on hover
-  // sidebar
-  "workbench.sideBar.location": "right",
+  "editor.hideCursorInOverviewRuler": true,
   // editor
   "editor.linkedEditing": true,
   "editor.inlineSuggest.enabled": true,
@@ -63,6 +79,8 @@
   "editor.smoothScrolling": true,
   "editor.suggestSelection": "first",
   "editor.inlineSuggest.edits.allowCodeShifting": "never",
+  "editor.inlineSuggest.suppressSuggestions": true,
+  // "editor.glyphMargin": false,
   // "editor.renderWhitespace": "all",
   "editor.tabCompletion": "on",
   "editor.trimAutoWhitespace": false,
@@ -70,18 +88,22 @@
   "editor.guides.bracketPairs": true,
   "editor.formatOnSave": true,
   "editor.stickyScroll.enabled": true,
+  "workbench.sideBar.location": "right",
   "workbench.editor.decorations.colors": false,
   "workbench.editorAssociations": {
     "*.copilotmd": "vscode.markdown.preview.editor",
     "*.png": "imagePreview.previewEditor",
     "*.pdf": "latex-workshop-pdf-hook"
   },
+  "workbench.layoutControl.enabled": false,
   "workbench.secondarySideBar.showLabels": false,
+  "window.commandCenter": false,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "editor.fontVariations": false,
   "notebook.lineNumbers": "on",
   "notebook.compactView": false,
   "workbench.editor.empty.hint": "hidden",
+  "workbench.list.smoothScrolling": true,
   // Disable some editor functions
   /*
     "C_Cpp.autocomplete": "Disabled",
@@ -118,6 +140,7 @@
   // terminal
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.macOptionClickForcesSelection": true,
+  "terminal.integrated.smoothScrolling": true,
   "remote.SSH.configFile": "~/.ssh/config",
   "remote.SSH.showLoginTerminal": true,
   "python.defaultInterpreterPath": "/Users/kofa/miniconda3/envs/base2/bin/python",
@@ -127,8 +150,8 @@
   "workbench.colorCustomizations": {
     "editorCursor.background": "#AEAFAD",
     "editorCursor.foreground": "#AEAFAD",
-    // "statusBar.background": "#161616",
-    // "statusBar.noFolderBackground": "#161616",
+    "statusBar.background": "#1e1e1e",
+    "statusBar.noFolderBackground": "#161616",
     "editorLineNumber.activeForeground": "#c1c0c1",
     "terminal.ansiBlack": "#000000",
     "terminal.ansiRed": "#cf4369",
@@ -239,18 +262,18 @@
     "markdown": true,
     "scminput": false
   },
-  "chat.commandCenter.enabled": false,
   "chat.agent.enabled": true,
   "github.copilot.chat.followUps": "always",
   "github.copilot.chat.edits.temporalContext.enabled": true,
   "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
   "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.chat.editor.temporalContext.enabled": true,
-  // "github.copilot.chat.codeGeneration.instructions": [
-  //   {
-  //     "text": "be very direct. be very concrete. when i ask questions, make me really understand first principle why something works like it does. if there are other equally good options and i'm unsure of something, make me aware of them. end with an interesting detail that can help me fundamentally understand the foundations behind the question i'm asking, so i really grok the intuition behind anything i ask. bias towards showing me in tiny reproductions or outputs to really make me understand what i'm trying to understand. for example when explaining sinusoidal embeddings in diffusion, show the embeddings instead of talking about them. ask clarifying questions when you're unsure. i love learning, explanations, education, and insights. when you have an opportunity to be educational, or to provide an interesting insight or a connection or an analogy, please take it."
-  //   }
-  // ],
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "text": "be very direct. be very concrete. when i ask questions, make me really understand first principle why something works like it does. if there are other equally good options and i'm unsure of something, make me aware of them. end with an interesting detail that can help me fundamentally understand the foundations behind the question i'm asking, so i really grok the intuition behind anything i ask. bias towards showing me in tiny reproductions or outputs to really make me understand what i'm trying to understand. for example when explaining sinusoidal embeddings in diffusion, show the embeddings instead of talking about them. ask clarifying questions when you're unsure. i love learning, explanations, education, and insights. when you have an opportunity to be educational, or to provide an interesting insight, or a connection, or a analogy, please take it. always be verbose and very detailed in your response, don't leave out details. never send me code without an explanation of each line."
+    }
+  ],
   "roo-cline.allowedCommands": ["npm test", "git log", "git diff", "git show"],
   "[cpp]": {
     "editor.wordBasedSuggestions": "off",
@@ -314,11 +337,12 @@
   // "gitlens.ai.experimental.openai.model": "gpt-4-1106-preview",
   "settingsSync.ignoredSettings": ["-window.zoomLevel"],
   "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
     "**/.DS_Store": true,
-    "**/.history": true
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.history": true,
+    "**/.history/**": true,
+    "**/.svn": true
   },
   "search.exclude": {
     "**/.git": true,
@@ -403,7 +427,5 @@
   "[dockercompose]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  }
+  "workbench.activityBar.location": "hidden"
 }

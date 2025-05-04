@@ -65,8 +65,6 @@ gpgconf --launch gpg-agent > /dev/null 2>&1
 export LANG=en_US.UTF-8
 ZSH_DISABLE_COMPFIX="true"
 
-bindkey "\t" end-of-line
-
 # editor
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR="vim"
@@ -86,7 +84,7 @@ PROMPT="%n@%M:%B%F{cyan}%~%f%b$ "
 
 rst() {
   cd
-  cl
+  clear
 }
 
 # load tmux

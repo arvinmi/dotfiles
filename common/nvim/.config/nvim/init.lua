@@ -16,9 +16,9 @@ vim.g.maplocalleader = " "
 -------------------------------------------------------------------------------
 
 -- set tabs
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 -- faster update time
 vim.opt.updatetime = 250
@@ -186,6 +186,20 @@ require("lazy").setup({
     priority = 1000,
     config = function()
       vim.cmd.colorscheme "catppuccin-mocha"
+    end,
+  },
+  
+  {
+    "sonph/onehalf",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- manually add `vim/` subdir to runtime
+      vim.opt.rtp:append(vim.fn.stdpath("data") .. "/lazy/onehalf/vim")
+      vim.cmd("colorscheme onehalfdark")
+      
+      -- set lighter background for completion menu
+      vim.api.nvim_set_hl(0, "Pmenu", { bg = "#3e4452" })
     end,
   },
 
