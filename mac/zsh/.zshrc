@@ -110,6 +110,7 @@ alias cu="open $1 -a \"Cursor\""
 alias v="open $1 -a \"Visual Studio Code\""
 alias cl='clear'
 alias lazygit='lg'
+alias gpg-reset='gpgconf --kill gpg-agent && gpgconf --launch gpg-agent'
 
 # git
 alias gs='git status'

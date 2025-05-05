@@ -1,10 +1,10 @@
 -- config from kickstart.nvim, jonhoo, mitchellh, sumitdotml
 
 if vim.g.vscode then
-  -- VSCode Neovim
+  -- vscode neovim
   require "user.vscode_keymaps"
 else
-  -- Ordinary Neovim
+  -- neovim
 end
 
 -- set leader
@@ -152,56 +152,66 @@ vim.opt.rtp:prepend(lazypath)
 -- setup plugins
 require("lazy").setup({
   -- color theme
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    config = true,
+    config = function()
+      require("gruvbox").setup({
+        inverse = true,
+        contrast = "hard",
+        undercurl = false,
+        underline = false,
+        bold = false,
+        italic = {
+          strings = false,
+          emphasis = false,
+          comments = false,
+          folds = false,
+        },
+        strikethrough = false,
+        invert_signs = false,
+        invert_tabline = false,
+        invert_intend_guides = false,
+      })
+      vim.cmd("colorscheme gruvbox")
+      vim.cmd("highlight SpellBad cterm=underline gui=underline")
+
+      -- set line number and sign column background to dim grey
+      local unified_grey_bg = "#303030"
+      local dimmer_grey_fg = "#928374"
+      vim.api.nvim_set_hl(0, "LineNr", { fg = dimmer_grey_fg, bg = unified_grey_bg })
+      vim.api.nvim_set_hl(0, "SignColumn", { bg = unified_grey_bg })
+    end,
+  },
+
   -- {
-  --   "ellisonleao/gruvbox.nvim",
+  --   "catppuccin/nvim",
+  --   lazy = false,
+  --   name = "catppuccin",
   --   priority = 1000,
-  --   config = true,
   --   config = function()
-  --     require("gruvbox").setup({
-  --       inverse = true,
-  --       contrast = "soft",
-  --       undercurl = false,
-  --       underline = false,
-  --       bold = false,
-  --       italic = {
-  --         strings = false,
-  --         emphasis = false,
-  --         comments = false,
-  --         folds = false,
-  --       },
-  --       strikethrough = false,
-  --       invert_signs = false,
-  --       invert_tabline = false,
-  --       invert_intend_guides = false,
-  --     })
-  --     vim.cmd("colorscheme gruvbox")
-  --     vim.cmd("highlight SpellBad cterm=underline gui=underline")
+  --     vim.cmd.colorscheme "catppuccin-mocha"
   --   end,
   -- },
-
-  {
-    "catppuccin/nvim",
-    lazy = false,
-    name = "catppuccin",
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme "catppuccin-mocha"
-    end,
-  },
   
-  {
-    "sonph/onehalf",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      -- manually add `vim/` subdir to runtime
-      vim.opt.rtp:append(vim.fn.stdpath("data") .. "/lazy/onehalf/vim")
-      vim.cmd("colorscheme onehalfdark")
+  -- {
+  --   "sonph/onehalf",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     -- manually add `vim/` subdir to runtime
+  --     vim.opt.rtp:append(vim.fn.stdpath("data") .. "/lazy/onehalf/vim")
+  --     vim.cmd("colorscheme onehalfdark")
       
-      -- set lighter background for completion menu
-      vim.api.nvim_set_hl(0, "Pmenu", { bg = "#3e4452" })
-    end,
-  },
+  --     -- set lighter background for completions
+  --     vim.api.nvim_set_hl(0, "Pmenu", { bg = "#3e4452" })
+      
+  --     -- set lighter background for which-key
+  --     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#3e4452" })
+  --     vim.api.nvim_set_hl(0, "WhichKeyFloat", { bg = "#3e4452" })
+  --   end,
+  -- },
 
   -- status bar, lualine.nvim
   {
@@ -551,16 +561,16 @@ require("lazy").setup({
 	-- 	end,
 	-- },
 
-  -- lua snippet manager and template library
-  {
-    "L3MON4D3/LuaSnip",
-    -- lazy load snippets only when entering insert mode
-    event = "InsertEnter",
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-      "saadparwaiz1/cmp_luasnip",
-    },
-  },
+  -- lua snippet manager and template library (not using lua snippets for now)
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   -- lazy load snippets only when entering insert mode
+  --   event = "InsertEnter",
+  --   dependencies = {
+  --     "rafamadriz/friendly-snippets",
+  --     "saadparwaiz1/cmp_luasnip",
+  --   },
+  -- },
   
   -- TODO: Figure out if want to use Blink or nvim-cmp for LSP completions 
   -- LSP code and snippets completion (using Blink)
@@ -569,7 +579,7 @@ require("lazy").setup({
     dependencies = "rafamadriz/friendly-snippets",
     version = '1.*',
     opts = {
-      keymap = { preset = 'default' },
+      keymap = { preset = 'enter' },
   
       appearance = {
         use_nvim_cmp_as_default = true,
@@ -586,65 +596,65 @@ require("lazy").setup({
     opts_extend = { "sources.default" }
   },
 
-  -- LSP code and snippets completion (using nvim-cmp)
-  {
-    "hrsh7th/nvim-cmp",
-    -- lazy load completion only when entering insert mode
-    event = "InsertEnter",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-path",
-      "saadparwaiz1/cmp_luasnip",
-    },
-    config = function()
-      -- lua snippet manager
-      local cmp = require("cmp")
-      local luasnip = require("luasnip")
+  -- -- LSP code and snippets completion (not using nvim-cmp for now)
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   -- lazy load completion only when entering insert mode
+  --   event = "InsertEnter",
+  --   dependencies = {
+  --     "hrsh7th/cmp-nvim-lsp",
+  --     "hrsh7th/cmp-path",
+  --     -- "saadparwaiz1/cmp_luasnip",
+  --   },
+  --   config = function()
+  --     -- lua snippet manager
+  --     local cmp = require("cmp")
+  --     -- local luasnip = require("luasnip")
       
-      require("luasnip.loaders.from_vscode").lazy_load()
+  --     -- require("luasnip.loaders.from_vscode").lazy_load()
       
-      cmp.setup({
-        snippet = {
-          expand = function(args) luasnip.lsp_expand(args.body) end,
-        },
-        mapping = cmp.mapping.preset.insert({
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-n>"] = cmp.mapping.select_next_item(),
-          ["<C-p>"] = cmp.mapping.select_prev_item(),
-          ["<C-Space>"] = cmp.mapping.complete({}),
-          ["<CR>"] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-          }),
-          ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif luasnip.expand_or_locally_jumpable() then
-              luasnip.expand_or_jump()
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
-          ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif luasnip.locally_jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
-        }),
-        -- enable paths completion
-        sources = cmp.config.sources({
-          { name = "nvim_lsp", max_item_count = 10 },
-          { name = "luasnip", max_item_count = 5 },
-          { name = "path", max_item_count = 5 },
-        }),
-      })
-    end,
-  },
+  --     cmp.setup({
+  --       -- snippet = {
+  --       --   expand = function(args) luasnip.lsp_expand(args.body) end,
+  --       -- },
+  --       mapping = cmp.mapping.preset.insert({
+  --         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+  --         ["<C-f>"] = cmp.mapping.scroll_docs(4),
+  --         ["<C-n>"] = cmp.mapping.select_next_item(),
+  --         ["<C-p>"] = cmp.mapping.select_prev_item(),
+  --         ["<C-Space>"] = cmp.mapping.complete({}),
+  --         ["<CR>"] = cmp.mapping.confirm({
+  --           behavior = cmp.ConfirmBehavior.Replace,
+  --           select = true,
+  --         }),
+  --         ["<Tab>"] = cmp.mapping(function(fallback)
+  --           if cmp.visible() then
+  --             cmp.select_next_item()
+  --           -- elseif luasnip.expand_or_locally_jumpable() then
+  --           --   luasnip.expand_or_jump()
+  --           else
+  --             fallback()
+  --           end
+  --         end, { "i", "s" }),
+  --         ["<S-Tab>"] = cmp.mapping(function(fallback)
+  --           if cmp.visible() then
+  --             cmp.select_prev_item()
+  --           -- elseif luasnip.locally_jumpable(-1) then
+  --           --   luasnip.jump(-1)
+  --           else
+  --             fallback()
+  --           end
+  --         end, { "i", "s" }),
+  --       }),
+  --       -- enable paths completion
+  --       sources = cmp.config.sources({
+  --         { name = "nvim_lsp", max_item_count = 10 },
+  --         -- { name = "luasnip", max_item_count = 5 },
+  --         { name = "path", max_item_count = 5 },
+  --       }),
+  --     })
+  --   end,
+  -- },
 
   -- LSP
   {
@@ -677,7 +687,8 @@ require("lazy").setup({
         ts_ls = {},
         html = {},
         cssls = {},
-        -- gopls = {},
+        gopls = {},
+        zls = {},
         rust_analyzer = {},
         bashls = {},
         jsonls = {},
