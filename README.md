@@ -19,7 +19,8 @@ sh mac/install/mac1.sh
 ### Mac display resolution settings
 
 ```
-2385 x 1541
+2350 x 1519
+2177 x 1407
 ```
 
 ### Mouse DPI
