@@ -466,7 +466,14 @@ require("lazy").setup({
       vim.fn["mkdp#util#install"]()
     end,
   },
-  
+
+  -- render markdown
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    ft = { "markdown" },
+  },
+
   -- LLM integration with dingllm.nvim
   -- {
   --   'yacineMTB/dingllm.nvim',
