@@ -29,6 +29,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
+# isaac-sim
+export ISAAC_ROS_WS=/home/kofa/workspaces/isaac_ros-dev/
+
 # ==============================================================================
 # Shell Options
 # ==============================================================================
