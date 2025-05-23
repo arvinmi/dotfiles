@@ -12,7 +12,10 @@ HISTSIZE=5000000
 HISTFILESIZE=5000000
 
 # general module load
-module load gcc llvm-clang
+# module load gcc llvm-clang
+
+# cuda module load
+# module load cuda/12.6
 
 # pip and hftransformers cache dir
 export PIP_CACHE_DIR=${HOME}/share/.cache/pip
@@ -20,9 +23,6 @@ export TRANSFORMERS_CACHE=${HOME}/share/.cache/huggingface
 
 # cargo
 #. "$HOME/.cargo/env"
-
-# cuda
-module load cuda/12.6
 
 # anaconda (miniconda)
 #source ~/miniconda3/etc/profile.d/conda.sh
@@ -33,7 +33,7 @@ source /usr/local/apps/anaconda/2024.06/etc/profile.d/conda.sh
 if [[ -z ${CONDA_PREFIX+x} ]]; then
         export PATH="/usr/local/apps/anaconda/2023.03/bin:$PATH"
 fi
-module load anaconda/24.3
+# module load anaconda/24.3
 
 # uv
 export PATH="$HOME/.local/bin:$PATH"
