@@ -32,6 +32,9 @@ export NVM_DIR="$HOME/.nvm"
 # isaac-sim
 export ISAAC_ROS_WS=/home/kofa/workspaces/isaac_ros-dev/
 
+# nvidia cuda-toolkit (nvcc)
+export PATH="/usr/local/cuda-12.8/bin:$PATH"
+
 # ==============================================================================
 # Shell Options
 # ==============================================================================
