@@ -29,6 +29,7 @@ export TRANSFORMERS_CACHE=${HOME}/share/.cache/huggingface
 #if [[ -z ${CONDA_PREFIX+x} ]]; then
 #        export PATH="~/conda/bin:$PATH"
 #fi
+
 source /usr/local/apps/anaconda/2024.06/etc/profile.d/conda.sh
 if [[ -z ${CONDA_PREFIX+x} ]]; then
         export PATH="/usr/local/apps/anaconda/2023.03/bin:$PATH"

@@ -11,6 +11,9 @@ HISTFILESIZE=5000000
 #. "$HOME/.cargo/env"
 # export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 
+# uv
+export PATH="$PATH:/home/kofa/.local/bin"
+
 # miniconda
 source ~/miniconda3/etc/profile.d/conda.sh
 if [[ -z ${CONDA_PREFIX+x} ]]; then
@@ -20,6 +23,17 @@ fi
 # sdkman
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# isaac-sim
+export ISAAC_ROS_WS=/home/kofa/workspaces/isaac_ros-dev/
+
+# nvidia cuda-toolkit (nvcc)
+export PATH="/usr/local/cuda-12.8/bin:$PATH"
 
 # ==============================================================================
 # Shell Options
