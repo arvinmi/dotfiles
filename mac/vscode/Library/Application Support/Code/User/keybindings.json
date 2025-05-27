@@ -111,11 +111,19 @@
   // chat stuff
   {
     "key": "cmd+l",
+    "command": "composerMode.chat"
+  },
+  {
+    "key": "cmd+l",
     "command": "-aichat.newchataction"
   },
   {
     "key": "cmd+l",
-    "command": "composerMode.teach"
+    "command": "workbench.action.toggleAuxiliaryBar"
+  },
+  {
+    "key": "alt+cmd+b",
+    "command": "-workbench.action.toggleAuxiliaryBar"
   },
   {
     "key": "cmd+k",
@@ -142,24 +150,44 @@
     "when": "!chatSetupHidden"
   },
   {
-    "key": "alt+shift+n",
-    "command": "editor.action.inlineDiffs.rejectPartialEdit",
-    "when": "editorTextFocus && (arbitrary function)"
-  },
-  {
-    "key": "cmd+n",
-    "command": "-editor.action.inlineDiffs.rejectPartialEdit",
-    "when": "editorTextFocus && (arbitrary function)"
-  },
-  {
-    "key": "alt+shift+y",
+    "key": "ctrl+y",
     "command": "editor.action.inlineDiffs.acceptPartialEdit",
-    "when": "editorTextFocus && (arbitrary function)"
+    "when": "editorTextFocus && @inlineDiffs.acceptPartialEdit.isActiveEditorWithDiffs"
   },
   {
     "key": "cmd+y",
     "command": "-editor.action.inlineDiffs.acceptPartialEdit",
-    "when": "editorTextFocus && (arbitrary function)"
+    "when": "editorTextFocus && @inlineDiffs.acceptPartialEdit.isActiveEditorWithDiffs"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "editor.action.inlineDiffs.rejectPartialEdit",
+    "when": "editorTextFocus && @inlineDiffs.rejectPartialEdit.isActiveEditorWithDiffs"
+  },
+  {
+    "key": "cmd+n",
+    "command": "-editor.action.inlineDiffs.rejectPartialEdit",
+    "when": "editorTextFocus && @inlineDiffs.rejectPartialEdit.isActiveEditorWithDiffs"
+  },
+  {
+    "key": "ctrl+y",
+    "command": "editor.action.inlineDiffs.acceptPartialEdit",
+    "when": "editorHasPromptBar && editorPromptBarFocused"
+  },
+  {
+    "key": "cmd+y",
+    "command": "-editor.action.inlineDiffs.acceptPartialEdit",
+    "when": "editorHasPromptBar && editorPromptBarFocused"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "editor.action.inlineDiffs.rejectPartialEdit",
+    "when": "editorHasPromptBar && editorPromptBarFocused"
+  },
+  {
+    "key": "cmd+n",
+    "command": "-editor.action.inlineDiffs.rejectPartialEdit",
+    "when": "editorHasPromptBar && editorPromptBarFocused"
   },
   {
     "key": "escape",
@@ -267,11 +295,6 @@
     "key": "shift+cmd+y",
     "command": "-workbench.debug.action.toggleRepl",
     "when": "workbench.panel.repl.view.active"
-  },
-  {
-    "key": "cmd+ctrl+i",
-    "command": "-workbench.panel.chat",
-    "when": "workbench.panel.chat.view.copilot.active"
   },
   // files
   {

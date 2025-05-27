@@ -274,6 +274,8 @@
       "text": "be very direct. be very concrete. when i ask questions, make me really understand first principle why something works like it does. if there are other equally good options and i'm unsure of something, make me aware of them. end with an interesting detail that can help me fundamentally understand the foundations behind the question i'm asking, so i really grok the intuition behind anything i ask. bias towards showing me in tiny reproductions or outputs to really make me understand what i'm trying to understand. for example when explaining sinusoidal embeddings in diffusion, show the embeddings instead of talking about them. ask clarifying questions when you're unsure. i love learning, explanations, education, and insights. when you have an opportunity to be educational, or to provide an interesting insight, or a connection, or a analogy, please take it. always be verbose and very detailed in your response, don't leave out details. never send me code without an explanation of each line."
     }
   ],
+  "github.copilot.chat.search.keywordSuggestions": true,
+  "websearch.preferredEngine": "bing",
   "editor.inlineSuggest.syntaxHighlightingEnabled": false,
   "roo-cline.allowedCommands": ["npm test", "git log", "git diff", "git show"],
   "[cpp]": {
@@ -298,6 +300,7 @@
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
+  "python.REPL.enableREPLSmartSend": false,
   "ruff.nativeServer": "on",
   // "ruff.showNotifications": "onError",
   "ruff.format.preview": true,
@@ -433,6 +436,5 @@
   "diffEditor.ignoreTrimWhitespace": true,
   "[dockercompose]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-  },
-  "workbench.activityBar.location": "hidden"
+  }
 }

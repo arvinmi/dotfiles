@@ -2,9 +2,14 @@
 # cmd + shift - a : open mission control
 # alt + shift - e : open desktop
 
-cmd + shift - m : open -na "Ghostty"
-cmd + shift - 1 : open -na "1password"
-cmd + shift - b : open -na "google chrome"
+alt - c : open -a "google chrome"
+alt - m : open -a "messages"
+alt - g : open -a "ghostty"
+alt - v : open -a "visual studio code"
+alt - d : open -a "discord"
+alt - s : open -a "spotify"
+alt - p : open -a "chatgpt"
+alt - f : open -a "finder"
 
 # L_ctrl + u/o to pageup/pagedown
 # R_cmd + u/o to pageup/pagedown

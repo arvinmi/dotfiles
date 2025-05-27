@@ -1,5 +1,5 @@
 setName1=Work block
-sites1=macrumors.com/* netflix.com/* primevideo.com/* reddit.com/r/MouseReview/* theverge.com/* twitch.tv/* x.com/home
+sites1=bangbros.com/* bangbros.com/* brazzers.com/* brazzers.com/* cam4.com/* cam4.com/* chaturbate.com/* chaturbate.com/* livejasmin.com/* livejasmin.com/* macrumors.com/* myfreecams.com/* myfreecams.com/* naughtyamerica.com/* naughtyamerica.com/* netflix.com/* pornhub.com/* porntube.com/* realitykings.com/* redtube.com/* spankbang.com/* tube8.com/* tushy.com/* vixen.com/* xhamster.com/* xhamsterlive.com/* xnxx.com/* xvideos.com/* youporn.com/*
 times1=0000-1700,1900-2359
 limitMins1=
 limitPeriod1=

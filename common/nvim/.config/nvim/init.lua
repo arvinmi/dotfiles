@@ -82,7 +82,7 @@ vim.opt.scrolloff = 999
 -- vim.opt.foldmethod = "manual"
 -- vim.opt.foldlevelstart = 99
 -- set conceal level for Obsidian.nvim
-vim.o.conceallevel = 1
+vim.o.conceallevel = 0
 -- set diff options
 -- ignore whitespace
 vim.opt.diffopt:append("iwhite")
@@ -130,6 +130,8 @@ vim.keymap.set("n", "<right>", ":bn<cr>")
 -- make j and k move by visual line, not actual line, when text is soft-wrapped
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
+-- set zen mode
+vim.keymap.set("n", "<leader>u", ":ZenMode <CR>", { silent = true })
 
 -------------------------------------------------------------------------------
 -- Plugins
@@ -437,6 +439,43 @@ require("lazy").setup({
       })
     end,
   },
+  
+  -- zen mode
+  {
+    "folke/zen-mode.nvim",
+    opts = {
+        window = {
+            backdrop = 0.1,
+            width = 0.20 * 4,
+            height = 0.18 * 4,
+            options = {
+                signcolumn = "no",
+                number = false,
+                relativenumber = false,
+                cursorline = false,
+                cursorcolumn = false,
+                foldcolumn = "0",
+                list = false,
+            },
+        },
+        plugins = {
+            options = {
+                enabled = true,
+                ruler = false,
+                showcmd = false,
+                laststatus = 0,
+            },
+            twilight = { enabled = true },
+            gitsigns = { enabled = false },
+            tmux = { enabled = true },
+            todo = { enabled = false },
+        },
+        on_open = function(win)
+        end,
+        on_close = function()
+        end,
+    }
+  },
 	
 	-- TODO:quick navigation
 	-- {
@@ -587,18 +626,23 @@ require("lazy").setup({
   {
     "saghen/blink.cmp",
     dependencies = "rafamadriz/friendly-snippets",
-    version = '1.*',
+    version = "1.*",
     opts = {
-      keymap = { preset = 'enter' },
+      keymap = { preset = "enter" },
   
       appearance = {
         use_nvim_cmp_as_default = true,
-        nerd_font_variant = 'mono'
+        nerd_font_variant = "mono",
       },
 
-      completion = { documentation = { auto_show = false } },
+      completion = {
+        documentation = { auto_show = false },
+        menu = {
+          border = "rounded",
+        }
+      },
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
+        default = { "lsp", "path", "snippets", "buffer" },
       },
       fuzzy = { implementation = "prefer_rust_with_warning" },
       signature = { enabled = true },
