@@ -88,7 +88,6 @@
   "editor.guides.bracketPairs": true,
   "editor.formatOnSave": true,
   "editor.stickyScroll.enabled": true,
-  "workbench.sideBar.location": "right",
   "workbench.editor.decorations.colors": false,
   "workbench.editorAssociations": {
     "*.copilotmd": "vscode.markdown.preview.editor",
@@ -422,6 +421,15 @@
   "[c]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "rust-analyzer.inlayHints.chainingHints.enable": false,
+  "rust-analyzer.inlayHints.closingBraceHints.enable": false,
+  "rust-analyzer.inlayHints.genericParameterHints.const.enable": false,
+  "rust-analyzer.inlayHints.parameterHints.enable": false,
+  "rust-analyzer.inlayHints.renderColons": false,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
