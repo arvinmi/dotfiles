@@ -28,7 +28,6 @@
   "cursor.aipreview.enabled": true,
   "update.releaseTrack": "prerelease",
   "cursor.composer.shouldAllowCustomModes": true,
-  "cursor.composer.shouldAutoScrollToBottom": false,
   "cursor.general.globalCursorIgnoreList": [
     "**/.env",
     "**/.env.*",

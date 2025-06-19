@@ -17,7 +17,7 @@ PATH=$(brew --prefix openssh)/bin:$PATH
 # aws
 # export AWS_PROFILE=sandbox
 
-# Homebrew aarch64 & x86
+# brew aarch64 & x86
 export HOMEBREW_BREWFILE=~/Brewfile
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 export PATH="$PATH:/usr/local/sbin"
@@ -38,12 +38,6 @@ fi
 # uv
 export PATH="$HOME/.local/bin:$PATH"
 
-# miniconda
-source ~/miniconda3/etc/profile.d/conda.sh
-if [[ -z ${CONDA_PREFIX+x} ]]; then
-  export PATH="~/conda/bin:$PATH"
-fi
-
 # sdkman
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -57,6 +51,12 @@ export PATH="$PATH:/Users/kofa/.lmstudio/bin"
 # gpg agent start
 export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent > /dev/null 2>&1
+
+# miniconda
+source ~/miniconda3/etc/profile.d/conda.sh
+if [[ -z ${CONDA_PREFIX+x} ]]; then
+  export PATH="~/conda/bin:$PATH"
+fi
 
 #-------------------------------------------------------------------------------
 # Shell Options
