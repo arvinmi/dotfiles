@@ -1,5 +1,5 @@
 setName1=Work Block
-sites1=macrumors.com/* netflix.com/* primevideo.com/* reddit.com/r/MouseReview/* theverge.com/* twitch.tv/* x.com/*
+sites1=+forums.macrumors.com macrumors.com/ netflix.com/* primevideo.com/* reddit.com/r/MouseReview/* theverge.com/* twitch.tv/* x.com/*
 times1=0000-1700,1900-2359
 limitMins1=
 limitPeriod1=

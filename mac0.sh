@@ -43,8 +43,23 @@ for file in "brew" "conda" "cursor" "ghostty" "git" "scripts" "skhd" "ssh" "vsco
   stow --verbose --target="$HOME" --dir="mac" --restow "$file"
 done
 
-# Copy launchd files
-cp -v "mac/scripts/scripts/launchd/backups.plist" "$HOME/Library/LaunchAgents/"
-cp -v "mac/scripts/scripts/launchd/backup-local.plist" "$HOME/Library/LaunchAgents/"
-cp -v "mac/scripts/scripts/launchd/sleep-block.plist" "$HOME/Library/LaunchAgents/"
+# Copy keyboard layouts
 cp -v "mac/keyboard/Library/Keyboard Layouts/Qworak.keylayout" "$HOME/Library/Keyboard Layouts/"
+cp -v "mac/keyboard/Library/Keyboard Layouts/Default.keylayout" "$HOME/Library/Keyboard Layouts/"
+
+# Setup launchd scripts
+cp -v "mac/scripts/scripts/launchd/backups.plist" "$HOME/Library/LaunchAgents/com.user.backups.plist"
+cp -v "mac/scripts/scripts/launchd/backup-local.plist" "$HOME/Library/LaunchAgents/com.user.backups.local.plist"
+chmod +x "${HOME}/dotfiles/mac/scripts/scripts/backups.sh"
+chmod +x "${HOME}/dotfiles/mac/scripts/scripts/backup_local.sh"
+chmod 644 "${HOME}/Library/LaunchAgents/com.user.backups.plist"
+chmod 644 "${HOME}/Library/LaunchAgents/com.user.backups.local.plist"
+
+# Setup sleep block
+sudo cp -v "mac/scripts/scripts/launchd/sleep-block.plist" "/Library/LaunchDaemons/com.user.sleepblock.plist"
+sudo chmod +x "${HOME}/dotfiles/mac/scripts/scripts/sleep_block.sh"
+sudo chmod 644 "/Library/LaunchDaemons/com.user.sleepblock.plist"
+# Setup sleep block guard
+sudo cp -v "mac/scripts/scripts/launchd/sleep-block-guard.plist" "/Library/LaunchDaemons/com.user.sleepblock.guard.plist"
+sudo chmod +x "${HOME}/dotfiles/mac/scripts/scripts/sleep_block_guard.sh"
+sudo chmod 644 "/Library/LaunchDaemons/com.user.sleepblock.guard.plist"

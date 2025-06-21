@@ -128,18 +128,14 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source-file ~/.tmux.conf
 
 # LAUNCHD START
-chmod +x "${HOME}/dotfiles/mac/scripts/scripts/backups.sh"
-chmod +x "${HOME}/dotfiles/mac/scripts/scripts/backup_local.sh"
-chmod +x "${HOME}/dotfiles/mac/scripts/scripts/sleep_block.sh"
-chmod 644 ~/Library/LaunchAgents/backups.plist
-chmod 644 ~/Library/LaunchAgents/backup-local.plist
-chmod 644 ~/Library/LaunchAgents/sleep-block.plist
-launchctl load "${HOME}/Library/LaunchAgents/backups.plist"
-launchctl load "${HOME}/Library/LaunchAgents/backup-local.plist"
-launchctl load "${HOME}/Library/LaunchAgents/sleep-block.plist"
+launchctl load "${HOME}/Library/LaunchAgents/com.user.backups.plist"
+launchctl load "${HOME}/Library/LaunchAgents/com.user.backups.local.plist"
+sudo launchctl load "/Library/LaunchDaemons/com.user.sleepblock.plist"
+sudo launchctl load "/Library/LaunchDaemons/com.user.sleepblock.guard.plist"
 # launchctl list | grep com.user.backups
-# launchctl list | grep com.user.backuplocal
-# launchctl list | grep com.user.sleepblock
+# launchctl list | grep com.user.backups.local
+# sudo launchctl list | grep com.user.sleepblock
+# sudo launchctl list | grep com.user.sleepblock.guard
 
 # SKHD START
 chmod +x "${HOME}/dotfiles/mac/scripts/scripts/open_iterm2.sh"

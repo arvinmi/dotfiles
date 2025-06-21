@@ -3,21 +3,17 @@
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>com.user.sleepblock</string>
+    <string>com.user.sleepblock.guard</string>
 
   <key>ProgramArguments</key>
   <array>
-    <string>/bin/bash</string>
-    <string>/Users/kofa/dotfiles/mac/scripts/scripts/sleep_block.sh</string>
+    <string>/Users/kofa/dotfiles/mac/scripts/scripts/sleep_block_guard.sh</string>
   </array>
 
-  <key>StartInterval</key>
-  <integer>30</integer> <!-- run every half min -->
+  <key>StartInterval</key> <!-- run every half min -->
+    <integer>30</integer>
 
   <key>RunAtLoad</key>
-  <true/>
-
-  <key>KeepAlive</key>
-  <false/>
+    <true/>
 </dict>
 </plist>
