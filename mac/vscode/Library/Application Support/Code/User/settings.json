@@ -437,11 +437,5 @@
     "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-  },
-  "diffEditor.ignoreTrimWhitespace": true,
-  "[dockercompose]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-  }
+  "diffEditor.ignoreTrimWhitespace": true
 }
