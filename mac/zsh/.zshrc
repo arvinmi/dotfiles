@@ -79,20 +79,140 @@ bindkey -s ^f "~/scripts/tmux-sessionizer.sh\n"
 PROMPT="%n@%M:%B%F{cyan}%~%f%b$ "
 
 #-------------------------------------------------------------------------------
-# Aliases
+# Functions & Completions
 #-------------------------------------------------------------------------------
+
+lenv() {
+  export GEMINI_API_KEY=$(op read "op://Personal/Gemini API Key/key")
+}
+
+# tmux new and attach
+tmn() {
+  tmux new-session -s "$1"
+}
+
+tma() {
+  tmux attach -t "$1"
+}
+
+_tma_complete() {
+    local -a sessions
+    sessions=(${(f)"$(tmux list-sessions -F '#S' 2>/dev/null)"})
+    _describe 'tmux sessions' sessions
+}
+compdef _tma_complete tma
 
 rst() {
   cd
   clear
 }
 
-# load tmux
-tma() {
-  if command -v tmux &> /dev/null && [[ -z "$TMUX" ]]; then
-    tmux attach -t default || tmux new -s default
+prof() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: prof <directory>"
+    return 1
+  fi
+  du -sh "$1"/* | sort -hr
+}
+
+mkcd() {
+  mkdir -p "$1" && cd "$1"
+}
+
+gdrive() {
+  if [[ $# -ne 2 ]]; then
+    echo "Usage: gdrive <google-file-id> <output-path>"
+    return 1
+  fi
+  gdown "https://drive.google.com/uc?id=$1" -O "$2"
+}
+
+topc() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: topc <regex>"
+    return 1
+  fi
+  top -c | grep -E --color=auto "$1"
+}
+
+# conda cenv
+cenv() {
+  conda activate "$1"
+}
+
+_cenv_complete() {
+  local -a envs
+  if [[ -f ~/.conda/environments.txt ]]; then
+    envs=(${(f)"$(< ~/.conda/environments.txt)"})
+    envs=(${envs##*/})
+    _describe 'conda environments' envs
   fi
 }
+compdef _cenv_complete cenv
+
+# temp script
+export TMP_SCRIPT_ROOT="${TMP_SCRIPT_ROOT:-$HOME/.tmp-scripts}"
+mkdir -p "$TMP_SCRIPT_ROOT"
+
+tinit() {
+  local file="$TMP_SCRIPT_ROOT/$1"
+  echo "#!/bin/bash" > "$file"
+  chmod +x "$file"
+  "${EDITOR:-nvim}" "$file"
+}
+
+tedit() {
+  "${EDITOR:-nvim}" "$TMP_SCRIPT_ROOT/$1"
+}
+
+trun() {
+  bash "$TMP_SCRIPT_ROOT/$1"
+}
+
+tdelete() {
+  rm -i "$TMP_SCRIPT_ROOT/$1"
+}
+
+_tscript_complete() {
+  local -a scripts
+  scripts=(${(f)"$(find "$TMP_SCRIPT_ROOT" -type f -printf '%f\n' 2>/dev/null)"})
+  _describe 'tmp-scripts' scripts
+}
+compdef _tscript_complete tedit
+compdef _tscript_complete trun
+compdef _tscript_complete tdelete
+
+# make
+brun() {
+  local file="$1"
+  shift
+
+  local name="${file%.*}"
+  local ext="${file##*.}"
+  local bin="./$name"
+
+  case "$ext" in
+    c)
+      cc "$file" -o "$bin" || return 1
+      ;;
+    cpp|cc|cxx)
+      c++ "$file" -o "$bin" || return 1
+      ;;
+    cu)
+      nvcc "$file" -o "$bin" || return 1
+      ;;
+    *)
+      echo "Unsupported file type: $ext"
+      return 1
+      ;;
+  esac
+
+  "$bin" "$@"
+}
+
+#-------------------------------------------------------------------------------
+# Aliases
+#-------------------------------------------------------------------------------
 
 # general
 unalias ls
@@ -120,6 +240,7 @@ alias gf='git fetch'
 alias gpush='git push'
 alias gd='git diff'
 alias ga='git add .'
+alias gn='git new'
 alias gc='git checkout'
 
 # other

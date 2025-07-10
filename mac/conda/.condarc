@@ -1,8 +1,16 @@
 channels:
   - conda-forge
+  - pytorch
   - defaults
 # envs_dirs:
 #   - ${HOME}/Volumes/T7/.conda/envs
+envs_dirs:
+  - ~/.conda/envs
 # pkgs_dirs:
 #   - ${HOME}/Volumes/T7/.conda/pkgs
 channel_priority: strict
+always_yes: true
+update_dependencies: true
+auto_activate_base: false
+ssl_verify: true
+default_threads: 16

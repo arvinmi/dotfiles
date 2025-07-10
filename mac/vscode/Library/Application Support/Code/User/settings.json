@@ -94,7 +94,6 @@
     "*.pdf": "latex-workshop-pdf-hook"
   },
   "workbench.layoutControl.enabled": false,
-  "workbench.secondarySideBar.showLabels": false,
   "window.commandCenter": false,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "editor.fontVariations": false,
