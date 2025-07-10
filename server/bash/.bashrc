@@ -43,6 +43,16 @@ export PATH="$HOME/.local/bin:$PATH"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# remove old slurm log dirs
+if [ -d "$SLURM_LOG_DIR" ]; then
+    find "$SLURM_LOG_DIR/" \
+        -mindepth 1 \
+        -type f \
+        -mtime +7 | xargs -I {} -P 8 rm -r {} 2>> $cleanup_logfile
+# else
+   # echo "Missing slurm log directory: '$SLURM_LOG_DIR'"
+fi
+
 # for cs 340
 alias forever='./node_modules/forever/bin/forever'
 export NVM_DIR="$HOME/.nvm"
@@ -71,8 +81,24 @@ export TERM=xterm-color
 export CLICOLOR=1
 
 # ==============================================================================
+# Functions & Completions
+# ==============================================================================
+
+scancelme() {
+    read -p "Really cancel all your runs? [N/y] " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        echo "Cancelling all runs for $USER"
+        scancel -u $USER
+    else
+        echo "Aborting"
+    fi
+}
+
+# ==============================================================================
 # Aliases
 # ==============================================================================
+
 # general
 alias ls='ls --color'
 alias l='ls -ab'
@@ -96,6 +122,8 @@ alias ga='git add .'
 alias gc='git checkout'
 
 # osugpu
+alias squ='squeue -u "$USER"'
+alias smi='watch -n 1 nvidia-smi'
 alias sing='singularity'
 # alias modu='module load python3/3.10 anaconda/2023.03 cuda/12.2 gcc/12.2 llvm-clang/14.0.0 git/2.32'
 alias gpu='sh ${HOME}/dotfiles/server/scripts/scripts/osugpu/accgpu.sh'
