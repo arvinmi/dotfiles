@@ -47,6 +47,8 @@
     "**/.history",
     "**/.history/**"
   ],
+  "cursorpyright.analysis.autoSearchPaths": false,
+  "cursorpyright.analysis.logLevel": "Information",
   // font
   "editor.fontFamily": "Menlo, monospace",
   "editor.fontSize": 13,

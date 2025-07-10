@@ -150,6 +150,27 @@ _cenv_complete() {
 }
 compdef _cenv_complete cenv
 
+# uv uenv
+unew() {
+  python3 -m venv "$HOME/.virtualenvs/$1"
+}
+
+urm() {
+  rm -rf "$HOME/.virtualenvs/$1"
+}
+
+uenv() {
+  source "$HOME/.virtualenvs/$1/bin/activate"
+}
+
+_uv_complete() {
+  local -a envs
+  envs=(${(f)"$(ls -1 "$HOME/.virtualenvs" 2>/dev/null)"})
+  _describe 'virtualenvs' envs
+}
+compdef _uv_complete uv-env
+compdef _uv_complete uv-rm
+
 # temp script
 export TMP_SCRIPT_ROOT="${TMP_SCRIPT_ROOT:-$HOME/.tmp-scripts}"
 mkdir -p "$TMP_SCRIPT_ROOT"
