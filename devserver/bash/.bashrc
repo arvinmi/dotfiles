@@ -71,11 +71,12 @@ tma() {
 }
 
 _tma_complete() {
-    local -a sessions
-    sessions=(${(f)"$(tmux list-sessions -F '#S' 2>/dev/null)"})
-    _describe 'tmux sessions' sessions
+  local cur sessions
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  sessions=$(tmux list-sessions -F '#S' 2>/dev/null)
+  COMPREPLY=($(compgen -W "$sessions" -- "$cur"))
 }
-compdef _tma_complete tma
+complete -F _tma_complete tma
 
 rst() {
   cd
@@ -116,14 +117,14 @@ cenv() {
 }
 
 _cenv_complete() {
-  local -a envs
+  local cur envs
+  cur="${COMP_WORDS[COMP_CWORD]}"
   if [[ -f ~/.conda/environments.txt ]]; then
-    envs=(${(f)"$(< ~/.conda/environments.txt)"})
-    envs=(${envs##*/})
-    _describe 'conda environments' envs
+    envs=$(awk -F/ '{print $NF}' ~/.conda/environments.txt)
+    COMPREPLY=($(compgen -W "$envs" -- "$cur"))
   fi
 }
-compdef _cenv_complete cenv
+complete -F _cenv_complete cenv
 
 # temp script
 export TMP_SCRIPT_ROOT="${TMP_SCRIPT_ROOT:-$HOME/.tmp-scripts}"
@@ -149,13 +150,14 @@ tdelete() {
 }
 
 _tscript_complete() {
-  local -a scripts
-  scripts=(${(f)"$(find "$TMP_SCRIPT_ROOT" -type f -printf '%f\n' 2>/dev/null)"})
-  _describe 'tmp-scripts' scripts
+  local cur scripts
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  scripts=$(find "$TMP_SCRIPT_ROOT" -type f -printf '%f\n' 2>/dev/null)
+  COMPREPLY=($(compgen -W "$scripts" -- "$cur"))
 }
-compdef _tscript_complete tedit
-compdef _tscript_complete trun
-compdef _tscript_complete tdelete
+complete -F _tscript_complete tedit
+complete -F _tscript_complete trun
+complete -F _tscript_complete tdelete
 
 # make
 brun() {
