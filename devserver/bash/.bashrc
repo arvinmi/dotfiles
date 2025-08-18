@@ -33,7 +33,7 @@ export NVM_DIR="$HOME/.nvm"
 export ISAAC_ROS_WS=/home/kofa/workspaces/isaac_ros-dev/
 
 # nvidia cuda-toolkit (nvcc)
-export PATH="/usr/local/cuda-12.8/bin:$PATH"
+export PATH="/usr/local/cuda/bin:$PATH"
 
 # cursor
 alias cursor="~/Applications/cursor.AppImage --no-sandbox"
@@ -230,3 +230,4 @@ alias lab='jupyter lab --port=9000 --ip=0.0.0.0 --no-browser --notebook-dir=${HO
 # alias stopremote='systemctl --user stop gnome-remote-desktop'
 # alias backupshared='aws s3 sync my_directory s3://mlstorage/downloads'
 # alias backuphome="aws s3 sync /home/ubuntu/ s3://backup/raven-dev-home --exclude '.*' --exclude 'miniconda3/*' --exclude 'sky_logs/*' --exclude 'shared/*'"
+export PATH=/usr/local/cuda/bin:$PATH
