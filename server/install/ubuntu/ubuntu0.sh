@@ -27,14 +27,10 @@ echo "* install/remove packages *"
 # install packages (apt-mark showmanual)
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install -y build-essential htop fzf git golang pgcli llvm rclone iptables \
-ncdu neofetch neovim fail2ban awscli ranger tree tmux vim curl net-tools python3-pip \
+ncdu neofetch neovim fail2ban ranger tree tmux vim curl net-tools python3-pip \
 trash-cli gdb nodejs npm stow
-# if needed
-# sudo apt-get install awscli
 # if needed graphics
 # sudo apt-get install -y lxqt-core sddm
-# remove stock software
-# sudo apt-get remove
 
 echo "install zt"
 # curl -s https://install.zerotier.com | sudo bash
@@ -107,10 +103,6 @@ done
 # tmux source file
 tmux source-file ~/.tmux.conf
 
-# setup kvm
-# echo "* install qemu/kvm packages *"
-# sudo apt-get install -y virt-manager
-
 # increase jigahertz 
 # sudo apt-get install linux-tools-5.15.0-41-generic (change to latest)
 # sudo cpupower frequency-set -g performance
@@ -123,12 +115,6 @@ tmux source-file ~/.tmux.conf
 # sudo systemctl daemon-reload
 # sudo systemctl enable --now nvidia-tdp.timer
 
-# echo "* install flatpak *"
-# sudo apt-get install -y flatpak gnome-software-plugin-flatpak
-# flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-# flatpak list
-# flatpak install
-
 ################################# fail2ban ####################################
 
 echo "configure fail2ban"
@@ -138,7 +124,7 @@ sudo bash -c 'cat >> /etc/fail2ban/jail.local << EOF
 bantime = -1
 findtime = 3600
 maxretry = 5
-EOF's
+EOF'
 
 ############################# SSH Configuration ###############################
 

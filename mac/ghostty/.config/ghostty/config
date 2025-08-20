@@ -20,6 +20,7 @@ keybind = cmd+backspace=text:\x15
 keybind = opt+backspace=text:\x17
 keybind = global:opt+grave_accent=toggle_quick_terminal
 keybind = cmd+s>r=reload_config
+keybind = shift+enter=text:\n
 
 # split
 keybind = cmd+s>j=goto_split:bottom
