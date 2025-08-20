@@ -45,7 +45,7 @@ echo "install miniconda"
 # bash ./Miniconda3-py310_22.11.1-1-Linux-x86_64.sh
 # conda config --add channels conda-forge
 # conda config --set channel_priority strict
-# conda create -n testing python notebook jupyterlab
+# conda create -n base2 python notebook jupyterlab
 
 echo "install skypilot from source"
 # conda create -y -n sky python=3.9

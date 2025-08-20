@@ -68,6 +68,7 @@ echo "install miniconda"
 # bash ~/miniconda.sh
 # conda config --add channels conda-forge
 # conda config --set channel_priority strict
+# conda create -n base2 python notebook jupyterlab
 
 echo "install skypilot from source"
 # conda create -y -n sky python=3.9
