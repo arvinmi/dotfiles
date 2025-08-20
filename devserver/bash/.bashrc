@@ -230,4 +230,3 @@ alias lab='jupyter lab --port=9000 --ip=0.0.0.0 --no-browser --notebook-dir=${HO
 # alias stopremote='systemctl --user stop gnome-remote-desktop'
 # alias backupshared='aws s3 sync my_directory s3://mlstorage/downloads'
 # alias backuphome="aws s3 sync /home/ubuntu/ s3://backup/raven-dev-home --exclude '.*' --exclude 'miniconda3/*' --exclude 'sky_logs/*' --exclude 'shared/*'"
-export PATH=/usr/local/cuda/bin:$PATH
