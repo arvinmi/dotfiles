@@ -30,7 +30,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # isaac-sim
-export ISAAC_ROS_WS=/home/kofa/workspaces/isaac_ros-dev/
+# export ISAAC_ROS_WS=/home/kofa/workspaces/isaac_ros-dev/
 
 # nvidia cuda-toolkit (nvcc)
 export PATH="/usr/local/cuda/bin:$PATH"
@@ -54,7 +54,6 @@ export PS1="\[\e[1;32m\]\u@\H\[\e[00m\]:\[\e[0;35m\]\w\[\e[00m\]\$ "
 export LS_COLORS='di=0;35:ln=1;92:ex=1;92'
 # export LSCOLORS=cxgxfxexbxegedabagacad
 color_prompt=yes
-export TERM=xterm-color
 export CLICOLOR=1
 
 # ==============================================================================
@@ -114,6 +113,10 @@ topc() {
 # conda cenv
 cenv() {
   conda activate "$1"
+}
+
+cnd() {
+  conda deactivate
 }
 
 _cenv_complete() {
@@ -226,6 +229,7 @@ alias bat='bat'
 alias changedisplay='xrandr --output Virtual-1 --mode 1920x1080'
 alias nb='jupyter notebook --port=9000 --ip=0.0.0.0 --no-browser --notebook-dir=${HOME}/code'
 alias lab='jupyter lab --port=9000 --ip=0.0.0.0 --no-browser --notebook-dir=${HOME}/code'
+alias isim-s="$HOME/code/build/iman/resources/isaacsim/_build/linux-x86_64/release/isaac-sim.streaming.sh"
 # alias startremote='systemctl --user start gnome-remote-desktop'
 # alias stopremote='systemctl --user stop gnome-remote-desktop'
 # alias backupshared='aws s3 sync my_directory s3://mlstorage/downloads'
