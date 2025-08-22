@@ -32,10 +32,12 @@ trash-cli gdb nodejs npm stow
 # if needed graphics
 # sudo apt-get install -y lxqt-core sddm
 
-echo "install zt"
-# curl -s https://install.zerotier.com | sudo bash
-# curl -s http://download.zerotier.com/contact%40zerotier.com.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/zerotier.com.gpg > /dev/null
-# sudo zerotier-cli join $ID
+echo "install tailscale"
+# curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+# curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/noble.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+# sudo apt-get update
+# sudo apt-get install tailscale
+# sudo tailscale up --advertise-exit-node
 
 echo "install miniconda"
 # cd Downloads

@@ -145,6 +145,10 @@ cenv() {
   conda activate "$1"
 }
 
+cnd() {
+  conda deactivate
+}
+
 _cenv_complete() {
   local -a envs
   if [[ -f ~/.conda/environments.txt ]]; then

@@ -1,7 +1,7 @@
 [user]
     name = arvinmi
     email = 64492021+arvinmi@users.noreply.github.com
-    signingkey = 89808D7989F8D87E
+    signingkey = 23EF401402429FCE
 
 [commit]
     gpgSign = true

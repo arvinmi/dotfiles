@@ -40,8 +40,20 @@ brew cleanup
 brew autoremove
 
 ###############################################################################
-# Manual System Configuration                                                  #
+# Manual System Configuration                                                 #
 ###############################################################################
+
+# NETWORK DNS SETUP
+sudo networksetup -setdnsservers "Wi-Fi" 100.100.100.100 9.9.9.9 1.1.1.1
+sudo networksetup -setdnsservers "USB 10/100/1000 LAN" 100.100.100.100 9.9.9.9 1.1.1.1
+sudo networksetup -setdnsservers "USB 10/100/1000 LAN 2" 100.100.100.100 9.9.9.9 1.1.1.1
+# temporarily disable DNS servers
+# sudo networksetup -setdnsservers "Wi-Fi" empty
+
+# TAILSCALE SETUP
+# sudo /opt/homebrew/bin/tailscaled install-system-daemon
+# uninstall daemon
+# sudo tailscaled uninstall-system-daemon
 
 # PARALLELS INSTALL
 # wget https://www.parallels.com/directdownload/pd/?experience=enter_key

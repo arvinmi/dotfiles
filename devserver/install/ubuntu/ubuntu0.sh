@@ -51,16 +51,14 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-echo "install zt"
-curl -s https://install.zerotier.com | sudo bash
-curl -s http://download.zerotier.com/contact%40zerotier.com.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/zerotier.com.gpg > /dev/null
 sudo usermod -aG docker $USER
 
-echo "install zt"
-# curl -s https://install.zerotier.com | sudo bash
-# curl -s http://download.zerotier.com/contact%40zerotier.com.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/zerotier.com.gpg > /dev/null
-# sudo zerotier-cli join $ID
+echo "install tailscale"
+# curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+# curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/noble.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+# sudo apt-get update
+# sudo apt-get install tailscale
+# sudo tailscale up --advertise-exit-node
 
 echo "install miniconda"
 # cd Downloads
@@ -88,6 +86,11 @@ echo "install nvidia-cuda-toolkit"
 
 echo "install cuDNN"
 # https://developer.nvidia.com/cudnn
+
+echo "install isaac-sim and isaac-lab"
+# cd ~/code/build && git clone https://github.com/KyleM73/isaac_manager/tree/main iman
+# cd iman && make conda
+# conda activate ilab
 
 # stow devserver files
 for file in "bash" "redshift" "xresources" "kitty" "conda"; do
