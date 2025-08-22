@@ -26,13 +26,11 @@ sudo -v
 echo "* install/remove packages *"
 # install packages (apt-mark showmanual)
 sudo apt-get update && sudo apt-get upgrade -y
-sudo apt install -y build-essential htop fzf git golang pgcli rclone iptables ncdu \
-neofetch neovim fail2ban ranger tree tmux chromium-browser glances kitty gimp vim \
-curl adwaita-icon-theme-full timeshift vorta plocate net-tools gnome-tweaks xterm \
+sudo apt install -y build-essential htop fzf git golang rclone iptables ncdu \
+neofetch neovim fail2ban ranger tree tmux glances kitty gimp vim curl \
+adwaita-icon-theme-full vorta plocate net-tools gnome-tweaks xterm \
 openssh-server python3-pip python3-venv nodejs npm logisim trash-cli gdb clang \
 llvm valgrind btop stow
-# if neccessary
-# sudo apt-get install -y timeshift vorta
 # remove stock software 
 sudo apt-get remove thunderbird* libreoffice*
 
@@ -57,15 +55,26 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 echo "install zt"
 curl -s https://install.zerotier.com | sudo bash
 curl -s http://download.zerotier.com/contact%40zerotier.com.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/zerotier.com.gpg > /dev/null
+sudo usermod -aG docker $USER
+
+echo "install zt"
+# curl -s https://install.zerotier.com | sudo bash
+# curl -s http://download.zerotier.com/contact%40zerotier.com.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/zerotier.com.gpg > /dev/null
 # sudo zerotier-cli join $ID
 
 echo "install miniconda"
 # cd Downloads
-# wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh
-# chmod +x Miniconda3-py39_4.12.0-Linux-x86_64.sh
-# bash ./Miniconda3-py39_4.12.0-Linux-x86_64.sh
+# wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
+# bash ~/miniconda.sh
 # conda config --add channels conda-forge
 # conda config --set channel_priority strict
+# conda create -n base2 python notebook jupyterlab
+
+echo "install skypilot from source"
+# conda create -y -n sky python=3.9
+# git clone https://github.com/skypilot-org/skypilot.git
+# cd skypilot
+# pip install ".[all]"
 
 echo "install sdkman"
 # curl -s "https://get.sdkman.io" | bash
@@ -73,6 +82,12 @@ echo "install sdkman"
 
 echo "install tpm"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+echo "install nvidia-cuda-toolkit"
+# https://developer.nvidia.com/cuda-downloads
+
+echo "install cuDNN"
+# https://developer.nvidia.com/cudnn
 
 # stow devserver files
 for file in "bash" "redshift" "xresources" "kitty" "conda"; do
@@ -119,8 +134,19 @@ echo "* install flatpak *"
 sudo apt-get install -y flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak list
-# flatpak install gwe blender mypaint io.qt.QtCreator
-# install visual studio code via Snap
+# flatpak install gwe blender io.qt.QtCreator mypaint
+# install visual-studio-code via Snap
+
+################################# fail2ban ####################################
+
+echo "configure fail2ban"
+
+sudo bash -c 'cat >> /etc/fail2ban/jail.local << EOF
+[DEFAULT]
+bantime = -1
+findtime = 3600
+maxretry = 5
+EOF'
 
 ############################# SSH Configuration ###############################
 
@@ -163,7 +189,7 @@ exit
 
 # change grub at /etc/default/grub
 # GRUB_TIMEOUT_STYLE=menu
-# GRUB_TIMEOUT=40
+# GRUB_TIMEOUT=5
 # sudo update-grub
 
 echo "           /(| "
@@ -179,7 +205,7 @@ echo "Done. Note that some of these changes require a logout/restart to take eff
 
 print "TODO:\n\
 configure: \n\
-install lm-sensors for prox \n\
+PROXMOX: sudo apt install lm-sensors \n\
 install miniconda \n\
 change grub timeout \n\
 set cpupower for kernal \n\

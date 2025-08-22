@@ -33,7 +33,7 @@ export NVM_DIR="$HOME/.nvm"
 export ISAAC_ROS_WS=/home/kofa/workspaces/isaac_ros-dev/
 
 # nvidia cuda-toolkit (nvcc)
-export PATH="/usr/local/cuda-12.8/bin:$PATH"
+export PATH="/usr/local/cuda/bin:$PATH"
 
 # cursor
 alias cursor="~/Applications/cursor.AppImage --no-sandbox"

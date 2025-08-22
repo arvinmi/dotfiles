@@ -49,6 +49,7 @@
   ],
   "cursorpyright.analysis.autoSearchPaths": false,
   "cursorpyright.analysis.logLevel": "Information",
+  "cursor.composer.usageSummaryDisplay": "always",
   // font
   "editor.fontFamily": "Menlo, monospace",
   "editor.fontSize": 13,
@@ -66,7 +67,7 @@
   "window.title": "${activeEditorShort}${separator}${rootName}${rootPath}",
   "window.zoomLevel": 0.2,
   // minimap
-  "editor.minimap.autohide": true,
+  "editor.minimap.autohide": "mouseover",
   "editor.minimap.enabled": true,
   "editor.hideCursorInOverviewRuler": true,
   // editor
@@ -262,6 +263,8 @@
     "scminput": false
   },
   "chat.agent.enabled": true,
+  "chat.math.enabled": true,
+  "chat.mcp.autostart": "newAndOutdated",
   "github.copilot.chat.followUps": "always",
   "github.copilot.chat.edits.temporalContext.enabled": true,
   "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
@@ -277,6 +280,7 @@
   "websearch.preferredEngine": "bing",
   "editor.inlineSuggest.syntaxHighlightingEnabled": false,
   "roo-cline.allowedCommands": ["npm test", "git log", "git diff", "git show"],
+  "roo-cline.deniedCommands": [],
   "[cpp]": {
     "editor.wordBasedSuggestions": "off",
     "editor.suggest.insertMode": "replace",

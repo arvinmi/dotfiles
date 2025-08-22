@@ -58,6 +58,11 @@ if [[ -z ${CONDA_PREFIX+x} ]]; then
   export PATH="~/conda/bin:$PATH"
 fi
 
+# docker cli completions
+fpath=(/Users/kofa/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+
 #-------------------------------------------------------------------------------
 # Shell Options
 #-------------------------------------------------------------------------------
@@ -263,6 +268,8 @@ alias gd='git diff'
 alias ga='git add .'
 alias gn='git new'
 alias gc='git checkout'
+alias gwl='git worktree list'
+alias gwp='git worktree prune'
 
 # other
 # alias clangall='clang++ -Weverything'

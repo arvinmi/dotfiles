@@ -27,14 +27,10 @@ echo "* install/remove packages *"
 # install packages (apt-mark showmanual)
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install -y build-essential htop fzf git golang pgcli llvm rclone iptables \
-ncdu neofetch neovim fail2ban awscli ranger tree tmux vim curl net-tools python3-pip \
+ncdu neofetch neovim fail2ban ranger tree tmux vim curl net-tools python3-pip \
 trash-cli gdb nodejs npm stow
-# if needed
-# sudo apt-get install awscli
 # if needed graphics
 # sudo apt-get install -y lxqt-core sddm
-# remove stock software
-# sudo apt-get remove
 
 echo "install zt"
 # curl -s https://install.zerotier.com | sudo bash
@@ -49,7 +45,7 @@ echo "install miniconda"
 # bash ./Miniconda3-py310_22.11.1-1-Linux-x86_64.sh
 # conda config --add channels conda-forge
 # conda config --set channel_priority strict
-# conda create -n testing python notebook jupyterlab
+# conda create -n base2 python notebook jupyterlab
 
 echo "install skypilot from source"
 # conda create -y -n sky python=3.9
@@ -100,16 +96,12 @@ for file in "vim" "tmux"; do
 done
 
 # stow server files
-for file in "bashrc" "conda" "scripts"; do
+for file in "bash" "conda" "scripts"; do
   stow --verbose --target="$HOME" --dir="server" --restow "$file"
 done
 
 # tmux source file
 tmux source-file ~/.tmux.conf
-
-# setup kvm
-# echo "* install qemu/kvm packages *"
-# sudo apt-get install -y virt-manager
 
 # increase jigahertz 
 # sudo apt-get install linux-tools-5.15.0-41-generic (change to latest)
@@ -123,12 +115,6 @@ tmux source-file ~/.tmux.conf
 # sudo systemctl daemon-reload
 # sudo systemctl enable --now nvidia-tdp.timer
 
-# echo "* install flatpak *"
-# sudo apt-get install -y flatpak gnome-software-plugin-flatpak
-# flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-# flatpak list
-# flatpak install
-
 ################################# fail2ban ####################################
 
 echo "configure fail2ban"
@@ -138,7 +124,7 @@ sudo bash -c 'cat >> /etc/fail2ban/jail.local << EOF
 bantime = -1
 findtime = 3600
 maxretry = 5
-EOF's
+EOF'
 
 ############################# SSH Configuration ###############################
 
