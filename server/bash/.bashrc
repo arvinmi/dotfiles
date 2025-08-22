@@ -77,7 +77,6 @@ export PS1="\[\e[1;32m\]\u@\H\[\e[00m\]:\[\e[0;35m\]\w\[\e[00m\]\$ "
 export LS_COLORS='di=0;35:ln=1;92:ex=1;92'
 # export LSCOLORS=cxgxfxexbxegedabagacad
 color_prompt=yes
-export TERM=xterm-color
 export CLICOLOR=1
 
 # ==============================================================================
