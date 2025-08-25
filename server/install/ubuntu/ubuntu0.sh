@@ -27,7 +27,7 @@ echo "* install/remove packages *"
 # install packages (apt-mark showmanual)
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install -y build-essential htop fzf git golang pgcli llvm rclone iptables \
-ncdu neofetch neovim fail2ban ranger tree tmux vim curl net-tools python3-pip \
+ncdu neofetch fail2ban ranger tree tmux vim curl net-tools python3-pip \
 trash-cli gdb nodejs npm stow
 # if needed graphics
 # sudo apt-get install -y lxqt-core sddm
@@ -101,6 +101,16 @@ done
 for file in "bash" "conda" "scripts"; do
   stow --verbose --target="$HOME" --dir="server" --restow "$file"
 done
+
+# setup nvim
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt-get update
+sudo apt-get install neovim
+# nvim required dep for some features
+python3 -m pip install --user --upgrade pynvim
+# nvim install autoformatters
+# install "stylua", "black", "clang-format", "prettier"
 
 # tmux source file
 tmux source-file ~/.tmux.conf
