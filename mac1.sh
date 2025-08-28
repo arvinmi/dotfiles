@@ -44,9 +44,9 @@ brew autoremove
 ###############################################################################
 
 # NETWORK DNS SETUP
-sudo networksetup -setdnsservers "Wi-Fi" 100.100.100.100 9.9.9.9 1.1.1.1
-sudo networksetup -setdnsservers "USB 10/100/1000 LAN" 100.100.100.100 9.9.9.9 1.1.1.1
-sudo networksetup -setdnsservers "USB 10/100/1000 LAN 2" 100.100.100.100 9.9.9.9 1.1.1.1
+sudo networksetup -setdnsservers "Wi-Fi" 9.9.9.9 1.1.1.1
+sudo networksetup -setdnsservers "USB 10/100/1000 LAN" 9.9.9.9 1.1.1.1
+sudo networksetup -setdnsservers "USB 10/100/1000 LAN 2" 9.9.9.9 1.1.1.1
 # temporarily disable DNS servers
 # sudo networksetup -setdnsservers "Wi-Fi" empty
 
