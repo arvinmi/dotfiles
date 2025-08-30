@@ -233,7 +233,6 @@
   },
   "editor.pasteAs.preferences": ["markdown.link"],
   "markdown.updateLinksOnFileMove.enabled": "prompt",
-  "markdown.extension.print.theme": "dark",
   /*
     "java.configuration.runtimes": [
         {

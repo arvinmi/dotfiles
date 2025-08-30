@@ -53,9 +53,8 @@ export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent > /dev/null 2>&1
 
 # miniconda
-source ~/miniconda3/etc/profile.d/conda.sh
-if [[ -z ${CONDA_PREFIX+x} ]]; then
-  export PATH="~/conda/bin:$PATH"
+if [ -f ~/miniconda3/etc/profile.d/conda.sh ]; then
+  source ~/miniconda3/etc/profile.d/conda.sh
 fi
 
 # docker cli completions
