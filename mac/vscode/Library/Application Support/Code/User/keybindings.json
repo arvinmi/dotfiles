@@ -232,9 +232,7 @@
   {
     "key": "shift+enter",
     "command": "workbench.action.terminal.sendSequence",
-    "args": {
-      "text": "\\\r\n"
-    },
+    "args": { "text": "\u001B\u000A" },
     "when": "terminalFocus"
   },
   // editor splitting

@@ -29,7 +29,6 @@
   "cursor.composer.queueMessageDefaultBehavior": "stop-and-send",
   "cursor.composer.backspaceRemoveContext": false,
   "cursor.chat.terminalShowHoverHint": false,
-  "update.releaseTrack": "prerelease",
   "cursor.composer.shouldAllowCustomModes": true,
   "cursor.general.globalCursorIgnoreList": [
     "**/.env",
@@ -64,6 +63,7 @@
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontLigatures": true,
   "terminal.integrated.initialHint": false,
+  "terminal.integrated.inheritEnv": false,
   // cursor
   "editor.cursorBlinking": "solid",
   // window
@@ -229,7 +229,7 @@
       "strings": false
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "diffEditor.ignoreTrimWhitespace": true
+    "diffEditor.ignoreTrimWhitespace": false
   },
   "editor.pasteAs.preferences": ["markdown.link"],
   "markdown.updateLinksOnFileMove.enabled": "prompt",
@@ -268,13 +268,20 @@
   "chat.agent.enabled": true,
   "chat.math.enabled": true,
   "chat.mcp.autostart": "newAndOutdated",
-  "chat.mcp.discovery.enabled": false,
+  "chat.mcp.discovery.enabled": {
+    "claude-desktop": false,
+    "windsurf": false,
+    "cursor-global": false,
+    "cursor-workspace": false
+  },
   "github.copilot.chat.followUps": "always",
   "github.copilot.chat.edits.temporalContext.enabled": true,
   "github.copilot.selectedCompletionModel": "gpt-41-copilot",
   "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.chat.editor.temporalContext.enabled": true,
-  "github.copilot.nextEditSuggestions.enabled": false,
+  "application.experimental.extensionMonitor.enabled": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.chat.notebook.enhancedNextEditSuggestions.enabled": true,
   "github.copilot.chat.codeGeneration.instructions": [
     {
       "text": "be very direct. be very concrete. when i ask questions, make me really understand first principle why something works like it does. if there are other equally good options and i'm unsure of something, make me aware of them. end with an interesting detail that can help me fundamentally understand the foundations behind the question i'm asking, so i really grok the intuition behind anything i ask. bias towards showing me in tiny reproductions or outputs to really make me understand what i'm trying to understand. for example when explaining sinusoidal embeddings in diffusion, show the embeddings instead of talking about them. ask clarifying questions when you're unsure. i love learning, explanations, education, and insights. when you have an opportunity to be educational, or to provide an interesting insight, or a connection, or a analogy, please take it. always be verbose and very detailed in your response, don't leave out details. never send me code without an explanation of each line."
