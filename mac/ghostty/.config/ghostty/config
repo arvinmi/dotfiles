@@ -13,7 +13,7 @@ window-width = 87
 window-height = 25
 window-colorspace = display-p3
 font-feature = -liga
-# macos-titlebar-style = tabs
+macos-titlebar-style = native
 # add unlimited scrollback
 
 keybind = cmd+backspace=text:\x15
