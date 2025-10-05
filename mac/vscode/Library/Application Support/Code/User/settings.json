@@ -64,6 +64,7 @@
   "terminal.integrated.fontLigatures": true,
   "terminal.integrated.initialHint": false,
   "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.stickyScroll.enabled": false,
   // cursor
   "editor.cursorBlinking": "solid",
   // window
@@ -232,6 +233,7 @@
     "diffEditor.ignoreTrimWhitespace": false
   },
   "editor.pasteAs.preferences": ["markdown.link"],
+  "markdown.extension.print.theme": "dark",
   "markdown.updateLinksOnFileMove.enabled": "prompt",
   /*
     "java.configuration.runtimes": [
@@ -281,7 +283,9 @@
   "github.copilot.chat.editor.temporalContext.enabled": true,
   "application.experimental.extensionMonitor.enabled": true,
   "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.chat.agent.thinkingTool": true,
   "github.copilot.chat.notebook.enhancedNextEditSuggestions.enabled": true,
+  "github.copilot.chat.languageContext.fix.typescript.enabled": true,
   "github.copilot.chat.codeGeneration.instructions": [
     {
       "text": "be very direct. be very concrete. when i ask questions, make me really understand first principle why something works like it does. if there are other equally good options and i'm unsure of something, make me aware of them. end with an interesting detail that can help me fundamentally understand the foundations behind the question i'm asking, so i really grok the intuition behind anything i ask. bias towards showing me in tiny reproductions or outputs to really make me understand what i'm trying to understand. for example when explaining sinusoidal embeddings in diffusion, show the embeddings instead of talking about them. ask clarifying questions when you're unsure. i love learning, explanations, education, and insights. when you have an opportunity to be educational, or to provide an interesting insight, or a connection, or a analogy, please take it. always be verbose and very detailed in your response, don't leave out details. never send me code without an explanation of each line."
@@ -445,6 +449,24 @@
   "rust-analyzer.inlayHints.parameterHints.enable": false,
   "rust-analyzer.inlayHints.renderColons": false,
   "rust-analyzer.inlayHints.typeHints.enable": false,
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-containers"
+  },
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "docker.extension.enableComposeLanguageServer": false,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -453,5 +475,5 @@
     "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "diffEditor.ignoreTrimWhitespace": true
+  "diffEditor.ignoreTrimWhitespace": false
 }

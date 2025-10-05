@@ -50,13 +50,13 @@ sudo networksetup -setdnsservers "USB 10/100/1000 LAN 2" 100.100.100.100 9.9.9.9
 # temporarily disable DNS servers
 # sudo networksetup -setdnsservers "Wi-Fi" empty
 
+# TAILSCALE SETUP
+# sudo brew services start tailscale
+
 # TAILSCALE SETUP (DEPRECATED)
 # sudo /opt/homebrew/bin/tailscaled install-system-daemon
 # uninstall daemon
 # sudo tailscaled uninstall-system-daemon
-
-# TAILSCALE SETUP
-# sudo brew services start tailscale
 
 # PARALLELS INSTALL
 # wget https://www.parallels.com/directdownload/pd/?experience=enter_key

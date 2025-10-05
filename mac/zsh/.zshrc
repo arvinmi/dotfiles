@@ -92,7 +92,11 @@ lenv() {
 
 # tmux new and attach
 tmn() {
-  tmux new-session -s "$1"
+	if [[ $# = 0 ]]; then
+		tmux attach -t default || tmux new -s default
+	else
+		tmux new -s "$@"
+	fi
 }
 
 tma() {
@@ -100,23 +104,23 @@ tma() {
 }
 
 _tma_complete() {
-    local -a sessions
-    sessions=(${(f)"$(tmux list-sessions -F '#S' 2>/dev/null)"})
-    _describe 'tmux sessions' sessions
+  local -a sessions
+  sessions=(${(f)"$(tmux list-sessions -F '#S' 2>/dev/null)"})
+  _describe 'tmux sessions' sessions
 }
 compdef _tma_complete tma
 
-rst() {
-  cd
-  clear
-}
-
+# disk usage
 prof() {
   if [[ -z "$1" ]]; then
     echo "Usage: prof <directory>"
     return 1
   fi
   du -sh "$1"/* | sort -hr
+}
+
+rmdir() {
+  rm -ivrf "$@" | grep -v '\.git/'
 }
 
 mkcd() {
@@ -239,6 +243,37 @@ brun() {
   "$bin" "$@"
 }
 
+treec() {
+  local ignore_patterns=(
+      "build" "dist" "target"
+      "node_modules" "pnpm-lock.yaml" "yarn.lock"
+      "__pycache__" "*.js.map" "*.tsbuildinfo"
+      "*.d.ts" "*.o" "*.a" "*.so" "*.dll" "*.dylib"
+      "*.exe" "*.out" "*.class" "*.pyc" "*.pyo"
+      "a.out.*" "Cargo.lock"
+    )
+
+    tree -I "$(IFS='|'; echo "${ignore_patterns[*]}")" "$@"
+}
+
+# claude
+cld() {
+  if [[ "$1" == "update" ]]; then
+    npm install -g @anthropic-ai/claude-code
+  else
+    claude "$@"
+  fi
+}
+
+# codex
+cdx() {
+  if [[ "$1" == "update" ]]; then
+    npm install -g @openai/codex@latest
+  else
+    codex --search "$@" -c model_reasoning_summary_format=experimental
+  fi
+}
+
 #-------------------------------------------------------------------------------
 # Aliases
 #-------------------------------------------------------------------------------
@@ -247,17 +282,28 @@ brun() {
 unalias ls
 alias ls='gls --color=auto'
 export LS_COLORS='*.sh=31:di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43'
-alias l='ls -ab'
-alias la='ls -la'
-alias ll='ls -lh'
-alias rm='rm -i'
+
+alias ll='ls -la'
+alias la='ls -A'
+alias l='ls -F'
+alias cp='cp -v'
+alias rm='rm -iv'
+alias mv='mv -iv'
+alias mkdir='mkdir -pv'
+alias clr='clear'
+alias rst='cd ~ && clear'
+
+alias tmr='tmux respawn-pane -k'
+alias tmks='tmux kill-session'
+alias tmka='tmux kill-server'
+alias tmo='tmux detach'
+
 alias sloc='cloc $(git ls-files)'
 alias vim='nvim'
 alias newvim='nvim $(fzf)'
 alias cat='bat --theme="Visual Studio Dark+"'
 alias cu="open $1 -a \"Cursor\""
 alias v="open $1 -a \"Visual Studio Code\""
-alias cl='clear'
 alias lazygit='lg'
 alias gpg-reset='gpgconf --kill gpg-agent && gpgconf --launch gpg-agent'
 
@@ -276,6 +322,7 @@ alias gwp='git worktree prune'
 
 # other
 # alias clangall='clang++ -Weverything'
+alias ftp='sftp'
 alias x86_64='arch -x86_64'
 alias arm64='arch -arm64'
 alias rs='rsync -av --delete'

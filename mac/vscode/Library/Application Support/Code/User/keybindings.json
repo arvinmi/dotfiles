@@ -82,10 +82,6 @@
     "command": "-editor.action.rename",
     "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
   },
-  {
-    "key": "cmd+e",
-    "command": "composerMode.background"
-  },
   // formatting and search
   {
     "key": "shift+alt+f",
