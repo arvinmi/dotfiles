@@ -42,6 +42,51 @@
     "command": "workbench.view.extensions",
     "when": "viewContainer.workbench.view.extensions.enabled"
   },
+  {
+    "key": "cmd+j",
+    "command": "workbench.action.focusPanel",
+    "when": "!panelFocus"
+  },
+  {
+    "key": "space",
+    "command": "list.select",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+'",
+    "command": "workbench.view.explorer",
+    "when": "viewContainer.workbench.view.explorer.enabled"
+  },
+  {
+    "key": "cmd+ctrl+up",
+    "command": "workbench.action.increaseViewSize",
+    "when": "panelFocus"
+  },
+  {
+    "key": "cmd+ctrl+down",
+    "command": "workbench.action.decreaseViewSize",
+    "when": "panelFocus"
+  },
+  {
+    "key": "shift+cmd+left",
+    "command": "workbench.action.increaseViewSize",
+    "when": "auxiliaryBarFocus"
+  },
+  {
+    "key": "shift+cmd+right",
+    "command": "workbench.action.decreaseViewSize",
+    "when": "auxiliaryBarFocus"
+  },
+  {
+    "key": "shift+cmd+left",
+    "command": "workbench.action.decreaseViewSize",
+    "when": "sideBarFocus"
+  },
+  {
+    "key": "shift+cmd+right",
+    "command": "workbench.action.increaseViewSize",
+    "when": "sideBarFocus"
+  },
   // editor and cursor
   {
     "key": "cmd+r",
@@ -54,23 +99,9 @@
     "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
   },
   {
-    "key": "ctrl+cmd+up",
-    "command": "editor.action.insertCursorAbove",
-    "when": "editorTextFocus"
-  },
-  {
-    "key": "alt+cmd+up",
-    "command": "-editor.action.insertCursorAbove",
-    "when": "editorTextFocus"
-  },
-  {
     "key": "ctrl+cmd+down",
     "command": "editor.action.insertCursorBelow",
     "when": "editorTextFocus"
-  },
-  {
-    "key": "shift+alt+f",
-    "command": "editor.action.changeAll"
   },
   {
     "key": "alt+r",
@@ -82,45 +113,12 @@
     "command": "-editor.action.rename",
     "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
   },
-  // formatting and search
+  // formatting
   {
     "key": "shift+alt+f",
-    "command": "-editor.action.formatDocument.none",
-    "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly"
-  },
-  {
-    "key": "shift+alt+f",
-    "command": "-notebook.format",
-    "when": "notebookEditable && !editorTextFocus && activeEditor == 'workbench.editor.notebook'"
-  },
-  {
-    "key": "shift+alt+f",
-    "command": "-filesExplorer.findInFolder",
-    "when": "explorerResourceIsFolder && filesExplorerFocus && foldersViewVisible && !inputFocus"
-  },
-  {
-    "key": "shift+alt+f",
-    "command": "-search.action.restrictSearchToFolder",
-    "when": "folderMatchWithResourceFocus && searchViewletVisible"
-  },
-  {
-    "key": "shift+alt+f",
-    "command": "-editor.action.formatDocument",
-    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+    "command": "editor.action.changeAll"
   },
   // chat stuff
-  {
-    "key": "cmd+l",
-    "command": "composerMode.chat"
-  },
-  {
-    "key": "cmd+l",
-    "command": "-aichat.newchataction"
-  },
-  {
-    "key": "cmd+l",
-    "command": "workbench.action.toggleAuxiliaryBar"
-  },
   {
     "key": "alt+cmd+b",
     "command": "-workbench.action.toggleAuxiliaryBar"
@@ -170,50 +168,14 @@
     "when": "editorTextFocus && @inlineDiffs.rejectPartialEdit.isActiveEditorWithDiffs"
   },
   {
-    "key": "ctrl+y",
-    "command": "editor.action.inlineDiffs.acceptPartialEdit",
-    "when": "editorHasPromptBar && editorPromptBarFocused"
-  },
-  {
     "key": "cmd+y",
     "command": "-editor.action.inlineDiffs.acceptPartialEdit",
-    "when": "editorHasPromptBar && editorPromptBarFocused"
-  },
-  {
-    "key": "ctrl+n",
-    "command": "editor.action.inlineDiffs.rejectPartialEdit",
     "when": "editorHasPromptBar && editorPromptBarFocused"
   },
   {
     "key": "cmd+n",
     "command": "-editor.action.inlineDiffs.rejectPartialEdit",
     "when": "editorHasPromptBar && editorPromptBarFocused"
-  },
-  {
-    "key": "escape",
-    "command": "-extension.vim_escape",
-    "when": "editorTextFocus && vim.active && !inDebugRepl"
-  },
-  {
-    "key": "escape",
-    "command": "extension.vim_escape",
-    "when": "editorTextFocus && vim.active && !inDebugRepl && !testing.isPeekVisible && !testing.isInPeek && (vim.mode == 'Insert' || !notebookEditorFocused) && !inlineEditIsVisible && !suggestWidgetVisible && !findWidgetVisible && !dirtyDiffVisible"
-  },
-  {
-    "key": "escape",
-    "command": "runCommands",
-    "when": "vim.mode == 'Insert' && inlineEditIsVisible",
-    "args": {
-      "commands": ["editor.action.inlineSuggest.hide", "extension.vim_escape"]
-    }
-  },
-  {
-    "key": "escape",
-    "command": "runCommands",
-    "when": "vim.mode == 'Insert' && suggestWidgetVisible",
-    "args": {
-      "commands": ["hideSuggestWidget", "extension.vim_escape"]
-    }
   },
   {
     "key": "escape",
@@ -252,7 +214,7 @@
   },
   // terminal
   {
-    "key": "alt+t",
+    "key": "cmd+l",
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
   },
@@ -270,16 +232,6 @@
     "key": "cmd+w",
     "command": "workbench.action.closeActiveEditor",
     "when": "editorTextFocus"
-  },
-  {
-    "key": "ctrl+cmd+up",
-    "command": "workbench.action.terminal.resizePaneUp",
-    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-  },
-  {
-    "key": "ctrl+cmd+down",
-    "command": "workbench.action.terminal.resizePaneDown",
-    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
   // panel
   {
@@ -332,11 +284,6 @@
   {
     "key": "cmd+0",
     "command": "workbench.action.zoomReset"
-  },
-  {
-    "key": "alt+b",
-    "command": "markdown.extension.editing.toggleBold",
-    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
   },
   {
     "key": "cmd+b",

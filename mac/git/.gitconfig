@@ -83,13 +83,24 @@
 
 [alias]
     co = checkout
+    s = switch
     st = status
     rh = reset --hard
     amend = commit --amend -C HEAD
     undo = reset --soft HEAD^
+    pr = "!gh pr create --fill-verbose"
+    squash = "!gh pr merge --squash --delete-branch --auto"
+    out = "!f() { branch=\"${1:-main}\"; git checkout \"$branch\" && git fetch --prune --all && git pull; }; f"
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    url = !sh -c 'git remote get-url origin | sed "s#git@github.com:#https://github.com/#" | tee /dev/tty | pbcopy'
+    url = "!sh -c 'git remote get-url origin | sed \"s#git@github.com:#https://github.com/#\" | tee /dev/tty | pbcopy'"
+    ssh = "!sh -c 'git remote get-url origin | sed \"s#^https://github.com/#git@github.com:#\" | tee /dev/tty | pbcopy'"
     gone = "!f() { git fetch --all --prune; git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; }; f"
     new = "!f() { git checkout -b \"$1\" && git push -u origin \"$1\"; }; f"
     conflict = "!f() { git diff --name-only --diff-filter=U | xargs code; }; f"
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true

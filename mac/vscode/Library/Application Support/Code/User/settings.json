@@ -64,6 +64,7 @@
   "terminal.integrated.fontLigatures": true,
   "terminal.integrated.initialHint": false,
   "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.tabs.enabled": false,
   "terminal.integrated.stickyScroll.enabled": false,
   // cursor
   "editor.cursorBlinking": "solid",
@@ -204,7 +205,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "typescript.preferences.importModuleSpecifier": "non-relative", // prefer aliases when importing
   "eslint.options": {
@@ -449,8 +450,12 @@
   "rust-analyzer.inlayHints.parameterHints.enable": false,
   "rust-analyzer.inlayHints.renderColons": false,
   "rust-analyzer.inlayHints.typeHints.enable": false,
+  "githubPullRequests.createOnPublishBranch": "never",
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[bibtex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop"
   },
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-containers"
@@ -470,9 +475,10 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "docker.extension.dockerEngineAvailabilityPrompt": false,
   "sqltools.highlightQuery": false,
   "[sql]": {
-    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+    "editor.defaultFormatter": "mtxr.sqltools"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "diffEditor.ignoreTrimWhitespace": false

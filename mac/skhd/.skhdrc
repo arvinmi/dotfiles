@@ -2,15 +2,16 @@
 # cmd + shift - a : open mission control
 # alt + shift - e : open desktop
 
-alt - b: open -a "google chrome"
-alt - m: open -a "messages"
-alt - g: open -a "ghostty"
-alt - v: open -a "visual studio code"
-alt - c: open -a "cursor"
-alt - d: open -a "discord"
-alt - s: open -a "spotify"
-alt - p: open -a "chatgpt"
-alt - f: open -a "finder"
+ctrl - 1: open -a "google chrome"
+ctrl - 2: open -a "ghostty"
+ctrl - 3: open -a "cursor"
+ctrl - 4: open -a "spotify"
+ctrl - 0: open -a "obsidian"
+ctrl - m: open -a "messages"
+ctrl - v: open -a "visual studio code"
+ctrl - d: open -a "discord"
+ctrl - p: open -a "chatgpt"
+ctrl - f: open -a "finder"
 
 # L_ctrl + u/o to pageup/pagedown
 # R_cmd + u/o to pageup/pagedown
