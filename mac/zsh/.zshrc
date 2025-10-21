@@ -93,9 +93,9 @@ lenv() {
 # tmux new and attach
 tmn() {
 	if [[ $# = 0 ]]; then
-		tmux attach -t default || tmux new -s default
+	  tmux attach -t default || tmux new -s default
 	else
-		tmux new -s "$@"
+	  tmux new -s "$@"
 	fi
 }
 
