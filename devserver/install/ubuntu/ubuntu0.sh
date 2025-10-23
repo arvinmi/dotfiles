@@ -33,6 +33,7 @@ openssh-server python3-pip python3-venv nodejs npm logisim trash-cli gdb clang \
 llvm valgrind btop stow
 # remove stock software 
 sudo apt-get remove thunderbird* libreoffice*
+# install anydesk at https://deb.anydesk.com/howto.html
 
 # setup ssh
 # sudo apt-get install ethtool
@@ -93,6 +94,8 @@ echo "install isaac-sim and isaac-lab"
 # conda activate ilab
 
 # stow devserver files
+rm -rf ~/.bashrc
+
 for file in "bash" "redshift" "xresources" "kitty" "conda" "git"; do
   stow --verbose --target="$HOME" --dir="devserver" --restow "$file"
 done
@@ -141,8 +144,10 @@ echo "* install flatpak *"
 sudo apt-get install -y flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak list
-# flatpak install gwe blender io.qt.QtCreator mypaint
-# install visual-studio-code via Snap
+# flatpak install gwe org.blender.Blender io.qt.QtCreator mypaint
+
+echo "* install visual-studio-code snap *"
+# sudo snap install --classic code
 
 ################################# fail2ban ####################################
 
@@ -176,6 +181,12 @@ PasswordAuthentication no
 UsePAM yes
 # X11Forwarding no
 # Subsystem sftp  /usr/lib/openssh/sftp-server
+Match Address ipv4/24_ADDR
+  AllowUsers USER
+  PasswordAuthentication no
+Match Address ipv6/48_ADDR
+  AllowUsers USER
+  PasswordAuthentication no
 EOF'
 
 sudo systemctl reload ssh.service
@@ -198,6 +209,9 @@ exit
 # GRUB_TIMEOUT_STYLE=menu
 # GRUB_TIMEOUT=5
 # sudo update-grub
+
+# stop update to new LTS version prompt
+# sudo sed -i 's/lts$/never/g' /etc/update-manager/release-upgrades
 
 echo "           /(| "
 echo "          (  : "
