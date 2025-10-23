@@ -1,0 +1,106 @@
+[user]
+    name = arvinmi
+    email = 64492021+arvinmi@users.noreply.github.com
+    signingkey = 23EF401402429FCE
+
+[commit]
+    gpgSign = true
+
+[core]
+    pager = delta
+    excludesfile = ~/dotfiles/mac/git/.gitignore
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    side-by-side = true
+    navigate = true
+    file-style = bold yellow
+    syntax-theme =  Visual Studio Dark+
+    dark = true
+    hunk-header-style = omit
+    hunk-header-decoration-style = "underline"
+    hyperlinks = true
+
+[gpg]
+    program = /opt/homebrew/bin/gpg
+
+[color]
+    ui = true
+
+[help]
+    autocorrect = 3
+
+[mergetool "nvim"]
+    cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+
+[merge]
+    tool = nvim
+    log = true
+    conflictstyle = zdiff3
+
+[mergetool]
+    prompt = false
+
+[init]
+    defaultBranch = main
+
+[push]
+    default = current
+    autoSetupRemote = true
+
+[pull]
+    default = current
+    rebase = false
+
+[fetch]
+    prune = true
+
+[hub]
+    protocol = ssh
+
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+
+[credential]
+    helper = store
+
+[submodule]
+    recurse = true
+
+[rerere]
+    enabled = true
+
+[filter "lfs"]
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+
+# [includeIf "gitdir:~/code/orgs/chromium/"]
+    # path = ~/code/orgs/chromium/.gitconfig
+
+[alias]
+    co = checkout
+    s = switch
+    st = status
+    rh = reset --hard
+    amend = commit --amend -C HEAD
+    undo = reset --soft HEAD^
+    pr = "!gh pr create --fill-verbose"
+    squash = "!gh pr merge --squash --delete-branch --auto"
+    out = "!f() { branch=\"${1:-main}\"; git checkout \"$branch\" && git fetch --prune --all && git pull; }; f"
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    url = "!sh -c 'git remote get-url origin | sed \"s#git@github.com:#https://github.com/#\" | tee /dev/tty | pbcopy'"
+    ssh = "!sh -c 'git remote get-url origin | sed \"s#^https://github.com/#git@github.com:#\" | tee /dev/tty | pbcopy'"
+    gone = "!f() { git fetch --all --prune; git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; }; f"
+    new = "!f() { git checkout -b \"$1\" && git push -u origin \"$1\"; }; f"
+    conflict = "!f() { git diff --name-only --diff-filter=U | xargs code; }; f"
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true

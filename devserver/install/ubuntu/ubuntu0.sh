@@ -93,7 +93,7 @@ echo "install isaac-sim and isaac-lab"
 # conda activate ilab
 
 # stow devserver files
-for file in "bash" "redshift" "xresources" "kitty" "conda"; do
+for file in "bash" "redshift" "xresources" "kitty" "conda" "git"; do
   stow --verbose --target="$HOME" --dir="devserver" --restow "$file"
 done
 

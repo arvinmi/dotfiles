@@ -15,9 +15,8 @@ HISTFILESIZE=5000000
 export PATH="$PATH:/home/kofa/.local/bin"
 
 # miniconda
-source ~/miniconda3/etc/profile.d/conda.sh
-if [[ -z ${CONDA_PREFIX+x} ]]; then
-        export PATH="~/conda/bin:$PATH"
+if [ -f ~/miniconda3/etc/profile.d/conda.sh ]; then
+  source ~/miniconda3/etc/profile.d/conda.sh
 fi
 
 # sdkman
@@ -46,6 +45,8 @@ bind '"\eOA": history-previous-history'
 bind '"\e[B": history-search-forward'
 bind '"\eOB": history-next-history'
 
+bindkey -s ^f "~/scripts/tmux-sessionizer.sh\n"
+
 # ==============================================================================
 # Prompt
 # ==============================================================================
@@ -62,7 +63,11 @@ export CLICOLOR=1
 
 # tmux new and attach
 tmn() {
-  tmux new-session -s "$1"
+	if [[ $# = 0 ]]; then
+	  tmux attach -t default || tmux new -s default
+	else
+	  tmux new -s "$@"
+	fi
 }
 
 tma() {
@@ -72,22 +77,22 @@ tma() {
 _tma_complete() {
   local cur sessions
   cur="${COMP_WORDS[COMP_CWORD]}"
-  sessions=$(tmux list-sessions -F '#S' 2>/dev/null)
-  COMPREPLY=($(compgen -W "$sessions" -- "$cur"))
+  mapfile -t sessions < <(tmux list-sessions -F '#S' 2>/dev/null)
+  COMPREPLY=($(compgen -W "${sessions[*]}" -- "$cur"))
 }
 complete -F _tma_complete tma
 
-rst() {
-  cd
-  clear
-}
-
+# disk usage
 prof() {
   if [[ -z "$1" ]]; then
     echo "Usage: prof <directory>"
     return 1
   fi
   du -sh "$1"/* | sort -hr
+}
+
+rmdir() {
+  rm -ivrf "$@" | grep -v '\.git/'
 }
 
 mkcd() {
@@ -120,14 +125,35 @@ cnd() {
 }
 
 _cenv_complete() {
-  local cur envs
-  cur="${COMP_WORDS[COMP_CWORD]}"
+  local envs
   if [[ -f ~/.conda/environments.txt ]]; then
-    envs=$(awk -F/ '{print $NF}' ~/.conda/environments.txt)
-    COMPREPLY=($(compgen -W "$envs" -- "$cur"))
+    mapfile -t envs < ~/.conda/environments.txt
+    envs=("${envs[@]##*/}")
+    COMPREPLY=($(compgen -W "${envs[*]}" -- "${COMP_WORDS[COMP_CWORD]}"))
   fi
 }
 complete -F _cenv_complete cenv
+
+# uv uenv
+unew() {
+  python3 -m venv "$HOME/.virtualenvs/$1"
+}
+
+urm() {
+  rm -rf "$HOME/.virtualenvs/$1"
+}
+
+uenv() {
+  source "$HOME/.virtualenvs/$1/bin/activate"
+}
+
+_uv_complete() {
+  local envs
+  mapfile -t envs < <(ls -1 "$HOME/.virtualenvs" 2>/dev/null)
+  COMPREPLY=($(compgen -W "${envs[*]}" -- "${COMP_WORDS[COMP_CWORD]}"))
+}
+complete -F _uv_complete uv-env
+complete -F _uv_complete uv-rm
 
 # temp script
 export TMP_SCRIPT_ROOT="${TMP_SCRIPT_ROOT:-$HOME/.tmp-scripts}"
@@ -153,10 +179,9 @@ tdelete() {
 }
 
 _tscript_complete() {
-  local cur scripts
-  cur="${COMP_WORDS[COMP_CWORD]}"
-  scripts=$(find "$TMP_SCRIPT_ROOT" -type f -printf '%f\n' 2>/dev/null)
-  COMPREPLY=($(compgen -W "$scripts" -- "$cur"))
+  local scripts
+  mapfile -t scripts < <(find "$TMP_SCRIPT_ROOT" -type f -printf '%f\n' 2>/dev/null)
+  COMPREPLY=($(compgen -W "${scripts[*]}" -- "${COMP_WORDS[COMP_CWORD]}"))
 }
 complete -F _tscript_complete tedit
 complete -F _tscript_complete trun
@@ -190,20 +215,66 @@ brun() {
   "$bin" "$@"
 }
 
+treec() {
+  local ignore_patterns=(
+      "build" "dist" "target"
+      "node_modules" "pnpm-lock.yaml" "yarn.lock"
+      "__pycache__" "*.js.map" "*.tsbuildinfo"
+      "*.d.ts" "*.o" "*.a" "*.so" "*.dll" "*.dylib"
+      "*.exe" "*.out" "*.class" "*.pyc" "*.pyo"
+      "a.out.*" "Cargo.lock"
+    )
+
+    tree -I "$(IFS='|'; echo "${ignore_patterns[*]}")" "$@"
+}
+
+# claude
+cld() {
+  if [[ "$1" == "update" ]]; then
+    npm install -g @anthropic-ai/claude-code
+  else
+    claude "$@"
+  fi
+}
+
+# codex
+cdx() {
+  if [[ "$1" == "update" ]]; then
+    npm install -g @openai/codex@latest
+  else
+    codex --search "$@" -c model_reasoning_summary_format=experimental
+  fi
+}
+
 # ==============================================================================
 # Aliases
 # ==============================================================================
+alias ls='ls --color=auto'
+
 # general
-alias ls='ls --color'
-alias l='ls -ab'
-alias la='ls -la'
-alias ll='ls -lh'
+alias ll='ls -la'
+alias la='ls -A'
+alias l='ls -F'
+alias cp='cp -v'
+alias rm='rm -iv'
+alias mv='mv -iv'
+alias mkdir='mkdir -pv'
+alias clr='clear'
+alias rst='cd ~ && clear'
+
+alias tmr='tmux respawn-pane -k'
+alias tmks='tmux kill-session'
+alias tmka='tmux kill-server'
+alias tmo='tmux detach'
+
 alias sloc='cloc $(git ls-files)'
-alias code='code .'
-alias vi='/usr/bin/vim'
 alias vim='nvim'
-alias newvim='vim $(fzf)'
-alias cl='clear'
+alias newvim='nvim $(fzf)'
+alias cat='bat --theme="Visual Studio Dark+"'
+alias cu="open $1 -a \"Cursor\""
+alias v="open $1 -a \"Visual Studio Code\""
+alias lazygit='lg'
+alias gpg-reset='gpgconf --kill gpg-agent && gpgconf --launch gpg-agent'
 
 # git
 alias gs='git status'
@@ -213,7 +284,10 @@ alias gf='git fetch'
 alias gpush='git push'
 alias gd='git diff'
 alias ga='git add .'
+alias gn='git new'
 alias gc='git checkout'
+alias gwl='git worktree list'
+alias gwp='git worktree prune'
 
 # rsync
 # alias rs='rsync -av --delete'
@@ -221,6 +295,7 @@ alias gc='git checkout'
 
 # other
 # alias clang++='clang++ -Weverything
+alias ftp='sftp'
 alias smi='watch -n 1 nvidia-smi'
 alias bb2='conda activate base2'
 alias pip='pip3'

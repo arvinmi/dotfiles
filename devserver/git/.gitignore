@@ -1,0 +1,64 @@
+# Global git ignore
+
+# macos
+.DS_Store*
+.Spotlight-V100
+.Trashes
+
+# win
+ehthumbs.db
+Thumbs.db
+
+# visual studio
+.vs/
+.vscode/
+.history/
+*.vsix
+
+# ai
+*.claude/
+*.codex/
+
+# python
+__pycache__/
+
+# javascript/typescript
+node_modules
+
+# C/C++
+*.o
+*.d
+*.out
+a.out*
+*.a
+*.obj
+*.so
+cmake-build-*/
+
+# Tex
+*.aux
+*.bbl
+*.blg
+*.brf
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.xdv
+
+# packages
+*.dmg
+*.pkg
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# misc
+TODO.md
+*.un~
