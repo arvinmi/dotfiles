@@ -30,10 +30,13 @@ sudo apt install -y build-essential htop fzf git golang rclone iptables ncdu \
 neofetch fail2ban ranger tree tmux glances kitty gimp vim curl \
 adwaita-icon-theme-full vorta plocate net-tools gnome-tweaks xterm \
 openssh-server python3-pip python3-venv nodejs npm logisim trash-cli gdb clang \
-llvm valgrind btop stow
+llvm valgrind btop stow mosh nvtop git-lfs
 # remove stock software 
 sudo apt-get remove thunderbird* libreoffice*
 # install anydesk at https://deb.anydesk.com/howto.html
+# install qemu-guest-agent if on proxmox
+# sudo apt-get install -y qemu-guest-agent
+# install delta for git diff at https://dandavison.github.io/delta/installation.html
 
 # setup ssh
 # sudo apt-get install ethtool
@@ -79,6 +82,16 @@ echo "install sdkman"
 # curl -s "https://get.sdkman.io" | bash
 # sdk version
 
+echo "install node"
+# check at https://nodejs.org/en/download
+
+echo "install agents"
+# npm -g install @openai/codex @anthropic-ai/claude-code @google/gemini-cli \
+# @sourcegraph/amp @ccundo @ccusage @ccusage/codex @opencode-ai @uniprof @jscpd
+
+echo "install bun"
+# curl -fsSL https://bun.sh/install | bash
+
 echo "install tpm"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
@@ -94,7 +107,7 @@ echo "install isaac-sim and isaac-lab"
 # conda activate ilab
 
 # stow devserver files
-rm -rf ~/.bashrc
+rm -rf ~/.bashrc ~/.gitconfig
 
 for file in "bash" "redshift" "xresources" "kitty" "conda" "git"; do
   stow --verbose --target="$HOME" --dir="devserver" --restow "$file"
@@ -144,7 +157,7 @@ echo "* install flatpak *"
 sudo apt-get install -y flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak list
-# flatpak install gwe org.blender.Blender io.qt.QtCreator mypaint
+# flatpak install gwe io.qt.QtCreator mypaint flathub org.blender.Blender
 
 echo "* install visual-studio-code snap *"
 # sudo snap install --classic code
@@ -191,6 +204,27 @@ EOF'
 
 sudo systemctl reload ssh.service
 exit
+
+############################# UFW Configuration ###############################
+
+sudo ufw --force reset
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw default deny routed
+
+# tailscale
+sudo ufw allow in on tailscale0
+sudo ufw allow out on tailscale0
+
+# forward rules
+sudo ufw route allow in on tailscale0 out on enp6s18
+sudo ufw route allow in on enp6s18 out on tailscale0
+
+sudo ufw logging on
+sudo ufw logging low
+sudo ufw --force enable
+sudo ufw reload
+sudo ufw status verbose
 
 ################################# Post Setup ##################################
 
