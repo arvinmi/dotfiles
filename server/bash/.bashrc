@@ -84,33 +84,211 @@ export CLICOLOR=1
 # ==============================================================================
 
 scancelme() {
-    read -p "Really cancel all your runs? [N/y] " -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        echo "Cancelling all runs for $USER"
-        scancel -u $USER
-    else
-        echo "Aborting"
-    fi
+ read -p "Really cancel all your runs? [N/y] " -n 1 -r
+ echo
+ if [[ $REPLY =~ ^[Yy]$ ]]; then
+  echo "Cancelling all runs for $USER"
+  scancel -u $USER
+ else
+  echo "Aborting"
+ fi
+}
+
+
+# tmux new and attach
+tmn() {
+	if [[ $# = 0 ]]; then
+	  tmux attach -t default || tmux new -s default
+	else
+	  tmux new -s "$@"
+	fi
+}
+
+tma() {
+  tmux attach -t "$1"
+}
+
+_tma_complete() {
+  local cur sessions
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  mapfile -t sessions < <(tmux list-sessions -F '#S' 2>/dev/null)
+  COMPREPLY=($(compgen -W "${sessions[*]}" -- "$cur"))
+}
+complete -F _tma_complete tma
+
+# disk usage
+prof() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: prof <directory>"
+    return 1
+  fi
+  du -sh "$1"/* | sort -hr
+}
+
+rmdir() {
+  rm -ivrf "$@" | grep -v '\.git/'
+}
+
+mkcd() {
+  mkdir -p "$1" && cd "$1"
+}
+
+gdrive() {
+  if [[ $# -ne 2 ]]; then
+    echo "Usage: gdrive <google-file-id> <output-path>"
+    return 1
+  fi
+  gdown "https://drive.google.com/uc?id=$1" -O "$2"
+}
+
+topc() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: topc <regex>"
+    return 1
+  fi
+  top -c | grep -E --color=auto "$1"
+}
+
+# conda cenv
+cenv() {
+  conda activate "$1"
+}
+
+cnd() {
+  conda deactivate
+}
+
+_cenv_complete() {
+  local envs
+  if [[ -f ~/.conda/environments.txt ]]; then
+    mapfile -t envs < ~/.conda/environments.txt
+    envs=("${envs[@]##*/}")
+    COMPREPLY=($(compgen -W "${envs[*]}" -- "${COMP_WORDS[COMP_CWORD]}"))
+  fi
+}
+complete -F _cenv_complete cenv
+
+# uv uenv
+unew() {
+  python3 -m venv "$HOME/.virtualenvs/$1"
+}
+
+urm() {
+  rm -rf "$HOME/.virtualenvs/$1"
+}
+
+uenv() {
+  source "$HOME/.virtualenvs/$1/bin/activate"
+}
+
+_uv_complete() {
+  local envs
+  mapfile -t envs < <(ls -1 "$HOME/.virtualenvs" 2>/dev/null)
+  COMPREPLY=($(compgen -W "${envs[*]}" -- "${COMP_WORDS[COMP_CWORD]}"))
+}
+complete -F _uv_complete uv-env
+complete -F _uv_complete uv-rm
+
+# temp script
+export TMP_SCRIPT_ROOT="${TMP_SCRIPT_ROOT:-$HOME/.tmp-scripts}"
+mkdir -p "$TMP_SCRIPT_ROOT"
+
+tinit() {
+  local file="$TMP_SCRIPT_ROOT/$1"
+  echo "#!/bin/bash" > "$file"
+  chmod +x "$file"
+  "${EDITOR:-nvim}" "$file"
+}
+
+tedit() {
+  "${EDITOR:-nvim}" "$TMP_SCRIPT_ROOT/$1"
+}
+
+trun() {
+  bash "$TMP_SCRIPT_ROOT/$1"
+}
+
+tdelete() {
+  rm -i "$TMP_SCRIPT_ROOT/$1"
+}
+
+_tscript_complete() {
+  local scripts
+  mapfile -t scripts < <(find "$TMP_SCRIPT_ROOT" -type f -printf '%f\n' 2>/dev/null)
+  COMPREPLY=($(compgen -W "${scripts[*]}" -- "${COMP_WORDS[COMP_CWORD]}"))
+}
+complete -F _tscript_complete tedit
+complete -F _tscript_complete trun
+complete -F _tscript_complete tdelete
+
+# make
+brun() {
+  local file="$1"
+  shift
+
+  local name="${file%.*}"
+  local ext="${file##*.}"
+  local bin="./$name"
+
+  case "$ext" in
+    c)
+      cc "$file" -o "$bin" || return 1
+      ;;
+    cpp|cc|cxx)
+      c++ "$file" -o "$bin" || return 1
+      ;;
+    cu)
+      nvcc "$file" -o "$bin" || return 1
+      ;;
+    *)
+      echo "Unsupported file type: $ext"
+      return 1
+      ;;
+  esac
+
+  "$bin" "$@"
+}
+
+treec() {
+  local ignore_patterns=(
+      "build" "dist" "target"
+      "node_modules" "pnpm-lock.yaml" "yarn.lock"
+      "__pycache__" "*.js.map" "*.tsbuildinfo"
+      "*.d.ts" "*.o" "*.a" "*.so" "*.dll" "*.dylib"
+      "*.exe" "*.out" "*.class" "*.pyc" "*.pyo"
+      "a.out.*" "Cargo.lock"
+    )
+
+    tree -I "$(IFS='|'; echo "${ignore_patterns[*]}")" "$@"
 }
 
 # ==============================================================================
 # Aliases
 # ==============================================================================
+alias ls='ls --color=auto'
 
 # general
-alias ls='ls --color'
-alias l='ls -ab'
-alias la='ls -la'
-alias ll='ls -lh'
+alias ll='ls -la'
+alias la='ls -A'
+alias l='ls -F'
+alias cp='cp -v'
+alias rm='rm -iv'
+alias mv='mv -iv'
+alias mkdir='mkdir -pv'
+alias clr='clear'
+alias rst='cd ~ && clear'
+
+alias tmr='tmux respawn-pane -k'
+alias tmks='tmux kill-session'
+alias tmka='tmux kill-server'
+alias tmo='tmux detach'
+
 alias sloc='cloc $(git ls-files)'
-alias vi='/usr/bin/vim'
-# alias vim='nvim'
-alias newvim='vim $(fzf)'
-alias cl='clear'
+alias vim='nvim'
+alias newvim='nvim $(fzf)'
+alias gpg-reset='gpgconf --kill gpg-agent && gpgconf --launch gpg-agent'
 
 # git
-alias git='/usr/local/apps/git/2.32/bin/git'
 alias gs='git status'
 alias gl='git log'
 alias gp='git pull'
@@ -118,7 +296,10 @@ alias gf='git fetch'
 alias gpush='git push'
 alias gd='git diff'
 alias ga='git add .'
+alias gn='git new'
 alias gc='git checkout'
+alias gwl='git worktree list'
+alias gwp='git worktree prune'
 
 # osugpu
 alias squ='squeue -u "$USER"'
@@ -130,6 +311,8 @@ alias gpulong='sh ${HOME}/dotfiles/server/scripts/scripts/osugpu/accgpulong.sh'
 
 # other
 # alias clang++='clang++ -Weverything
+alias ftp='sftp'
+alias smi='watch -n 1 nvidia-smi'
 alias bb2='conda activate base2'
 alias pip='pip3'
 alias python='python3'
@@ -137,6 +320,5 @@ alias nb='jupyter notebook --port=8096 --ip=0.0.0.0 --no-browser --notebook-dir=
 alias lab='jupyter lab --port=8096 --ip=0.0.0.0 --no-browser --notebook-dir=${HOME}/code/fun'
 alias jun='junest -b "--bind ${HOME}/share /nfs/hpc/share/mirtoraa" -- /usr/bin/bash'
 # alias jun2='export PS1="[\u@\h \W]\\$ "'
-alias changedisplay='xrandr --output Virtual-1 --mode 1920x1080'
 # alias backupshared='aws s3 sync my_directory s3://mlstorage/downloads'
 # alias backuphome="aws s3 sync /home/ubuntu/ s3://backup/raven-dev-home --exclude '.*' --exclude 'miniconda3/*' --exclude 'sky_logs/*' --exclude 'shared/*'"

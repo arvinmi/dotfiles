@@ -7,7 +7,10 @@ envs_dirs:
 pkgs_dirs:
   - ${HOME}/share/.conda/pkgs
 channel_priority: strict
+always_yes: true
 update_dependencies: true
 auto_activate_base: false
 ssl_verify: true
 default_threads: 8
+# solver: classic
+solver: libmamba
