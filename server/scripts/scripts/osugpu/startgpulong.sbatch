@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=intrgpunode
-#SBATCH --partition=dgxh,dgx2
+#SBATCH --partition=dgxh,gpu,gpu-dmv,dgx2
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32g
 #SBATCH --gres=gpu:2

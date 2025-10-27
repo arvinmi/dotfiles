@@ -284,7 +284,6 @@ alias tmka='tmux kill-server'
 alias tmo='tmux detach'
 
 alias sloc='cloc $(git ls-files)'
-alias vim='nvim'
 alias newvim='nvim $(fzf)'
 alias gpg-reset='gpgconf --kill gpg-agent && gpgconf --launch gpg-agent'
 
