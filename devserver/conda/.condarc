@@ -2,10 +2,8 @@ channels:
   - conda-forge
   - pytorch
   - defaults
-# envs_dirs:
-#  - ${HOME}/.conda/envs
-# pkgs_dirs:
-#  - ${HOME}/.conda/pkgs
+envs_dirs:
+  - ~/miniconda3/envs
 channel_priority: strict
 always_yes: true
 update_dependencies: true

@@ -40,12 +40,12 @@ alias cursor="~/Applications/cursor.AppImage --no-sandbox"
 # ==============================================================================
 # Shell Options
 # ==============================================================================
-bind '"\e[A": history-search-backward'
-bind '"\eOA": history-previous-history'
-bind '"\e[B": history-search-forward'
-bind '"\eOB": history-next-history'
-
-bindkey -s ^f "~/scripts/tmux-sessionizer.sh\n"
+if [[ $- == *i* ]]; then
+  bind '"\e[A": history-search-backward'
+  bind '"\eOA": history-previous-history'
+  bind '"\e[B": history-search-forward'
+  bind '"\eOB": history-next-history'
+fi
 
 # ==============================================================================
 # Prompt

@@ -30,7 +30,7 @@ sudo apt install -y build-essential htop fzf git golang rclone iptables ncdu \
 neofetch fail2ban ranger tree tmux glances kitty gimp vim curl \
 adwaita-icon-theme-full vorta plocate net-tools gnome-tweaks xterm \
 openssh-server python3-pip python3-venv nodejs npm logisim trash-cli gdb clang \
-llvm valgrind btop stow mosh nvtop git-lfs
+llvm valgrind btop stow mosh nvtop git-lfs yt-dlp
 # remove stock software 
 sudo apt-get remove thunderbird* libreoffice*
 # install anydesk at https://deb.anydesk.com/howto.html
@@ -87,10 +87,13 @@ echo "install node"
 
 echo "install agents"
 # npm -g install @openai/codex @anthropic-ai/claude-code @google/gemini-cli \
-# @sourcegraph/amp @ccundo @ccusage @ccusage/codex @opencode-ai @uniprof @jscpd
+# @sourcegraph/amp ccundo ccusage @ccusage/codex opencode-ai uniprof jscpd
 
 echo "install bun"
 # curl -fsSL https://bun.sh/install | bash
+
+echo "install uv"
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
 echo "install tpm"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -227,6 +230,9 @@ sudo ufw reload
 sudo ufw status verbose
 
 ################################# Post Setup ##################################
+
+# for proxmox, configure '/etc/gdm3/custom.conf'
+# set 'WaylandEnable=false', 'AutomaticLoginEnable = true', 'AutomaticLogin = USER'
 
 # set up firewall
 # sudo systemctl enable ufw

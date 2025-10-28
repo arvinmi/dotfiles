@@ -1,14 +1,14 @@
 [user]
     name = arvinmi
     email = 64492021+arvinmi@users.noreply.github.com
-    signingkey = 23EF401402429FCE
+    signingkey = ECCC0B0E56778D18
 
 [commit]
     gpgSign = true
 
 [core]
     pager = delta
-    excludesfile = ~/dotfiles/mac/git/.gitignore
+    excludesfile = ~/dotfiles/devserver/git/.gitignore
 
 [interactive]
     diffFilter = delta --color-only
@@ -24,7 +24,7 @@
     hyperlinks = true
 
 [gpg]
-    program = /opt/homebrew/bin/gpg
+    program = /usr/bin/gpg
 
 [color]
     ui = true
@@ -38,7 +38,7 @@
 [merge]
     tool = nvim
     log = true
-    conflictstyle = zdiff3
+    conflictstyle = diff3
 
 [mergetool]
     prompt = false
