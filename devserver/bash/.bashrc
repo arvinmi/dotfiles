@@ -11,9 +11,6 @@ HISTFILESIZE=5000000
 #. "$HOME/.cargo/env"
 # export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 
-# uv
-export PATH="$PATH:/home/kofa/.local/bin"
-
 # miniconda
 if [ -f ~/miniconda3/etc/profile.d/conda.sh ]; then
   source ~/miniconda3/etc/profile.d/conda.sh
