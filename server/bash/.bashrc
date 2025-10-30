@@ -36,9 +36,6 @@ if [[ -z ${CONDA_PREFIX+x} ]]; then
 fi
 # module load anaconda/24.3
 
-# uv
-export PATH="$HOME/.local/bin:$PATH"
-
 # sdkman
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
