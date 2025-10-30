@@ -30,7 +30,7 @@ sudo apt install -y build-essential htop fzf git golang rclone iptables ncdu \
 neofetch fail2ban ranger tree tmux glances kitty gimp vim curl \
 adwaita-icon-theme-full vorta plocate net-tools gnome-tweaks xterm \
 openssh-server python3-pip python3-venv nodejs npm logisim trash-cli gdb clang \
-llvm valgrind btop stow mosh nvtop git-lfs yt-dlp
+llvm valgrind btop stow mosh nvtop git-lfs yt-dlp bat
 # remove stock software 
 sudo apt-get remove thunderbird* libreoffice*
 # install anydesk at https://deb.anydesk.com/howto.html

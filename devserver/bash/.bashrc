@@ -63,11 +63,11 @@ export CLICOLOR=1
 
 # tmux new and attach
 tmn() {
-	if [[ $# = 0 ]]; then
-	  tmux attach -t default || tmux new -s default
-	else
-	  tmux new -s "$@"
-	fi
+  if [[ $# = 0 ]]; then
+    tmux attach -t default || tmux new -s default
+  else
+    tmux new -s "$@"
+  fi
 }
 
 tma() {
@@ -135,25 +135,62 @@ _cenv_complete() {
 complete -F _cenv_complete cenv
 
 # uv uenv
-unew() {
-  python3 -m venv "$HOME/.virtualenvs/$1"
+uvenv() {
+  local env_path="$HOME/.virtualenvs/$1"
+  if [[ -z "$1" ]]; then
+    echo "Usage: uvenv <env-name> (<python-version>)"
+    return 1
+  fi
+  if [[ -d "$env_path" ]]; then
+    export UV_PROJECT_ENVIRONMENT="$env_path"
+    source "$env_path/bin/activate"
+  else
+    mkdir -p "$HOME/.virtualenvs"
+    local py="${2:-${DEFAULT_PYTHON_VERSION:-python3}}"
+    uv venv "$env_path" --python "$py"
+    export UV_PROJECT_ENVIRONMENT="$env_path"
+    source "$env_path/bin/activate"
+  fi
 }
 
-urm() {
-  rm -rf "$HOME/.virtualenvs/$1"
+uvnd() {
+  deactivate
 }
 
-uenv() {
-  source "$HOME/.virtualenvs/$1/bin/activate"
+uvrm() {
+  if [[ "$#" -ne "1" ]]; then
+    echo "Usage: uvrm <name>"
+    return
+  fi
+  rm -rf ${HOME}/.virtualenvs/$1
+  echo "Removed environment '$1'"
 }
+
+uvinit() {
+  uv init --bare
+}
+
+# uvi() {
+#   uv pip install "$@"
+# }
+
+uvi() {
+  uv add --active "$@"
+}
+
+# use uv instead of regular pip
+alias pip='uv pip'
+alias pip3='uv pip'
 
 _uv_complete() {
+  local base_dir="${UV_VENV_DIR:-$HOME/.virtualenvs}"
   local envs
-  mapfile -t envs < <(ls -1 "$HOME/.virtualenvs" 2>/dev/null)
+
+  mapfile -t envs < <(ls -1 "$base_dir" 2>/dev/null)
   COMPREPLY=($(compgen -W "${envs[*]}" -- "${COMP_WORDS[COMP_CWORD]}"))
 }
-complete -F _uv_complete uv-env
-complete -F _uv_complete uv-rm
+complete -F _uv_complete uvenv
+complete -F _uv_complete uvrm
 
 # temp script
 export TMP_SCRIPT_ROOT="${TMP_SCRIPT_ROOT:-$HOME/.tmp-scripts}"
@@ -295,10 +332,11 @@ alias gwp='git worktree prune'
 
 # other
 # alias clang++='clang++ -Weverything
+alias sai='sudo apt install'
+alias sauu='sudo apt update && sudo apt upgrade && sudo apt autoremove'
 alias ftp='sftp'
 alias smi='watch -n 1 nvidia-smi'
 alias bb2='conda activate base2'
-alias pip='pip3'
 alias python='python3'
 alias bat='bat'
 alias changedisplay='xrandr --output Virtual-1 --mode 1920x1080'
