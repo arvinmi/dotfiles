@@ -17,8 +17,21 @@ HISTFILESIZE=5000000
 # cuda module load
 # module load cuda/12.6
 
-# pip and hftransformers cache dir
+# pip cache
 export PIP_CACHE_DIR=${HOME}/share/.cache/pip
+
+# uv cache
+export UV_CACHE_DIR=${HOME}/share/.cache/uv
+
+# uv virtualenvs 
+export UV_VENV_DIR=${HOME}/share/.virtualenvs
+
+# torch cache
+export TORCH_HOME=${HOME}/share/.cache/torch
+
+# hf cache
+export HF_HOME=${HOME}/share/.cache/huggingface
+# hf cache legacy
 export TRANSFORMERS_CACHE=${HOME}/share/.cache/huggingface
 
 # cargo
@@ -167,7 +180,7 @@ complete -F _cenv_complete cenv
 
 # uv uenv
 uvenv() {
-  local env_path="$HOME/.virtualenvs/$1"
+  local env_path="$UV_VENV_DIR/$1"
   if [[ -z "$1" ]]; then
     echo "Usage: uvenv <env-name> (<python-version>)"
     return 1
@@ -176,7 +189,7 @@ uvenv() {
     export UV_PROJECT_ENVIRONMENT="$env_path"
     source "$env_path/bin/activate"
   else
-    mkdir -p "$HOME/.virtualenvs"
+    mkdir -p "$UV_VENV_DIR"
     local py="${2:-${DEFAULT_PYTHON_VERSION:-python3}}"
     uv venv "$env_path" --python "$py"
     export UV_PROJECT_ENVIRONMENT="$env_path"
@@ -193,7 +206,7 @@ uvrm() {
     echo "Usage: uvrm <name>"
     return
   fi
-  rm -rf ${HOME}/.virtualenvs/$1
+  rm -rf "$UV_VENV_DIR/$1"
   echo "Removed environment '$1'"
 }
 
@@ -214,7 +227,7 @@ alias pip='uv pip'
 alias pip3='uv pip'
 
 _uv_complete() {
-  local base_dir="${UV_VENV_DIR:-$HOME/.virtualenvs}"
+  local base_dir="${UV_VENV_DIR:-$HOME/share/.virtualenvs}"
   local envs
 
   mapfile -t envs < <(ls -1 "$base_dir" 2>/dev/null)
