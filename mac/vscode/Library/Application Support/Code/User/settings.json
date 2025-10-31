@@ -52,6 +52,9 @@
   "cursorpyright.analysis.autoSearchPaths": false,
   "cursorpyright.analysis.logLevel": "Information",
   "cursor.composer.usageSummaryDisplay": "always",
+  "remote.SSH.remotePlatform": {
+    "a": "linux"
+  },
   // font
   "editor.fontFamily": "Menlo, monospace",
   "editor.fontSize": 13,
