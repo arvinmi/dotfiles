@@ -11,6 +11,18 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- disable unused providers for fast startup
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.python3_host_prog = '/usr/bin/python3'
+
+-- perf optimizations
+vim.opt.lazyredraw = true
+vim.opt.ttyfast = true
+vim.opt.redrawtime = 1500
+vim.opt.timeoutlen = 300
+
 -------------------------------------------------------------------------------
 -- General settings
 -------------------------------------------------------------------------------
@@ -75,8 +87,8 @@ vim.opt.vb = true
 vim.opt.completeopt = "menuone,noselect"
 -- switch to another buffer if are unsaved changes
 -- vim.opt.hidden = false
--- set scroll in middle
-vim.opt.scrolloff = 999
+-- set scroll padding
+vim.opt.scrolloff = 4
 -- stop folding
 -- vim.opt.foldenable = false
 -- vim.opt.foldmethod = "manual"
@@ -351,10 +363,10 @@ require("lazy").setup({
   { "tpope/vim-sleuth" },
 
   -- git commands inside nvim
-  { "tpope/vim-fugitive" },
+  { "tpope/vim-fugitive", cmd = { "Git", "G", "Gdiffsplit", "Gvdiffsplit" } },
 
   -- extension for fugitive.vim
-  { "tpope/vim-rhubarb" },
+  { "tpope/vim-rhubarb", dependencies = { "tpope/vim-fugitive" } },
 
   -- keymappings menu
   {
@@ -385,6 +397,7 @@ require("lazy").setup({
   -- ident guides on blank lines
   {
     "lukas-reineke/indent-blankline.nvim",
+    event = { "BufReadPost", "BufNewFile" },
     main = "ibl",
     opts = {},
   },
@@ -392,6 +405,7 @@ require("lazy").setup({
   -- highlight todo, notes in comments
   { 
     "folke/todo-comments.nvim",
+    event = { "BufReadPost", "BufNewFile" },
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = { 
       signs = false,
@@ -410,6 +424,10 @@ require("lazy").setup({
   -- comment lines out using `gc` for inline or `gb` for block 
   {
     "numToStr/Comment.nvim",
+    keys = {
+      { "gc", mode = { "n", "v" } },
+      { "gb", mode = { "n", "v" } },
+    },
     config = function()
       require("Comment").setup({
         toggler = { line = 'gc' },
@@ -443,6 +461,7 @@ require("lazy").setup({
   -- zen mode
   {
     "folke/zen-mode.nvim",
+    cmd = "ZenMode",
     opts = {
         window = {
             backdrop = 0.1,
@@ -497,13 +516,10 @@ require("lazy").setup({
 	-- },
 
   -- markdown preview
-  -- needs to run `:call mkdp#util#install()`
   {
     "iamcco/markdown-preview.nvim",
-    -- lazy load markdown preview only for markdown files
-    lazy = false,
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
+    ft = "markdown",
     build = function()
       vim.fn["mkdp#util#install"]()
     end,
@@ -513,7 +529,7 @@ require("lazy").setup({
   {
     "MeanderingProgrammer/render-markdown.nvim",
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
-    ft = { "markdown" },
+    ft = "markdown",
   },
 
   -- LLM integration with dingllm.nvim
@@ -824,11 +840,31 @@ require("lazy").setup({
   },
 
   -- set treesitter for better syntax highlighting
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = { "bash", "python", "lua", "javascript", "typescript", "html", "css", "json", "rust", "go", "c", "cpp", "zig" },
+        highlight = { 
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
+        incremental_selection = { enable = false },
+        indent = { enable = false },
+      })
+    end,
+  },
 }, {
   -- added perf settings for lazy.nvim
   performance = {
+    cache = {
+      enabled = true,
+    },
+    reset_packpath = true,
     rtp = {
+      reset = true,
       disabled_plugins = {
         "gzip",
         "matchit",
@@ -840,6 +876,9 @@ require("lazy").setup({
         "zipPlugin",
       },
     },
+  },
+  ui = {
+    border = "rounded",
   },
 })
 
