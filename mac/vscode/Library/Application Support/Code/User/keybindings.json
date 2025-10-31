@@ -59,11 +59,21 @@
   },
   {
     "key": "cmd+ctrl+up",
-    "command": "workbench.action.increaseViewSize",
+    "command": "noop",
     "when": "panelFocus"
   },
   {
     "key": "cmd+ctrl+down",
+    "command": "noop",
+    "when": "panelFocus"
+  },
+  {
+    "key": "shift+cmd+up",
+    "command": "workbench.action.increaseViewSize",
+    "when": "panelFocus"
+  },
+  {
+    "key": "shift+cmd+down",
     "command": "workbench.action.decreaseViewSize",
     "when": "panelFocus"
   },
@@ -115,11 +125,11 @@
   },
   // chat stuff
   {
-    "key": "shift+cmd+l",
+    "key": "cmd+l",
     "command": "composer.startComposerPrompt"
   },
   {
-    "key": "shift+cmd+l",
+    "key": "cmd+l",
     "command": "workbench.panel.chat",
     "when": "workbench.panel.chat.view.copilot.active"
   },
@@ -218,9 +228,14 @@
   },
   // terminal
   {
-    "key": "cmd+l",
+    "key": "cmd+j",
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
+  },
+  {
+    "key": "shift+cmd+j",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "panelAlignment == 'center' || panelPosition != 'bottom' && panelPosition != 'top'"
   },
   {
     "key": "cmd+t",

@@ -35,9 +35,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# uv
-export PATH="$HOME/.local/bin:$PATH"
-
 # sdkman
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -92,11 +89,11 @@ lenv() {
 
 # tmux new and attach
 tmn() {
-	if [[ $# = 0 ]]; then
-	  tmux attach -t default || tmux new -s default
-	else
-	  tmux new -s "$@"
-	fi
+  if [[ $# = 0 ]]; then
+    tmux attach -t default || tmux new -s default
+  else
+    tmux new -s "$@"
+  fi
 }
 
 tma() {
@@ -163,25 +160,64 @@ _cenv_complete() {
 compdef _cenv_complete cenv
 
 # uv uenv
-unew() {
-  python3 -m venv "$HOME/.virtualenvs/$1"
+uvenv() {
+  local env_path="$HOME/.virtualenvs/$1"
+  if [[ -z "$1" ]]; then
+    echo "Usage: uvenv <env-name>"
+    return 1
+  fi
+  local py="/opt/homebrew/bin/python3"
+  if [[ ! -x "$py" ]]; then
+    return 1
+  fi
+  if [[ -d "$env_path" ]]; then
+    export UV_PROJECT_ENVIRONMENT="$env_path"
+    source "$env_path/bin/activate"
+  else
+    mkdir -p "$HOME/.virtualenvs"
+    uv venv "$env_path" --python "$py"
+    export UV_PROJECT_ENVIRONMENT="$env_path"
+    source "$env_path/bin/activate"
+  fi
 }
 
-urm() {
-  rm -rf "$HOME/.virtualenvs/$1"
+uvnd() {
+  deactivate
 }
 
-uenv() {
-  source "$HOME/.virtualenvs/$1/bin/activate"
+uvrm() {
+  if [[ "$#" -ne "1" ]]; then
+    echo "Usage: uvrm <name>"
+    return
+  fi
+  rm -rf ${HOME}/.virtualenvs/$1
+  echo "Removed environment '$1'"
 }
+
+uvinit() {
+  uv init --bare
+}
+
+# uvi() {
+#   uv pip install "$@"
+# }
+
+uvi() {
+  uv add --active "$@"
+}
+
+# use uv instead of regular pip
+alias pip='uv pip'
+alias pip3='uv pip'
 
 _uv_complete() {
+  local base_dir="${UV_VENV_DIR:-$HOME/.virtualenvs}"
   local -a envs
-  envs=(${(f)"$(ls -1 "$HOME/.virtualenvs" 2>/dev/null)"})
-  _describe 'virtualenvs' envs
+  envs=(${(f)"$(ls -1 $base_dir 2>/dev/null)"})
+  compadd "$@" -- $envs
 }
-compdef _uv_complete uv-env
-compdef _uv_complete uv-rm
+compdef _uv_complete uvenv
+compdef _uv_complete uvrm
 
 # temp script
 export TMP_SCRIPT_ROOT="${TMP_SCRIPT_ROOT:-$HOME/.tmp-scripts}"
@@ -328,7 +364,6 @@ alias arm64='arch -arm64'
 alias rs='rsync -av --delete'
 alias brewfile='brew bundle dump'
 alias bb2='conda activate base2'
-alias pip='pip3'
 alias python='python3'
 alias nb='jupyter notebook --port=9000 --notebook-dir=${HOME}/code'
 alias lab='jupyter lab --port=9000 --notebook-dir=${HOME}/code'

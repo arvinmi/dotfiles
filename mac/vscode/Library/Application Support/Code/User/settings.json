@@ -95,6 +95,7 @@
   "editor.guides.bracketPairs": true,
   "editor.formatOnSave": true,
   "editor.stickyScroll.enabled": true,
+  "editor.wordBasedSuggestions": "off",
   "workbench.editor.decorations.colors": false,
   "workbench.editorAssociations": {
     "*.copilotmd": "vscode.markdown.preview.editor",
@@ -262,10 +263,13 @@
   "cSpell.languageSettings": [],
   "cSpell.diagnosticLevel": "Hint",
   "cSpell.fixSpellingWithRenameProvider": false,
+  "amp.url": "https://ampcode.com/",
+  "amp.tab.enabled": true,
+  "amp.notifications.enabled": false,
   "github.copilot.enable": {
-    "*": true,
-    "plaintext": true,
-    "markdown": true,
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
     "scminput": false
   },
   "chat.agent.enabled": true,
@@ -283,7 +287,7 @@
   "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.chat.editor.temporalContext.enabled": true,
   "application.experimental.extensionMonitor.enabled": true,
-  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.nextEditSuggestions.enabled": false,
   "github.copilot.chat.agent.thinkingTool": true,
   "github.copilot.chat.notebook.enhancedNextEditSuggestions.enabled": true,
   "github.copilot.chat.languageContext.fix.typescript.enabled": true,
