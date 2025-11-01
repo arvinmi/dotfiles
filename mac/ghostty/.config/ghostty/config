@@ -15,6 +15,7 @@ window-colorspace = display-p3
 font-feature = -liga
 macos-titlebar-style = native
 # add unlimited scrollback
+bell-features = false
 
 keybind = cmd+backspace=text:\x15
 keybind = opt+backspace=text:\x17

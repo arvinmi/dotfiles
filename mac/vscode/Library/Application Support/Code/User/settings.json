@@ -53,7 +53,9 @@
   "cursorpyright.analysis.logLevel": "Information",
   "cursor.composer.usageSummaryDisplay": "always",
   "remote.SSH.remotePlatform": {
-    "a": "linux"
+    "a": "linux",
+    "osugpu": "linux",
+    "osu": "linux"
   },
   // font
   "editor.fontFamily": "Menlo, monospace",
@@ -151,7 +153,6 @@
   "terminal.integrated.macOptionClickForcesSelection": true,
   "terminal.integrated.smoothScrolling": true,
   "remote.SSH.configFile": "~/.ssh/config",
-  "remote.SSH.showLoginTerminal": true,
   "python.defaultInterpreterPath": "/Users/kofa/miniconda3/envs/base2/bin/python",
   "remote.SSH.enableX11Forwarding": false,
   "remote.SSH.enableRemoteCommand": true,
