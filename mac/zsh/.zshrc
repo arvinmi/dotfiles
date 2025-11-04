@@ -2,14 +2,19 @@
 # Paths
 #-------------------------------------------------------------------------------
 
+if [ -f ~/.zprofile ]; then
+  source ~/.zprofile
+fi
+export PATH="$HOME/.local/bin:$PATH"
+ZSH_DISABLE_COMPFIX="true"
+
+# docker cli completions
+fpath=(/Users/kofa/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+
 # plugins
 # eval $(thefuck --alias fix)
-
-# fix ghostty terminfo (for now)
-export TERM=xterm-256color
-
-# sdkman
-source "/Users/$USER/.sdkman/bin/sdkman-init.sh"
 
 # openssh
 PATH=$(brew --prefix openssh)/bin:$PATH
@@ -30,41 +35,20 @@ source $ZSH/oh-my-zsh.sh
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
-# pyenv version
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-# sdkman
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 # chromium build tools
 export PATH="$PATH:/Users/$USER/build/depot_tools"
 
 # lm studio cli (lms)
 export PATH="$PATH:/Users/kofa/.lmstudio/bin"
 
-# gpg agent start
-export GPG_TTY=$(tty)
-gpgconf --launch gpg-agent > /dev/null 2>&1
-
 # miniconda
 if [ -f ~/miniconda3/etc/profile.d/conda.sh ]; then
   source ~/miniconda3/etc/profile.d/conda.sh
 fi
 
-# docker cli completions
-fpath=(/Users/kofa/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-
 #-------------------------------------------------------------------------------
 # Shell Options
 #-------------------------------------------------------------------------------
-
-export LANG=en_US.UTF-8
-ZSH_DISABLE_COMPFIX="true"
 
 # editor
 if [[ -n $SSH_CONNECTION ]]; then
@@ -358,6 +342,8 @@ alias gwp='git worktree prune'
 
 # other
 # alias clangall='clang++ -Weverything'
+alias buuc='brew update && brew upgrade && brew cleanup'
+alias ibuuc='ibrew update && ibrew upgrade && ibrew cleanup'
 alias ftp='sftp'
 alias x86_64='arch -x86_64'
 alias arm64='arch -arm64'
