@@ -32,9 +32,6 @@ export ZSH="/Users/$USER/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 # source "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
-# zoxide
-eval "$(zoxide init --cmd cd zsh)"
-
 # chromium build tools
 export PATH="$PATH:/Users/$USER/build/depot_tools"
 
@@ -278,7 +275,7 @@ treec() {
 
 # claude
 cld() {
-  if [[ "$1" == "update" ]]; then
+  if [[ "$1" == "update" || "$1" == "upgrade" ]]; then
     npm install -g @anthropic-ai/claude-code
   else
     claude "$@"
@@ -287,7 +284,7 @@ cld() {
 
 # codex
 cdx() {
-  if [[ "$1" == "update" ]]; then
+  if [[ "$1" == "update" || "$1" == "upgrade" ]]; then
     npm install -g @openai/codex@latest
   else
     codex --search "$@" -c model_reasoning_summary_format=experimental

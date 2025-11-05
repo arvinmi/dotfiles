@@ -13,7 +13,7 @@ window-width = 87
 window-height = 25
 window-colorspace = display-p3
 font-feature = -liga
-macos-titlebar-style = native
+macos-titlebar-style = transparent
 # add unlimited scrollback
 bell-features = false
 
@@ -47,7 +47,7 @@ palette = 12=#95d6fb
 palette = 13=#aca7f9
 palette = 14=#90d8e1
 palette = 15=#ffffff
-background = #000000
+background = #101010
 foreground = #ffffff
 cursor-color = #acb1ab
 cursor-text = #ffffff
