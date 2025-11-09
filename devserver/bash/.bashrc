@@ -264,7 +264,7 @@ treec() {
 
 # claude
 cld() {
-  if [[ "$1" == "update" ]]; then
+  if [[ "$1" == "update" || "$1" == "upgrade" ]]; then
     npm install -g @anthropic-ai/claude-code
   else
     claude "$@"
@@ -273,7 +273,7 @@ cld() {
 
 # codex
 cdx() {
-  if [[ "$1" == "update" ]]; then
+  if [[ "$1" == "update" || "$1" == "upgrade" ]]; then
     npm install -g @openai/codex@latest
   else
     codex --search "$@" -c model_reasoning_summary_format=experimental
@@ -304,7 +304,7 @@ alias tmo='tmux detach'
 alias sloc='cloc $(git ls-files)'
 alias vim='nvim'
 alias newvim='nvim $(fzf)'
-alias cat='bat --theme="Visual Studio Dark+"'
+alias cat='batcat --theme="Visual Studio Dark+"'
 alias cu="open $1 -a \"Cursor\""
 alias v="open $1 -a \"Visual Studio Code\""
 alias lazygit='lg'

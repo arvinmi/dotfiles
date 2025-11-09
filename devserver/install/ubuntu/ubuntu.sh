@@ -30,7 +30,7 @@ sudo apt install -y build-essential htop fzf git golang rclone iptables ncdu \
 neofetch fail2ban ranger tree tmux glances kitty gimp vim curl \
 adwaita-icon-theme-full vorta plocate net-tools gnome-tweaks xterm \
 openssh-server python3-pip python3-venv nodejs npm logisim trash-cli gdb clang \
-llvm valgrind btop stow mosh nvtop git-lfs yt-dlp bat
+llvm valgrind btop stow mosh nvtop git-lfs yt-dlp bat imwheel
 # remove stock software 
 sudo apt-get remove thunderbird* libreoffice*
 # install anydesk at https://deb.anydesk.com/howto.html
@@ -112,7 +112,7 @@ echo "install isaac-sim and isaac-lab"
 # stow devserver files
 rm -rf ~/.bashrc ~/.gitconfig
 
-for file in "bash" "redshift" "xresources" "kitty" "conda" "git"; do
+for file in "bash" "redshift" "xresources" "kitty" "conda" "git" "imwheel"; do
   stow --verbose --target="$HOME" --dir="devserver" --restow "$file"
 done
 
@@ -230,6 +230,10 @@ sudo ufw reload
 sudo ufw status verbose
 
 ################################# Post Setup ##################################
+
+# set mouse scrolling speed (imwheel)
+systemctl --user daemon-reload
+systemctl --user enable --now imwheel.service
 
 # for proxmox, configure '/etc/gdm3/custom.conf'
 # set 'WaylandEnable=false', 'AutomaticLoginEnable = true', 'AutomaticLogin = USER'
