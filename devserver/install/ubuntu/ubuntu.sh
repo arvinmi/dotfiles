@@ -27,7 +27,7 @@ echo "* install/remove packages *"
 # install packages (apt-mark showmanual)
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install -y build-essential htop fzf git golang rclone iptables ncdu \
-neofetch fail2ban ranger tree tmux glances kitty gimp vim curl \
+fastfetch fail2ban ranger tree tmux glances kitty gimp vim curl \
 adwaita-icon-theme-full vorta plocate net-tools gnome-tweaks xterm \
 openssh-server python3-pip python3-venv nodejs npm logisim trash-cli gdb clang \
 llvm valgrind btop stow mosh nvtop git-lfs yt-dlp bat imwheel
