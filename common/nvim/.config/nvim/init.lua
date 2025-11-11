@@ -88,7 +88,7 @@ vim.opt.completeopt = "menuone,noselect"
 -- switch to another buffer if are unsaved changes
 -- vim.opt.hidden = false
 -- set scroll padding
-vim.opt.scrolloff = 4
+vim.opt.scrolloff = 999
 -- stop folding
 -- vim.opt.foldenable = false
 -- vim.opt.foldmethod = "manual"
@@ -125,7 +125,7 @@ vim.keymap.set("i", "jk", "<Esc>")
 -- vim.keymap.set("v", "<C-h>", "<cmd>nohlsearch<cr>")
 -- vim.keymap.set("n", "<C-h>", "<cmd>nohlsearch<cr>""
 -- clipboard integration for macos
-vim.keymap.set("n", "<leader>v", '"+p`]')
+vim.keymap.set("n", "<leader>v", '"+p')
 vim.keymap.set("v", "<leader>c", '"+y')
 -- open new file adjacent to current file
 vim.keymap.set("n", "<leader>o", ":e <C-R>=expand('%:p:h') . '/' <cr>")
@@ -142,6 +142,12 @@ vim.keymap.set("n", "<right>", ":bn<cr>")
 -- make j and k move by visual line, not actual line, when text is soft-wrapped
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
+-- center cursor after half-page scrolling
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+-- center cursor when jumping between search results
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 -- set zen mode
 vim.keymap.set("n", "<leader>u", ":ZenMode <CR>", { silent = true })
 
@@ -420,6 +426,12 @@ require("lazy").setup({
   
   -- use wakatime for time tracking projects
   { 'wakatime/vim-wakatime', lazy = false },
+
+  -- vim practice game
+  {
+    'ThePrimeagen/vim-be-good',
+    cmd = "VimBeGood",
+  },
 
   -- comment lines out using `gc` for inline or `gb` for block 
   {
@@ -847,7 +859,7 @@ require("lazy").setup({
     config = function()
       require("nvim-treesitter.configs").setup({
         ensure_installed = { "bash", "python", "lua", "javascript", "typescript", "html", "css", "json", "rust", "go", "c", "cpp", "zig" },
-        highlight = { 
+        highlight = {
           enable = true,
           additional_vim_regex_highlighting = false,
         },
@@ -855,6 +867,19 @@ require("lazy").setup({
         indent = { enable = false },
       })
     end,
+  },
+
+  -- show function/class context at top when scrolling
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      enable = true,
+      max_lines = 3,
+      min_window_height = 20,
+      multiline_threshold = 1,
+    },
   },
 }, {
   -- added perf settings for lazy.nvim

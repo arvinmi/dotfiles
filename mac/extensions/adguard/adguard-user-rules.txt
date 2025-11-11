@@ -33,4 +33,7 @@ x.com###react-root > div.css-175oi2r.r-13awgt0.r-12vffkv > div.css-175oi2r.r-13a
 ! 2025-04-03 https://www.youtube.com
 youtube.com###icon
 
-chatgpt.com##div.flex.h-full.w-full.flex-col:nth-child(5) > div.relative.flex.h-full.w-full.flex-1.overflow-hidden.transition-colors.z-0 > div.relative.flex.h-full.w-full.flex-row.overflow-hidden:first-child > div.bg-token-sidebar-surface-primary.z-21.shrink-0.overflow-x-hidden.\[view-transition-name\:var\(--sidebar-slideover\)\].max-md\:w-0\!:first-child > div.h-full.w-\[var\(--sidebar-width\)\] > div.flex.h-full.min-h-0.flex-col > div.draggable.relative.h-full.w-full.flex-1.items-start.border-white\/20 > nav.flex.h-full.w-full.flex-col.ps-3:last-child > div.pe-3:last-child > div.flex.flex-col.py-2.empty\:hidden.dark\:border-white\/20 > a.group.flex.gap-2.p-2\.5.text-sm.cursor-pointer.focus\:ring-0.radix-disabled\:pointer-events-none.radix-disabled\:opacity-50.items-center.hover\:bg-token-sidebar-surface-secondary.screen-arch\:px-2.screen-arch\:py-1\.5.screen-arch\:min-h-\[47px\].m-0.rounded-lg.px-2
+youtube.com###secondary-inner
+chatgpt.com###stage-sidebar-tiny-bar > div.mt-\(--sidebar-section-first-margin-top\):nth-child(2) > div:last-child > a.group.__menu-item.hoverable.gap-1\.5
+chatgpt.com###stage-sidebar-tiny-bar > div.mt-\(--sidebar-section-first-margin-top\):nth-child(2) > div:nth-child(2) > div.group.__menu-item.hoverable
+youtube.com###items > ytd-guide-entry-renderer.style-scope.ytd-guide-section-renderer:nth-child(3)

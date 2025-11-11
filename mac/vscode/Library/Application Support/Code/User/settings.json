@@ -489,5 +489,11 @@
     "editor.defaultFormatter": "mtxr.sqltools"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "diffEditor.ignoreTrimWhitespace": false
+  "diffEditor.ignoreTrimWhitespace": false,
+  "sonarlint.rules": {
+    "typescript:S3776": {
+      "level": "on"
+    }
+  },
+  "sonarlint.automaticAnalysis": true
 }

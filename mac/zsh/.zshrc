@@ -58,7 +58,13 @@ bindkey -s ^f "~/scripts/tmux-sessionizer.sh\n"
 # Prompt
 #-------------------------------------------------------------------------------
 
-PROMPT="%n@%M:%B%F{cyan}%~%f%b$ "
+PROMPT='%n@%M:%B%F{cyan}$(
+  git rev-parse --show-toplevel --show-prefix 2>/dev/null | {
+    read -r root; read -r prefix
+    prefix=${prefix%/}
+    [ -n "$root" ] && echo "${root:t}${prefix:+/$prefix}" || print -r -- "%2~"
+  }
+)%f%b$ '
 
 #-------------------------------------------------------------------------------
 # Functions & Completions

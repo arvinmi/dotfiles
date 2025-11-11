@@ -44,8 +44,7 @@
   },
   {
     "key": "cmd+j",
-    "command": "workbench.action.focusPanel",
-    "when": "!panelFocus"
+    "command": "workbench.action.togglePanel"
   },
   {
     "key": "space",
@@ -125,11 +124,11 @@
   },
   // chat stuff
   {
-    "key": "cmd+l",
+    "key": "shift+cmd+l",
     "command": "composer.startComposerPrompt"
   },
   {
-    "key": "cmd+l",
+    "key": "shift+cmd+l",
     "command": "workbench.panel.chat",
     "when": "workbench.panel.chat.view.copilot.active"
   },
@@ -228,7 +227,7 @@
   },
   // terminal
   {
-    "key": "cmd+j",
+    "key": "cmd+l",
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
   },

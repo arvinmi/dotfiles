@@ -9,7 +9,7 @@ ctrl - 4: open -a "spotify"
 ctrl - 0: open -a "obsidian"
 ctrl - m: open -a "messages"
 ctrl - e: open -a "visual studio code"
-ctrl - d: open -a "discord"
+ctrl - o: open -a "discord"
 ctrl - p: open -a "chatgpt"
 ctrl - f: open -a "finder"
 
