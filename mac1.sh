@@ -143,6 +143,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source-file ~/.tmux.conf
 
 # LAUNCHD START
+# Note: add `/bin/bash` to Full Disk Access in System Settings
 launchctl load "${HOME}/Library/LaunchAgents/com.user.backups.plist"
 launchctl load "${HOME}/Library/LaunchAgents/com.user.backups.local.plist"
 sudo launchctl load "/Library/LaunchDaemons/com.user.sleepblock.plist"
