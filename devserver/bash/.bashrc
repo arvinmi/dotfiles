@@ -42,6 +42,12 @@ if [[ $- == *i* ]]; then
   bind '"\eOA": history-previous-history'
   bind '"\e[B": history-search-forward'
   bind '"\eOB": history-next-history'
+
+  bind 'set show-all-if-ambiguous on'
+  bind 'TAB:menu-complete'
+  bind 'set colored-stats on'
+  bind 'set completion-ignore-case on'
+  bind '"\e[Z":menu-complete-backward'
 fi
 
 # ==============================================================================
