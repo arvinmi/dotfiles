@@ -58,13 +58,11 @@ bindkey -s ^f "~/scripts/tmux-sessionizer.sh\n"
 # Prompt
 #-------------------------------------------------------------------------------
 
-PROMPT='%n@%M:%B%F{cyan}$(
-  git rev-parse --show-toplevel --show-prefix 2>/dev/null | {
-    read -r root; read -r prefix
-    prefix=${prefix%/}
-    [ -n "$root" ] && echo "${root:t}${prefix:+/$prefix}" || print -r -- "%2~"
-  }
-)%f%b$ '
+_short_pwd() {
+  local p="${PWD/#$HOME/~}"
+  awk -F/ '{printf $1; for(i=2;i<NF;i++) printf "/"substr($i,1,1); if(NF>1) printf "/"$NF}' <<<"$p"
+}
+PROMPT='%n@%M:%B%F{cyan}$(_short_pwd)%f%b$ '
 
 #-------------------------------------------------------------------------------
 # Functions & Completions
