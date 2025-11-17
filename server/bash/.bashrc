@@ -80,9 +80,11 @@ bind '"\eOB": history-next-history'
 # ==============================================================================
 # Prompt
 # ==============================================================================
-# export PS1="\[\e[1;32m\]\\u@\\H\[\e[00m\]:\[\e[35m\]\\w\[\e[00m\]$ "
-# export PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
-export PS1="\[\e[1;32m\]\u@\H\[\e[00m\]:\[\e[0;35m\]\w\[\e[00m\]\$ "
+_short_pwd() {
+  local p="${PWD/#$HOME/\~}"
+  awk -F/ '{printf $1; for(i=2;i<NF;i++) printf "/"substr($i,1,1); if(NF>1) printf "/"$NF}' <<<"$p"
+}
+export PS1='\[\e[1;32m\]\u@\h\[\e[00m\]:\[\e[0;35m\]$(_short_pwd)\[\e[00m\]\$ '
 
 export LS_COLORS='di=0;35:ln=1;92:ex=1;92'
 # export LSCOLORS=cxgxfxexbxegedabagacad
