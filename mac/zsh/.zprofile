@@ -15,14 +15,20 @@ export FZF_DEFAULT_OPTS="--no-mouse"
 export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent > /dev/null 2>&1
 
-# sdkman
+# sdkman lazy load
 export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+sdk() {
+  unfunction sdk
+  [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+  sdk "$@"
+}
 
-# pyenv version
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+# pyenv lazy load
+pyenv() {
+  unfunction pyenv
+  eval "$(command pyenv init -)"
+  pyenv "$@"
+}
 
 # orbstack
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :

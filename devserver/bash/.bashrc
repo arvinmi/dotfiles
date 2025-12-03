@@ -11,19 +11,33 @@ HISTFILESIZE=5000000
 #. "$HOME/.cargo/env"
 # export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 
-# miniconda
-if [ -f ~/miniconda3/etc/profile.d/conda.sh ]; then
-  source ~/miniconda3/etc/profile.d/conda.sh
-fi
+# miniconda lazy load
+_conda_init() {
+  unset -f conda cenv cnd
+  if [ -f ~/miniconda3/etc/profile.d/conda.sh ]; then
+    source ~/miniconda3/etc/profile.d/conda.sh
+  fi
+}
+conda() { _conda_init; conda "$@"; }
 
-# sdkman
+# sdkman lazy load
 export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+sdk() {
+  unset -f sdk
+  [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+  sdk "$@"
+}
 
-# nvm
+# nvm lazy load
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+nvm() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  nvm "$@"
+}
+node() { unset -f node; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; node "$@"; }
+npm() { unset -f npm; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; npm "$@"; }
+npx() { unset -f npx; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; npx "$@"; }
 
 # isaac-sim
 # export ISAAC_ROS_WS=/home/kofa/workspaces/isaac_ros-dev/
@@ -123,12 +137,12 @@ topc() {
 }
 
 # conda cenv
-cenv() {
-  conda activate "$1"
+cenv() { 
+  _conda_init; conda activate "$1";
 }
 
-cnd() {
-  conda deactivate
+cnd() { 
+  _conda_init; conda deactivate;
 }
 
 _cenv_complete() {

@@ -37,45 +37,50 @@ export TRANSFORMERS_CACHE=${HOME}/share/.cache/huggingface
 # cargo
 #. "$HOME/.cargo/env"
 
-# anaconda (miniconda)
-#source ~/miniconda3/etc/profile.d/conda.sh
-#if [[ -z ${CONDA_PREFIX+x} ]]; then
-#        export PATH="~/conda/bin:$PATH"
-#fi
+# anaconda lazy load
+_conda_init() {
+  unset -f conda cenv cnd
+  source /usr/local/apps/anaconda/2024.06/etc/profile.d/conda.sh
+  if [[ -z ${CONDA_PREFIX+x} ]]; then
+    export PATH="/usr/local/apps/anaconda/2023.03/bin:$PATH"
+  fi
+}
+conda() { _conda_init; conda "$@"; }
 
-source /usr/local/apps/anaconda/2024.06/etc/profile.d/conda.sh
-if [[ -z ${CONDA_PREFIX+x} ]]; then
-        export PATH="/usr/local/apps/anaconda/2023.03/bin:$PATH"
-fi
-# module load anaconda/24.3
-
-# sdkman
+# sdkman lazy load
 export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+sdk() {
+  unset -f sdk
+  [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+  sdk "$@"
+}
 
-# remove old slurm log dirs
+# slurm log cleanup (background)
 if [ -d "$SLURM_LOG_DIR" ]; then
-    find "$SLURM_LOG_DIR/" \
-        -mindepth 1 \
-        -type f \
-        -mtime +7 | xargs -I {} -P 8 rm -r {} 2>> $cleanup_logfile
-# else
-   # echo "Missing slurm log directory: '$SLURM_LOG_DIR'"
+  (find "$SLURM_LOG_DIR/" -mindepth 1 -type f -mtime +7 | xargs -I {} -P 8 rm -r {} 2>> "$cleanup_logfile" &)
 fi
 
-# for cs 340
+# nvm lazy load
 alias forever='./node_modules/forever/bin/forever'
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # this loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # this loads nvm bash_completion
+nvm() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  nvm "$@"
+}
+node() { unset -f node; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; node "$@"; }
+npm() { unset -f npm; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; npm "$@"; }
+npx() { unset -f npx; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; npx "$@"; }
 
 # ==============================================================================
 # Shell Options
 # ==============================================================================
-bind '"\e[A": history-search-backward'
-bind '"\eOA": history-previous-history'
-bind '"\e[B": history-search-forward'
-bind '"\eOB": history-next-history'
+if [[ $- == *i* ]]; then
+  bind '"\e[A": history-search-backward'
+  bind '"\eOA": history-previous-history'
+  bind '"\e[B": history-search-forward'
+  bind '"\eOB": history-next-history'
+fi
 
 # ==============================================================================
 # Prompt
@@ -162,12 +167,12 @@ topc() {
 }
 
 # conda cenv
-cenv() {
-  conda activate "$1"
+cenv() { 
+  _conda_init; conda activate "$1";
 }
 
 cnd() {
-  conda deactivate
+  _conda_init; conda deactivate;
 }
 
 _cenv_complete() {

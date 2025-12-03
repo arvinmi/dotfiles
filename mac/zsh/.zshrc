@@ -17,7 +17,7 @@ compinit
 # eval $(thefuck --alias fix)
 
 # openssh
-PATH=$(brew --prefix openssh)/bin:$PATH
+PATH="/opt/homebrew/opt/openssh/bin:$PATH"
 
 # aws
 # export AWS_PROFILE=sandbox
