@@ -275,7 +275,7 @@ treec() {
 # claude
 cld() {
   if [[ "$1" == "update" || "$1" == "upgrade" ]]; then
-    npm install -g @anthropic-ai/claude-code
+    claude update
   else
     claude "$@"
   fi
