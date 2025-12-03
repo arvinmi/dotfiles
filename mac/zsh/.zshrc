@@ -125,6 +125,22 @@ topc() {
   top -c | grep -E --color=auto "$1"
 }
 
+dns() {
+  local action="$1"
+  local ifaces
+  ifaces=("Wi-Fi" "USB 10/100/1000 LAN" "USB 10/100/1000 LAN 2")
+
+  if [ "$action" = "on" ]; then
+    for i in "${ifaces[@]}"; do
+      sudo networksetup -setdnsservers "$i" 100.100.100.100 9.9.9.9 1.1.1.1
+    done
+  elif [ "$action" = "off" ]; then
+    for i in "${ifaces[@]}"; do
+      sudo networksetup -setdnsservers "$i" Empty
+    done
+  fi
+}
+
 # conda cenv
 cenv() {
   conda activate "$1"
@@ -280,7 +296,7 @@ treec() {
 # claude
 cld() {
   if [[ "$1" == "update" || "$1" == "upgrade" ]]; then
-    npm install -g @anthropic-ai/claude-code
+    brew upgrade claude-code
   else
     claude "$@"
   fi
@@ -289,7 +305,7 @@ cld() {
 # codex
 cdx() {
   if [[ "$1" == "update" || "$1" == "upgrade" ]]; then
-    npm install -g @openai/codex@latest
+    brew upgrade codex
   else
     codex --search "$@" -c model_reasoning_summary_format=experimental
   fi
