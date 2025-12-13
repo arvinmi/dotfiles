@@ -13,7 +13,7 @@ HISTFILESIZE=5000000
 
 # miniconda lazy load
 _conda_init() {
-  unset -f conda cenv cnd
+  unset -f conda
   if [ -f ~/miniconda3/etc/profile.d/conda.sh ]; then
     source ~/miniconda3/etc/profile.d/conda.sh
   fi

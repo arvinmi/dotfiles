@@ -39,7 +39,7 @@ export TRANSFORMERS_CACHE=${HOME}/share/.cache/huggingface
 
 # anaconda lazy load
 _conda_init() {
-  unset -f conda cenv cnd
+  unset -f conda
   source /usr/local/apps/anaconda/2024.06/etc/profile.d/conda.sh
   if [[ -z ${CONDA_PREFIX+x} ]]; then
     export PATH="/usr/local/apps/anaconda/2023.03/bin:$PATH"
