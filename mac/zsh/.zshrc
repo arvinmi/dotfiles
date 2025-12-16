@@ -17,7 +17,10 @@ compinit
 # eval $(thefuck --alias fix)
 
 # openssh
-PATH="/opt/homebrew/opt/openssh/bin:$PATH"
+export PATH="/opt/homebrew/opt/openssh/bin:$PATH"
+
+# bun
+export PATH="$HOME/.bun/bin:$PATH"
 
 # aws
 # export AWS_PROFILE=sandbox
@@ -308,6 +311,15 @@ cdx() {
     brew upgrade codex
   else
     codex --search "$@" -c model_reasoning_summary_format=experimental
+  fi
+}
+
+# opencode
+opc() {
+  if [[ "$1" == "update" || "$1" == "upgrade" ]]; then
+    opencode upgrade
+  else
+    opencode "$@"
   fi
 }
 

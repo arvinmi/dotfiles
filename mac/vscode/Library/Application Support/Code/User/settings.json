@@ -3,7 +3,6 @@
   "workbench.startupEditor": "none",
   "editor.accessibilitySupport": "off",
   "workbench.colorTheme": "Default Dark+",
-  "update.mode": "start",
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 500,
   "explorer.compactFolders": false,
@@ -52,6 +51,7 @@
   "cursorpyright.analysis.autoSearchPaths": false,
   "cursorpyright.analysis.logLevel": "Information",
   "cursor.composer.usageSummaryDisplay": "always",
+  "cursor.composer.shouldChimeAfterChatFinishes": true,
   "remote.SSH.remotePlatform": {
     "a": "linux",
     "osugpu": "linux",
@@ -465,6 +465,12 @@
   "[bibtex]": {
     "editor.defaultFormatter": "James-Yu.latex-workshop"
   },
+  "sonarlint.rules": {
+    "typescript:S3776": {
+      "level": "on"
+    }
+  },
+  "sonarlint.automaticAnalysis": true,
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-containers"
   },
@@ -489,11 +495,5 @@
     "editor.defaultFormatter": "mtxr.sqltools"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "diffEditor.ignoreTrimWhitespace": false,
-  "sonarlint.rules": {
-    "typescript:S3776": {
-      "level": "on"
-    }
-  },
-  "sonarlint.automaticAnalysis": true
+  "diffEditor.ignoreTrimWhitespace": false
 }

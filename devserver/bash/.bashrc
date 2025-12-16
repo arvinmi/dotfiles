@@ -39,6 +39,10 @@ node() { unset -f node; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; node "
 npm() { unset -f npm; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; npm "$@"; }
 npx() { unset -f npx; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; npx "$@"; }
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 # isaac-sim
 # export ISAAC_ROS_WS=/home/kofa/workspaces/isaac_ros-dev/
 
@@ -301,6 +305,15 @@ cdx() {
     npm install -g @openai/codex@latest
   else
     codex --search "$@" -c model_reasoning_summary_format=experimental
+  fi
+}
+
+# opencode
+opc() {
+  if [[ "$1" == "update" || "$1" == "upgrade" ]]; then
+    opencode upgrade
+  else
+    opencode "$@"
   fi
 }
 
