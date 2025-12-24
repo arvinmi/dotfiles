@@ -4,7 +4,7 @@
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=32g
 #SBATCH --gres=gpu:1
-#SBATCH --constraint='h100|h200|a40'
+#SBATCH --constraint='h100|h200'
 #SBATCH --time=12:00:00
 #SBATCH --output=/dev/null
 #SBATCH --error=/dev/null
