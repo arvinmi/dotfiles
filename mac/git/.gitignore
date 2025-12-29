@@ -23,7 +23,8 @@ node_modules
 
 # C/C++
 *.o
-*.d
+*.c.d
+*.o.d
 *.out
 a.out*
 *.a
