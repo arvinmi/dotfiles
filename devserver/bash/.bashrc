@@ -30,6 +30,7 @@ sdk() {
 
 # nvm lazy load
 export NVM_DIR="$HOME/.nvm"
+export PATH="$NVM_DIR/versions/node/v22.21.0/bin:$PATH"
 nvm() {
   unset -f nvm node npm npx
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
