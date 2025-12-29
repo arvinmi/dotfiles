@@ -5,18 +5,14 @@
 #   sudo systemctl start nvidia-powerlimit.service
 #
 # VERIFY:
-#   nvidia-smi | grep -i power
+#   nvidia-smi -q -d POWER
 
 [Unit]
 Description=Set NVIDIA GPU Power Limit
-Requires=nvidia-persistenced.service
-After=nvidia-persistenced.service
 
 [Service]
 Type=oneshot
-ExecStartPre=/bin/sleep 5
-ExecStart=/usr/bin/nvidia-smi -pl 400
-RemainAfterExit=yes
+ExecStart=/bin/bash -c 'sleep 10 && /usr/bin/nvidia-smi -pm 1 && /usr/bin/nvidia-smi -pl 400'
 
 [Install]
 WantedBy=multi-user.target
