@@ -146,12 +146,10 @@ sudo modprobe usbcore autosuspend=-1
 # sudo cpupower frequency-set -g performance
 
 # set nvidia-smi pl
-# git clone https://github.com/arvinmi/devops-resources.git
-# sudo cp "${HOME}/devops-resources/devserver/sys/nvidia-tdp.service" "/etc/systemd/system/"
-# sudo cp "${HOME}/devops-resources/devserver/sys/nvidia-tdp.timer" "/etc/systemd/system/" 
-# nvidia-smi -pm 1
+# sudo cp "$HOME/dotfiles/devserver/sys/etc/systemd/system/nvidia-powerlimit.service" /etc/systemd/system/
 # sudo systemctl daemon-reload
-# sudo systemctl enable --now nvidia-tdp.timer
+# sudo systemctl enable nvidia-powerlimit.service
+# sudo systemctl start nvidia-powerlimit.service
 
 # add backgrounds to pixmaps
 sudo stow --verbose --target="/" --dir="devserver" --restow "backgrounds"
