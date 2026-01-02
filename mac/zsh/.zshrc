@@ -35,9 +35,6 @@ export ZSH="/Users/$USER/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 # source "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
-# chromium build tools
-export PATH="$PATH:/Users/$USER/build/depot_tools"
-
 # lm studio cli (lms)
 export PATH="$PATH:/Users/kofa/.lmstudio/bin"
 
@@ -45,6 +42,12 @@ export PATH="$PATH:/Users/kofa/.lmstudio/bin"
 if [ -f ~/miniconda3/etc/profile.d/conda.sh ]; then
   source ~/miniconda3/etc/profile.d/conda.sh
 fi
+
+# chromium build tools
+export PATH="$PATH:/Users/$USER/build/depot_tools"
+
+# valgrind
+export PATH="$HOME/valgrind-install/bin:$PATH"
 
 #-------------------------------------------------------------------------------
 # Shell Options
@@ -373,6 +376,7 @@ alias gwp='git worktree prune'
 # alias clangall='clang++ -Weverything'
 alias buuc='brew update && brew upgrade && brew cleanup'
 alias ibuuc='ibrew update && ibrew upgrade && ibrew cleanup'
+alias ccc='claude --dangerously-skip-permissions --betas interleaved-thinking-2025-05-14'
 alias ftp='sftp'
 alias x86_64='arch -x86_64'
 alias arm64='arch -arm64'
