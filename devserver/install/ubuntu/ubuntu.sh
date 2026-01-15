@@ -250,6 +250,7 @@ systemctl --user enable --now imwheel.service
 # change grub at /etc/default/grub
 # GRUB_TIMEOUT_STYLE=menu
 # GRUB_TIMEOUT=5
+# GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nvidia-drm.modeset=1 nvidia.NVreg_PreserveeVideoMemoryAllocations=1 tsc=reliable"
 # sudo update-grub
 
 # stop update to new LTS version prompt
