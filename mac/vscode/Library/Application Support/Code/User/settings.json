@@ -90,6 +90,7 @@
   "editor.fontLigatures": false,
   "editor.smoothScrolling": true,
   "editor.suggestSelection": "first",
+  "diffEditor.ignoreTrimWhitespace": false,
   "editor.inlineSuggest.edits.allowCodeShifting": "never",
   "editor.inlineSuggest.suppressSuggestions": true,
   // "editor.glyphMargin": false,
@@ -100,6 +101,7 @@
   "editor.guides.bracketPairs": true,
   "editor.formatOnSave": true,
   "editor.stickyScroll.enabled": true,
+  "editor.inlayHints.enabled": "off",
   "editor.wordBasedSuggestions": "off",
   "workbench.editor.decorations.colors": false,
   "workbench.editorAssociations": {
@@ -305,6 +307,7 @@
   "editor.inlineSuggest.syntaxHighlightingEnabled": false,
   "roo-cline.allowedCommands": ["npm test", "git log", "git diff", "git show"],
   "roo-cline.deniedCommands": [],
+  "chatgpt.commentCodeLensEnabled": false,
   "[cpp]": {
     "editor.wordBasedSuggestions": "off",
     "editor.suggest.insertMode": "replace",
@@ -446,6 +449,14 @@
     "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
     "sml": "cd $dir && sml $fileName"
   },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.resolveGlobalModules": true,
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[c]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
@@ -493,7 +504,5 @@
   "sqltools.highlightQuery": false,
   "[sql]": {
     "editor.defaultFormatter": "mtxr.sqltools"
-  },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "diffEditor.ignoreTrimWhitespace": false
+  }
 }
