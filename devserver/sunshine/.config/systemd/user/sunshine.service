@@ -1,0 +1,14 @@
+[Unit]
+Description=Self-hosted game stream host for Moonlight
+After=graphical-session.target
+StartLimitIntervalSec=500
+StartLimitBurst=5
+
+[Service]
+ExecStartPre=/bin/sleep 5
+ExecStart=/usr/bin/sunshine
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=graphical-session.target

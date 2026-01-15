@@ -38,6 +38,16 @@ sudo apt-get remove thunderbird* libreoffice*
 # sudo apt-get install -y qemu-guest-agent
 # install delta for git diff at https://dandavison.github.io/delta/installation.html
 
+echo "install sunshine"
+# wget https://github.com/LizardByte/Sunshine/releases/download/v0.23.1/sunshine-ubuntu-24.04-amd64.deb
+# sudo apt install ./sunshine-ubuntu-24.04-amd64.deb
+# sudo loginctl enable-linger $USER
+# enable service after stow:
+#   systemctl --user daemon-reload
+#   systemctl --user enable sunshine
+#   systemctl --user start sunshine
+#   systemctl --user status sunshine
+
 # setup ssh
 # sudo apt-get install ethtool
 systemctl enable ssh
@@ -112,7 +122,7 @@ echo "install isaac-sim and isaac-lab"
 # stow devserver files
 rm -rf ~/.bashrc ~/.gitconfig
 
-for file in "bash" "redshift" "xresources" "kitty" "conda" "git" "imwheel"; do
+for file in "bash" "redshift" "xresources" "kitty" "conda" "git" "imwheel" "sunshine"; do
   stow --verbose --target="$HOME" --dir="devserver" --restow "$file"
 done
 
