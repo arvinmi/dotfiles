@@ -291,12 +291,6 @@
   "amp.url": "https://ampcode.com/",
   "amp.tab.enabled": true,
   "amp.notifications.enabled": false,
-  "github.copilot.enable": {
-    "*": false,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
-  },
   "chat.agent.enabled": true,
   "chat.math.enabled": true,
   "chat.mcp.autostart": "newAndOutdated",
@@ -313,7 +307,7 @@
   "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.chat.editor.temporalContext.enabled": true,
   "application.experimental.extensionMonitor.enabled": true,
-  "github.copilot.nextEditSuggestions.enabled": false,
+  "github.copilot.nextEditSuggestions.enabled": true,
   "github.copilot.chat.agent.thinkingTool": true,
   "github.copilot.chat.notebook.enhancedNextEditSuggestions.enabled": true,
   "github.copilot.chat.languageContext.fix.typescript.enabled": true,

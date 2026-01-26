@@ -313,7 +313,7 @@ cdx() {
   if [[ "$1" == "update" || "$1" == "upgrade" ]]; then
     brew upgrade codex
   else
-    codex --search "$@" -c model_reasoning_summary_format=experimental
+    codex "$@"
   fi
 }
 

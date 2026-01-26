@@ -3,6 +3,9 @@
 # ==============================================================================
 export EDITOR='vim'
 
+# snap
+export PATH="/snap/bin:$PATH"
+
 # history
 HISTCONTROL=ignoreboth
 HISTSIZE=5000000
@@ -305,7 +308,7 @@ cdx() {
   if [[ "$1" == "update" || "$1" == "upgrade" ]]; then
     npm install -g @openai/codex@latest
   else
-    codex --search "$@" -c model_reasoning_summary_format=experimental
+    codex "$@"
   fi
 }
 
