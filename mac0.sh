@@ -23,12 +23,12 @@ git clone https://github.com/arvinmi/dotfiles.git "${HOME}/Documents/GitHub/dotf
 
 # Create new dirs and symlinks
 mkdir "${HOME}/build"
-mkdir "${HOME}/Documents/code" && mkdir "${HOME}/Documents/code/fun" && mkdir "${HOME}/Documents/code/pg"
+mkdir "${HOME}/Documents/code" && mkdir "${HOME}/Documents/code/pg"
 mkdir "${HOME}/Documents/personal"
 mkdir "${HOME}/Documents/vault"
 mkdir "${HOME}/virtual-machines" && mkdir "${HOME}/virtual-machines/ubuntu" && mkdir "${HOME}/virtual-machines/buildroot-images"
 mkdir "${HOME}/Documents/Obsidian"
-ln -sv "${HOME}/Documents/code" "${HOME}/code" && ln -s "${HOME}/Documents/code/fun" "${HOME}/fun" && ln -s "${HOME}/Documents/classes" "${HOME}/classes"
+ln -sv "${HOME}/Documents/code" "${HOME}/code" && ln -s "${HOME}/Documents/classes" "${HOME}/classes"
 ln -sv "${HOME}/Documents/GitHub/dotfiles/" "${HOME}/dotfiles"
 ln -sv "${HOME}/Library/Mobile Documents/iCloud~md~obsidian/Documents/notes/" "${HOME}/notes"
 ln -sv "${HOME}/Library/CloudStorage/" "${HOME}/drive"

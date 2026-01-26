@@ -88,6 +88,8 @@
     rh = reset --hard
     amend = commit --amend -C HEAD
     undo = reset --soft HEAD^
+    sp = stash pop
+    ss = "!f() { git stash push -u -m \"$1\"; }; f"
     pr = "!gh pr create --fill-verbose"
     squash = "!gh pr merge --squash --delete-branch --auto"
     out = "!f() { branch=\"${1:-main}\"; git checkout \"$branch\" && git fetch --prune --all && git pull; }; f"

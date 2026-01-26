@@ -4,4 +4,4 @@
 
 # run notebook at reboot
 
-@reboot cd /home/ubuntu; source ~/.bashrc; /home/ubuntu/miniconda3/envs/testing/bin/jupyter-notebook --port=9000 --no-browser --notebook-dir=/home/ubuntu/fun
+@reboot cd /home/ubuntu; source ~/.bashrc; /home/ubuntu/miniconda3/envs/testing/bin/jupyter-notebook --port=9000 --no-browser --notebook-dir=/home/ubuntu/code

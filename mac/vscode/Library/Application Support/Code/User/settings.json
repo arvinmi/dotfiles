@@ -84,7 +84,9 @@
   "editor.linkedEditing": true,
   "editor.inlineSuggest.enabled": true,
   "editor.unicodeHighlight.nonBasicASCII": false,
-  "editor.rulers": [100],
+  "editor.rulers": [
+    100
+  ],
   "editor.wordWrap": "on",
   "editor.tabSize": 2,
   "editor.fontLigatures": false,
@@ -216,7 +218,13 @@
   },
   "typescript.preferences.importModuleSpecifier": "non-relative", // prefer aliases when importing
   "eslint.options": {
-    "extensions": [".js", ".jsx", ".mdx", ".ts", ".tsx"]
+    "extensions": [
+      ".js",
+      ".jsx",
+      ".mdx",
+      ".ts",
+      ".tsx"
+    ]
   },
   "eslint.validate": [
     "mdx",
@@ -227,9 +235,18 @@
   ],
   "tailwindCSS.experimental.classRegex": [
     // enables tailwind autocomplete for specified functions
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cx\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+    [
+      "cva\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ],
+    [
+      "cn\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ],
+    [
+      "cx\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ]
   ],
   "[markdown]": {
     "editor.quickSuggestions": {
@@ -240,7 +257,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "diffEditor.ignoreTrimWhitespace": false
   },
-  "editor.pasteAs.preferences": ["markdown.link"],
+  "editor.pasteAs.preferences": [
+    "markdown.link"
+  ],
   "markdown.extension.print.theme": "dark",
   "markdown.updateLinksOnFileMove.enabled": "prompt",
   /*
@@ -258,7 +277,7 @@
       "strings": true
     },
     "editor.suggest.insertMode": "replace",
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "files.associations": {
     "*.java": "java",
@@ -287,6 +306,7 @@
     "cursor-global": false,
     "cursor-workspace": false
   },
+  "chat.viewSessions.enabled": false,
   "github.copilot.chat.followUps": "always",
   "github.copilot.chat.edits.temporalContext.enabled": true,
   "github.copilot.selectedCompletionModel": "gpt-41-copilot",
@@ -305,7 +325,12 @@
   "github.copilot.chat.search.keywordSuggestions": true,
   "websearch.preferredEngine": "bing",
   "editor.inlineSuggest.syntaxHighlightingEnabled": false,
-  "roo-cline.allowedCommands": ["npm test", "git log", "git diff", "git show"],
+  "roo-cline.allowedCommands": [
+    "npm test",
+    "git log",
+    "git diff",
+    "git show"
+  ],
   "roo-cline.deniedCommands": [],
   "chatgpt.commentCodeLensEnabled": false,
   "[cpp]": {
@@ -375,7 +400,9 @@
   },
   // "gitlens.ai.experimental.provider": "openai",
   // "gitlens.ai.experimental.openai.model": "gpt-4-1106-preview",
-  "settingsSync.ignoredSettings": ["-window.zoomLevel"],
+  "settingsSync.ignoredSettings": [
+    "-window.zoomLevel"
+  ],
   "files.exclude": {
     "**/.DS_Store": true,
     "**/.git": true,
@@ -394,7 +421,10 @@
   "files.watcherExclude": {
     "**/.history": true
   },
-  "errorLens.enabledDiagnosticLevels": ["error", "warning"],
+  "errorLens.enabledDiagnosticLevels": [
+    "error",
+    "warning"
+  ],
   "code-runner.executorMap": {
     "javascript": "node",
     "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",

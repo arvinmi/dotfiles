@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=intrgpu
 #SBATCH --partition=dgxh,dgx2,ampere,preempt,eecs,gpu
-#SBATCH --cpus-per-task=2
+#SBATCH --cpus-per-task=8
 #SBATCH --mem=32g
 #SBATCH --gres=gpu:1
 #SBATCH --constraint='h100|h200'

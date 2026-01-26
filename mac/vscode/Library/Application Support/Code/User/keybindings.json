@@ -43,10 +43,6 @@
     "when": "viewContainer.workbench.view.extensions.enabled"
   },
   {
-    "key": "cmd+j",
-    "command": "workbench.action.togglePanel"
-  },
-  {
     "key": "space",
     "command": "list.select",
     "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
@@ -124,11 +120,11 @@
   },
   // chat stuff
   {
-    "key": "shift+cmd+l",
+    "key": "cmd+l",
     "command": "composer.startComposerPrompt"
   },
   {
-    "key": "shift+cmd+l",
+    "key": "cmd+l",
     "command": "workbench.panel.chat",
     "when": "workbench.panel.chat.view.copilot.active"
   },
@@ -203,7 +199,9 @@
   {
     "key": "shift+enter",
     "command": "workbench.action.terminal.sendSequence",
-    "args": { "text": "\u001B\u000A" },
+    "args": {
+      "text": "\u001B\u000A"
+    },
     "when": "terminalFocus"
   },
   // editor splitting
@@ -227,7 +225,7 @@
   },
   // terminal
   {
-    "key": "cmd+l",
+    "key": "cmd+j",
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
   },

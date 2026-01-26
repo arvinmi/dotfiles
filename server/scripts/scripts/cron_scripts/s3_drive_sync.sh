@@ -4,10 +4,6 @@
 
 rsync -av --delete-before "${HOME}/Documents/" "/mnt/data/backup/Documents"
 
-# s3_drive-fun
-
-rsync -av --delete-before "${HOME}/fun/" "/mnt/data/backup/fun"
-
 # s3_drive-build
 
 rsync -av --delete-before "${HOME}/build/" "/mnt/data/backup/build"
