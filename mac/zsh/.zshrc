@@ -43,6 +43,9 @@ if [ -f ~/miniconda3/etc/profile.d/conda.sh ]; then
   source ~/miniconda3/etc/profile.d/conda.sh
 fi
 
+# cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # chromium build tools
 export PATH="$PATH:/Users/$USER/build/depot_tools"
 

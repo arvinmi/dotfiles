@@ -6,12 +6,13 @@ export EDITOR='vim'
 # snap
 export PATH="/snap/bin:$PATH"
 
+# cargo
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # history
 HISTCONTROL=ignoreboth
 HISTSIZE=5000000
 HISTFILESIZE=5000000
-
-#. "$HOME/.cargo/env"
 # export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 
 # miniconda lazy load
