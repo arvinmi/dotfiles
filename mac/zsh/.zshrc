@@ -326,13 +326,6 @@ opc() {
   fi
 }
 
-# so loop
-SO_DIR="$HOME/Documents/GitHub/dotfiles/common/so"
-
-so() {
-  "$SO_DIR/so.sh" "$@"
-}
-
 #-------------------------------------------------------------------------------
 # Aliases
 #-------------------------------------------------------------------------------
@@ -383,7 +376,7 @@ alias gwp='git worktree prune'
 # alias clangall='clang++ -Weverything'
 alias buuc='brew update && brew upgrade && brew cleanup'
 alias ibuuc='ibrew update && ibrew upgrade && ibrew cleanup'
-alias ccc='claude --dangerously-skip-permissions --betas interleaved-thinking-2025-05-14'
+alias ccc='claude --dangerously-skip-permissions'
 alias ftp='sftp'
 alias x86_64='arch -x86_64'
 alias arm64='arch -arm64'

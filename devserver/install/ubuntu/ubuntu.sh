@@ -92,6 +92,9 @@ echo "install sdkman"
 # curl -s "https://get.sdkman.io" | bash
 # sdk version
 
+echo "install rust"
+# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 echo "install node"
 # check at https://nodejs.org/en/download
 

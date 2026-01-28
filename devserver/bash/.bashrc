@@ -321,13 +321,6 @@ opc() {
   fi
 }
 
-# so loop
-SO_DIR="$HOME/dotfiles/common/so"
-
-so() {
-  "$SO_DIR/so.sh" "$@"
-}
-
 # ==============================================================================
 # Aliases
 # ==============================================================================
@@ -379,6 +372,7 @@ alias gwp='git worktree prune'
 # alias clang++='clang++ -Weverything
 alias sai='sudo apt install'
 alias sauu='sudo apt update && sudo apt upgrade && sudo apt autoremove'
+alias ccc='claude --dangerously-skip-permissions'
 alias smi='watch -n 1 nvidia-smi'
 alias bb2='conda activate base2'
 alias ftp='sftp'
