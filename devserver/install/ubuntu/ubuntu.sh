@@ -102,6 +102,31 @@ echo "install agents"
 # npm -g install @openai/codex @anthropic-ai/claude-code @google/gemini-cli \
 # @sourcegraph/amp ccundo ccusage @ccusage/codex opencode-ai uniprof jscpd
 
+echo "install opencode systemd service"
+# mkdir -p ~/.config/systemd/user
+# mkdir -p ~/.config/opencode/credentials
+
+# cat > ~/.config/systemd/user/opencode.service << 'EOF'
+# [Unit]
+# Description=OpenCode Server
+
+# [Service]
+# ExecStart=/bin/sh -c 'OPENCODE_SERVER_PASSWORD=$(cat "$CREDENTIALS_DIRECTORY/opencode_password") exec /home/USER/.nvm/versions/node/v22.21.0/bin/opencode serve --hostname 0.0.0.0 --port 4096'
+# LoadCredential=opencode_password:/home/USER/.config/opencode/credentials/server_password
+# Restart=on-failure
+
+# [Install]
+# WantedBy=default.target
+# EOF
+
+# create password file
+# echo -n "your-password-here" > ~/.config/opencode/credentials/server_password
+# chmod 600 ~/.config/opencode/credentials/server_password
+
+# systemctl --user daemon-reload
+# systemctl --user enable opencode.service
+# systemctl --user start opencode.service
+
 echo "install bun"
 # curl -fsSL https://bun.sh/install | bash
 
