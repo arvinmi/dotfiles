@@ -302,6 +302,53 @@ treec() {
     tree -I "$(IFS='|'; echo "${ignore_patterns[*]}")" "$@"
 }
 
+# wt-new <name> [branch]
+wt-new() {
+  local root=$(git rev-parse --show-toplevel) || return 1
+  local base=$(git -C "$root" worktree list --porcelain | head -1 | cut -d' ' -f2)
+  local branch="${2:-$1}"
+  git fetch origin "$branch"
+  git branch -D "$branch" 2>/dev/null
+  if git show-ref --quiet "refs/remotes/origin/$branch"; then
+    git worktree add "$base-$1" -b "$branch" "origin/$branch"
+  else
+    git worktree add "$base-$1" -b "$branch"
+  fi
+  cd "$base-$1"
+  git submodule update --init --recursive
+}
+
+# wt [name]
+wt() {
+  local root=$(git rev-parse --show-toplevel) || return 1
+  local base=$(git -C "$root" worktree list --porcelain | head -1 | cut -d' ' -f2)
+  if [[ $# -eq 0 ]]; then
+    git worktree list
+  elif [[ "$1" == "main" || "$1" == "master" ]]; then
+    cd "$base"
+  else
+    cd "$base-$1"
+  fi
+}
+
+# wt-rm <name>
+wt-rm() {
+  local root=$(git rev-parse --show-toplevel) || return 1
+  local base=$(git -C "$root" worktree list --porcelain | head -1 | cut -d' ' -f2)
+  rm -rf "$base-$1"
+  git worktree prune
+  git branch -D "$1"
+}
+_wt_complete() {
+  local root=$(git rev-parse --show-toplevel 2>/dev/null) || return
+  local base=$(git -C "$root" worktree list --porcelain | head -1 | cut -d' ' -f2)
+  local -a worktrees
+  worktrees=(${(f)"$(ls -d "$base-"* 2>/dev/null | sed "s|$base-||")"})
+  _describe 'worktrees' worktrees
+}
+compdef _wt_complete wt
+compdef _wt_complete wt-rm
+
 # claude
 cld() {
   if [[ "$1" == "update" || "$1" == "upgrade" ]]; then
