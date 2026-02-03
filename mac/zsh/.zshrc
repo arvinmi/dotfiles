@@ -307,7 +307,7 @@ cld() {
   if [[ "$1" == "update" || "$1" == "upgrade" ]]; then
     brew upgrade claude-code
   else
-    claude "$@"
+    claude --dangerously-skip-permissions "$@"
   fi
 }
 
@@ -379,7 +379,6 @@ alias gwp='git worktree prune'
 # alias clangall='clang++ -Weverything'
 alias buuc='brew update && brew upgrade && brew cleanup'
 alias ibuuc='ibrew update && ibrew upgrade && ibrew cleanup'
-alias ccc='claude --dangerously-skip-permissions'
 alias ftp='sftp'
 alias x86_64='arch -x86_64'
 alias arm64='arch -arm64'

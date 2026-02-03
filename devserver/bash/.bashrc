@@ -300,7 +300,7 @@ cld() {
   if [[ "$1" == "update" || "$1" == "upgrade" ]]; then
     claude update
   else
-    claude "$@"
+    claude --dangerously-skip-permissions "$@"
   fi
 }
 
@@ -373,7 +373,6 @@ alias gwp='git worktree prune'
 # alias clang++='clang++ -Weverything
 alias sai='sudo apt install'
 alias sauu='sudo apt update && sudo apt upgrade && sudo apt autoremove'
-alias ccc='claude --dangerously-skip-permissions'
 alias smi='watch -n 1 nvidia-smi'
 alias bb2='conda activate base2'
 alias ftp='sftp'
