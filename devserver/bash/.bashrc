@@ -48,6 +48,9 @@ npx() { unset -f npx; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; npx "$@"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# local
+export PATH="$HOME/.local/bin:$PATH"
+
 # isaac-sim
 # export ISAAC_ROS_WS=/home/kofa/workspaces/isaac_ros-dev/
 
