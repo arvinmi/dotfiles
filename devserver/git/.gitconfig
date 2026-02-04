@@ -97,7 +97,7 @@
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     url = "!sh -c 'git remote get-url origin | sed \"s#git@github.com:#https://github.com/#\" | tee /dev/tty | pbcopy'"
     ssh = "!sh -c 'git remote get-url origin | sed \"s#^https://github.com/#git@github.com:#\" | tee /dev/tty | pbcopy'"
-    gone = "!f() { git fetch --all --prune; git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; }; f"
+    gone = "!f() { base=\"${1:-main}\"; git checkout \"$base\" && git fetch --all --prune && git pull && b=$({ git branch --merged \"$base\"; git branch -vv | awk '/: gone]/{print $1}'; for br in $(git branch | grep -v \"^\\*\" | grep -v \"^  *${base}$\"); do git diff \"$base\"..\"$br\" --quiet 2>/dev/null && echo \"$br\"; done; } | grep -v \"^[* ]*${base}$\" | sort -u); [ -n \"$b\" ] && echo \"$b\" | xargs git branch -D; }; f"
     new = "!f() { git checkout -b \"$1\" && git push -u origin \"$1\"; }; f"
     conflict = "!f() { git diff --name-only --diff-filter=U | xargs code; }; f"
 
