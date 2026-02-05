@@ -47,6 +47,7 @@ echo "install sunshine"
 #   systemctl --user enable sunshine
 #   systemctl --user start sunshine
 #   systemctl --user status sunshine
+# Note: use `CTRL + ALT + SHIFT + C' then `CTRL + ALT + SHIFT + N` to get local hidden host cursor
 
 # setup ssh
 # sudo apt-get install ethtool
