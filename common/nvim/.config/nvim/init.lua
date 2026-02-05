@@ -124,7 +124,18 @@ vim.keymap.set("i", "jk", "<Esc>")
 -- Ctrl+h to stop searching
 -- vim.keymap.set("v", "<C-h>", "<cmd>nohlsearch<cr>")
 -- vim.keymap.set("n", "<C-h>", "<cmd>nohlsearch<cr>""
--- clipboard integration for macos
+-- clipboard via OSC 52
+vim.g.clipboard = {
+  name = "OSC 52",
+  copy = {
+    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+  },
+  paste = {
+    ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+  },
+}
 vim.keymap.set("n", "<leader>v", '"+p')
 vim.keymap.set("v", "<leader>c", '"+y')
 -- open new file adjacent to current file
