@@ -140,7 +140,7 @@
   {
     "key": "cmd+k",
     "command": "inlineChat.start",
-    "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
+    "when": "editorFocus && inlineChatHasEditsAgent && inlineChatPossible && !editorReadonly && !editorSimpleInput || editorFocus && inlineChatHasNotebookAgent && inlineChatPossible && !editorReadonly && !editorSimpleInput && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasNotebookInline && inlineChatPossible && !editorReadonly && !editorSimpleInput && activeEditor == 'workbench.editor.notebook'"
   },
   {
     "key": "shift+cmd+k",
