@@ -27,16 +27,31 @@ echo "* install/remove packages *"
 # install packages (apt-mark showmanual)
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install -y build-essential htop fzf git golang rclone iptables ncdu \
-fastfetch fail2ban ranger tree tmux glances kitty gimp vim curl \
+fastfetch fail2ban ranger tree glances kitty gimp vim curl \
 adwaita-icon-theme-full vorta plocate net-tools gnome-tweaks xterm \
 openssh-server python3-pip python3-venv nodejs npm logisim trash-cli gdb clang \
-llvm valgrind btop stow mosh nvtop git-lfs yt-dlp bat imwheel
+llvm valgrind btop stow nvtop git-lfs yt-dlp bat imwheel
 # remove stock software 
 sudo apt-get remove thunderbird* libreoffice*
 # install anydesk at https://deb.anydesk.com/howto.html
 # install qemu-guest-agent if on proxmox
 # sudo apt-get install -y qemu-guest-agent
 # install delta for git diff at https://dandavison.github.io/delta/installation.html
+
+echo "install tmux"
+# sudo snap install tmux --classic
+
+echo "install mosh 1.4.0 (source)"
+# cd ~/code/build
+# curl -fsSL -o mosh-1.4.0.tar.gz \
+#   https://github.com/mobile-shell/mosh/releases/download/mosh-1.4.0/mosh-1.4.0.tar.gz
+# tar -xzf mosh-1.4.0.tar.gz
+# mv mosh-1.4.0 mosh
+# cd mosh
+# ./configure --prefix="$HOME/.local"
+# make -j"$(nproc)"
+# make install
+# mosh --version
 
 echo "install sunshine"
 # wget https://github.com/LizardByte/Sunshine/releases/download/v0.23.1/sunshine-ubuntu-24.04-amd64.deb
