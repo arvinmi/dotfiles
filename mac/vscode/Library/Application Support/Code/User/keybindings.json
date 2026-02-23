@@ -127,6 +127,14 @@
     "command": "-workbench.action.browser.newTab",
     "when": "activeEditor == 'workbench.editor.browser'"
   },
+  {
+    "key": "alt+tab",
+    "command": "workbench.action.showNextWindowTab"
+  },
+  {
+    "key": "shift+alt+tab",
+    "command": "workbench.action.showPreviousWindowTab"
+  },
   // formatting
   {
     "key": "shift+alt+f",
