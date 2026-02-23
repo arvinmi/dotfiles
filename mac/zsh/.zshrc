@@ -365,7 +365,7 @@ cdx() {
   if [[ "$1" == "update" || "$1" == "upgrade" ]]; then
     brew upgrade codex
   else
-    codex "$@"
+    codex --dangerously-bypass-approvals-and-sandbox "$@"
   fi
 }
 

@@ -30,7 +30,8 @@ sudo apt install -y build-essential htop fzf git golang rclone iptables ncdu \
 fastfetch fail2ban ranger tree glances kitty gimp vim curl \
 adwaita-icon-theme-full vorta plocate net-tools gnome-tweaks xterm \
 openssh-server python3-pip python3-venv nodejs npm logisim trash-cli gdb clang \
-llvm valgrind btop stow nvtop git-lfs yt-dlp bat imwheel
+llvm valgrind btop stow nvtop git-lfs yt-dlp bat imwheel cmake ninja-build \
+autoconf wget rsync unzip
 # remove stock software 
 sudo apt-get remove thunderbird* libreoffice*
 # install anydesk at https://deb.anydesk.com/howto.html
@@ -62,7 +63,7 @@ echo "install sunshine"
 #   systemctl --user enable sunshine
 #   systemctl --user start sunshine
 #   systemctl --user status sunshine
-# Note: use `CTRL + ALT + SHIFT + C' then `CTRL + ALT + SHIFT + N` to get local hidden host cursor
+# Note: use `CTRL + ALT + SHIFT + Z` to exit mouse capture in moonlight
 
 # setup ssh
 # sudo apt-get install ethtool

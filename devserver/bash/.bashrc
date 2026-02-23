@@ -358,7 +358,7 @@ cdx() {
   if [[ "$1" == "update" || "$1" == "upgrade" ]]; then
     npm install -g @openai/codex@latest
   else
-    codex "$@"
+    codex --dangerously-bypass-approvals-and-sandbox "$@"
   fi
 }
 
