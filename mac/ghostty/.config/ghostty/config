@@ -16,6 +16,8 @@ font-feature = -liga
 macos-titlebar-style = transparent
 # add unlimited scrollback
 bell-features = false
+clipboard-write = allow
+clipboard-read = allow
 
 keybind = cmd+backspace=text:\x15
 keybind = opt+backspace=text:\x17

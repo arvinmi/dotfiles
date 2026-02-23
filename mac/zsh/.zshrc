@@ -73,6 +73,8 @@ _short_pwd() {
 }
 PROMPT='%n@%M:%B%F{cyan}$(_short_pwd)%f%b$ '
 
+# export PROMPT='%F{242}>%f '
+
 #-------------------------------------------------------------------------------
 # Functions & Completions
 #-------------------------------------------------------------------------------
@@ -436,3 +438,6 @@ alias python='python3'
 alias nb='jupyter notebook --port=9000 --notebook-dir=${HOME}/code'
 alias lab='jupyter lab --port=9000 --notebook-dir=${HOME}/code'
 alias del_ds_files='find . -name ".DS_Store" -type f -delete'
+
+# bun completions
+[ -s "/Users/kofa/.bun/_bun" ] && source "/Users/kofa/.bun/_bun"
