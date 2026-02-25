@@ -241,10 +241,6 @@
     "key": "alt+e",
     "command": "workbench.action.focusFirstEditorGroup"
   },
-  {
-    "key": "alt+tab",
-    "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
-  },
   // terminal
   {
     "key": "cmd+j",
