@@ -1,0 +1,16 @@
+[Unit]
+Description=T3 Code Server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h
+Environment="T3CODE_NO_BROWSER=1"
+Environment="T3CODE_PORT=3773"
+ExecStartPre=/bin/sleep 5
+ExecStart=/bin/bash -lc 'T3CODE_HOST=$(tailscale ip -4) npx t3'
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
