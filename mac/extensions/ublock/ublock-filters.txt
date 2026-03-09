@@ -1,6 +1,3 @@
-chatgpt.com###stage-sidebar-tiny-bar > div.mt-\(--sidebar-section-first-margin-top\):nth-child(2) > div:last-child > a.group.__menu-item.hoverable.gap-1\.5
-chatgpt.com###stage-sidebar-tiny-bar > div.mt-\(--sidebar-section-first-margin-top\):nth-child(2) > div:nth-child(2) > div.group.__menu-item.hoverable
-
 www.google.com##div[role="dialog"] span:has-text(/^See results closer to you\?$/):upward(7)
 www.google.com##html:style(overflow: visible !important)
 
