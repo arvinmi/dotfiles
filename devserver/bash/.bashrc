@@ -305,27 +305,43 @@ wt-new() {
   local root=$(git rev-parse --show-toplevel) || return 1
   local base=$(git -C "$root" worktree list --porcelain | head -1 | cut -d' ' -f2)
   local branch="${2:-$1}"
-  git fetch origin "$branch"
+  git fetch origin "$branch" 2>/dev/null
   git branch -D "$branch" 2>/dev/null
   if git show-ref --quiet "refs/remotes/origin/$branch"; then
-    git worktree add "$base-$1" -b "$branch" "origin/$branch"
+    git worktree add "$base-$1" -b "$branch" "origin/$branch" || return 1
   else
-    git worktree add "$base-$1" -b "$branch"
+    git worktree add "$base-$1" -b "$branch" || return 1
   fi
   cd "$base-$1"
   git submodule update --init --recursive
+  local repo_name session_name
+  repo_name=$(basename "$base")
+  session_name="${repo_name}-${1}"
+  if ! tmux has-session -t "$session_name" 2>/dev/null; then
+    tmux new-session -d -s "$session_name" -c "$base-$1" && echo "tmux: started '$session_name'"
+  fi
 }
 
 # wt [name]
 wt() {
   local root=$(git rev-parse --show-toplevel) || return 1
   local base=$(git -C "$root" worktree list --porcelain | head -1 | cut -d' ' -f2)
+  local default_branch
+  default_branch=$(git symbolic-ref refs/remotes/origin/HEAD --short 2>/dev/null | sed 's|origin/||')
+  default_branch="${default_branch:-main}"
   if [[ $# -eq 0 ]]; then
     git worktree list
-  elif [[ "$1" == "main" || "$1" == "master" ]]; then
+  elif [[ "$1" == "$default_branch" ]]; then
     cd "$base"
   else
-    cd "$base-$1"
+    local target_dir="${base}-${1}"
+    cd "$target_dir" || return 1
+    local repo_name session_name
+    repo_name=$(basename "$base")
+    session_name="${repo_name}-${1}"
+    if ! tmux has-session -t "$session_name" 2>/dev/null; then
+      tmux new-session -d -s "$session_name" -c "$target_dir" && echo "tmux: started '$session_name'"
+    fi
   fi
 }
 
@@ -333,12 +349,46 @@ wt() {
 wt-rm() {
   local root=$(git rev-parse --show-toplevel) || return 1
   local base=$(git -C "$root" worktree list --porcelain | head -1 | cut -d' ' -f2)
+  cd "$base"
   rm -rf "$base-$1"
   git worktree prune
   git branch -D "$1"
+  local repo_name session_name
+  repo_name=$(basename "$base")
+  session_name="${repo_name}-${1}"
+  if tmux has-session -t "$session_name" 2>/dev/null; then
+    tmux kill-session -t "$session_name"
+    echo "tmux: killed '$session_name'"
+  fi
 }
+
+wt-gone() {
+  local root=$(git rev-parse --show-toplevel) || return 1
+  local base_path=$(git -C "$root" worktree list --porcelain | head -1 | cut -d' ' -f2)
+  local repo_name=$(basename "$base_path")
+  local default_branch
+  default_branch=$(git symbolic-ref refs/remotes/origin/HEAD --short 2>/dev/null | sed 's|origin/||')
+  default_branch="${default_branch:-main}"
+  cd "$base_path"
+  git fetch --prune
+  git pull
+  git worktree list --porcelain | awk '/^branch/{print $2}' | sed 's|refs/heads/||' | while IFS= read -r branch; do
+    [[ "$branch" == "$default_branch" ]] && continue
+    git show-ref --quiet "refs/remotes/origin/$branch" && continue
+    local worktree_dir="${base_path}-${branch}"
+    [[ -d "$worktree_dir" ]] && rm -rf "$worktree_dir"
+    git worktree prune
+    git branch -D "$branch"
+    local session_name="${repo_name}-${branch}"
+    if tmux has-session -t "$session_name" 2>/dev/null; then
+      tmux kill-session -t "$session_name"
+      echo "tmux: killed '$session_name'"
+    fi
+  done
+}
+
 _wt_complete() {
-  local root=$(git rev-parse --show-toplevel) || return
+  local root=$(git rev-parse --show-toplevel 2>/dev/null) || return
   local base=$(git -C "$root" worktree list --porcelain | head -1 | cut -d' ' -f2)
   mapfile -t COMPREPLY < <(compgen -W "$(ls -d "$base-"* 2>/dev/null | sed "s|$base-||")" -- "${COMP_WORDS[COMP_CWORD]}")
 }

@@ -90,19 +90,13 @@
     undo = reset --soft HEAD^
     sp = stash pop
     ss = "!f() { git stash push -u -m \"$1\"; }; f"
-    pr = "!gh pr create --fill-verbose"
+    pr = "!f() { branch=$(git branch --show-current); remote=$(git remote get-url origin | sed 's|git@github.com:|https://github.com/|;s|[.]git$||'); default=$(git symbolic-ref refs/remotes/origin/HEAD --short 2>/dev/null | sed 's|origin/||'); default=${default:-main}; url=\"${remote}/compare/${default}...${branch}?expand=1\"; echo \"$url\"; open \"$url\"; }; f"
     squash = "!gh pr merge --squash --delete-branch --auto"
-    out = "!f() { branch=\"${1:-main}\"; git checkout \"$branch\" && git fetch --prune --all && git pull; }; f"
+    out = "!f() { default=$(git symbolic-ref refs/remotes/origin/HEAD --short 2>/dev/null | sed 's|origin/||'); default=${default:-main}; branch=\"${1:-$default}\"; git checkout \"$branch\" && git fetch --prune --all && git pull; }; f"
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    url = "!sh -c 'git remote get-url origin | sed \"s#git@github.com:#https://github.com/#\" | tee /dev/tty | pbcopy'"
-    ssh = "!sh -c 'git remote get-url origin | sed \"s#^https://github.com/#git@github.com:#\" | tee /dev/tty | pbcopy'"
-    gone = "!f() { base=\"${1:-$(git show-ref --verify --quiet refs/heads/main && echo main || echo master)}\"; git checkout \"$base\" && git fetch --all --prune && git pull && b=$({ git branch --merged \"$base\"; git branch -vv | awk '/: gone]/{print $1}'; for br in $(git branch | grep -v \"^[*+]\" | grep -v \"^  *${base}$\"); do git diff \"$base\"..\"$br\" --quiet 2>/dev/null && echo \"$br\"; done; } | grep -v '^[+]' | sed 's/^[* ]*//' | grep -v \"^${base}$\" | sort -u); [ -n \"$b\" ] && echo \"$b\" | xargs git branch -D; }; f"
+    url = "!git remote get-url origin | sed 's|git@github.com:|https://github.com/|;s|[.]git$||' | tee /dev/tty | pbcopy"
+    ssh = "!git remote get-url origin | sed 's|https://github.com/|git@github.com:|;s|[.]git$||' | tee /dev/tty | pbcopy"
+    gone = "!f() { default=$(git symbolic-ref refs/remotes/origin/HEAD --short 2>/dev/null | sed 's|origin/||'); default=${default:-main}; base=\"${1:-$default}\"; git checkout \"$base\" && git fetch --all --prune && git pull && b=$({ git branch --merged \"$base\"; git branch -vv | awk '/: gone]/{print $1}'; for br in $(git branch | grep -v \"^[*+]\" | grep -v \"^  *${base}$\"); do git diff \"$base\"..\"$br\" --quiet 2>/dev/null && echo \"$br\"; done; } | grep -v '^[+]' | sed 's/^[* ]*//' | grep -v \"^${base}$\" | sort -u); [ -n \"$b\" ] && echo \"$b\" | xargs git branch -D; }; f"
     new = "!f() { git checkout -b \"$1\" && git push -u origin \"$1\"; }; f"
     conflict = "!f() { git diff --name-only --diff-filter=U | xargs code; }; f"
-
-[filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
