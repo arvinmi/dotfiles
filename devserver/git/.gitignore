@@ -14,9 +14,6 @@ Thumbs.db
 .history/
 *.vsix
 
-# ai
-*.claude/
-*.codex/
 
 # python
 __pycache__/

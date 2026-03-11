@@ -167,12 +167,12 @@ echo "install isaac-sim and isaac-lab"
 # stow devserver files
 rm -rf ~/.bashrc ~/.gitconfig
 
-for file in "bash" "redshift" "xresources" "kitty" "conda" "git" "imwheel" "sunshine" "opencode" "t3code"; do
+for file in "bash" "redshift" "xresources" "kitty" "conda" "git" "imwheel" "sunshine" "sysd"; do
   stow --verbose --target="$HOME" --dir="devserver" --restow "$file"
 done
 
 # stow common files
-for file in "vim" "nvim" "tmux"; do
+for file in "vim" "nvim" "tmux" "claude" "codex" "opencode"; do
   stow --verbose --target="$HOME" --dir="common" --restow "$file"
 done
 

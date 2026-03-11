@@ -1,0 +1,101 @@
+{
+  "cleanupPeriodDays": 360,
+  "env": {
+    "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "0",
+    "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "1",
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
+    "DISABLE_TELEMETRY": "1",
+    "DISABLE_AUTOUPDATER": "0",
+    "DISABLE_BUG_COMMAND": "0",
+    "DISABLE_COST_WARNINGS": "0",
+    "DISABLE_ERROR_REPORTING": "0",
+    "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "0",
+    "CLAUDE_CODE_EFFORT_LEVEL": "medium",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-sonnet-4-6"
+  },
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(python:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(cat:*)",
+      "Bash(npm:*)",
+      "Bash(pnpm:*)",
+      "Bash(curl:*)",
+      "Bash(uv:*)",
+      "Bash(fd:*)",
+      "Bash(ast-grep:*)",
+      "Bash(ripgrep:*)",
+      "Bash(rg:*)",
+      "Bash(grep:*)",
+      "Bash(jq:*)",
+      "Bash(yq:*)",
+      "Bash(fzf:*)",
+      "Read",
+      "Find",
+      "WebFetch",
+      "WebSearch",
+      "mcp__context7__get-library-docs",
+      "mcp__context7__resolve-library-id",
+      "mcp__fetch__fetch"
+    ],
+    "deny": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git reset:*)",
+      "Bash(git restore:*)",
+      "Bash(git rebase:*)",
+      "Bash(git merge:*)",
+      "Bash(git cherry-pick:*)",
+      "Bash(git checkout:*)",
+      "Bash(git switch:*)",
+      "Bash(git stash:*)",
+      "Bash(git clean:*)",
+      "Bash(git rm:*)",
+      "Bash(git mv:*)",
+      "Bash(git pull:*)",
+      "Bash(git revert:*)",
+      "Bash(git config --global:*)",
+      "Bash(git co:*)",
+      "Bash(git s:*)",
+      "Bash(git new:*)",
+      "Bash(git gone:*)",
+      "Bash(git out:*)",
+      "Bash(git rh:*)",
+      "Bash(git amend:*)",
+      "Bash(git undo:*)"
+    ]
+  },
+  "model": "sonnet",
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); pct=$(echo \"$input\" | jq -r '.context_window.remaining_percentage // 100 | floor'); size=$(echo \"$input\" | jq -r '.context_window.context_window_size // 200000'); tokens=$(echo \"$pct $size\" | awk '{printf \"%.1f\", ($1 * $2 / 100) / 1000}'); if git rev-parse --git-dir >/dev/null 2>&1; then branch=$(git branch --show-current 2>/dev/null || echo 'detached'); commit_time=$(git log -1 --format='%cr' 2>/dev/null || echo 'no commits'); printf '%s • %s | %sk (%s%%) left' \"$branch\" \"$commit_time\" \"$tokens\" \"$pct\"; else printf '%sk (%s%%) left' \"$tokens\" \"$pct\"; fi"
+  },
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "forceLoginMethod": "claudeai",
+  "outputStyle": "Explanatory",
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "skipDangerousModePermissionPrompt": true,
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "printf '\\a' > /dev/tty"
+          }
+        ]
+      }
+    ]
+  }
+}
