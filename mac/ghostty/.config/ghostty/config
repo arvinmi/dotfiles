@@ -15,6 +15,7 @@ macos-titlebar-style = transparent
 # add unlimited scrollback
 bell-features = audio
 bell-audio-path = /System/Library/Sounds/Submarine.aiff
+copy-on-select = clipboard
 clipboard-write = allow
 clipboard-read = allow
 
