@@ -116,8 +116,17 @@ echo "install node"
 # check at https://nodejs.org/en/download
 
 echo "install agents"
-# npm -g install @openai/codex @anthropic-ai/claude-code @google/gemini-cli \
-# @sourcegraph/amp ccundo ccusage @ccusage/codex opencode-ai uniprof jscpd
+# npm -g install @openai/codex @google/gemini-cli ccundo ccusage \
+# @ccusage/codex uniprof jscpd
+
+# claude
+# curl -fsSL https://claude.ai/install.sh | bash
+
+# opencode
+# curl -fsSL https://opencode.ai/install | bash
+
+# amp
+# curl -fsSL https://ampcode.com/install.sh | bash
 
 echo "install opencode systemd service"
 # mkdir -p ~/.config/systemd/user

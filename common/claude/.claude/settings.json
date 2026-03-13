@@ -1,17 +1,13 @@
 {
   "cleanupPeriodDays": 360,
   "env": {
-    "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "0",
     "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "1",
     "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
-    "DISABLE_TELEMETRY": "1",
-    "DISABLE_AUTOUPDATER": "0",
     "DISABLE_BUG_COMMAND": "0",
     "DISABLE_COST_WARNINGS": "0",
     "DISABLE_ERROR_REPORTING": "0",
     "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "0",
-    "CLAUDE_CODE_EFFORT_LEVEL": "medium",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-sonnet-4-6"
+    "ANTROPIC_DEFAULT_HAIKU_MODEL": "claude-sonnet-4-6"
   },
   "includeCoAuthoredBy": false,
   "permissions": {
@@ -30,7 +26,6 @@
       "Bash(ast-grep:*)",
       "Bash(ripgrep:*)",
       "Bash(rg:*)",
-      "Bash(grep:*)",
       "Bash(jq:*)",
       "Bash(yq:*)",
       "Bash(fzf:*)",
@@ -81,10 +76,9 @@
     "pyright-lsp@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true
   },
-  "forceLoginMethod": "claudeai",
   "outputStyle": "Explanatory",
   "alwaysThinkingEnabled": true,
-  "effortLevel": "high",
+  "effortLevel": "medium",
   "skipDangerousModePermissionPrompt": true,
   "hooks": {
     "Stop": [
