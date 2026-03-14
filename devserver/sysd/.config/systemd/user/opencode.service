@@ -2,8 +2,7 @@
 Description=OpenCode Server
 
 [Service]
-ExecStart=/bin/sh -c 'OPENCODE_SERVER_PASSWORD=$(cat "$CREDENTIALS_DIRECTORY/opencode_password") exec %h/.nvm/versions/node/v22.21.0/bin/opencode serve --hostname $(tailscale ip -4) --port 4096'
-LoadCredential=opencode_password:%h/.config/opencode/credentials/server_password
+ExecStart=/bin/sh -c 'exec %h/.nvm/versions/node/v22.21.0/bin/opencode serve --hostname $(tailscale ip -4) --port 4096'
 Restart=on-failure
 
 [Install]
