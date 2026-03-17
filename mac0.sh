@@ -34,7 +34,7 @@ ln -sv "${HOME}/Library/Mobile Documents/iCloud~md~obsidian/Documents/notes/" "$
 ln -sv "${HOME}/Library/CloudStorage/" "${HOME}/drive"
 
 # Stow common files
-for file in "vim" "nvim" "tmux"; do
+for file in "vim" "nvim" "tmux" "claude" "codex" "opencode"; do
   stow --verbose --target="$HOME" --dir="common" --restow "$file"
 done
 
