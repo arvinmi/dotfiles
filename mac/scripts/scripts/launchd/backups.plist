@@ -17,7 +17,7 @@
     </dict>
     <key>RunAtLoad</key>
     <true/>
-    <key>KeepAlive</key>
-    <true/>
+    <key>StandardErrorPath</key>
+    <string>/tmp/backups.err</string>
 </dict>
 </plist>

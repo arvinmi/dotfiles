@@ -37,7 +37,7 @@
     </array>
     <key>RunAtLoad</key>
     <true/>
-    <key>KeepAlive</key>
-    <true/>
+    <key>StandardErrorPath</key>
+    <string>/tmp/backups_local.err</string>
 </dict>
 </plist>
