@@ -57,6 +57,9 @@ export PATH="$HOME/.local/bin:$PATH"
 # nvidia cuda-toolkit (nvcc)
 export PATH="/usr/local/cuda/bin:$PATH"
 
+# opencode
+export PATH="$HOME/.opencode/bin:$PATH"
+
 # cursor
 alias cursor="~/Applications/cursor.AppImage --no-sandbox"
 
