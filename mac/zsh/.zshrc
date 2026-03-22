@@ -143,7 +143,7 @@ dns() {
 
   if [ "$action" = "on" ]; then
     for i in "${ifaces[@]}"; do
-      sudo networksetup -setdnsservers "$i" 100.100.100.100 9.9.9.9 1.1.1.1
+      sudo networksetup -setdnsservers "$i" 9.9.9.9 1.1.1.1
     done
   elif [ "$action" = "off" ]; then
     for i in "${ifaces[@]}"; do
@@ -430,6 +430,9 @@ opc() {
     OPENCODE_ENABLE_EXA=1 opencode "$@"
   fi
 }
+
+# od
+source "$HOME/dotfiles/common/od/od.sh"
 
 #-------------------------------------------------------------------------------
 # Aliases

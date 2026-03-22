@@ -8,18 +8,28 @@ model_auto_compact_token_limit = 233000
 personality = "friendly"
 approval_policy = "never"
 sandbox_mode = "workspace-write"
+[shell_environment_policy]
+inherit = "all"
 notify = ["sh", "-c", "printf '\\a' > /dev/tty"]
+
 [sandbox_workspace_write]
 network_access = true
+
 [model_providers.lms]
 name = "LM Studio"
 base_url = "http://localhost:1234/v1"
+
+[profiles.auto]
+model_reasoning_effort = "high"
+
 [profiles.gpt-oss-20b]
 model_provider = "lms"
 model = "openai/gpt-oss-20b"
+
 [mcp_servers.c7]
 command = "npx"
 args = ["-y", "@upstash/context7-mcp"]
+
 [features]
 ghost_commit = false
 apply_patch_freeform = true

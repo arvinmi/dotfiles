@@ -1,3 +1,8 @@
+### code style
+
+- write extremely easy to consume code, optimize for readability
+- make the code skimmable, avoid cleverness, use early returns
+
 ### universal rules
 
 - no emojis in output or comments

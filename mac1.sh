@@ -44,9 +44,9 @@ brew autoremove
 ###############################################################################
 
 # NETWORK DNS SETUP
-sudo networksetup -setdnsservers "Wi-Fi" 100.100.100.100 9.9.9.9 1.1.1.1
-sudo networksetup -setdnsservers "USB 10/100/1000 LAN" 100.100.100.100 9.9.9.9 1.1.1.1
-sudo networksetup -setdnsservers "USB 10/100/1000 LAN 2" 100.100.100.100 9.9.9.9 1.1.1.1
+sudo networksetup -setdnsservers "Wi-Fi" 9.9.9.9 1.1.1.1
+sudo networksetup -setdnsservers "USB 10/100/1000 LAN" 9.9.9.9 1.1.1.1
+sudo networksetup -setdnsservers "USB 10/100/1000 LAN 2" 9.9.9.9 1.1.1.1
 # temporarily disable DNS servers
 # sudo networksetup -setdnsservers "Wi-Fi" empty
 
@@ -57,6 +57,15 @@ sudo networksetup -setdnsservers "USB 10/100/1000 LAN 2" 100.100.100.100 9.9.9.9
 # sudo /opt/homebrew/bin/tailscaled install-system-daemon
 # uninstall daemon
 # sudo tailscaled uninstall-system-daemon
+
+# TAILSCALE MAGICDNS SETUP
+sudo mkdir -p /etc/resolver
+sudo tee /etc/resolver/ts.net > /dev/null <<EOF
+nameserver 100.100.100.100
+EOF
+sudo tee /etc/resolver/coat-porgy.ts.net > /dev/null <<EOF
+nameserver 100.100.100.100
+EOF
 
 # PARALLELS INSTALL
 # wget https://www.parallels.com/directdownload/pd/?experience=enter_key
