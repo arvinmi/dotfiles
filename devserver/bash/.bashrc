@@ -419,8 +419,11 @@ cdx() {
 opc() {
   if [[ "$1" == "update" || "$1" == "upgrade" ]]; then
     opencode upgrade
+  elif [[ "$1" == "kimi" ]]; then
+    shift
+    OPENCODE_ENABLE_EXA=1 opencode -m kimi-for-coding/k2p5 "$@"
   else
-    opencode "$@"
+    OPENCODE_ENABLE_EXA=1 opencode "$@"
   fi
 }
 

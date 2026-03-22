@@ -25,6 +25,25 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "LM Studio",
       "options": { "baseURL": "http://127.0.0.1:1234/v1" }
+    },
+    "kimi-for-coding": {
+      "name": "Moonshot AI",
+      "models": {
+        "k2p5": {
+          "name": "Kimi K2.5",
+          "limit": {
+            "context": 262144,
+            "output": 32768
+          }
+        },
+        "kimi-k2-thinking": {
+          "name": "Kimi K2 Thinking",
+          "limit": {
+            "context": 262144,
+            "output": 32768
+          }
+        }
+      }
     }
   },
   "agent": {
@@ -40,7 +59,6 @@
     "prune": true,
     "reserved": 39000
   },
-  "plugin": ["opencode-quotas"],
   "mcp": {
     "c7": {
       "type": "local",
