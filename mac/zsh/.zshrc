@@ -52,6 +52,12 @@ export PATH="$PATH:/Users/$USER/build/depot_tools"
 # valgrind
 export PATH="$HOME/valgrind-install/bin:$PATH"
 
+# clipssh
+export CLIPSSH_HOST=a
+
+# od
+source "$HOME/dotfiles/common/od/od.sh"
+
 #-------------------------------------------------------------------------------
 # Shell Options
 #-------------------------------------------------------------------------------
@@ -431,9 +437,6 @@ opc() {
   fi
 }
 
-# od
-source "$HOME/dotfiles/common/od/od.sh"
-
 #-------------------------------------------------------------------------------
 # Aliases
 #-------------------------------------------------------------------------------
@@ -464,7 +467,6 @@ alias newvim='nvim $(fzf)'
 alias cat='bat --theme="Visual Studio Dark+"'
 alias cu="open $1 -a \"Cursor\""
 alias v="open $1 -a \"Visual Studio Code\""
-alias lazygit='lg'
 alias gpg-reset='gpgconf --kill gpg-agent && gpgconf --launch gpg-agent'
 
 # git

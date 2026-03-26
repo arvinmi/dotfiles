@@ -192,8 +192,10 @@ sudo apt-get update
 sudo apt-get install neovim
 # nvim required dep for some features
 python3 -m pip install --user --upgrade pynvim
-# required by nvim-treesitter
+# setup cargo packages
 cargo install tree-sitter-cli
+cargo install xh --locked
+cargo install du-dust
 # nvim install autoformatters
 # install "stylua", "black", "clang-format", "prettier"
 

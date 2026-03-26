@@ -4,29 +4,66 @@
 
 ctrl - 1: open -a "google chrome"
 ctrl - 2: open -a "ghostty"
-ctrl - 3: open -a "cursor"
+ctrl - 3: open -a "visual studio code"
 ctrl - 4: open -a "spotify"
 ctrl - 5: open -a "discord"
 ctrl - 0: open -a "obsidian"
 ctrl - m: open -a "messages"
-ctrl - e: open -a "visual studio code"
 ctrl - p: open -a "chatgpt"
 ctrl - f: open -a "finder"
 
-# L_ctrl + u/o to pageup/pagedown
-# R_cmd + u/o to pageup/pagedown
-lctrl - u: skhd -k "pageup"
-rcmd - u: skhd -k "pageup"
-lctrl - o: skhd -k "pagedown"
-rcmd - o: skhd -k "pagedown"
+cmd + ctrl - i : CLIPSSH_HOST=a ~/.local/bin/clipssh && skhd -k "cmd - v"
 
 # L_ctrl + h/j/k/l to arrows
 # R_cmd + h/j/k/l to arrows
-lctrl - h [app != "Ghostty"]: skhd -k "left"
-rcmd - h [app != "Ghostty"]: skhd -k "left"
-lctrl - j [app != "Ghostty"]: skhd -k "down"
-rcmd - j [app != "Ghostty"]: skhd -k "down"
-lctrl - k [app != "Ghostty"]: skhd -k "up"
-rcmd - k [app != "Ghostty"]: skhd -k "up"
-lctrl - l [app != "Ghostty"]: skhd -k "right"
-rcmd - l [app != "Ghostty"]: skhd -k "right"
+lctrl - h [
+    "ghostty" ~
+    "*" : skhd -k "left"
+]
+rcmd - h [
+    "ghostty" ~
+    "*" : skhd -k "left"
+]
+lctrl - j [
+    "ghostty" ~
+    "*" : skhd -k "down"
+]
+rcmd - j [
+    "ghostty" ~
+    "*" : skhd -k "down"
+]
+lctrl - k [
+    "ghostty" ~
+    "*" : skhd -k "up"
+]
+rcmd - k [
+    "ghostty" ~
+    "*" : skhd -k "up"
+]
+lctrl - l [
+    "ghostty" ~
+    "*" : skhd -k "right"
+]
+rcmd - l [
+    "ghostty" ~
+    "*" : skhd -k "right"
+]
+
+# L_ctrl + u/o to pageup/pagedown
+# R_cmd + u/o to pageup/pagedown
+lctrl - u [
+    "ghostty" ~
+    "*" : skhd -k "pageup"
+]
+rcmd - u [
+    "ghostty" ~
+    "*" : skhd -k "pageup"
+]
+lctrl - o [
+    "ghostty" ~
+    "*" : skhd -k "pagedown"
+]
+rcmd - o [
+    "ghostty" ~
+    "*" : skhd -k "pagedown"
+]
