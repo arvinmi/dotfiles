@@ -719,7 +719,20 @@ require("lazy").setup({
   },
 
   -- use wakatime for time tracking projects
-  { "wakatime/vim-wakatime", lazy = false },
+  {
+    "wakatime/vim-wakatime",
+    lazy = false,
+    cond = function()
+      local f = io.open(vim.fn.expand("~/.wakatime.cfg"), "r")
+      if f then
+        local content = f:read("*a")
+        f:close()
+        if content:match("api_key%s*=%s*%S+") then return true end
+      end
+      vim.notify("WakaTime: no key configured, time tracking disabled", vim.log.levels.WARN)
+      return false
+    end,
+  },
 
   -- navigate between tmux panes and nvim splits with ctrl+hjkl
   {
@@ -743,7 +756,15 @@ require("lazy").setup({
   },
 
   -- github copilot
-  { "github/copilot.vim", event = "InsertEnter" },
+  {
+    "github/copilot.vim",
+    event = "InsertEnter",
+    cond = function()
+      if vim.fn.executable("node") == 1 then return true end
+      vim.notify("Copilot: node not found, install nodejs", vim.log.levels.WARN)
+      return false
+    end,
+  },
 
   -- LSP completion
   {
@@ -764,6 +785,9 @@ require("lazy").setup({
     },
     opts_extend = { "sources.default" },
   },
+
+  -- lua api types for lua_ls
+  { "folke/lazydev.nvim", ft = "lua", opts = {} },
 
   -- auto-install formatters and linters via mason
   {
@@ -800,7 +824,6 @@ require("lazy").setup({
         ts_ls = {},
         html = {},
         cssls = {},
-        gopls = {},
         zls = {},
         rust_analyzer = {},
         bashls = {},
@@ -887,13 +910,17 @@ require("lazy").setup({
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
     config = function()
-      local ensure = { "bash", "python", "lua", "javascript", "typescript", "html", "css", "json", "rust", "go", "c", "cpp", "zig", "markdown", "markdown_inline" }
-      local installed = require("nvim-treesitter.config").get_installed("parsers")
-      local missing = vim.tbl_filter(function(p)
-        return not vim.tbl_contains(installed, p)
-      end, ensure)
-      if #missing > 0 then
-        require("nvim-treesitter.install").install(missing)
+      if vim.fn.executable("tree-sitter") == 1 then
+        local ensure = { "bash", "python", "lua", "javascript", "typescript", "html", "css", "json", "rust", "go", "c", "cpp", "zig", "markdown", "markdown_inline" }
+        local installed = require("nvim-treesitter.config").get_installed("parsers")
+        local missing = vim.tbl_filter(function(p)
+          return not vim.tbl_contains(installed, p)
+        end, ensure)
+        if #missing > 0 then
+          require("nvim-treesitter.install").install(missing)
+        end
+      else
+        vim.notify("Treesitter: cli not found, run: cargo install tree-sitter-cli", vim.log.levels.WARN)
       end
       local no_ts = { diff = true }
       vim.api.nvim_create_autocmd("FileType", {

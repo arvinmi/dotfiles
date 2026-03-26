@@ -44,3 +44,9 @@ theme = "one-half-dark"
 
 [notice]
 hide_rate_limit_model_nudge = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."google-drive@openai-curated"]
+enabled = true
