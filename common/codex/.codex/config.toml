@@ -30,6 +30,10 @@ model = "openai/gpt-oss-20b"
 command = "npx"
 args = ["-y", "@upstash/context7-mcp"]
 
+[mcp_servers.btca-local]
+command = "bunx"
+args = ["btca", "mcp"]
+
 [features]
 ghost_commit = false
 apply_patch_freeform = true

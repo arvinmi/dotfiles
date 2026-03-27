@@ -18,5 +18,3 @@ rsync -avz --delete-before --exclude=".DS_Store" --exclude=".Trash/" "${HOME}/Do
 # Backup SYNO "~/virtual-machines"
 /opt/homebrew/bin/rclone sync --exclude=".DS_Store" --links "${HOME}/virtual-machines/" "syno-remote:Backups/mac/virtual-machines"
 
-# Backup Gdrive "~/code"
-# /opt/homebrew/bin/rclone sync --exclude=".DS_Store" --links "${HOME}/Documents/code" "gdrive-remote:Backups/mac"
