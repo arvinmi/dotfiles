@@ -1,4 +1,4 @@
-od() {
+cue() {
   local subcmd="${1:-}"
 
   case "$subcmd" in
@@ -24,7 +24,7 @@ EOF
 2. Search codebase for existing patterns first
 3. Interview with detailed questions (1-4 at a time)
 4. Generate specs/task.md
-5. When done: \"Planning complete. Run od go to implement.\""
+5. When done: \"Planning complete. Run cue go to implement.\""
       case "$tool" in
         opencode) opc "$prompt" ;;
         codex)    cdx "$prompt" ;;
@@ -33,7 +33,7 @@ EOF
       ;;
 
     go)
-      [[ -f specs/task.md ]] || { echo "specs/task.md not found, run \`od plan\` first"; return 1; }
+      [[ -f specs/task.md ]] || { echo "specs/task.md not found, run \`cue plan\` first"; return 1; }
       local tool="${2:-codex}"
       mkdir -p specs
       local task instructions
@@ -124,8 +124,8 @@ ${instructions}"
       ;;
 
     *)
-      echo "usage: od plan [claude|codex|opencode]"
-      echo "       od go   [claude|codex|opencode]"
+      echo "usage: cue plan [claude|codex|opencode]"
+      echo "       cue go   [claude|codex|opencode]"
       ;;
 
   esac

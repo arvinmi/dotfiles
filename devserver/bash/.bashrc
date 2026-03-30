@@ -424,8 +424,8 @@ opc() {
   fi
 }
 
-# od
-source "$HOME/dotfiles/common/od/od.sh"
+# cue
+source "$HOME/dotfiles/common/cue/cue.sh"
 
 # ==============================================================================
 # Aliases

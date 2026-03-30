@@ -55,8 +55,8 @@ export PATH="$HOME/valgrind-install/bin:$PATH"
 # clipssh
 export CLIPSSH_HOST=a
 
-# od
-source "$HOME/dotfiles/common/od/od.sh"
+# cue
+source "$HOME/dotfiles/common/cue/cue.sh"
 
 #-------------------------------------------------------------------------------
 # Shell Options
