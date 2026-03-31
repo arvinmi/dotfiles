@@ -162,6 +162,16 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 echo "install tpm"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+echo "build bwrap (needed on ubuntu 22.04)"
+# sudo apt-get install -y meson libcap-dev
+# git clone https://github.com/containers/bubblewrap --branch v0.11.1 ~/code/build/bwrap
+# cd ~/code/build/bwrap
+# meson setup build
+# ninja -C build
+# sudo ninja -C build install
+# sudo cp /usr/local/bin/bwrap /usr/bin/bwrap
+# sudo apt-mark hold bubblewrap
+
 echo "install nvidia-cuda-toolkit"
 # https://developer.nvidia.com/cuda-downloads
 
