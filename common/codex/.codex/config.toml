@@ -8,9 +8,10 @@ model_auto_compact_token_limit = 233000
 personality = "friendly"
 approval_policy = "never"
 sandbox_mode = "workspace-write"
+notify = ["sh", "-c", "printf '\\a' > /dev/tty"]
+
 [shell_environment_policy]
 inherit = "all"
-notify = ["sh", "-c", "printf '\\a' > /dev/tty"]
 
 [sandbox_workspace_write]
 network_access = true
@@ -43,7 +44,12 @@ responses_websockets_v2 = true
 default_mode_request_user_input = true
 
 [tui]
-status_line = ["git-branch", "context-remaining", "five-hour-limit", "weekly-limit"]
+status_line = [
+  "git-branch",
+  "context-remaining",
+  "five-hour-limit",
+  "weekly-limit",
+]
 theme = "one-half-dark"
 
 [notice]
