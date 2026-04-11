@@ -62,6 +62,10 @@ source "$HOME/dotfiles/common/cue/cue.sh"
 # Shell Options
 #-------------------------------------------------------------------------------
 
+unsetopt BEEP
+unsetopt LIST_BEEP
+unsetopt HIST_BEEP
+
 # editor
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR="vim"

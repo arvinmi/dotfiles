@@ -67,6 +67,7 @@ alias cursor="~/Applications/cursor.AppImage --no-sandbox"
 # Shell Options
 # ==============================================================================
 if [[ $- == *i* ]]; then
+  bind 'set bell-style none'
   bind '"\e[A": history-search-backward'
   bind '"\eOA": history-previous-history'
   bind '"\e[B": history-search-forward'
