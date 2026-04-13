@@ -66,6 +66,18 @@
     ]
   },
   "model": "sonnet",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "printf '\\a' > /dev/tty"
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "input=$(cat); pct=$(echo \"$input\" | jq -r '.context_window.remaining_percentage // 100 | floor'); size=$(echo \"$input\" | jq -r '.context_window.context_window_size // 200000'); tokens=$(echo \"$pct $size\" | awk '{printf \"%.1f\", ($1 * $2 / 100) / 1000}'); if git rev-parse --git-dir >/dev/null 2>&1; then branch=$(git branch --show-current 2>/dev/null || echo 'detached'); commit_time=$(git log -1 --format='%cr' 2>/dev/null || echo 'no commits'); printf '%s • %s | %sk (%s%%) left' \"$branch\" \"$commit_time\" \"$tokens\" \"$pct\"; else printf '%sk (%s%%) left' \"$tokens\" \"$pct\"; fi"
@@ -78,18 +90,7 @@
   },
   "outputStyle": "Explanatory",
   "alwaysThinkingEnabled": true,
-  "effortLevel": "medium",
-  "skipDangerousModePermissionPrompt": true,
-  "hooks": {
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "printf '\\a' > /dev/tty"
-          }
-        ]
-      }
-    ]
-  }
+  "effortLevel": "high",
+  "advisorModel": "opus",
+  "skipDangerousModePermissionPrompt": true
 }

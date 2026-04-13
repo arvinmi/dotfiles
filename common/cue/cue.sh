@@ -117,7 +117,11 @@ Instructions:
 ${instructions}"
       echo "go: [$(git branch --show-current 2>/dev/null)]"
       case "$tool" in
-        opencode) echo "warning: opencode has no sandbox"; opc "$prompt" ;;
+        opencode)
+          echo "warning: opencode has no sandbox"
+          printf '%s\n' "$prompt" > specs/.cue_prompt
+          opc "Your full instructions are in specs/.cue_prompt - read it first, then execute."
+          ;;
         claude)   echo "warning: claude has no sandbox";   cld "$prompt" ;;
         codex|*)  codex --profile auto "$prompt" ;;
       esac
