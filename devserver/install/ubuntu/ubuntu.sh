@@ -31,7 +31,7 @@ fastfetch fail2ban ranger tree glances kitty gimp vim curl \
 adwaita-icon-theme-full vorta plocate net-tools gnome-tweaks xterm \
 openssh-server python3-pip python3-venv nodejs npm logisim trash-cli gdb clang \
 llvm valgrind btop stow nvtop git-lfs yt-dlp bat imwheel cmake ninja-build \
-autoconf wget rsync unzip ripgrep
+autoconf wget rsync unzip ripgrep fd-find
 # remove stock software 
 sudo apt-get remove thunderbird* libreoffice*
 # install anydesk at https://deb.anydesk.com/howto.html
