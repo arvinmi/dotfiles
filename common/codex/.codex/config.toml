@@ -60,3 +60,9 @@ enabled = true
 
 [plugins."google-drive@openai-curated"]
 enabled = true
+
+[projects."/Users/kofa"]
+trust_level = "trusted"
+
+[projects."/home/kofa"]
+trust_level = "trusted"
