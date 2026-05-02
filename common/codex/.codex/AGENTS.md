@@ -1,7 +1,9 @@
 ### code style
 
 - write extremely easy to consume code, optimize for readability
-- make the code skimmable, avoid cleverness, use early returns
+- make code skimmable with clear names and early returns
+- always strive for concise, simple solutions over clever ones
+- if a problem can be solved in a simpler way, propose it
 
 ### universal rules
 
@@ -19,6 +21,7 @@
   - if tests are broken: separate PR to fix them first, then resume original task
 - ask clarifying questions, then proceed autonomously
 - ask for help only for: long scripts (>2min), sudo, or blockers
+- if asked to do too much work at once, stop and state that clearly
 
 ### python
 
